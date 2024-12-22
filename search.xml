@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>新主题第一篇文章</title>
-    <url>/2024/12/22/%E6%96%B0%E4%B8%BB%E9%A2%98%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>今天花了一个晚上研究了怎么利用<code>Github</code>+<code>Hexo</code>搭建一个静态博客网站。从大一下开始，已经用<code>Wordpress</code>+<code>Argon</code>主题搭建博客网站使用了将近有<code>190</code>天左右了，一路上<code>Argon</code>陪伴我写了72篇文章。这一路下来，在<code>WordPress</code>写博客有很多优点，这是毋庸置疑的。</p>
+    <title>新家第一篇文章</title>
+    <url>/2024/12/22/%E6%96%B0%E5%AE%B6%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<blockquote>
+<p>一切的一切要从晚上研究备份wordpres开始，备份研究明白了，网站不知不觉也到了Hexo上。</p>
+</blockquote>
+<p>今天花了一个晚上研究了怎么利用<code>Github</code>+<code>Hexo</code>搭建一个静态博客网站。从大一下开始，已经用<code>Wordpress</code>+<code>Argon</code>主题搭建博客网站使用了将近有<code>190</code>天左右了，一路上<code>Argon</code>陪伴我写了72篇文章。这一路下来，在<code>WordPress</code>写博客有很多优点，这是毋庸置疑的。</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
