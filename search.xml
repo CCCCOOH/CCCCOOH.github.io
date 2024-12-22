@@ -38,6 +38,8 @@
 <p><a class="link"   href="https://www.cnblogs.com/xieqk/p/Github-Page-DNS.html" >https://www.cnblogs.com/xieqk/p/Github-Page-DNS.html<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 </blockquote>
 <p>根据该文章的方法，我发现之前漏掉的两个错误：没有解析<strong>Github</strong>的<strong>ip</strong>地址，只添加了<strong>Gitpage</strong>的<strong>CNAME</strong>解析。并且没有在<strong>Gitpage</strong>的仓库页面绑定域名。</p>
+<p>需要说明的是，本博客由于搭建在Github仓库，网络环境非常不稳定，访问速度基本处于量子叠加的状态。我在我的Mac上无论是否使用科学上网都能很快速的访问，但是在我的Windows电脑以及平板上访问速度非常慢，需要开启科学手段才能获得正常体验。并且我的手机使用联通网络访问也很快。</p>
+<p>综上，使用联通或者科学上网可以快速打开本站，当然如果你能看到这句话基本上也是符合部分条件的。</p>
 <h2 id="经过"><a href="#经过" class="headerlink" title="经过"></a>经过</h2><p>不知道有没有小伙伴也想把博客迁移到<code>Hexo</code>上？无论如何，在这里我分享一下我迁移过程中看到的几篇主要的文档和文章：</p>
 <a class="button  regular" href='https://fanyfull.github.io/2021/10/16/Github-Hexo-%E7%9C%9F-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA-GitHub-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/' title='推荐一个民间教程'><i class='fa-solid fa-play-circle'></i> 推荐一个民间教程</a>
 
