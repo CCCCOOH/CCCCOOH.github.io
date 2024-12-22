@@ -4,7 +4,7 @@
     <title>新家第一篇文章</title>
     <url>/2024/12/22/%E6%96%B0%E5%AE%B6%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
     <content><![CDATA[<blockquote>
-<p>一切的一切要从晚上研究备份wordpres开始，备份研究明白了，网站不知不觉也到了Hexo上。</p>
+<p>一切的一切要从晚上研究备份wordpres开始，备份研究明白了，网站不知不觉也到了Hexo上。当时我突然起劲想研究怎么把自己的网站移植到别的服务器上，没错，我希望将服务器从雨云迁移到狗云。这是一个长期的战略，目的是为了在长远的未来节省开支，没想到省着省着，就变成白嫖了🐶。</p>
 </blockquote>
 <p>今天花了一个晚上研究了怎么利用<code>Github</code>+<code>Hexo</code>搭建一个静态博客网站。从大一下开始，已经用<code>Wordpress</code>+<code>Argon</code>主题搭建博客网站使用了将近有<code>190</code>天左右了，一路上<code>Argon</code>陪伴我写了72篇文章。这一路下来，在<code>WordPress</code>写博客有很多优点，这是毋庸置疑的。</p>
 <p><img  
@@ -19,7 +19,7 @@
 <p>但<code>Hexo</code>最能杀死一个博客人的特点在于它基于<code>Markdown</code>，万物皆可<code>Markdown</code>，一切皆为<code>Markdown</code>，<code>Markdown</code>万岁！就凭借这一点，就算他不能免费搭建我也很愿意双手接过他。更何况他是免费的，而且随便一个<code>Hexo</code>的主题在审美上都能把我吸走，简洁、面向博客。</p>
 <p>现在看来，<code>Hexo</code>是非常面向bloger的博客框架，他不像<code>wordpress</code>那么业务广泛，它专精于博客，用它的人大多也是Blogger，他有自己的博客作者社区，不间断为blogger提供博客网站的更新与框架的维护。尽管它有那面一点面向代码，在可视化编辑上做的不那么完美，但是这也是他面向博客作者 - “极客”们所做的取舍。他的配置界面全是代码，但全是灵活的自定义，在自由度上完全上升了一个台阶，在友好度上也落下了一个台阶。但友好度不是我想要的，DIV才是我所追求的。<code>Wordpress</code>的主题编辑器、自定义CSS早已不再能满足一个追求DIV的Bogger。</p>
 <p>并且，在很大程度上，静态网站的访问速度对于个人博客网站来说是一件非常好的事情。<code>php</code>在性能上远不如静态网站来的方便快捷。评论系统这类动态功能完全可以通过外部API来实现，这点不用担心。</p>
-<p>另外提一嘴，Hexo采用的技术是前端的Vue脚手架作为框架，这给了我后期很大的DIV空间。</p>
+<p>另外提一嘴，Hexo采用的技术是前端的Vue脚手架作为框架，这给了我后期很大的DIV空间，在<code>Hexo</code>上撰写博客你没有所谓的可视化界面，你需要使用终端命令来创建文章、使用<code>Hexo</code>命令行工具来部署到Github，总之一切的流程不那么优雅，它的工作流程反倒是很像是在部署和上线一个真实的项目：本地修改代码、推送到Github仓库。</p>
 <p>总而言之，<strong>2024</strong>年的年底是我告别<code>Wordpress</code>与<code>Argon</code>的日子。</p>
 <blockquote>
 <p>感谢有WP和Argon的日子，来日方常，博客万岁😄。</p>
