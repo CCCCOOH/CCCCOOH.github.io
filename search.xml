@@ -237,8 +237,7 @@
   <entry>
     <title>Javascript-ES6扩展写法</title>
     <url>/2024/12/23/Javascript-ES6%E6%89%A9%E5%B1%95%E5%86%99%E6%B3%95/</url>
-    <content><![CDATA[<p>[TOC]</p>
-<h2 id="String-对象扩展"><a href="#String-对象扩展" class="headerlink" title="String 对象扩展"></a>String 对象扩展</h2><h3 id="模版字符串"><a href="#模版字符串" class="headerlink" title="模版字符串"></a>模版字符串</h3><p>类似字符串的写法，用 &#96; 来包裹字符串，优点是可以不用反斜杠就能在代码中多行编辑。对于模版字符串来说，反引号内任何空格、换行符都不会被省略。并且可以使用占位变量的写法：</p>
+    <content><![CDATA[<h2 id="String-对象扩展"><a href="#String-对象扩展" class="headerlink" title="String 对象扩展"></a>String 对象扩展</h2><h3 id="模版字符串"><a href="#模版字符串" class="headerlink" title="模版字符串"></a>模版字符串</h3><p>类似字符串的写法，用 &#96; 来包裹字符串，优点是可以不用反斜杠就能在代码中多行编辑。对于模版字符串来说，反引号内任何空格、换行符都不会被省略。并且可以使用占位变量的写法：</p>
 <div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> value = <span class="number">114514</span></span><br><span class="line"><span class="comment">// 传统派写法</span></span><br><span class="line"><span class="keyword">const</span> str = <span class="string">&quot;第一行\n\</span></span><br><span class="line"><span class="string">第二行:&quot;</span></span><br><span class="line"><span class="comment">// 模版字符串写法明显简洁</span></span><br><span class="line"><span class="keyword">const</span> str2 = <span class="string">`第一行</span></span><br><span class="line"><span class="string">第二行:<span class="subst">$&#123;value&#125;</span>`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str, value, <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str2)</span><br></pre></td></tr></table></figure></div>
 
 <p><strong>输出</strong>：</p>
