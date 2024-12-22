@@ -26,7 +26,24 @@
 </blockquote>
 ]]></content>
       <tags>
-        <tag>其他</tag>
+        <tag>主题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Gitpage使用自己的域名替换github域名</title>
+    <url>/2024/12/22/Gitpage%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9F%9F%E5%90%8D%E6%9B%BF%E6%8D%A2github%E5%9F%9F%E5%90%8D/</url>
+    <content><![CDATA[<h2 id="简单记录"><a href="#简单记录" class="headerlink" title="简单记录"></a>简单记录</h2><p>继搬迁博客到主题<code>Hexo</code>后，我做的第一件事情就是搬迁域名。在搬迁博客到<code>Gitpage</code>后，我将博客部署到了<code>Github</code>上，使用<a href="https://ccccooh.github.io/">ccccooh.github.io</a>访问它。但是之前的域名<a class="link"   href="https://shenying.website/" >shenying.website<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>却差点用不了。不过好在经过我的几经折腾最终找到了方法。</p>
+<p>具体方法参见这篇博客：</p>
+<blockquote>
+<p><a class="link"   href="https://www.cnblogs.com/xieqk/p/Github-Page-DNS.html" >https://www.cnblogs.com/xieqk/p/Github-Page-DNS.html<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+<p>根据该文章的方法，我发现之前漏掉的两个错误：没有解析<strong>Github</strong>的<strong>ip</strong>地址，只添加了<strong>Gitpage</strong>的<strong>CNAME</strong>解析。并且没有在<strong>Gitpage</strong>的仓库页面绑定域名。</p>
+<blockquote>
+<p>本文是博客的一篇小记，内容不多主要在于测试文章。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>主题</tag>
       </tags>
   </entry>
 </search>
