@@ -354,7 +354,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://doc.shiyanlou.com/courses/uid1889095-20240919-1726727484182"
+                     data-src="https://p.ipic.vip/x5s0fj.png"
                       alt="图片描述"
                 ></p>
 <h3 id="includes-1"><a href="#includes-1" class="headerlink" title="includes()"></a>includes()</h3><p>该方法判断数组中是否有某个元素，返回布尔值。和字符串中的<code>includes()</code>方法一样。</p>
@@ -371,7 +371,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://doc.shiyanlou.com/courses/uid1889095-20240919-1726727549167"
+                     data-src="https://p.ipic.vip/rrlppr.png"
                       alt="图片描述"
                 ></p>
 <h3 id="every"><a href="#every" class="headerlink" title="every()"></a>every()</h3><p>判断数组中所有的元素是否满足某个条件。参数中<code>callbackFn</code>的使用方法和之前一致，不多赘述。</p>
@@ -404,7 +404,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://doc.shiyanlou.com/courses/uid1889095-20240919-1726727591570"
+                     data-src="https://p.ipic.vip/fmqy79.png"
                       alt="图片描述"
                 ></p>
 <h3 id="fill"><a href="#fill" class="headerlink" title="fill()"></a>fill()</h3><p>该方法用于指定一个值对数组进行切片填充。</p>
@@ -420,7 +420,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://doc.shiyanlou.com/courses/uid1889095-20240919-1726727609965"
+                     data-src="https://p.ipic.vip/oypgft.png"
                       alt="图片描述"
                 ></p>
 <h3 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h3><p>该方法可以对数组中的所有元素进行操作后返回成一个新的数组。回调函数的参数表和上方一致。</p>
@@ -434,7 +434,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://doc.shiyanlou.com/courses/uid1889095-20241020-1729413451363"
+                     data-src="https://p.ipic.vip/dejd5y.png"
                       alt="图片描述"
                 ></p>
 <h3 id="reduce-和-reduceRight"><a href="#reduce-和-reduceRight" class="headerlink" title="reduce() 和 reduceRight()"></a>reduce() 和 reduceRight()</h3><div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line">arr.<span class="title function_">reduce</span>(callbackFn, initialValue)</span><br><span class="line">arr.<span class="title function_">reduceRight</span>(callbackFn, initialValue)</span><br></pre></td></tr></table></figure></div>
@@ -470,7 +470,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://doc.shiyanlou.com/courses/uid1889095-20240919-1726727667535"
+                     data-src="https://p.ipic.vip/ecww34.png"
                       alt="图片描述"
                 ></p>
 <h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><ul>
