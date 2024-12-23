@@ -201,8 +201,12 @@
 <p>This is Tab 3.</p>
 <p>This is Tab 3.</p></div></div></div>
 ]]></content>
+      <categories>
+        <category>主题</category>
+        <category>Hexo</category>
+      </categories>
       <tags>
-        <tag>主题</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -235,7 +239,7 @@
         <category>Hexo</category>
       </categories>
       <tags>
-        <tag>主题</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -536,9 +540,6 @@ import {initHBE} from "/js/plugins/hbe.js";
     initHBE();
 </script>
 ]]></content>
-      <tags>
-        <tag>密码</tag>
-      </tags>
   </entry>
   <entry>
     <title>数字逻辑电路笔记</title>
@@ -1585,10 +1586,11 @@ $$
 </ol>
 ]]></content>
       <categories>
+        <category>其他</category>
         <category>学校</category>
       </categories>
       <tags>
-        <tag>数字逻辑电路</tag>
+        <tag>数电</tag>
       </tags>
   </entry>
   <entry>
@@ -2022,10 +2024,11 @@ $$
 <p>在浏览器中输入后将会得到该网站的信息。</p>
 ]]></content>
       <categories>
-        <category>业余爱好</category>
+        <category>其他</category>
+        <category>SqlMap</category>
       </categories>
       <tags>
-        <tag>SQL注入</tag>
+        <tag>SqlMap</tag>
       </tags>
   </entry>
   <entry>
