@@ -266,7 +266,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/JavaScriptES62.img"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/JavaScriptES62.png"
                       alt="输出结果"
                 ></p>
 <h4 id="lastIndexOf"><a href="#lastIndexOf" class="headerlink" title="lastIndexOf()"></a>lastIndexOf()</h4><p>如果说<code>indexOf()</code>是从左往右在字符串中寻找目标，那么<code>lastIndexOf()</code>就是从右往左，也就是从后面往前找。使用方法：</p>
