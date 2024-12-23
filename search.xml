@@ -1179,7 +1179,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/CCCCOOH/PicturesBed/master/202407280403810.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202407280403810.png"
                       alt="image-20240728040049920"
                 ></p>
 <p>实际上，你可以通过修改相机的<code>size</code>参数来修改游戏画面的大小，我最终将其修改为了<code>6</code>。</p>
