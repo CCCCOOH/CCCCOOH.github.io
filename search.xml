@@ -252,7 +252,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://p.ipic.vip/0k7jp3.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/JavascriptES61.png"
                       alt="截屏2024-12-23 00.19.17" style="zoom: 67%;" 
                 >
 
@@ -266,7 +266,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://p.ipic.vip/1qgexr.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/JavaScriptES62.img"
                       alt="输出结果"
                 ></p>
 <h4 id="lastIndexOf"><a href="#lastIndexOf" class="headerlink" title="lastIndexOf()"></a>lastIndexOf()</h4><p>如果说<code>indexOf()</code>是从左往右在字符串中寻找目标，那么<code>lastIndexOf()</code>就是从右往左，也就是从后面往前找。使用方法：</p>
@@ -283,7 +283,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://p.ipic.vip/r6gn3x.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/r6gn3x.png"
                       alt="输出"
                 ></p>
 <h3 id="startsWith-与-endsWith"><a href="#startsWith-与-endsWith" class="headerlink" title="startsWith() 与 endsWith()"></a>startsWith() 与 endsWith()</h3><p><code>startsWith()</code>用于判读字符串的开头是否是某个字符串，<code>endsWith()</code>方法用于判断末尾是否是某个字符结尾，返回<code>true</code>或者<code>false</code>。</p>
@@ -293,7 +293,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://p.ipic.vip/lqojas.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/lqojas.png"
                       alt="输出"
                 ></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>String</code>类在<code>ES6</code>中有如下扩展方法：</p>
@@ -313,7 +313,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://p.ipic.vip/8ko39p.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/8ko39p.png"
                       alt="图片描述"
                 ></p>
 <h3 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of()"></a>Array.of()</h3><p>该方法用于创建一个数组：</p>
@@ -330,7 +330,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://p.ipic.vip/es7lau.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/es7lau.png"
                       alt="图片描述"
                 ></p>
 <h3 id="indexOf-和-lastIndexOf"><a href="#indexOf-和-lastIndexOf" class="headerlink" title="indexOf() 和 lastIndexOf()"></a>indexOf() 和 lastIndexOf()</h3><p>使用方法和字符串的查找字串返回索引一样：</p>
@@ -361,7 +361,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://p.ipic.vip/x5s0fj.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/x5s0fj.png"
                       alt="图片描述"
                 ></p>
 <h3 id="includes-1"><a href="#includes-1" class="headerlink" title="includes()"></a>includes()</h3><p>该方法判断数组中是否有某个元素，返回布尔值。和字符串中的<code>includes()</code>方法一样。</p>
@@ -378,7 +378,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://p.ipic.vip/rrlppr.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/rrlppr.png"
                       alt="图片描述"
                 ></p>
 <h3 id="every"><a href="#every" class="headerlink" title="every()"></a>every()</h3><p>判断数组中所有的元素是否满足某个条件。参数中<code>callbackFn</code>的使用方法和之前一致，不多赘述。</p>
@@ -391,7 +391,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://p.ipic.vip/18yk6f.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/18yk6f.png"
                       alt="图片描述"
                 ></p>
 <h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h3><p>对数组进行排序：</p>
@@ -411,7 +411,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://p.ipic.vip/fmqy79.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/fmqy79.png"
                       alt="图片描述"
                 ></p>
 <h3 id="fill"><a href="#fill" class="headerlink" title="fill()"></a>fill()</h3><p>该方法用于指定一个值对数组进行切片填充。</p>
@@ -427,7 +427,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://p.ipic.vip/oypgft.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/oypgft.png"
                       alt="图片描述"
                 ></p>
 <h3 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h3><p>该方法可以对数组中的所有元素进行操作后返回成一个新的数组。回调函数的参数表和上方一致。</p>
@@ -441,7 +441,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://p.ipic.vip/dejd5y.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/dejd5y.png"
                       alt="图片描述"
                 ></p>
 <h3 id="reduce-和-reduceRight"><a href="#reduce-和-reduceRight" class="headerlink" title="reduce() 和 reduceRight()"></a>reduce() 和 reduceRight()</h3><div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line">arr.<span class="title function_">reduce</span>(callbackFn, initialValue)</span><br><span class="line">arr.<span class="title function_">reduceRight</span>(callbackFn, initialValue)</span><br></pre></td></tr></table></figure></div>
@@ -468,7 +468,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://p.ipic.vip/7ftkpl.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/7ftkpl.png"
                       alt="图片描述"
                 ></p>
 <p>还可以使用<code>for ... of</code>进行迭代：</p>
@@ -477,7 +477,7 @@
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://p.ipic.vip/ecww34.png"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/ecww34.png"
                       alt="图片描述"
                 ></p>
 <h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><ul>
