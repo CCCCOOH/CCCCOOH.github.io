@@ -2011,7 +2011,13 @@ $$
   <entry>
     <title>Unity勇者传说游戏制作教程</title>
     <url>/2024/12/24/Unity%E5%8B%87%E8%80%85%E4%BC%A0%E8%AF%B4%E5%AD%A6%E4%B9%A0%E6%89%8B%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="Readme"><a href="#Readme" class="headerlink" title="Readme"></a>Readme</h1><p>最近开始学习Unity制作2D动作游戏，由于一些操作第一次接触，为了加深印象，准备写这样一篇同步教程的笔记。</p>
+    <content><![CDATA[<h1 id="Readme"><a href="#Readme" class="headerlink" title="Readme"></a>Readme</h1>
+  <div class="note p-4 mb-4 rounded-small red icon-padding">
+    <i class="note-icon fa-solid fa-bolt"></i><p>本文章使用<strong>Github</strong>搭建图床，图片无法访问请自行开启科技网络环境🛜。</p>
+
+  </div>
+
+<p>最近开始学习Unity制作2D动作游戏，由于一些操作第一次接触，为了加深印象，准备写这样一篇同步教程的笔记。</p>
 <p>之前也接触过Unity，用 Unity 制作过一个非常简单的小游戏 Flappy Bird，并且魔改成了泰拉瑞亚的版本。这一次打算更加深入的学习一下 Unity，首先是一直在学的 Godot 有点遇到了瓶颈。</p>
 <h2 id="Godot-瓶颈"><a href="#Godot-瓶颈" class="headerlink" title="Godot 瓶颈"></a>Godot 瓶颈</h2><p>学了几个月的 Godot 引擎了，很多功能对我来说都很熟悉。瓦片制作，粒子效果，场景，信号。。。感觉用 Godot 制作游戏开始枯燥起来，一切都在不停的重复。但其实，让我开始尝试 Unity 最根本的原因是 Godot 的教程太少了。在看了很多很多教程后，我发现 Godot 的优质教程真的有，但不多。于是决定”偷窥”一些Unity教程，等学到一些新的技巧后再做决定，决定以后使用哪个引擎。希望接触了 Unity 后能带给我更多的想法和改变。</p>
 <h2 id="关于-Unity"><a href="#关于-Unity" class="headerlink" title="关于 Unity"></a>关于 Unity</h2><p>这篇 Readme 写在我学习了 Unity 最基本的资源导入和瓦片集之后。有一些简单的对比和感悟（Godot 和 Unity），带给我最大的感受就是 Unity 一切的流程很繁琐，但是就像瑞士军刀一样，功能也很强大。但是我还是觉得，就效率而言，相比 Godot 还是不足。就拿设置地形瓦片来举例子，Godot 可以直接在瓦片图上设置地形掩码，而 Unity 居然需要一个一个的设置，Godot 的可视化设置地形可以节省很多很多时间！就一个简单的草地地形就能至少相差 10 分钟的设置时间差距至少，而且这还只是一个，要知道一般游戏都会有很多地形。</p>
