@@ -2151,7 +2151,7 @@ import {initHBE} from "/js/plugins/hbe.js";
   <entry>
     <title>MacOS文件操作+vim编辑器使用方法</title>
     <url>/2024/12/27/MacOS%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C+vim%E7%BC%96%E8%BE%91%E5%99%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="Mac-命令篇"><a href="#Mac-命令篇" class="headerlink" title="Mac 命令篇"></a>Mac 命令篇</h1><p>为了方便在终端中联系<code>Vim</code>，在这里记录常用的<code>Mac</code>命令：</p>
+    <content><![CDATA[<h1 id="Mac-命令篇"><a href="#Mac-命令篇" class="headerlink" title="Mac 命令篇"></a>Mac 命令篇</h1><p>为了方便在终端中练习<code>Vim</code>，在这里记录常用的<code>Mac</code>命令：</p>
 <h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><table>
 <thead>
 <tr>
@@ -2265,7 +2265,7 @@ import {initHBE} from "/js/plugins/hbe.js";
 <td><code>open filename</code> （open . 打开当前目录）</td>
 </tr>
 </tbody></table>
-<h1 id="Vim-篇"><a href="#Vim-篇" class="headerlink" title="Vim 篇"></a>Vim 篇</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Vim</code>，开发岗必学编辑器。集成于终端中，常出现在各种服务器编辑代码的场景。服务器一般不使用图形化界面，编辑代码就会用到Vim。家用计算机一般集成图形化界面，常使用<code>VScode</code>。</p>
+<h1 id="Vim-篇"><a href="#Vim-篇" class="headerlink" title="Vim 篇"></a>Vim 篇</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Vim</code>，开发岗必学编辑器。集成于终端中，常出现在各种服务器编辑代码的场景。服务器一般不使用图形化界面，编辑代码就会用到<code>Vim</code>。家用计算机一般集成图形化界面，常使用<code>VScode</code>。</p>
 <h2 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h2><img  
                      lazyload
                      src="/images/loading.svg"
@@ -2275,7 +2275,7 @@ import {initHBE} from "/js/plugins/hbe.js";
 
 <h3 id="1-命令模式"><a href="#1-命令模式" class="headerlink" title="1.命令模式"></a>1.命令模式</h3><p>当你启动<code>Vim</code>的时即进入命令模式状态。新手很需要注意，此时敲下的<strong>按键将被识别为命令</strong>！</p>
 <blockquote>
-<p>不建议一开始就用重要的文件练习<code>Vim</code>，很容易在这一步进入惯性思维把按下的键认为是直接输入，导致一下执行好几个命令，导致文档被破坏。</p>
+<p>不建议一开始就用重要的文件练习<code>Vim</code>，很容易在这一步进入惯性思维把按下的键认为是直接输入，一下执行好几个命令，从而使得文档被破坏。</p>
 </blockquote>
 <p><strong>常用命令</strong>:</p>
 <table>
