@@ -2148,4 +2148,348 @@ import {initHBE} from "/js/plugins/hbe.js";
 </script>
 ]]></content>
   </entry>
+  <entry>
+    <title>MacOS文件操作+vim编辑器使用方法</title>
+    <url>/2024/12/27/MacOS%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C+vim%E7%BC%96%E8%BE%91%E5%99%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="Mac-命令篇"><a href="#Mac-命令篇" class="headerlink" title="Mac 命令篇"></a>Mac 命令篇</h1><p>为了方便在终端中联系<code>Vim</code>，在这里记录常用的<code>Mac</code>命令：</p>
+<h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>mkdir</code></td>
+<td>创建一个目录</td>
+<td><code>mkdir dirname</code></td>
+</tr>
+<tr>
+<td><code>rmdir</code></td>
+<td>删除一个目录</td>
+<td><code>rmdir dirname</code></td>
+</tr>
+<tr>
+<td><code>mvdir</code></td>
+<td>移动或重命名一个目录</td>
+<td><code>mvdir dir1 dir2</code></td>
+</tr>
+<tr>
+<td><code>cd</code></td>
+<td>改变当前目录</td>
+<td><code>cd dirname</code></td>
+</tr>
+<tr>
+<td><code>pwd</code></td>
+<td>显示当前目录的路径名</td>
+<td><code>pwd</code></td>
+</tr>
+<tr>
+<td><code>ls</code></td>
+<td>显示当前目录的内容</td>
+<td><code>ls -la</code></td>
+</tr>
+<tr>
+<td><code>dircmp</code></td>
+<td>比较两个目录的内容</td>
+<td><a href="https://zhida.zhihu.com/search?content_id=163569794&content_type=Article&match_order=1&q=dircmp+dir1+dir2&zhida_source=entity"><code>dircmp dir1 dir2</code></a></td>
+</tr>
+</tbody></table>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>touch</code></td>
+<td>创建和更新文件</td>
+<td><code>touch index.html</code></td>
+</tr>
+<tr>
+<td><code>cat</code></td>
+<td>显示或连接文件</td>
+<td><code>cat filename</code></td>
+</tr>
+<tr>
+<td><code>pg</code></td>
+<td>分页格式化显示文件内容</td>
+<td><code>pg filename</code></td>
+</tr>
+<tr>
+<td><code>more</code></td>
+<td>分屏显示文件内容</td>
+<td><code>more filename</code></td>
+</tr>
+<tr>
+<td><code>od</code></td>
+<td>显示非文本文件的内容</td>
+<td><code>od -c filename</code></td>
+</tr>
+<tr>
+<td><code>cp</code></td>
+<td>复制文件或目录</td>
+<td><code>cp file1 file2</code></td>
+</tr>
+<tr>
+<td><code>rm</code></td>
+<td>删除文件或目录</td>
+<td><code>rm filename</code></td>
+</tr>
+<tr>
+<td><code>mv</code></td>
+<td>改变文件名或所在目录</td>
+<td><code>mv file1 file2</code></td>
+</tr>
+<tr>
+<td><code>ln</code></td>
+<td>联接文件</td>
+<td><code>ln -s file1 file2</code></td>
+</tr>
+<tr>
+<td><code>find</code></td>
+<td>使用匹配表达式查找文件</td>
+<td><code>find . -name “*.c” -print</code></td>
+</tr>
+<tr>
+<td><code>file</code></td>
+<td>显示文件类型</td>
+<td><code>file filename</code></td>
+</tr>
+<tr>
+<td><code>open</code></td>
+<td>使用默认的程序打开文件</td>
+<td><code>open filename</code> （open . 打开当前目录）</td>
+</tr>
+</tbody></table>
+<h1 id="Vim-篇"><a href="#Vim-篇" class="headerlink" title="Vim 篇"></a>Vim 篇</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Vim</code>，开发岗必学编辑器。集成于终端中，常出现在各种服务器编辑代码的场景。服务器一般不使用图形化界面，编辑代码就会用到Vim。家用计算机一般集成图形化界面，常使用<code>VScode</code>。</p>
+<h2 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/3da018910ed5e566e02243d97de59f5e.png"
+                      alt="img" style="zoom: 50%;" 
+                >
+
+<h3 id="1-命令模式"><a href="#1-命令模式" class="headerlink" title="1.命令模式"></a>1.命令模式</h3><p>当你启动<code>Vim</code>的时即进入命令模式状态。新手很需要注意，此时敲下的<strong>按键将被识别为命令</strong>！</p>
+<blockquote>
+<p>不建议一开始就用重要的文件练习<code>Vim</code>，很容易在这一步进入惯性思维把按下的键认为是直接输入，导致一下执行好几个命令，导致文档被破坏。</p>
+</blockquote>
+<p><strong>常用命令</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>:</code></td>
+<td>切换到底线命令模式，以在最底一行输入命令</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td><strong>切换到输入模式，在光标当前位置开始输入文本</strong>（常用）</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>进入插入模式，在光标下一个位置开始输入文本</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td>在当前行的下方插入一个新行，并进入插入模式</td>
+</tr>
+<tr>
+<td><code>O</code></td>
+<td>在当前行的上方插入一个新行，并进入插入模式</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>删除当前光标所在处的字符</td>
+</tr>
+<tr>
+<td><code>dd</code></td>
+<td><strong>剪切当前行（</strong>常用）</td>
+</tr>
+<tr>
+<td><code>yy</code></td>
+<td><strong>复制当前行</strong>（常用）</td>
+</tr>
+<tr>
+<td><code>p</code>（小写）</td>
+<td><strong>粘贴剪贴板内容到光标下方</strong>（常用）</td>
+</tr>
+<tr>
+<td><code>P</code>（大写）</td>
+<td>粘贴剪贴板内容到光标上方</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td><strong>撤销上一次操作</strong>（常用）</td>
+</tr>
+<tr>
+<td><code>Ctrl + r</code></td>
+<td>重做上一次撤销的操作</td>
+</tr>
+</tbody></table>
+<h3 id="2-输入模式"><a href="#2-输入模式" class="headerlink" title="2.输入模式"></a>2.输入模式</h3><p>和正常文本输入的快捷键基本一样。</p>
+<h3 id="3-命令行模式"><a href="#3-命令行模式" class="headerlink" title="3.命令行模式"></a>3.命令行模式</h3><p>在命令模式下输入<code>:</code>就进入该模式，也就是<code>Shift</code>+<code>;</code>。进入底线命令行模式后，命令从单个字符变成了多个字符，可以用的命令就很多了。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>:w</code></td>
+<td>保存文件</td>
+</tr>
+<tr>
+<td><code>:q</code></td>
+<td>退出 Vim 编辑器</td>
+</tr>
+<tr>
+<td><code>:q!</code></td>
+<td>强制退出 Vim 编辑器，不保存修改</td>
+</tr>
+<tr>
+<td><code>:wq</code></td>
+<td><strong>保存并退出文件</strong>（常用）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>按下<code>Esc</code>键可以随时退出底线命令模式并进入命令模式。</p>
+</blockquote>
+<h2 id="一般模式下快捷键"><a href="#一般模式下快捷键" class="headerlink" title="一般模式下快捷键"></a>一般模式下快捷键</h2><h3 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h3><blockquote>
+<p>一定要区分大小写，同一个按键在不同大小写模式下功能不同！</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">移动光标的方法</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>h</code></td>
+<td>光标向<strong>左</strong>移动一个字符</td>
+</tr>
+<tr>
+<td align="left"><code>j</code></td>
+<td>光标向<strong>下</strong>移动一个字符</td>
+</tr>
+<tr>
+<td align="left"><code>k</code></td>
+<td>光标向<strong>上</strong>移动一个字符</td>
+</tr>
+<tr>
+<td align="left"><code>i</code></td>
+<td>光标向<strong>右</strong>移动一个字符</td>
+</tr>
+<tr>
+<td align="left"><code>数字</code>+<code>h/j/k/i</code></td>
+<td>实现多行移动，如<code>30J</code>表示向下<strong>30</strong>行</td>
+</tr>
+<tr>
+<td align="left"><code>+</code></td>
+<td>光标移动到非空格符的<strong>下一行</strong></td>
+</tr>
+<tr>
+<td align="left"><code>-</code></td>
+<td>光标移动到非空格符的<strong>上一行</strong></td>
+</tr>
+<tr>
+<td align="left"><code>数字</code>+<code>空格</code></td>
+<td>在本行向右移动指定数量字符距离</td>
+</tr>
+<tr>
+<td align="left"><code>0</code> 或功能键<code>[Home]</code></td>
+<td><strong>移动到这一行最前面</strong>字符处（常用）</td>
+</tr>
+<tr>
+<td align="left"><code>$</code> 或功能键<code>[End]</code></td>
+<td><strong>移动到这一行的最后面</strong>字符处(常用)</td>
+</tr>
+<tr>
+<td align="left"><code>H</code></td>
+<td>光标移动到这个屏幕的最上方那一行的第一个字符</td>
+</tr>
+<tr>
+<td align="left"><code>M</code></td>
+<td>光标移动到这个屏幕的中央那一行的第一个字符</td>
+</tr>
+<tr>
+<td align="left"><code>L</code></td>
+<td>光标移动到这个屏幕的最下方那一行的第一个字符</td>
+</tr>
+<tr>
+<td align="left"><code>G</code></td>
+<td><strong>移动到这个档案的最后一行</strong>(常用)</td>
+</tr>
+<tr>
+<td align="left"><code>数字G</code></td>
+<td>移动到这个档案的该数字行</td>
+</tr>
+</tbody></table>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/word</code></td>
+<td>在光标下方查找<code>word</code></td>
+</tr>
+<tr>
+<td><code>?word</code></td>
+<td>在光标上方查找<code>word</code></td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>这个<code>n</code>是按键上的<code>n</code>，表示重复上一个搜索操作，即搜索下一个</td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>与<code>n</code>相反，反向搜索</td>
+</tr>
+</tbody></table>
+<h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:n1,n2s&#x2F;word1&#x2F;word2&#x2F;g</td>
+<td>n1 与 n2 为数字。在第 n1 与 n2 行之间寻找 word1 这个字符串，并将该字符串取代为 word2 ！举例来说，在 100 到200 行之间搜寻 vbird 并取代为 VBIRD 则：『:100,200s&#x2F;vbird&#x2F;VBIRD&#x2F;g』。(常用)</td>
+</tr>
+<tr>
+<td><strong>:1,$s&#x2F;word1&#x2F;word2&#x2F;g</strong> 或 <strong>:%s&#x2F;word1&#x2F;word2&#x2F;g</strong></td>
+<td>从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2 ！(常用)</td>
+</tr>
+<tr>
+<td><strong>:1,$s&#x2F;word1&#x2F;word2&#x2F;gc</strong> 或 <strong>:%s&#x2F;word1&#x2F;word2&#x2F;gc</strong></td>
+<td>从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2 ！且在取代前显示提示字符给用户确认</td>
+</tr>
+</tbody></table>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><p>Linux中常用的快捷指令（超详细vi&#x2F;vim篇）：<a class="link"   href="https://blog.csdn.net/dearzhangxp/article/details/139024715" >https://blog.csdn.net/dearzhangxp/article/details/139024715<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</li>
+<li><p>macOS终端常用命令大集合-mac系统：<a class="link"   href="https://zhuanlan.zhihu.com/p/339479334" >https://zhuanlan.zhihu.com/p/339479334<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>Vim</tag>
+      </tags>
+  </entry>
 </search>
