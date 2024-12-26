@@ -2487,6 +2487,7 @@ import {initHBE} from "/js/plugins/hbe.js";
 ]]></content>
       <categories>
         <category>其他</category>
+        <category>Linux</category>
       </categories>
       <tags>
         <tag>Vim</tag>
