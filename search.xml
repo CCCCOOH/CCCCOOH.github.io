@@ -2528,35 +2528,35 @@ import {initHBE} from "/js/plugins/hbe.js";
 <table>
 <thead>
 <tr>
-<th>整数</th>
-<th>平方</th>
-<th>立方</th>
+<th align="center">整数</th>
+<th align="center">平方</th>
+<th align="center">立方</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
 <tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td>2</td>
-<td>4</td>
-<td>8</td>
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">8</td>
 </tr>
 <tr>
-<td>…</td>
-<td>…</td>
-<td>…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
 </tr>
 <tr>
-<td>10</td>
-<td>100</td>
-<td>1000</td>
+<td align="center">10</td>
+<td align="center">100</td>
+<td align="center">1000</td>
 </tr>
 </tbody></table>
 <div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">一个数如果恰好等于它的因子之和，这个数就称为完数，例如<span class="number">6</span>=<span class="number">1</span>+<span class="number">2</span>+<span class="number">3</span>。定义方法，编程找出 <span class="number">1000</span> 以内的所有完数。</span><br></pre></td></tr></table></figure></div>
