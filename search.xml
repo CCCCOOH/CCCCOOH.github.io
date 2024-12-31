@@ -2799,9 +2799,81 @@ import {initHBE} from "/js/plugins/hbe.js";
   <entry>
     <title>数据库系统概论期末整理</title>
     <url>/2024/12/31/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E6%9C%9F%E6%9C%AB%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<blockquote>
-<p> 正在撰写中…</p>
+    <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><h2 id="数据库四个基本概念"><a href="#数据库四个基本概念" class="headerlink" title="数据库四个基本概念"></a>数据库四个基本概念</h2><ul>
+<li><strong>数据</strong>：描述事物的符号记录</li>
+<li><strong>数据库</strong>: 大量存储在计算机中数据的集合</li>
+<li><strong>数据库管理系统</strong>：用户与系统间的数据管理软件，主要功能包括：<ul>
+<li>数据定义功能</li>
+<li>数据组织、存储和管理功能</li>
+<li>数据操纵功能</li>
+<li>数据库的事务管理和运行管理功能</li>
+<li>数据库的建立和维护功能</li>
+<li>其他功能</li>
+</ul>
+</li>
+<li><strong>数据库系统</strong>：由前三者组成</li>
+</ul>
+<h2 id="数据库发展的三个阶段"><a href="#数据库发展的三个阶段" class="headerlink" title="数据库发展的三个阶段"></a>数据库发展的三个阶段</h2><blockquote>
+<p>又叫做数据库管理技术的产生和发展</p>
 </blockquote>
+<ul>
+<li><strong>人工管理阶段</strong></li>
+<li><strong>文件系统阶段</strong></li>
+<li><strong>数据库系统阶段</strong>，有如下特点：<ul>
+<li>整体数据的结构化</li>
+<li>数据的共享性强、冗余度低且易于扩展</li>
+<li>数据的独立性强，包含：<ul>
+<li>数据的物理独立性</li>
+<li>数据的逻辑独立性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>数据库由数据管理系统统一管理和控制</strong></li>
+</ul>
+<h2 id="实体之间的联系"><a href="#实体之间的联系" class="headerlink" title="实体之间的联系"></a>实体之间的联系</h2><p>实体之间的联系有下面三种：</p>
+<ul>
+<li><strong>一对多</strong></li>
+<li><strong>一对一</strong></li>
+<li><strong>多对多</strong></li>
+</ul>
+<h2 id="数据模型的三要素"><a href="#数据模型的三要素" class="headerlink" title="数据模型的三要素"></a>数据模型的三要素</h2><ul>
+<li><strong>数据结构</strong>：描述数据库组成对象与对象之间的联系</li>
+<li><strong>数据操纵</strong>：对数据库各种对象操作的集合</li>
+<li><strong>完整性约束</strong>：一组完整性规则</li>
+</ul>
+<h2 id="数据库三种模型"><a href="#数据库三种模型" class="headerlink" title="数据库三种模型"></a>数据库三种模型</h2><ul>
+<li><strong>层次模型</strong></li>
+<li><strong>网状模型</strong>：</li>
+<li><strong>关系模型</strong>： 二维表</li>
+</ul>
+<h2 id="数据库系统的三级模式结构"><a href="#数据库系统的三级模式结构" class="headerlink" title="数据库系统的三级模式结构"></a>数据库系统的三级模式结构</h2><ol>
+<li><strong>模式</strong>：用户看到的数据视图</li>
+<li><strong>外模式</strong>：数据库用户看到的局部数据和逻辑结构的描述</li>
+<li><strong>内模式</strong>：对物理结构和存储方式的描述，是数据在数据库内部的组织方式</li>
+</ol>
+<h2 id="数据库系统的组成"><a href="#数据库系统的组成" class="headerlink" title="数据库系统的组成"></a>数据库系统的组成</h2><ul>
+<li><strong>硬件平台</strong></li>
+<li><strong>软件平台</strong></li>
+<li><strong>人员</strong></li>
+</ul>
+<h1 id="第二章-关系模型"><a href="#第二章-关系模型" class="headerlink" title="第二章 关系模型"></a>第二章 关系模型</h1><h2 id="关系完整性"><a href="#关系完整性" class="headerlink" title="关系完整性"></a>关系完整性</h2><ul>
+<li><strong>实体完整性</strong>：主码不为空</li>
+<li><strong>参照完整性</strong>：关联表应遵守的规则，即更新规则</li>
+<li><strong>用户定义的完整性</strong></li>
+</ul>
+<h2 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h2><h3 id="传统的集合运算"><a href="#传统的集合运算" class="headerlink" title="传统的集合运算"></a>传统的集合运算</h3><ul>
+<li>并：<code>U</code></li>
+<li>差：<code>–</code></li>
+<li>交：<code>∩</code></li>
+<li>笛卡尔积：<code>x</code></li>
+</ul>
+<h3 id="专门的关系运算"><a href="#专门的关系运算" class="headerlink" title="专门的关系运算"></a>专门的关系运算</h3><ul>
+<li><strong>选择</strong>：<code>σ</code></li>
+<li><strong>投影</strong>：<code>π</code></li>
+<li><strong>连接</strong>：<code>⋈</code></li>
+<li><strong>除</strong>：<code>÷</code></li>
+</ul>
 ]]></content>
       <tags>
         <tag>学校</tag>
