@@ -2496,8 +2496,7 @@ import {initHBE} from "/js/plugins/hbe.js";
   <entry>
     <title>Java期末整理</title>
     <url>/2024/12/30/Java%E6%9C%9F%E6%9C%AB%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>对于一些可能考的</p>
-<p>，这里提前列出来：</p>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>对于一些可能考的，这里提前列出来：</p>
 <ul>
 <li>ActionListener接口的使用方法（JFrame中事件处理）</li>
 <li>在JLabel中使用<code>new ImageIcon(&quot;绝对路径&quot;)</code>来创建一个图像</li>
