@@ -298,8 +298,8 @@
 <div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Array</span>.<span class="title function_">of</span>(元素<span class="number">0</span>, 元素<span class="number">1</span>, <span class="comment">/* ... */</span>, 元素N)</span><br></pre></td></tr></table></figure></div>
 
 <p>返回一个数组，和正常创建的数组一样。</p>
-<h3 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h3><p>该方法可以将一个特定格式的对象转换成数组作为返回值：</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line">cosnt arr = <span class="title class_">Array</span>.<span class="title function_">from</span>(待转换的对象);</span><br></pre></td></tr></table></figure></div>
+<h3 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h3><p>该方法可以将一个特定格式的对象(甚至是更多数据结构的可迭代器)转换成数组作为返回值，第二个可选参数是类似<code>Array.prototype.map()</code>方法的函数，可以对数组迭代一遍进行改造：</p>
+<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line">cosnt arr = <span class="title class_">Array</span>.<span class="title function_">from</span>(待转换的对象, <span class="title function_">mapFn</span>());</span><br></pre></td></tr></table></figure></div>
 
 <p>被转换的对象需要如下格式：</p>
 <div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arrLike = &#123; <span class="number">0</span>: <span class="string">&#x27;🍎&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;🍐&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;🍊&#x27;</span>, <span class="number">3</span>: <span class="string">&#x27;🍇&#x27;</span>, <span class="attr">length</span>: <span class="number">4</span> &#125;</span><br><span class="line"><span class="keyword">const</span> arr = <span class="title class_">Array</span>.<span class="title function_">from</span>(arrLike)</span><br></pre></td></tr></table></figure></div>
@@ -311,6 +311,12 @@
                      data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/es7lau.png"
                       alt="图片描述"
                 ></p>
+<blockquote>
+<p>关于<code>Arrray.from()</code>更加详细的使用建议参考MDN:</p>
+<ul>
+<li><a class="link"   href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from" >https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
+</blockquote>
 <h3 id="indexOf-和-lastIndexOf"><a href="#indexOf-和-lastIndexOf" class="headerlink" title="indexOf() 和 lastIndexOf()"></a>indexOf() 和 lastIndexOf()</h3><p>使用方法和字符串的查找字串返回索引一样：</p>
 <div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line">arr.<span class="title function_">indexOf</span>(searchElement, fromIndex)</span><br><span class="line">arr.<span class="title function_">lastIndexOf</span>(searchElement, fromIndex)</span><br></pre></td></tr></table></figure></div>
 
