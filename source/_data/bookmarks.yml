@@ -1,0 +1,148 @@
+- category: 教程
+  icon: fa-folder # 分类的图标，使用 FontAwesome 图标
+  items:
+    - name: W3School
+      link: https://www.w3school.com.cn/ # 从 url 改为 link
+      description: web简洁文档
+      image: https://www.w3school.com.cn/ui2019/logo-16-red.png # 从 icon 改为 image，用于显示网站图标
+
+    - name: RegexOne
+      link: https://imageslr.github.io/regexone-cn/ # 从 url 改为 link
+      description: 轻松学正则
+      image: https://imageslr.github.io//regexone-cn/favicon.png # 从 icon 改为 image，用于显示网站图标
+
+    - name: PixelGif
+      link: https://pixelgif.cn/#/saint11/1-%E5%9F%BA%E7%A1%80-%E5%83%8F%E7%B4%A0%E5%9F%BA%E7%A1%80%E7%94%BB1.gif # 从 url 改为 link
+      description: 像素画超级教程
+      image: https://pixelgif.cn//logo192.png # 从 icon 改为 image，用于显示网站图标
+
+ 
+
+- category: 工具
+  icon: fa-tools # 工具分类的图标
+  items:
+    - name: ChatGPT
+      link: https://chat.openai.com # 书签链接地址
+      description: OpenAI 的 AI 对话助手
+      image: https://chat.openai.com/favicon.ico # 网站图标地址
+
+    - name: Claude
+      link: https://www.anthropic.com/
+      description: Anthropic 的 AI 对话助手
+      image: https://www.anthropic.com/favicon.ico
+
+    - name: 在线像素画
+      link: https://www.piskelapp.com
+      description: HeartBeats教程推荐
+      image: https://www.piskelapp.com/static/resources/favicon.png
+
+    - name: 正则表达式
+      link: https://regexr-cn.com/
+      description: 在线测试
+      image: https://regexr-cn.com/assets/icons/apple-touch-icon.png?1
+
+    - name: 视频片头制作
+      link: https://panzoid.com/?utm_source=xinquji
+      description: 片头制作网
+      image: https://panzoid.com//images/icons/siteicon-256.webp
+
+    - name: 一个木函
+      link: https://ol.woobx.cn/
+      description: 超简介的工具箱集合
+      image: https://ol.woobx.cn/static/icons/apple-touch-icon.png
+
+    - name: 草料二维码
+      link: https://cli.im/url
+      description: 二维码生成器
+      image: https://static.clewm.net/static/images/favicon.ico
+
+    - name: iLoveIMG
+      link: https://www.iloveimg.com/zh-cn?utm_source=xinquji
+      description: 免费图片全能处理
+
+    - name: Pixilart
+      link: https://www.pixilart.com/draw
+      description: 在线像素画
+      image: https://www.pixilart.com/images/favicon/apple-touch-icon.png?v=jw6qNMPWjl2
+
+    - name: FontAwesome
+      link: https://fontawesome.com/v4/icons/
+      description: 最强图标库
+      image: https://fontawesome.com/v4/assets/ico/favicon.ico
+    - name: AI工具大全
+      link: https://www.yuque.com/weidong-hsbi5/rebiys/ny150b?
+      description: AI工具超全整理页
+      image: https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*vMxOQIh4KBMAAAAAAAAAAAAADvuFAQ/original
+
+    - name: ColorHunt
+      link: https://colorhunt.co/
+      description: 拯救颜色的色卡网站
+      image: https://colorhunt.co/img/colorhunt-favicon.svg?2
+
+    - name: Kimi
+      link: https://kimi.moonshot.cn/
+      description: 不太聪明的国产AI之光
+      image: https://img.onlinedown.net/download/202404/142134-660ba3eec53a3.png
+
+    - name: NCM转MP3
+      link: https://convert.freelrc.com/
+      description: 转来转去
+      image: https://tse3-mm.cn.bing.net/th/id/OIP-C.SfzAbY5UMF0go7fQ6Zo7jAHaHa?rs=1&pid=ImgDetMain
+
+    - name: 图标库
+      link: https://www.iconfinder.com/search/icons?family=feather
+      description: 免费量大
+
+    - name: P站生成器
+      link: https://tool.mkblog.cn/logoly/#/
+      description: P站图标生成器
+      image: https://tool.mkblog.cn/logoly/favicon.ico
+
+    - name: RunwayGen
+      link: https://app.runwayml.com/
+      description: 图生视频
+      image: https://www.tktoc.com/favicon/get.php?url=https://research.runwayml.com/gen2.png
+
+    - name: MidJourney
+      link: https://www.midjourney.com/
+      description: 最强生图模型
+      image: https://www.midjourney.com/apple-touch-icon.png
+
+    - name: AcConver
+      link: https://www.aconvert.com/
+      description: 各种格式转换
+
+    - name: MacKed
+      link: https://macked.app/
+      description: Mac软件破解大全
+      image: http://shenying.website/wp-content/uploads/2024/12/favicon.png
+
+    - name: 鸠摩搜索
+      link: https://www2.jiumodiary.com/
+      description: 书籍搜索
+      image: https://www2.jiumodiary.com/images/apple/apple-72.png
+
+    - name: 网易云解析
+      link: https://api.toubiec.cn/wyapi.html
+      description: 且用且珍惜
+      image: https://tse4-mm.cn.bing.net/th/id/OIP-C.Cm04Sy-7wiCWxD_skBoMiQHaHa?rs=1&pid=ImgDetMain
+
+    - name: apk包在线解析
+      link: https://sisik.eu/apk-tool
+      description: 在线解析安卓apk
+      image: https://sisik.eu/user/themes/sixotheme/images/favicon2.png
+
+    - name: BBdown
+      link: https://github.com/nilaoda/BBDown
+      description: b站最想寄律师函的工具
+      image: https://tse1-mm.cn.bing.net/th/id/OIP-C.HFqdo_9Ysg1kXJEm_XTZWQHaHa?rs=1&pid=ImgDetMain
+
+    - name: 学易知
+      link: https://xuezhiyi.top/home
+      description: 刷课后台管理系统
+      image: https://xuezhiyi.top/logo.png
+
+    - name: 萌云导航
+      link: https://new.dc.cyou/
+      description: 好用的机场
+      image: https://img.tukuppt.com/png_preview/00/16/17/pP0lECWvCn.jpg!/fw/780

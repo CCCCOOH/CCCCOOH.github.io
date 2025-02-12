@@ -1,0 +1,59 @@
+- links_category: friends
+  has_thumbnail: false
+  #是否有预览图（true/false)
+  list:
+      - name: TobyKSKGD的个人博
+        link: https://tobykskgd.life/
+        description: C’est comme ça
+        avatar: http://tobykskgd.life/wp-content/uploads/2024/02/IMG_3007.jpg
+        thumbnail: http://tobykskgd.life/wp-content/uploads/2024/02/IMG_3007.jpg
+      - name: zcg的个人博客
+        link: https://zcg555.github.io/
+        description: 一个后端程序员
+        avatar: https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/7471738506555_.pic.jpg
+        thumbnail: https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/7471738506555_.pic.jpg
+        #（has_thumbnail 为 true 时才需要）
+      - name: 404-502 的个人博客
+        link: https://www.404-502.cn/
+        description: 凡是过去，皆为序章；凡是未来，皆有可期。
+        avatar: https://pic.404-502.icu/4848664287.jpg
+      - name: AlphaDog
+        link: https://www.junpengzhou.top
+        description: 全栈软件架构师
+        avatar: http://shenying.website/wp-content/uploads/2024/12/avatar.png
+      - name: Clif's Blog
+        link: https://www.new-epoch-meta.com
+        description: 野生钢铁侠，擅长拔网线，物理攻击
+        avatar: https://new-epoch-meta.com/wp-content/uploads/2023/07/header.webp
+      - name: Echo 的小窝
+        link: https://www.liveout.cn/
+        description: 漂泊于互联网中的小窝
+        avatar: https://www.liveout.cn/wp-content/uploads/2024/09/1.jpg
+      - name: Lei
+        link: https://blog.leiting2020.top/
+        description: 一个小趴菜
+        avatar: https://imgbed.leiting2020.top/img/202305072001738.jpg
+      - name: Xiaomage's Blog
+        link: https://blog.xmgspace.me
+        description: Tech otaku change the world.
+        avatar: https://cdn.sep.cc/avatar/35eb088aa93dab2241020481166d74f9?s=256
+      - name: 千年小妖仔的博客
+        link: https://blog.dhhyxr.top/
+        description: 热爱生活~
+        avatar: http://shenying.website/wp-content/uploads/2024/12/avatar.jpg
+      - name: 哈冬猪的小站
+        link: https://hadongzhu.com
+        description: 不是轨道，是旷野
+        avatar: https://weavatar.com/avatar/f772966044f5d6e64791b2a1ae76658a?s=256
+      - name: 定の栈
+        link: https://saop.cc
+        description: LINK START!
+        avatar: https://saop.cc/avatar.webp
+      - name: 杀死一只知更鸟
+        link: https://www.shangjidong.com/
+        description: 前端攻城狮
+        avatar: https://www.shangjidong.com/usr/uploads/2023/07/2563419514.jpg
+      - name: 鸦鸦的巢穴
+        link: https://crowya.com
+        description: 在乌鸦统治的世界里，洁白的羽毛是有罪的。
+        avatar: https://img.crowya.com/wp-content/uploads/2023/05/crowya.jpg
