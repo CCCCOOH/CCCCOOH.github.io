@@ -36,7 +36,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://shenying.online/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-02-12T04:16:40.000Z">
-<meta property="article:modified_time" content="2025-02-12T05:41:11.568Z">
+<meta property="article:modified_time" content="2025-02-12T06:05:36.962Z">
 <meta property="article:author" content="Sy">
 <meta property="article:tag" content="其他">
 <meta name="twitter:card" content="summary">
@@ -392,8 +392,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-02-12 13:41:11</span>
-            <span class="mobile">2025-02-12 13:41:11</span>
+            <span class="desktop">2025-02-12 14:05:36</span>
+            <span class="mobile">2025-02-12 14:05:36</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -471,7 +471,7 @@
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202502121257523.png"
-                      alt="image-20250212125723148"
+                      alt="核心文件"
                 ></p>
 <p>没错，就是他们。你看我多谨慎。想想如果我还在使用Wordpress博客来备份还需要备份什么数据库，如果用Hexo静态博客框架就只需要把你的文章的<code>.md</code>文件和站点配置文件<code>_config.yml</code>全塞进一个仓库就行了，多方便。</p>
 <blockquote>
@@ -494,7 +494,7 @@
 <p>具体的，如果长期在windows上写博客，并且懒得更新原来的分支了，你可以在Gitpage将默认分支改为windows（非必需），将Gitpage的渲染的分支改为windows（必须）。</p>
 <p>这里可以使用本方案：</p>
 <blockquote>
-<p>语言很人机因为是问的ChatGPT，DeepSeek服务器太垃圾了。</p>
+<p>下面的描述很人机因为是问的ChatGPT，不问DeepSeek是因为deepSeek服务器被打废了。</p>
 </blockquote>
 <p>1.<strong>切换到 <code>main</code> 分支</strong>：</p>
 <div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout main</span><br></pre></td></tr></table></figure></div>
@@ -512,6 +512,22 @@
 <p>5.<strong>推送合并后的 <code>wind</code> 分支</strong>：</p>
 <div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin wind</span><br></pre></td></tr></table></figure></div>
 
+<h2 id="四、补充一个更加全面的备份方案"><a href="#四、补充一个更加全面的备份方案" class="headerlink" title="四、补充一个更加全面的备份方案"></a>四、补充一个更加全面的备份方案</h2><p>前面不是说了嘛，hexo不会将本地的文件上传到Github博客的仓库，那如果这个本地文件丢失了岂不是糟糕？上面也提到一种最简单粗暴的备份方案，将<code>source</code>和<code>config</code>直接扔到一个仓库中。</p>
+<p>但是，这种方案在分支备份大法前就显得不那么优雅了。</p>
+<p>因为在本地的hexo项目中无法使用<code>git</code>命令，所以我们要将远程的仓库克隆下来方便我们添加一个新的分支<code>hexo</code>，并在<code>hexo</code>中专门存放我们的本地项目文件。注意，之前提到的<code>main</code>分支或者说默认分支都是存放的hexo打包好的静态页面文件，我就不多提了。</p>
+<p>具体的方法：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.克隆远程仓库</span></span><br><span class="line">git <span class="built_in">clone</span> git@github.com:CCCCOOH/CCCCOOH.github.io.git（根据自己的仓库来决定）</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.cd到克隆下来的仓库目录下（这里省略，根据你的文件目录来），然后创建一个新的分支hexo</span></span><br><span class="line">git branch hexo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.将分支切换到hexo</span></span><br><span class="line">git checkout hexo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4.删除原来的文件（单独留下.git），将本地的文件（建议删除public）拷贝到目录下。</span></span><br><span class="line"><span class="comment"># 5.最后将分支推送到远程(Githhub仓库)</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&#x27;添加了hexo分支用于存放本地文件&#x27;</span></span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure></div>
+
+<p>这里讲给<code>git</code>小白听。在第四步中你创建了<code>hexo</code>后，<code>hexo</code>默认会复制默认的分支，所以文件夹中的文件和默认分支一样。我们不需要这些文件，将他们删除，然后再拷贝你的本地文件到这个目录下并推送到远程就好了。</p>
+<blockquote>
+<p>附一张备份文件目录的图。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202502121402396.png"
+                      alt="image-20250212140203180"
+                ></p>
 
 		</div>
 
@@ -526,7 +542,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2025-02-12 13:41:11
+                    :</strong> 2025-02-12 14:05:36
             </li>
         
         <li>
@@ -632,7 +648,7 @@
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
 		<div class="page-title">Hexo多端部署终极方案！</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%95%85%E4%BA%8B%E8%83%8C%E6%99%AF"><span class="nav-text">一、故事背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Hexo-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E8%A7%A3%E8%AF%BB"><span class="nav-text">二、Hexo 文件结构解读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E9%9C%80%E8%A6%81%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-text">2.1 需要的文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%8D%8F%E5%90%8C%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90"><span class="nav-text">三、协同方案分析</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%95%85%E4%BA%8B%E8%83%8C%E6%99%AF"><span class="nav-text">一、故事背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Hexo-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E8%A7%A3%E8%AF%BB"><span class="nav-text">二、Hexo 文件结构解读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E9%9C%80%E8%A6%81%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-text">2.1 需要的文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%8D%8F%E5%90%8C%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90"><span class="nav-text">三、协同方案分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E8%A1%A5%E5%85%85%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%8A%A0%E5%85%A8%E9%9D%A2%E7%9A%84%E5%A4%87%E4%BB%BD%E6%96%B9%E6%A1%88"><span class="nav-text">四、补充一个更加全面的备份方案</span></a></li></ol>
 
 	</div>
 </div>
