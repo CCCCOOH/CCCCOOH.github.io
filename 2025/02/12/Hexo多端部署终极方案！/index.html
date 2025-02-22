@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Sy博客">
+    
+    <meta name="author" content="Shen Ying">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://registry.npmmirror.com" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://ccccooh.github.io/2025/02/12/hexo多端部署终极方案！/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo多端部署终极方案">
+<meta property="og:url" content="https://ccccooh.github.io/2025/02/12/Hexo%E5%A4%9A%E7%AB%AF%E9%83%A8%E7%BD%B2%E7%BB%88%E6%9E%81%E6%96%B9%E6%A1%88%EF%BC%81/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.github.io/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-02-12T04:16:40.000Z">
+<meta property="article:modified_time" content="2025-02-22T02:19:59.475Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="其他">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ccccooh.github.io/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/favicon.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+    <meta name="theme-color" content="#005cc5">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Hexo多端部署终极方案 | SHEN YING
+        
+    </title>
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/css/build/tailwind.css">
+    
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"ccccooh.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["Lv6"]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"github-dark"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#005cc5","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":"Noto Sans SC","url":"https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":""},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/hollowPixel.png","dark":"https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/hollow.jpeg"},"title":"Sy's Blog.","subtitle":{"text":["Well come to my blog site.","All in easy."],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"ffff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/CCCCOOH","instagram":null,"zhihu":null,"twitter":null,"email":"c3156298376@163.com","fa fa-television":"https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0"},"qrs":{"weixin":"https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/671734985120_.pic.jpg"}}},"plugins":{"feed":{"enable":true},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"Lucky","artist":"幸运","url":"https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/lucky.mp3","cover":"https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/cover.jpg","lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#111111","right":"#ffffff","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"icon":"fa-regular fa-folder","path":"/archives"},"About":{"icon":"fa-regular fa-user","submenus":{"Self":"/about","FriendLinks":"/links"}},"相册":{"icon":"fa-solid fa-image","path":"/masonry"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"寒假回家网络自由，不再需要网站加载动画。","show_on_mobile":true,"links":{"Tags":{"path":"/tags","icon":"fa fa-tags"},"Categories":{"path":"/categories","icon":"fa fa-folder-open"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/12/22 03:30:00"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":true};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="/images/icon.png" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                SHEN YING
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-folder fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    关于
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    SELF
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/links">
+                                                    FRIENDLINKS
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/masonry"
+                                        >
+                                    <i class="fa-solid fa-image fa-fw"></i>
+                                    相册
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                关于
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">SELF</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/links">FRIENDLINKS</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/masonry"
+                        >
+                            <span>
+                                相册
+                            </span>
+                            
+                                <i class="fa-solid fa-image fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/tags"
+                        >
+                            <span>Tags</span>
+                            <i class="fa fa-tags fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/categories"
+                        >
+                            <span>Categories</span>
+                            <i class="fa fa-folder-open fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">10</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">11</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">24</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Hexo多端部署终极方案</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/avatar.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Shen Ying</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv6</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-02-12 12:16:40</span>
+        <span class="mobile">2025-02-12 12:16:40</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-02-22 10:19:59</span>
+            <span class="mobile">2025-02-22 10:19:59</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%85%B6%E4%BB%96/">其他</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="一、故事背景"><a href="#一、故事背景" class="headerlink" title="一、故事背景"></a>一、故事背景</h2><p>故事发生在大学上学期间（而不是寒假）。上学期间，宿舍条件极其恶劣，半夜断电、空间狭小。我们大学垃圾条件使用游戏本的种种弊端被无限放大：游戏本电源适配器极其臃肿，不插电的情况续航堪忧（难以超过两个小时），并且由于其结构上的臃肿，在狭小的宿舍空间每次移动、打开犹如小平房开拖拉机。</p>
+<p>将游戏本带去图书馆学习就更是天方夜谭，在此之前我也买了一个MatePad的平板，但是平板的使用场景对一个计科学生来说也实在有限。</p>
+<p>于是，我用在学校做临时监考工作挣的钱入了一台MacBookAir（二手只要3k左右）。与此同时，我也预知了我即将支付不起博客网站巨额服务器费用的未来，未雨绸缪将博客迁移到了Hexo框架上，从此再无数据担忧。</p>
+<p>我在我的MacBook上第一次部署了Hexo框架，并且由于在学校的主力机是Mac，从来没有想过在我的游戏本（也就是Windows系统）上部署Hexo框架会怎样。或者说，我从来没有考虑过移植的问题。</p>
+<p>事情的转机从我的寒假生活开始。寒假回到家中，我的ROG魔霸新锐2023游戏本再次启动（没错我就是故意写全了得瑟的😁）。之前的缺点（笨重、移动续航堪忧）瞬间不再是缺点！在家里我的游戏本也是直接化身游戏主机站桩输出，不再需要频繁移动使用。于是我将可怜的MacBook抛到一边，低刷低配的低能MacOS一边去，Windows万岁。</p>
+<p>直到一段时间后我又开始写Hexo博客，习惯了Wordpress网页端后台直接书写博客的我一时间竟不知道如何在我的Windows上写博客。我看了几篇博客：<a class="link"   target="_blank" rel="noopener" href="https://blog.trotyl.xyz/post/61834/" >Hexo从Mac到Windows<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>。我本来以为这样就能解决了，抄作业嘛多简单~</p>
+<p>结果就是，我看了好几篇类似的Mac迁移Hexo到Windows的博客，在我的电脑上按照相同的步骤最终都会在同一个步骤报错。报错！报错！还是报错。</p>
+<p>尝试过和人机ChatGPT老师交流，无果ed。</p>
+<p>谁知这事儿就这样撂下了，我也懒得研究了，几乎有半个寒假，我每次想在我的<code>shenying.online</code>上发布博客都是将阵地转移到Mac上操作。就这么麻烦的事儿我干了一个寒假，就因为跟着上面说的博客做爆了错没有成功移植（要知道我寒假主力机一直是Windows的ROG，你可以想象我正在用windows写Markdown格式的博客，但是到了发布到Gitpage的时候却不得不打开Mac再复制过去发布一遍）。</p>
+<p>直到2月12日事情才迎来了转机，我实在无法忍受这种写博客的割裂感了！我要像Hexo(骇客)一样写博客！我不能忘记老祖宗传下来的编程教养：优雅。这么粗鲁的事情不能再干下去了，一点儿也不Hexo。</p>
+<p>接下来就是我自己弄懂的Heox博客部署原理以及多端部署的核心思路。</p>
+<h2 id="二、Hexo-文件结构解读"><a href="#二、Hexo-文件结构解读" class="headerlink" title="二、Hexo 文件结构解读"></a>二、Hexo 文件结构解读</h2><p>想知道Hexo如何多端部署，先要知道Hexo是怎么工作的。首先我们来看看Hexo框架的文件结构：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202502121242478.png"
+                      alt="image-20250212124219664"
+                ></p>
+<p>看好了，别眨眼。这里的<code>node_modules</code>是node的用到的库，系统会根据你安装的主题啊之类的自定义自动生成，不用太关注他（意思是弄丢了也没事儿，毕竟不是核心数据）。</p>
+<p><code>public</code>是你用<code>hexo g</code>后生成的静态文件。相应的<code>hexo clean</code>会删除他。</p>
+<p><code>scaffolds</code>也是Hexo初始化会自动生成的默认文件，你写文章不会影响里面的文件所以不用管他。</p>
+<p><code>source</code>就非常重要了，我们重点来看一下。可以看到，里面存放的是最核心的文件，也就是博客网站的生命，博客文章的.md格式文件，草稿，还有一些主题生成的文件，这里以我常用的主题redefine为例，个别文件可能不一样。</p>
+<p><code>themes</code>文件夹里没什么重要的文件，不用管。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202502121248329.png"
+                      alt="image-20250212124812396"
+                ></p>
+<p>这里就要谈一下Hexo的工作机制了，Hexo本质上还是类似Vue脚手架那一套的前端框架。你可以理解为你在本地编写了source中的文件，这时候你想要发布到网页上去，Hexo就会帮你项目打包到public文件夹中并成为一个静态的前端项目，然后将public文件夹中的文件部署到Gitpage。</p>
+<p>发现没有，这里的<code>public</code>的功能很像你写一个程序，编译成了exe。你把exe发送给别人让别人直接执行。</p>
+<p>并且这里的<code>source</code>相当于是你的元数据，类似于数据库一样至关重要的存在。</p>
+<p>接着说说这里的<code>_config.yml</code>，这是你的网站的一些配置，也就是个性化的自定义文件。如果你使用的主题，就会有主题对应的<code>_config.yml</code>来配置你的主题的一些个性化设置，例如这里有两个主题：<code>config.landscape.yml</code>和<code>config.redefine.ym</code>。</p>
+<p><code>package.json</code>中存放着你用npm下载的包的信息，你可以理解为npm是一个应用商店，这就是应用商店的应用列表。我看的教程中就是告诉我把原来电脑的<code>package.json</code>拷贝过来然后在根目录<code>npm install</code>。结果我按着操作，每次安装都会抱一堆警告和错误。</p>
+<p>所以，这个文件我们也不需要。</p>
+<h3 id="2-1-需要的文件"><a href="#2-1-需要的文件" class="headerlink" title="2.1 需要的文件"></a>2.1 需要的文件</h3><p>综上所述，我们其实只需要关注我们博客网站的核心文件即可，我建议将他们专门备份到一个代码仓库：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202502121257523.png"
+                      alt="image-20250212125723148"
+                ></p>
+<p>没错，就是他们。你看我多谨慎。想想如果我还在使用Wordpress博客来备份还需要备份什么数据库，如果用Hexo静态博客框架就只需要把你的文章的<code>.md</code>文件和站点配置文件<code>_config.yml</code>全塞进一个仓库就行了，多方便。</p>
+<blockquote>
+<p>当然还有一种更加优雅的方案：创建一个名为Hexo的分支，存放你的Heox本地配置文件。网上都能找到教程，<a class="link"   target="_blank" rel="noopener" href="https://www.jianshu.com/p/7d8df0de1fc7" >点我跳转到其中一篇<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>。</p>
+</blockquote>
+<p>由于Hexo会将source经过框架内部的处理和美化最终生成一个public部署到Gitpage，而public又是有别于source的。比如，<code>你好世界.md</code>这篇文章在<code>public</code>中找到后已经变成了<code>你好世界.html</code>了。所以Github的博客托管仓库中是没有我们的source的，也找不到那些文章的<code>.md</code>的markdown文件。它都变成<code>html</code>格式了，你还怎么玩？</p>
+<p>这些重要文件只会在你的本地计算机上，所以一定要自己及时备份起来以防后患（说不定哪天你的电脑就自己偷偷喝咖啡了呢~🔪）。</p>
+<p>完成这些文件的备份，工作就很机械了。我的终极完美适配的思路是：按照原来你部署的方式，老老实实地从零开始部署。冷静地打开你的主题的官方文档，老老实实地把主题包括每一个插件自己安装上。</p>
+<p>没错，你没有听错，终极的方案就是这么朴实无华。</p>
+<p>然后的然后，把<code>source</code>和<code>config</code>相关的文件一五一十的替换。在Gitpage或者说Github的博客托管仓库中创建一个新的Branch，BranchName（分支名）就见仁见智了，比如我在Windows写博客的时候，用windows这个branch。</p>
+<p>然后就是很是很重要的一点（我已经不知道说了多少个然后了，果然连接词还是得多学啊，Then，After that什么的，哈哈）。你最后总要<code>hexo d</code>然后把你的静态文件托管上去的吧，所以别傻傻的把<code>_config.yml</code>完全替换过去。你总得把里面的branch名字改成你新创建的branchName吧。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202502121309870.png"
+                      alt="image-20250212130931767"
+                ></p>
+<h2 id="三、协同方案分析"><a href="#三、协同方案分析" class="headerlink" title="三、协同方案分析"></a>三、协同方案分析</h2><p>完成了上述，你已经有一个专门分支了吧？我的建议是每个电脑一个分支。我来举个例子，比如你最新的进度是在Mac上写的，并且分支名是main（github由于种族问题已经将默认分支master改成了main了），这个时候你想在windows电脑上写一篇文章，然后你就写，写完之后<code>hexo clean</code>、<code>hexo g</code>、<code>hexo d</code>一步没落下，最终静态文件被托管到了branch <code>windows</code>下。</p>
+<p>这个时候你可能又回到了mac电脑上了，就需要同步一下博客的进度。所以你需要将<code>main</code>分支和<code>windows</code>分支同步即可。</p>
+<p>具体的，如果长期在windows上写博客，并且懒得更新原来的分支了，你可以在Gitpage将默认分支改为windows（非必需），将Gitpage的渲染的分支改为windows（必须）。</p>
+<p>这里可以使用本方案：</p>
+<blockquote>
+<p>语言很人机因为是问的ChatGPT，DeepSeek服务器太垃圾了。</p>
+</blockquote>
+<p>1.<strong>切换到 <code>main</code> 分支</strong>：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout main</span><br></pre></td></tr></table></figure></div>
+
+<p>2.<strong>拉取 <code>main</code> 分支的最新更新</strong>：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main</span><br></pre></td></tr></table></figure></div>
+
+<p>3.<strong>切换到 <code>wind</code> 分支</strong>：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout wind</span><br></pre></td></tr></table></figure></div>
+
+<p>4.<strong>将 <code>main</code> 的更新合并到 <code>wind</code></strong>：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge main</span><br></pre></td></tr></table></figure></div>
+
+<p>这样，<code>wind</code> 分支就会包含 <code>main</code> 分支的最新内容。如果有冲突，你需要手动解决冲突。</p>
+<p>5.<strong>推送合并后的 <code>wind</code> 分支</strong>：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin wind</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="四、【更新】GitActions大法"><a href="#四、【更新】GitActions大法" class="headerlink" title="四、【更新】GitActions大法"></a>四、【更新】GitActions大法</h2><p>在评论区看到同学说<code>GitActions</code>大法，当时认为是Hugo的方法，并不以为意。直到最近在了解了Gitactions的工作原理后我才恍然大悟并将其奉为圭臬。误会这位同学了～</p>
+<p>具体的部署方法参考这位博主：</p>
+<blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://xulianjun.github.io/2024/09/08/Hexo%20+%20GitHub%20Action%EF%BC%8C%E9%9B%B6%E6%88%90%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" >参考链接<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+<p>因为该博主的博客存在实效的可能，这里将关键信息copy过来以防万一。</p>
+<p>原理是利用Github提供的自动化服务（收费，每月2000分钟免费额度）。亲测每次部署30s左右，大概能使用400次。也就是满打满算能发布400次文章。这是最理想的情况，实际中可能因为文章修改等多种原因大打折扣。不过也是够用了。</p>
+<p>实际上该方法在每次更新的效率上来说和原本没有什么区别，甚至稍慢于<code>hexo</code>提供的推送方法。但由于其直接维护博客的源码，然后交给Github自动更新博客。</p>
+<p>真正做到了每次更新每次备份。否则你至少也需要一段时间进行手动备份，手动备份相对较为繁琐：拉去源码仓库，切换分支，推送。。。</p>
+<p>关键步骤：</p>
+<ul>
+<li><p>创建一个<code>Tokens</code>，将权限拉满。</p>
+</li>
+<li><p>在<code>.github/workspace</code>下添加一个yml文件，编辑：</p>
+</li>
+</ul>
+<div class="code-container" data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">Hexo</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">main</span>  <span class="comment"># 当推送到 main 分支时触发</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="string">repository</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">submodules:</span> <span class="literal">false</span>  <span class="comment"># 禁用子模块检查</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">Node.js</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;v20.17.0&#x27;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Hexo</span> <span class="string">Git</span> <span class="string">Deployer</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          npm install hexo-deployer-git --save</span></span><br><span class="line"><span class="string">          npm install hexo-cli -g</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Clean</span> <span class="string">and</span> <span class="string">Generate</span> <span class="string">Static</span> <span class="string">Files</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          hexo clean</span></span><br><span class="line"><span class="string">          hexo generate</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Configure</span> <span class="string">Git</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          git config --global user.name &#x27;github-actions[bot]&#x27;</span></span><br><span class="line"><span class="string">          git config --global user.email &#x27;github-actions[bot]@users.noreply.github.com&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          cd public/</span></span><br><span class="line"><span class="string">          git init</span></span><br><span class="line"><span class="string">          git add -A</span></span><br><span class="line"><span class="string">          git commit -m &quot;Create by workflows&quot;</span></span><br><span class="line"><span class="string">          git branch -M main</span></span><br><span class="line"><span class="string">          git remote add origin https://&#123;Token&#125;@github.com/&#123;user&#125;/&#123;repo&#125;.git    # 保存静态网页文件的公开仓</span></span><br><span class="line"><span class="string">          git push origin HEAD:main -f</span></span><br></pre></td></tr></table></figure></div>
+
+<p>注意将<code>&#123;Token&#125;</code>和<code>&#123;user&#125;</code>,<code>&#123;repo&#125;</code>替换成你的信息：</p>
+<ul>
+<li><strong>token</strong>为鉴权密钥</li>
+<li><strong>user</strong>为Github账户名</li>
+<li><strong>repo</strong>为仓库名</li>
+</ul>
+<h2 id="五、【更新】VScode同步管理"><a href="#五、【更新】VScode同步管理" class="headerlink" title="五、【更新】VScode同步管理"></a>五、【更新】VScode同步管理</h2><h3 id="5-1-前言"><a href="#5-1-前言" class="headerlink" title="5.1 前言"></a>5.1 前言</h3><p>最近发现其实可以完全抛弃Typora，拥抱VScode。<br>在VScode中我们可以安装一个<code>MarkdownAllInOne</code>插件：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/Screenshot%202025-02-19%20094137.png"
+                     
+                ><br>使用该插件后基本实现了和Typora相同的效果，甚至还要更加高效。<br>主要体现在两点，首先是Typora性能泰拉跨了，Typora的底层实现居然是前端三件套你敢信。离谱的是，只要随便改写一下<code>license</code>的js文件的<code>hasActived</code>代码就能直接破解。基本没有任何用户防御性可言。</p>
+<blockquote>
+<p>感慨这一一点也是因为最近在写我的Vue3笔记时，由于字数来到了1万以上，导致Typora输入中文时经常产生滞后我才发现这么明显的。</p>
+</blockquote>
+<p>之前一直觉得Typora是个付费软件很香，真正用了之后发现其实也就那么回事。他最大的优点可能就是开发主题文件非常简单吧，毕竟写个CSS就好了。</p>
+<p>回归正题，我们可以在Vscode中直接管理Git，并通过安装插件的方式扩展Vscode将其打造为最强Hexo+Markdown博客工作流软件！</p>
+<h3 id="5-2-安装插件"><a href="#5-2-安装插件" class="headerlink" title="5.2 安装插件"></a>5.2 安装插件</h3><ol>
+<li>安装<code>Picgo</code>插件<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250219095517.png"
+                      alt="20250219095517"
+                ></li>
+</ol>
+<p>安装完成后需要配置Picgo的配置文件，你可以选择跟着我来做也可以去阅读<a class="link"   target="_blank" rel="noopener" href="https://github.com/PicGo/vs-picgo" >官方文档<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>。</p>
+<blockquote>
+<p>本博客的文章可能有时效性，具体以官方文档为准。</p>
+</blockquote>
+<p>打开C盘找到你的用户<code>AppData</code>文件夹，往下找到<code>AppData\Roaming\picgo</code>，在理面有一个<code>data.json</code>。里面存放你的图床配置。<br>打开Vscode的设置，搜索<code>Picgo</code>并将目录粘贴上去：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250219095918.png"
+                      alt="20250219095918"
+                ></p>
+<p><code>Picgo</code>官方文档中对于快捷键的介绍：</p>
+<ul>
+<li>从剪切板上传图像：<code>ctrl</code>+<code>alt</code>+<code>u</code></li>
+<li>从资源管理器上传图像： <code>ctrl</code>+<code>alt</code>+<code>e</code></li>
+<li>在输入框中上传图像：<code>ctrl</code>+<code>alt</code>+<code>o</code></li>
+</ul>
+<p>类似的插件还有很多，推荐阅读一下<a class="link"   target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/languages/markdown#_editing-markdown" >官方对于Markdown的介绍<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>。</p>
+<p>官方推荐的几个插件如下：</p>
+<div class="tabs" id="tab-vsplugins"><ul class="nav-tabs"><li class="tab active"><a class="#vsplugins-1">markdownlint</a></li><li class="tab"><a class="#vsplugins-2">Markdown Theme Kit</a></li><li class="tab"><a class="#vsplugins-3">Print</a></li><li class="tab"><a class="#vsplugins-4">Markdown Shortcuts</a></li></ul><div class="tab-content"><div class="tab-pane active" id="vsplugins-1"><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250219103123.png"
+                      alt="markdownlint"
+                ><br><a class="button  center large" target="_blank" rel="noopener" href='https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint' title='地址'><i class='fa-solid fa-download'></i> 地址</a></p></div><div class="tab-pane" id="vsplugins-2"><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250219103156.png"
+                      alt="Markdown Theme Kit"
+                ><br><a class="button  center large" target="_blank" rel="noopener" href='https://marketplace.visualstudio.com/items?itemName=ms-vscode.Theme-MarkdownKit' title='地址'><i class='fa-solid fa-download'></i> 地址</a></p></div><div class="tab-pane" id="vsplugins-3"><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250219111045.png"
+                      alt="20250219111045"
+                ><br><a class="button  center large" target="_blank" rel="noopener" href='https://marketplace.visualstudio.com/items?itemName=pdconsec.vscode-print' title='地址'><i class='fa-solid fa-download'></i> 地址</a></p></div><div class="tab-pane" id="vsplugins-4"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250219103429.png"
+                      width="120"
+                >
+<a class="button  center large" target="_blank" rel="noopener" href='https://marketplace.visualstudio.com/items?itemName=mdickin.markdown-shortcuts' title='地址'><i class='fa-solid fa-download'></i> 地址</a></div></div></div>
+
+<h3 id="5-3-对比Typora"><a href="#5-3-对比Typora" class="headerlink" title="5.3 对比Typora"></a>5.3 对比Typora</h3><p>现在再来对比一下Typora，基本上可以说Typora是被干的渣都不剩了。我用过很长一段时间Typor，发现Typora有很多毛病：</p>
+<ul>
+<li>标题大纲显示不明确</li>
+<li>无法自定义 <code>Snippets</code></li>
+</ul>
+<p>这是VScode提供的markdown文件大纲：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250219111709.png"
+                      alt="20250219111709"
+                ></p>
+<p>可以看到层级明确，不用在去寻找到底要写几个<code>#</code>了。</p>
+<p>如果你的博客框架提供一些特殊的语法，你就需要使用自定义代码块。而Vscode可以轻松实现。比如，我希望定义一个按钮模块，Redefine主题采用的是EJS模板语法，所以我需要在Markdown中写这样的代码来添加：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% btn [可选大小]::[名称]::[url]::[可选图标] %&#125;</span><br></pre></td></tr></table></figure></div>
+<p>如果你用Typora来写，那就太痛苦了。而使用Vscode你可以定义这样一个用户代码块：</p>
+<div class="code-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="comment">// Place your snippets for markdown here. Each snippet is defined under a snippet name and has a prefix, body and </span></span><br><span class="line">	<span class="comment">// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:</span></span><br><span class="line">	<span class="comment">// $1, $2 for tab stops, $0 for the final cursor position, and $&#123;1:label&#125;, $&#123;2:another&#125; for placeholders. Placeholders with the </span></span><br><span class="line">	<span class="comment">// same ids are connected.</span></span><br><span class="line">	<span class="comment">// Example:</span></span><br><span class="line">	<span class="attr">&quot;Redefine-Button: &quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;button&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;&#123;% btn $&#123;1:center large regular&#125;::$&#123;2:name&#125;::$&#123;3:url&#125;::$&#123;4:icon&#125; %&#125;&quot;</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Redefine-button&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;Redefine-Note: &quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;note&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;&#123;% notel $&#123;1:blue red cyan purple orange yellow green&#125; $&#123;2:icon&#125; $&#123;3:title&#125; %&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;  $4&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&#123;% endnotel %&#125;&quot;</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Redefine-note&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;Redefine-Collapse: &quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;collapse&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;&#123;% folding $&#123;1:yellow blue green red orange pink cyan white black gray&#125;::$&#123;2:title&#125; %&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;  $3&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&#123;% endfolding %&#125;&quot;</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;redefine-collapse&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;Redefine-Tabs: &quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tabs&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;&#123;% tabs $&#123;1:tabs_id&#125; %&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;  &lt;!-- tab $&#123;2:tab_first_name&#125; --&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;    $3&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;  &lt;!-- endtab --&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&#123;% endtabs %&#125;&quot;</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;redefine-tabs&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;Redefine-tab: &quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tab&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;&lt;!-- tab $&#123;1:tab_first_name&#125; --&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;  $2&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&lt;!-- endtab --&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;redefine-tab&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></div>
+<p>然后只需要输入<code>button</code>并按下<code>Ctrl</code>+<code>Space</code>就会自动创建一个按钮的EJS模板。</p>
+<p>最后来说一下Typora仅剩的一个优点吧。<br>Typora其实相比于VScode，最大的特点就是一体化编写Markdown，在这一点上，Typora还是有优势的。实时编写，实时查看编写的结果。</p>
+<h3 id="5-4-Git管理"><a href="#5-4-Git管理" class="headerlink" title="5.4 Git管理"></a>5.4 Git管理</h3><p>我们可以利用VScode的Git管理工具来管理Hexo博客源码的仓库，效果如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250219115544.png"
+                      alt="20250219115544"
+                ><br>同时，如果你登录了Github，你的所有插件信息都可以继承。</p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> Hexo多端部署终极方案</li>
+        <li><strong>作者:</strong> Shen Ying</li>
+        <li><strong>创建于
+                :</strong> 2025-02-12 12:16:40</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2025-02-22 10:19:59
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://shenying.online/2025/02/12/Hexo多端部署终极方案！/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E5%85%B6%E4%BB%96/">#其他</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/02/16/mac%E7%BB%88%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81%E4%BC%98%E5%8C%96%E8%AE%A1%E5%88%92/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">mac终端工作流优化</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/02/09/Vue3%E9%87%8D%E4%BF%AE%E7%AC%94%E8%AE%B0/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Vue3重修笔记</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://comment-system-gamma.vercel.app/',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">Hexo多端部署终极方案</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%95%85%E4%BA%8B%E8%83%8C%E6%99%AF"><span class="nav-text">一、故事背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Hexo-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E8%A7%A3%E8%AF%BB"><span class="nav-text">二、Hexo 文件结构解读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E9%9C%80%E8%A6%81%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-text">2.1 需要的文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%8D%8F%E5%90%8C%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90"><span class="nav-text">三、协同方案分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E3%80%90%E6%9B%B4%E6%96%B0%E3%80%91GitActions%E5%A4%A7%E6%B3%95"><span class="nav-text">四、【更新】GitActions大法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E3%80%90%E6%9B%B4%E6%96%B0%E3%80%91VScode%E5%90%8C%E6%AD%A5%E7%AE%A1%E7%90%86"><span class="nav-text">五、【更新】VScode同步管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E5%89%8D%E8%A8%80"><span class="nav-text">5.1 前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="nav-text">5.2 安装插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E5%AF%B9%E6%AF%94Typora"><span class="nav-text">5.3 对比Typora</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-Git%E7%AE%A1%E7%90%86"><span class="nav-text">5.4 Git管理</span></a></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2024</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Shen Ying</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 24 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/Swup.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	<script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/imageViewer.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/utils.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/main.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/navbarShrink.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/scrollTopBottom.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/lightDarkSwitch.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/categoryList.js" ></script>
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/localSearch.js" ></script>
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/codeBlock.js" ></script>
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/lazyload.js" ></script>
+
+
+
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/runtime.js" ></script>
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/Typed.min.js" ></script>
+  <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/typed.js" ></script>
+
+
+
+
+
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/minimasonry.min.js" ></script>
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/masonry.js" ></script>
+
+
+
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/anime.min.js" ></script>
+
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/tabs.js" data-swup-reload-script></script>
+
+
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+<script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/essays.js" data-swup-reload-script></script>
+
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/bookmarkNav.js" ></script>
+
+	
+	<div id="aplayer"></div>
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/APlayer.min.js" ></script>
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/aplayer.js" ></script>
+
+	
+</body>
+
+</html>

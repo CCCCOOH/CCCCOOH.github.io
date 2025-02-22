@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Sy博客">
+    
+    <meta name="author" content="Shen Ying">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://registry.npmmirror.com" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://ccccooh.github.io/2024/12/31/数据库系统概论期末整理/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库系统概论期末整理">
+<meta property="og:url" content="https://ccccooh.github.io/2024/12/31/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E6%9C%9F%E6%9C%AB%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.github.io/images/redefine-og.webp">
+<meta property="article:published_time" content="2024-12-31T05:10:31.000Z">
+<meta property="article:modified_time" content="2025-02-22T02:19:59.477Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="学校">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ccccooh.github.io/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/favicon.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+    <meta name="theme-color" content="#005cc5">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            数据库系统概论期末整理 | SHEN YING
+        
+    </title>
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/css/build/tailwind.css">
+    
+
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"ccccooh.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["Lv6"]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"github-dark"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#005cc5","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":"Noto Sans SC","url":"https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":""},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/hollowPixel.png","dark":"https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/hollow.jpeg"},"title":"Sy's Blog.","subtitle":{"text":["Well come to my blog site.","All in easy."],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"ffff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/CCCCOOH","instagram":null,"zhihu":null,"twitter":null,"email":"c3156298376@163.com","fa fa-television":"https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0"},"qrs":{"weixin":"https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/671734985120_.pic.jpg"}}},"plugins":{"feed":{"enable":true},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"Lucky","artist":"幸运","url":"https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/lucky.mp3","cover":"https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/cover.jpg","lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#111111","right":"#ffffff","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"icon":"fa-regular fa-folder","path":"/archives"},"About":{"icon":"fa-regular fa-user","submenus":{"Self":"/about","FriendLinks":"/links"}},"相册":{"icon":"fa-solid fa-image","path":"/masonry"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"寒假回家网络自由，不再需要网站加载动画。","show_on_mobile":true,"links":{"Tags":{"path":"/tags","icon":"fa fa-tags"},"Categories":{"path":"/categories","icon":"fa fa-folder-open"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/12/22 03:30:00"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":true};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="/images/icon.png" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                SHEN YING
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-folder fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    关于
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    SELF
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/links">
+                                                    FRIENDLINKS
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/masonry"
+                                        >
+                                    <i class="fa-solid fa-image fa-fw"></i>
+                                    相册
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                关于
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">SELF</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/links">FRIENDLINKS</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/masonry"
+                        >
+                            <span>
+                                相册
+                            </span>
+                            
+                                <i class="fa-solid fa-image fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/tags"
+                        >
+                            <span>Tags</span>
+                            <i class="fa fa-tags fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/categories"
+                        >
+                            <span>Categories</span>
+                            <i class="fa fa-folder-open fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">10</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">11</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">24</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">数据库系统概论期末整理</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/avatar.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Shen Ying</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv6</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-12-31 13:10:31</span>
+        <span class="mobile">2024-12-31 13:10:31</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-02-22 10:19:59</span>
+            <span class="mobile">2025-02-22 10:19:59</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%AD%A6%E6%A0%A1/">学校</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="数据库四个基本概念"><a href="#数据库四个基本概念" class="headerlink" title="数据库四个基本概念"></a>数据库四个基本概念</h2><ul>
+<li><strong>数据</strong>：描述事物的符号记录</li>
+<li><strong>数据库</strong>: 大量存储在计算机中数据的集合</li>
+<li><strong>数据库管理系统</strong>：用户与系统间的数据管理软件，主要功能包括：<ul>
+<li>数据定义功能</li>
+<li>数据组织、存储和管理功能</li>
+<li>数据操纵功能</li>
+<li>数据库的事务管理和运行管理功能</li>
+<li>数据库的建立和维护功能</li>
+<li>其他功能</li>
+</ul>
+</li>
+<li><strong>数据库系统</strong>：由前三者组成</li>
+</ul>
+<h2 id="数据库发展的三个阶段"><a href="#数据库发展的三个阶段" class="headerlink" title="数据库发展的三个阶段"></a>数据库发展的三个阶段</h2><blockquote>
+<p>又叫做数据库管理技术的产生和发展</p>
+</blockquote>
+<ul>
+<li><strong>人工管理阶段</strong></li>
+<li><strong>文件系统阶段</strong></li>
+<li><strong>数据库系统阶段</strong>，有如下特点：<ul>
+<li>整体数据的结构化</li>
+<li>数据的共享性强、冗余度低且易于扩展</li>
+<li>数据的独立性强，包含：<ul>
+<li>数据的物理独立性</li>
+<li>数据的逻辑独立性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>数据库由数据管理系统统一管理和控制</strong></li>
+</ul>
+<h2 id="实体之间的联系"><a href="#实体之间的联系" class="headerlink" title="实体之间的联系"></a>实体之间的联系</h2><p>实体之间的联系有下面三种：</p>
+<ul>
+<li><strong>一对多</strong></li>
+<li><strong>一对一</strong></li>
+<li><strong>多对多</strong></li>
+</ul>
+<h2 id="数据模型的三要素"><a href="#数据模型的三要素" class="headerlink" title="数据模型的三要素"></a>数据模型的三要素</h2><ul>
+<li><strong>数据结构</strong>：描述数据库组成对象与对象之间的联系</li>
+<li><strong>数据操纵</strong>：对数据库各种对象操作的集合</li>
+<li><strong>完整性约束</strong>：一组完整性规则</li>
+</ul>
+<h2 id="数据库三种模型"><a href="#数据库三种模型" class="headerlink" title="数据库三种模型"></a>数据库三种模型</h2><ul>
+<li><strong>层次模型</strong></li>
+<li><strong>网状模型</strong>：</li>
+<li><strong>关系模型</strong>： 二维表</li>
+</ul>
+<h2 id="数据库系统的三级模式结构"><a href="#数据库系统的三级模式结构" class="headerlink" title="数据库系统的三级模式结构"></a>数据库系统的三级模式结构</h2><ol>
+<li><strong>模式</strong>：用户看到的数据视图</li>
+<li><strong>外模式</strong>：数据库用户看到的局部数据和逻辑结构的描述</li>
+<li><strong>内模式</strong>：对物理结构和存储方式的描述，是数据在数据库内部的组织方式</li>
+</ol>
+<h2 id="数据库系统的组成"><a href="#数据库系统的组成" class="headerlink" title="数据库系统的组成"></a>数据库系统的组成</h2><ul>
+<li><strong>硬件平台</strong></li>
+<li><strong>软件平台</strong></li>
+<li><strong>人员</strong></li>
+</ul>
+<h2 id="关系完整性"><a href="#关系完整性" class="headerlink" title="关系完整性"></a>关系完整性</h2><ul>
+<li><strong>实体完整性</strong>：主码不为空</li>
+<li><strong>参照完整性</strong>：关联表应遵守的规则，即更新规则</li>
+<li><strong>用户定义的完整性</strong></li>
+</ul>
+<h2 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h2><h3 id="传统的集合运算"><a href="#传统的集合运算" class="headerlink" title="传统的集合运算"></a>传统的集合运算</h3><ul>
+<li>并：<code>U</code></li>
+<li>差：<code>–</code></li>
+<li>交：<code>∩</code></li>
+<li>笛卡尔积：<code>x</code></li>
+</ul>
+<h3 id="专门的关系运算"><a href="#专门的关系运算" class="headerlink" title="专门的关系运算"></a>专门的关系运算</h3><ul>
+<li><strong>选择</strong>：<code>σ</code></li>
+<li><strong>投影</strong>：<code>π</code></li>
+<li><strong>连接</strong>：<code>⋈</code></li>
+<li><strong>除</strong>：<code>÷</code></li>
+</ul>
+<h2 id="基本表的定义、删除与修改"><a href="#基本表的定义、删除与修改" class="headerlink" title="基本表的定义、删除与修改"></a>基本表的定义、删除与修改</h2><ol>
+<li>定义基本表</li>
+</ol>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &lt;表名&gt;(&lt;列名&gt;&lt;数据类型&gt;[列级完整性约束], ...);</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>修改基本表</li>
+</ol>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE&lt;表名&gt;</span><br><span class="line">	[ADD[COLUMN]&lt;新列名&gt;&lt;数据类型&gt;[完整性约束]]</span><br><span class="line">	[ADD&lt;表级完整性约束&gt;]</span><br><span class="line">	[DROP[COLUMN]&lt;列名&gt;]</span><br><span class="line">	[RENAME COLUMN&lt;列名&gt; TO &lt;新列名&gt;]</span><br><span class="line">	[ALTER COLUMN &lt;列名&gt; TYPE &lt;数据类型&gt;];</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>add</code>：添加新列，新的完整性约束</li>
+<li><code>drop column</code>：用于删除列</li>
+<li><code>rename column</code>：用于修改列名</li>
+<li><code>alter column ... type</code>：用于修改列的数据类型</li>
+</ul>
+<ol start="3">
+<li>删除基本表</li>
+</ol>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE &lt;表名&gt;;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="索引的建立与删除"><a href="#索引的建立与删除" class="headerlink" title="索引的建立与删除"></a>索引的建立与删除</h2><ol>
+<li>建立索引</li>
+</ol>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE[UNIQUE]INDEX&lt;索引名&gt; ON &lt;表名&gt;(&lt;列名&gt;...);</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li>修改索引</li>
+</ol>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER INDEX &lt;旧索引名&gt; RENAME TO &lt;新索引名&gt;;</span><br></pre></td></tr></table></figure></div>
+
+<ol start="3">
+<li>删除索引</li>
+</ol>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP INDEX &lt;索引名&gt;;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="TCSEC-TDI-安全级别划分"><a href="#TCSEC-TDI-安全级别划分" class="headerlink" title="TCSEC&#x2F;TDI 安全级别划分"></a>TCSEC&#x2F;TDI 安全级别划分</h2><table>
+<thead>
+<tr>
+<th align="center">安全级别</th>
+<th align="left">安全指标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>A1</code></td>
+<td align="left">验证设计</td>
+</tr>
+<tr>
+<td align="center"><code>B3</code></td>
+<td align="left">安全域</td>
+</tr>
+<tr>
+<td align="center"><code>B2</code></td>
+<td align="left">结构化保护</td>
+</tr>
+<tr>
+<td align="center"><code>B1</code></td>
+<td align="left">标记安全保护</td>
+</tr>
+<tr>
+<td align="center"><code>C2</code></td>
+<td align="left">受控的存取保护</td>
+</tr>
+<tr>
+<td align="center"><code>C1</code></td>
+<td align="left">自主安全保护</td>
+</tr>
+<tr>
+<td align="center"><code>D</code></td>
+<td align="left">最小保护</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>D</code>级：最低级别。</li>
+<li><code>C1</code>级：提供了非常初级的安全保护，能实现对用户和数据的分离，进行自主控制，保护或限制用户权限的传播。</li>
+<li><code>C2</code>级：安全产品的最低档，提供受控的存取保护，将<code>C1</code>级的<code>DAC</code>进一步细化，以个人身份注册负责，实施审计和资源隔离。</li>
+<li><code>B1</code>级：标记安全保护，对系统数据加以标记，并对标记的主体和客体实施强制存取控制和安全审计等安全机制。<code>B1</code>级别的产品才能被认为是<strong>真正意义上的安全产品</strong>。</li>
+<li><code>B2</code>级：结构化保护。</li>
+<li><code>B3</code>级：安全域。</li>
+<li><code>A1</code>级：验证设计。</li>
+</ul>
+<h2 id="授权与收回数据的操作权限"><a href="#授权与收回数据的操作权限" class="headerlink" title="授权与收回数据的操作权限"></a>授权与收回数据的操作权限</h2><ol>
+<li><code>grant</code>语句(<strong>授权</strong>)</li>
+</ol>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT&lt;权限&gt; [权限] ON &lt;对象类型&gt;&lt;对象名&gt; TO &lt;用户&gt; [WITH GRANT OPTION];</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>具体例子</strong>：</p>
+<blockquote>
+<p>赋予<code>U2, U3</code>用户查询<code>Student, Course</code>表的权限，并且允许他们授权他人。</p>
+</blockquote>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT SELECT ON TABLE Student, Course TO U2, U3 WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<ol start="2">
+<li><code>revoke</code>语句(<strong>收回权限</strong>)</li>
+</ol>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">REVOKE&lt;权限&gt;[,&lt;权限&gt;]...</span><br><span class="line">ON &lt;对象类型&gt;&lt;对象名&gt;[,&lt;对象类型&gt;&lt;对象名&gt;]... </span><br><span class="line">FROM &lt;用户&gt;[,&lt;用户&gt;]...[CASCADE|RESTRICT];</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>CASCADE</code>：表示级联收回，收回一个用户发放出去的权限。</li>
+<li><code>RESTRICT</code>：表示转授权限后不能收回。</li>
+</ul>
+<p><strong>具体例子</strong>：</p>
+<blockquote>
+<p>收回<code>U4</code>用户修改<code>Student</code>表中<code>Sno</code>列的权限。</p>
+</blockquote>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REVOKE UPDATE(Sno) ON TABLE Student FROM U4;</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>收回所有用户对表<code>SC</code>的查询权限。</p>
+</blockquote>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REVOKE SELECT ON TABLE SC FROM PUBLIC;</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>收回<code>U5</code>对<code>SC</code>表的<code>INSERT</code>权限。</p>
+</blockquote>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REVOKE INSERT ON TABLE SC FROM U5;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="审计"><a href="#审计" class="headerlink" title="审计"></a>审计</h2><p>审计功能把用户对数据库的所有操作自动记录下来放入审计日志。审计员可以利用审计日志监控数据库中的各种行为，重现导致数据库现有状况的一系列事件，找出非法存取数据的人、时间和内容等；还可以对审计日志进行分析，对潜在的威胁提前采取措施加以防范。</p>
+<h2 id="数据加密"><a href="#数据加密" class="headerlink" title="数据加密"></a>数据加密</h2><blockquote>
+<p>依布拉音说这题是多选题。</p>
+</blockquote>
+<p>数据加密分为：</p>
+<ul>
+<li>存储加密</li>
+<li>传输加密</li>
+</ul>
+<h2 id="实体完整性-代码"><a href="#实体完整性-代码" class="headerlink" title="实体完整性(代码)"></a>实体完整性(代码)</h2><p>创建表时将属性定义为主码即为实体完整性约束：</p>
+<p><strong>实例</strong>：创建“学生”表<code>Student</code>，将<code>Sno</code>属性定义为主码。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Student</span><br><span class="line">	(	Sno CHAR(8) PRIMARY KEY,</span><br><span class="line">		Sname CHAR(20) UNIQUE,</span><br><span class="line">   	Ssex CHAR(6),</span><br><span class="line">   	Sbirthdate DATE,</span><br><span class="line">   	Smajor VARCHAR(40)</span><br><span class="line">	);</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="参照完整性-代码"><a href="#参照完整性-代码" class="headerlink" title="参照完整性(代码)"></a>参照完整性(代码)</h2><p>一个键参照了别的表，成为了<code>外码</code>，叫做参照完整性。</p>
+<p><strong>实例</strong>：定义<code>SC</code>中的参照完整性。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE SC</span><br><span class="line">	(	Sno CHAR(8),</span><br><span class="line">  	Cno CHAR(5),</span><br><span class="line">   	Grade SMALLINT,</span><br><span class="line">   	Semester CHAR(5),</span><br><span class="line">   	Teachingclass CHAR(8),</span><br><span class="line">   	PRIMARY KEY(Sno, Cno),											/*在表级定义实体完整性*/</span><br><span class="line">	  FOREIGN KEY(Sno) REFERENCES Student(Sno),		</span><br><span class="line">   /*在表级定义参照完整性，Sno是外码，被参照表是Student*/</span><br><span class="line">   	FOREIGN KEY(Cno) REFERENCES Courses(Cno)</span><br><span class="line">   /*在表级定义参照完整性，Cno时外码，被参照表是Course*/</span><br><span class="line">  );</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="用户定义的完整性-代码"><a href="#用户定义的完整性-代码" class="headerlink" title="用户定义的完整性(代码)"></a>用户定义的完整性(代码)</h2><p>使用<code>CHECK()</code>使用判断条件进行检查。</p>
+<p><strong>例子</strong>：<code>Student</code>表的<code>Ssex</code>只允许取“男”或“女”。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Student</span><br><span class="line">	(	Sno CHAR(8) PRIMARY KEY,</span><br><span class="line">   	Sname CHAR(20) NOT NULL,</span><br><span class="line">   	Ssex CHAR(6) CHECK(Ssex IN(&#x27;男&#x27;, &#x27;女&#x27;)),</span><br><span class="line">   	Sbirthday Date,</span><br><span class="line">   	Smajor VARCHAR(40)</span><br><span class="line">  );</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>例子🌰 - 2</strong>：<code>SC</code>表的<code>Grade</code>的值应该在<code>0 ~ 100</code>。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE SC</span><br><span class="line">	(	Sno CHAR(8),</span><br><span class="line">   	Cno CHAR(5),</span><br><span class="line">   	Grade SMALLINT CHECK(Grade&gt;=0 AND Grade &lt;= 100),</span><br><span class="line">   	Semester CHAR(5),</span><br><span class="line">   	Teachingclass CHAR(8),</span><br><span class="line">   	PRIMARY KEY(Sno) REFERENCES Student(Sno),</span><br><span class="line">   	FOREIGN KEY(Cno) REFERENCES Course(Cno)</span><br><span class="line">  );</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="三个范式"><a href="#三个范式" class="headerlink" title="三个范式"></a>三个范式</h2><ul>
+<li><strong>第一范式</strong>&#x2F;<code>1NF</code>：一个二维表，每个分量是不可分的数据项。</li>
+<li><strong>第二范式</strong>&#x2F;<code>2NF</code>：每一个非主属性完全函数依赖于任何一个候选码。</li>
+<li><strong>第三范式</strong>&#x2F;<code>3NF</code>：每一个非主属性既不传递依赖于码，也不部分依赖于码。</li>
+</ul>
+<h2 id="数据库设计的特点"><a href="#数据库设计的特点" class="headerlink" title="数据库设计的特点"></a>数据库设计的特点</h2><ol>
+<li><strong>重视基础数据</strong>：“三分技术，七分管理，十二分基础数据”是数据库设计的第一个特点。</li>
+<li><strong>数据库设计和数据处理设计相结合</strong>：这是数据库设计的第二个特点。</li>
+</ol>
+<h2 id="数据库设计的基本步骤"><a href="#数据库设计的基本步骤" class="headerlink" title="数据库设计的基本步骤"></a>数据库设计的基本步骤</h2><blockquote>
+<p>这个强调过至少两次，大概率考。</p>
+</blockquote>
+<p>分为以下六个阶段，其中需求分析阶段<strong>最难、最耗时间</strong>。</p>
+<ol>
+<li>需求分析阶段</li>
+<li>概念结构设计阶段</li>
+<li>逻辑结构设计阶段</li>
+<li>物理结构设计阶段</li>
+<li>数据库实施阶段</li>
+<li>数据库运行和维护阶段</li>
+</ol>
+<h2 id="数据字典"><a href="#数据字典" class="headerlink" title="数据字典"></a>数据字典</h2><p><code>数据字典</code>是在<strong>需求分析阶段建立，在数据库设计过程中不断修改、充实和完善</strong>。</p>
+<p>数据字典常包括：</p>
+<ol>
+<li><strong>数据项</strong></li>
+<li><strong>数据结构</strong></li>
+<li><strong>数据流</strong></li>
+<li><strong>数据存储</strong></li>
+<li><strong>处理过程</strong></li>
+</ol>
+<h2 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h2><p>概念模型的主要特点是：</p>
+<ol>
+<li><strong>能真实、充分地反映现实世界</strong>。</li>
+<li><strong>易于理解</strong>。</li>
+<li><strong>易于更改</strong>。</li>
+<li><strong>易于向关系模型、网状模型、层次模型等各种数据模型进行转换</strong>。</li>
+</ol>
+<h2 id="E-R-模型⭐️"><a href="#E-R-模型⭐️" class="headerlink" title="E-R 模型⭐️"></a>E-R 模型⭐️</h2><h3 id="实体之间的联系-1"><a href="#实体之间的联系-1" class="headerlink" title="实体之间的联系"></a>实体之间的联系</h3><p>实体之间的联系：</p>
+<ol>
+<li><strong>一对一联系（1:1）</strong></li>
+<li><strong>一对多联系（1:n）</strong></li>
+<li><strong>多对多联系（m:n）</strong></li>
+</ol>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-01-01%2014.53.00.png"
+                      alt="截屏2025-01-01 14.53.00" style="zoom:50%;" 
+                >
+
+<h3 id="E-R-图"><a href="#E-R-图" class="headerlink" title="E-R 图"></a>E-R 图</h3><ol>
+<li><strong>实体型用矩形表示</strong>，矩形框内写明实体名。</li>
+<li><strong>属性用椭圆形表示</strong>，并用五向边将其与相应的实体型连接起来。</li>
+<li><strong>联系用菱形表示</strong>，菱形框内写明联系名，并用无向边分别与有关实体型连接起来，同时在无向边旁标注联系的类型（如1:1、1:n或m:n等）。</li>
+</ol>
+<blockquote>
+<p>具体步骤见书本P226</p>
+</blockquote>
+<h2 id="查询处理四个阶段"><a href="#查询处理四个阶段" class="headerlink" title="查询处理四个阶段"></a>查询处理四个阶段</h2><p>关系数据库管理系统的查询处理可以分为4个阶段：</p>
+<ol>
+<li>查询分析</li>
+<li>查询检查</li>
+<li>查询优化</li>
+<li>查询执行</li>
+</ol>
+<h2 id="查询优化概述"><a href="#查询优化概述" class="headerlink" title="查询优化概述"></a>查询优化概述</h2><p>优化器为什么做得更好的四个原因：</p>
+<ol>
+<li><strong>优化器可以从数据字典中获取更多统计信息</strong>。</li>
+<li><strong>如果数据库的物理统计信息改变了，系统可以自动对查询进行重新优化以选择相适应的执行计划</strong>。</li>
+<li><strong>优化器可以考虑数百种甚至数千种不同的执行计划</strong>。</li>
+<li><strong>优化器中包含很多复杂的优化技术</strong>。</li>
+</ol>
+<h2 id="事务的ACID特性"><a href="#事务的ACID特性" class="headerlink" title="事务的ACID特性"></a>事务的ACID特性</h2><p><code>事务</code>具有四个特性，原子性(atomicity)、一致性(consistency)、隔离性(isolation)和持续性(durability)。这四个特性可以简称为<strong>ACID特性</strong>。</p>
+<ol>
+<li><strong>原子性</strong>：事务是数据库的逻辑工作单位，事务的原子性指事务中包括的诸操作要么都做，要么都不做。</li>
+<li><strong>一致性</strong>：事务执行的结果必须是使数据库从一个一致性状态转为另一个一致性状态。</li>
+<li><strong>隔离性</strong>：事务的隔离性指一个事务的执行不能被其他事务干扰，即一个事务的内部操作及使用的数据对。</li>
+<li><strong>持续性</strong>：事务的持续性也成<strong>永久性</strong>，指一个事务一旦提交，它对数据库中数据的改变就应该是永久性的，接下来的其他操作或故障不应该对其执行结果有任何影响。</li>
+</ol>
+<h2 id="故障的种类"><a href="#故障的种类" class="headerlink" title="故障的种类"></a>故障的种类</h2><p>数据库系统中可能发生各种各种各样的故障，大致可以分为以下几类：</p>
+<ol>
+<li>事务内部的故障：事务的故障意意味着事务没有达到预期的终点。</li>
+<li>系统故障：系统故障是指造成系统停止运转的任何事件，使得系统要重新启动。</li>
+<li>介质故障：把系统故障称为<strong>软故障</strong>、介质故障称为<strong>硬故障</strong>。</li>
+</ol>
+<blockquote>
+<p>介质故障就是物理层面的故障，如磁盘损坏、磁头碰撞。</p>
+</blockquote>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 数据库系统概论期末整理</li>
+        <li><strong>作者:</strong> Shen Ying</li>
+        <li><strong>创建于
+                :</strong> 2024-12-31 13:10:31</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2025-02-22 10:19:59
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://shenying.online/2024/12/31/数据库系统概论期末整理/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E5%AD%A6%E6%A0%A1/">#学校</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/01/01/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E7%94%B5%E8%B7%AF%E6%9C%9F%E6%9C%AB%E6%95%B4%E7%90%86/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">数字逻辑电路期末整理</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2024/12/31/JFrame%E6%9C%9F%E6%9C%AB%E6%94%BB%E7%95%A5/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">JFrame期末攻略</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://comment-system-gamma.vercel.app/',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">数据库系统概论期末整理</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9B%9B%E4%B8%AA%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">数据库四个基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%91%E5%B1%95%E7%9A%84%E4%B8%89%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="nav-text">数据库发展的三个阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%E4%B9%8B%E9%97%B4%E7%9A%84%E8%81%94%E7%B3%BB"><span class="nav-text">实体之间的联系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="nav-text">数据模型的三要素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%9E%8B"><span class="nav-text">数据库三种模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%89%E7%BA%A7%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84"><span class="nav-text">数据库系统的三级模式结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%84%E6%88%90"><span class="nav-text">数据库系统的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-text">关系完整性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0"><span class="nav-text">关系代数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E7%9A%84%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97"><span class="nav-text">传统的集合运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%93%E9%97%A8%E7%9A%84%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97"><span class="nav-text">专门的关系运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E5%88%A0%E9%99%A4%E4%B8%8E%E4%BF%AE%E6%94%B9"><span class="nav-text">基本表的定义、删除与修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%BB%BA%E7%AB%8B%E4%B8%8E%E5%88%A0%E9%99%A4"><span class="nav-text">索引的建立与删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCSEC-TDI-%E5%AE%89%E5%85%A8%E7%BA%A7%E5%88%AB%E5%88%92%E5%88%86"><span class="nav-text">TCSEC&#x2F;TDI 安全级别划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%88%E6%9D%83%E4%B8%8E%E6%94%B6%E5%9B%9E%E6%95%B0%E6%8D%AE%E7%9A%84%E6%93%8D%E4%BD%9C%E6%9D%83%E9%99%90"><span class="nav-text">授权与收回数据的操作权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A1%E8%AE%A1"><span class="nav-text">审计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86"><span class="nav-text">数据加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%E5%AE%8C%E6%95%B4%E6%80%A7-%E4%BB%A3%E7%A0%81"><span class="nav-text">实体完整性(代码)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E7%85%A7%E5%AE%8C%E6%95%B4%E6%80%A7-%E4%BB%A3%E7%A0%81"><span class="nav-text">参照完整性(代码)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E5%AE%9A%E4%B9%89%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7-%E4%BB%A3%E7%A0%81"><span class="nav-text">用户定义的完整性(代码)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E4%B8%AA%E8%8C%83%E5%BC%8F"><span class="nav-text">三个范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">数据库设计的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="nav-text">数据库设计的基本步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8"><span class="nav-text">数据字典</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E6%A8%A1%E5%9E%8B"><span class="nav-text">概念模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-R-%E6%A8%A1%E5%9E%8B%E2%AD%90%EF%B8%8F"><span class="nav-text">E-R 模型⭐️</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%E4%B9%8B%E9%97%B4%E7%9A%84%E8%81%94%E7%B3%BB-1"><span class="nav-text">实体之间的联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#E-R-%E5%9B%BE"><span class="nav-text">E-R 图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%A4%84%E7%90%86%E5%9B%9B%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="nav-text">查询处理四个阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E6%A6%82%E8%BF%B0"><span class="nav-text">查询优化概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84ACID%E7%89%B9%E6%80%A7"><span class="nav-text">事务的ACID特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="nav-text">故障的种类</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2024</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Shen Ying</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 24 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/Swup.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	<script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/imageViewer.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/utils.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/main.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/navbarShrink.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/scrollTopBottom.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/lightDarkSwitch.js" ></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/categoryList.js" ></script>
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/localSearch.js" ></script>
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/codeBlock.js" ></script>
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/lazyload.js" ></script>
+
+
+
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/runtime.js" ></script>
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/Typed.min.js" ></script>
+  <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/typed.js" ></script>
+
+
+
+
+
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/minimasonry.min.js" ></script>
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/masonry.js" ></script>
+
+
+
+    <script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/anime.min.js" ></script>
+
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/tabs.js" data-swup-reload-script></script>
+
+
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+<script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/essays.js" data-swup-reload-script></script>
+
+
+
+
+    <script type="module" src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/layouts/bookmarkNav.js" ></script>
+
+	
+	<div id="aplayer"></div>
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/libs/APlayer.min.js" ></script>
+<script  src="https://registry.npmmirror.com/hexo-theme-redefine/2.8.2/files/source/js/build/plugins/aplayer.js" ></script>
+
+	
+</body>
+
+</html>
