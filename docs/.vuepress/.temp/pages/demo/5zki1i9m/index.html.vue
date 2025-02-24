@@ -1,0 +1,50 @@
+<template><div><p>判断一个数据的类型，常用的方法有以下几种：</p>
+<ul>
+<li><code v-pre>typeof</code></li>
+<li><code v-pre>instanceof</code></li>
+<li><code v-pre>Object.prototype.toString.call(xxx)</code></li>
+</ul>
+<blockquote>
+<p>下面来分别分析一下这三种方法各自的优缺点</p>
+</blockquote>
+<h2 id="typeof" tabindex="-1"><a class="header-anchor" href="#typeof"><span>typeof</span></a></h2>
+<p><code v-pre>typeof</code>的本意是用来判断一个数据的数据类型，所以返回的也是一个数据类型。但是会遇到下面这些问题：</p>
+<ul>
+<li>无法判断 <code v-pre>null</code>。</li>
+<li>无法判断除了 <code v-pre>function</code> 之外的引用类型。</li>
+</ul>
+<div class="language-js line-numbers-mode" data-ext="js" data-title="js"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// 无法判断 null。</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">console</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">typeof</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> null</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // 输出 'object'，原因在文章末尾解释。</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// 无法判断除了 function 之外的引用类型。</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">console</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">typeof</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> []);</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // 'object'</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">console</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">typeof</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {});</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // 'object'</span></span></code></pre>
+
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="incetance-of" tabindex="-1"><a class="header-anchor" href="#incetance-of"><span>incetance of</span></a></h2>
+<p>可以看到，<code v-pre>type of</code>无法精确判断对象的引用类型。所以在判断一个对象的引用类型时一般使用<code v-pre>incetance of</code>关键字。</p>
+<div class="language-js line-numbers-mode" data-ext="js" data-title="js"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">console</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">([]</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> instanceof</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994"> Array</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // true</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">console</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">str1</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> instanceof</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994"> String</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // false，无法判断原始类型。</span></span></code></pre>
+
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>但是<code v-pre>incetance of</code>无法准确判断原始数据类型，只能用来判断数据是否是某个类的引用。到这里就能发现，如果把<code v-pre>incetance of</code>和<code v-pre>type of</code>结合起来基本就能判断所有的数据类型了。</p>
+<p>但是，别忘记还有一个<code v-pre>null</code>，对于<code v-pre>null</code>还需要进行特殊的处理。</p>
+<div class="language-js line-numbers-mode" data-ext="js" data-title="js"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">typeof</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> null</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">	// object</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">if</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> (</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">target</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> ===</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> null</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">	return</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">null</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span></code></pre>
+
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>结合这两种方法基本已经掌握了判断数据类型的手段了，但是如果去写一下你还是会发现很麻烦，你必须枚举每一种类型利用<code v-pre>true</code>or<code v-pre>false</code>判断数据类型。</p>
+<p>这里的<code v-pre>null</code>必须单独判断，因为这是第一版<code v-pre>JavaScript</code>留下来的一个bug。</p>
+<p>JavaScript 中不同对象在底层都表示为二进制，而 JavaScript 中会把二进制前三位都为 0 的判断为 <code v-pre>object</code> 类型，而 <code v-pre>null</code> 的二进制表示全都是 0，自然前三位也是 0，所以执行 <code v-pre>typeof</code> 时会返回 <code v-pre>'object'</code>。</p>
+<p>这个 bug 牵扯了太多的 Web 系统，一旦改了，会产生更多的 bug，令很多系统无法工作，也许这个 bug 永远都不会修复了。</p>
+<h2 id="object-prototype-tostring-call-xxx" tabindex="-1"><a class="header-anchor" href="#object-prototype-tostring-call-xxx"><span>Object.prototype.toString.call(xxx)</span></a></h2>
+<p>这个时候就不得不提到下面这种方法了：</p>
+<div class="language-js line-numbers-mode" data-ext="js" data-title="js"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">Object</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#998418;--shiki-dark:#B8A965">prototype</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">toString</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">call</span><span style="--shiki-light:#999999;--shiki-dark:#666666">([])</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">	// [object Array]</span></span></code></pre>
+
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>这个方法会返回统一格式的字符串：<code v-pre>[object Xxx]</code>。然后再取出后面的<code v-pre>xxx</code>即可得到准确的数据类型。对于取出后面的<code v-pre>xxx</code>可以使用多种方法，包括但不限于字符切片、正则表达式。</p>
+<blockquote>
+<p>这里调用<code v-pre>call()</code>方法是为了让<code v-pre>this</code>指向数组对象自身。</p>
+</blockquote>
+</div></template>
+
+
