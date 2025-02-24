@@ -51,7 +51,7 @@ config:
     list:
       -
         title: Games
-        description: Counter-Strike2、HollowKnight、蔚蓝
+        description: Counter-Strike2、HollowKnight、Celese
       -
         title: Sport
         description: 乒乓球...
