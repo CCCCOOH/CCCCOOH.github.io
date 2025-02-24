@@ -1,6 +1,10 @@
 ---
 title: 自定义组件
-contributors: CCCCOOH
+contributors: 'CCCCOOH'
+copyright:
+  author:
+    name: CCCCOOH
+    url: https://github.com/ccccooh
 tags:
   - 预览
   - 组件
