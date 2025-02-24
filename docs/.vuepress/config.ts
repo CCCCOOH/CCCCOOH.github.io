@@ -17,18 +17,6 @@ export default defineUserConfig({
   shouldPrefetch: false, // 站点较大，页面数量较多时，不建议启用
 
   theme: plumeTheme({
-    contributors: {
-      mode: 'inline',
-      info: [
-        {
-          username: 'CCCCOOH', // github username
-          name: 'CCCCOOH',
-          alias: 'CCCCOOH',
-          avatar: 'https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1280px-Knight_Action.png',
-          url: 'https://github.com/ccccooh'
-        }
-      ]
-    },
     // 社交链接
     social: [
       { icon: 'github', link: 'https://github.com/CCCCOOH' },
@@ -43,9 +31,9 @@ export default defineUserConfig({
     // docsBranch: '',
 
     /* 页内信息 */
-    // editLink: true,
+    editLink: true,
     // lastUpdated: true,
-    // contributors: true,
+    contributors: true,
     changelog: {
       maxCount: 10,
       repoUrl: 'https://github.com/CCCCOOH/CCCCOOH.github.io',
