@@ -18,11 +18,12 @@ export default defineUserConfig({
 
   theme: plumeTheme({
     contributors: {
-      mode: 'block',
+      mode: 'inline',
       info: [
         {
+          name: 'Sy_',
           username: 'CCCCOOH', // github username
-          alias: ['CCCCOOH'], // 别名，本地 git 配置中的用户名
+          url: 'https://github.com/ccccooh'
         }
       ]
     },
