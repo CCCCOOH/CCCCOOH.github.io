@@ -28,27 +28,21 @@ config:
       -
         title: Vue
         icon: <img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/skill-icons--vuejs-dark.png" />
-        details: 学习过Vue框架，写过呃..Todolist
       -
         title: Unity
         icon: <img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/skill-icons--unity-light.png" />
-        details: 用Unity写过FlappyTerraria
       -
         title: Unreal
         icon: <img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/skill-icons--unrealengine.png" />
-        details: 用虚幻写过小Demo
       -
         title: Godot
         icon: <img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/skill-icons--godot-dark.png" />
-        details: 最喜欢的戈多引擎，用它制作过大型平台跳跃
       -
         title: GameMakerStudio
         icon: <img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/file-icons--gamemaker.png" />
-        details: 最开始学习的游戏引擎，伴我GameDev入门
       -
         title: Web5
         icon: <img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/skill-icons--html.png" />
-        details: 熟悉前端三件套
   -
     type: text-image
     title: About
