@@ -10,8 +10,10 @@
 <p>在官网阅读完<mark>Vuepress-Plume</mark>主题的文档后，我果断选择将博客迁移到了Vueperess框架。</p>
 <p><code v-pre>Plume</code>的文件管理方式实在吸引我，他其他的专业性功能也强到可怕。<mark>Plume</mark>自动解析并识别文件结构，而于此对应的<code v-pre>Hexo</code>居然只可以将所有的博客文件全部摊在一个<code v-pre>_posts</code>文件夹中，这是何等的悲哀。</p>
 <p><code v-pre>Vue</code>，一个<mark>T0级别</mark>的前端框架。基于Vue的Vuepress，提供的功能也非常多，其中杀手级功能数不胜数，我一个羸弱blogger在Plume面前完全没有任何抵抗力。可以说，<code v-pre>Plume</code>这种既面向文档又面向博客的框架，简直就是我这种简约风狂热者的梦中主题。</p>
-<p>说个有意思的，我自己开发的主题居然和<code v-pre>Plume</code>在设计风格上相似度极高[+tip1]。
-[+tip1]: 这我还开发个锤锤，人家都把我梦想中的主题开发好喂我嘴里了...</p>
+<p>说个有意思的，我自己开发的主题居然和<code v-pre>Plume</code>在设计风格上相似度极高。</p>
+<blockquote>
+<p>这我还开发个锤锤，人家都把我梦想中的主题开发好喂我嘴里了...</p>
+</blockquote>
 <h2 id="_2-问题" tabindex="-1"><a class="header-anchor" href="#_2-问题"><span>2.问题</span></a></h2>
 <p>在部署<code v-pre>Vuepress</code>的过程中，由于其设计的不同出现了些许问题。</p>
 <p>之前部署Hexo我使用的是私有仓库存放源代码，Gitpage仓库存放静态打包📦资源的方式。本地推送代码到源码仓库后Gitactions将静态资源同步到Gitpage仓库。</p>
