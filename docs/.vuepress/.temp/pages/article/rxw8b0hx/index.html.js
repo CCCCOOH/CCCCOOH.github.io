@@ -1,5 +1,5 @@
 import comp from "/Users/sy/codes/CCCCOOH.github.io/docs/.vuepress/.temp/pages/article/rxw8b0hx/index.html.vue"
-const data = JSON.parse("{\"path\":\"/article/rxw8b0hx/\",\"title\":\"mac终端工作流优化计划\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"mac终端工作流优化计划\",\"createTime\":\"2025/02/23 21:46:30\",\"permalink\":\"/article/rxw8b0hx/\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":3.95,\"words\":1185},\"filePathRelative\":\"WorkFlow/mac终端工作流优化计划.md\",\"categoryList\":[{\"id\":\"9587ef\",\"sort\":10000,\"name\":\"WorkFlow\"}]}")
+const data = JSON.parse("{\"path\":\"/article/rxw8b0hx/\",\"title\":\"mac终端工作流优化计划\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"mac终端工作流优化计划\",\"createTime\":\"2025/02/23 21:46:30\",\"permalink\":\"/article/rxw8b0hx/\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":3.95,\"words\":1185},\"filePathRelative\":\"WorkFlow/mac终端工作流优化计划.md\",\"categoryList\":[{\"id\":\"9587ef\",\"sort\":10001,\"name\":\"WorkFlow\"}]}")
 export { comp, data }
 
 if (import.meta.webpackHot) {
