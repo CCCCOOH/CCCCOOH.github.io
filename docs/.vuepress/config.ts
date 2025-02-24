@@ -17,6 +17,15 @@ export default defineUserConfig({
   shouldPrefetch: false, // 站点较大，页面数量较多时，不建议启用
 
   theme: plumeTheme({
+    contributors: {
+      mode: 'block',
+      info: [
+        {
+          username: 'CCCCOOH', // github username
+          alias: ['CCCCOOH'], // 别名，本地 git 配置中的用户名
+        }
+      ]
+    },
     // 社交链接
     social: [
       { icon: 'github', link: 'https://github.com/CCCCOOH' },

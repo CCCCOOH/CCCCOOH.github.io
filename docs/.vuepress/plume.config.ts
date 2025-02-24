@@ -9,7 +9,6 @@ export default defineThemeConfig({
   logo: 'https://theme-plume.vuejs.press/plume.png',
 
   appearance: true,  // 配置 深色模式
-
   social: [
     { icon: 'github', link: 'https://github.com/CCCCOOH' },
   ],
@@ -38,7 +37,7 @@ export default defineThemeConfig({
    */
   profile: {
     avatar: 'https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250223211846991.png',
-    name: 'CCCCOOH',
+    name: 'Sy_',
     description: 'A simple codder',
     circle: true,
     // location: '',
