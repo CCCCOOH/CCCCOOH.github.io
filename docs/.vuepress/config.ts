@@ -21,8 +21,10 @@ export default defineUserConfig({
       mode: 'inline',
       info: [
         {
-          name: 'Sy_',
           username: 'CCCCOOH', // github username
+          name: 'CCCCOOH',
+          alias: 'CCCCOOH',
+          avatar: 'https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1280px-Knight_Action.png',
           url: 'https://github.com/ccccooh'
         }
       ]
@@ -46,7 +48,7 @@ export default defineUserConfig({
     // contributors: true,
     changelog: {
       maxCount: 10,
-      repoUrl: 'https://github.com/CCCCOOH/ccccooh.github.io',
+      repoUrl: 'https://github.com/CCCCOOH/CCCCOOH.github.io',
       commitUrlPattern: ':repo/commit/:hash',
       issueUrlPattern: ':repo/issues/:issue',
       tagUrlPattern: ':repo/releases/tag/:tag'
@@ -86,6 +88,7 @@ export default defineUserConfig({
     // },
 
     plugins: {
+      git: true,
       /**
        * Shiki 代码高亮
        * @see https://theme-plume.vuejs.press/config/plugins/code-highlight/

@@ -1,5 +1,6 @@
 ---
 title: 自定义组件
+contributors: CCCCOOH
 tags:
   - 预览
   - 组件

@@ -2,6 +2,7 @@
 title: 榨干你家的千兆宽带，Steam下载速度90Mb+
 createTime: 2025/02/23 21:49:58
 permalink: /article/hmkal6hu/
+contributors: CCCCOOH
 ---
 平时一直没注意到家里的路由器在偷懒。最近成功榨干家里的带宽，把平时一直`20mb/s`左右下载速度的路由器一番改造后成功steam下载速度稳定`85+Mb/s`。平时一直都只发挥了他的1/3不到，真是太可惜了。
 
