@@ -10,7 +10,7 @@ config:
       dark: 0.3
     hero:
       name: Sy_COOH
-      tagline: Here is my blog site.
+      tagline: GameDev&FrontEnd.
       text: 一个简单的coder
       image: https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1280px-Knight_Action.png
       actions:
@@ -63,7 +63,7 @@ config:
         description: 乒乓球...
       -
         title: Other
-        description: 热爱编程、游戏开发、前端。
+        description: Programming、GameDev、FrontEnd。
   -
     type: custom
 ---
