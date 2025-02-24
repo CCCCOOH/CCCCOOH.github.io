@@ -24,6 +24,7 @@ config:
           link: https://github.com/CCCCOOH
   -
     type: features
+    title: 'Language'
     features:
       -
         title: Vue
