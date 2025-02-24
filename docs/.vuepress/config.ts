@@ -34,7 +34,13 @@ export default defineUserConfig({
     // editLink: true,
     // lastUpdated: true,
     // contributors: true,
-    changelog: true,
+    changelog: {
+      maxCount: 10,
+      repoUrl: 'https://github.com/CCCCOOH/ccccooh.github.io',
+      commitUrlPattern: ':repo/commit/:hash',
+      issueUrlPattern: ':repo/issues/:issue',
+      tagUrlPattern: ':repo/releases/tag/:tag'
+    },
     copyright: 'CC-BY-4.0',
     /**
      * 博客
@@ -179,5 +185,6 @@ export default defineUserConfig({
      * @see https://theme-plume.vuejs.press/guide/features/encryption/
      */
     // encrypt: {},
+    // git: process.env.NODE_ENV === 'production'
   }),
 })

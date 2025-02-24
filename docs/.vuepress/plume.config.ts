@@ -38,7 +38,7 @@ export default defineThemeConfig({
    */
   profile: {
     avatar: 'https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250223211846991.png',
-    name: 'Sy',
+    name: 'CCCCOOH',
     description: 'A simple codder',
     circle: true,
     // location: '',
