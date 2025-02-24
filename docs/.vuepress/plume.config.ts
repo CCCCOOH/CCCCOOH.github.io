@@ -35,14 +35,14 @@ export default defineThemeConfig({
   /**
    * @see https://theme-plume.vuejs.press/config/basic/#profile
    */
-  profile: {
-    avatar: 'https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250223211846991.png',
-    name: 'Sy_',
-    description: 'A simple codder',
-    circle: true,
-    // location: '',
-    // organization: '',
-  },
+  // profile: {
+  //   avatar: 'https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250223211846991.png',
+  //   name: 'Sy_',
+  //   description: 'A simple codder',
+  //   circle: true,
+  //   // location: '',
+  //   // organization: '',
+  // },
 
   navbar,
   notes,
