@@ -1,10 +1,5 @@
 ---
 title: Markdown
-contributors: 'CCCCOOH'
-copyright:
-  author:
-    name: CCCCOOH
-    url: https://github.com/ccccooh
 tags:
   - markdown
 createTime: 2025/02/23 19:17:08

@@ -2,11 +2,6 @@
 title: 速通Ollama本地部署DeepSeek-r1
 createTime: 2025/02/23 21:06:20
 permalink: /article/ddyrfd1v/
-contributors: 'CCCCOOH'
-copyright:
-  author:
-    name: CCCCOOH
-    url: https://github.com/ccccooh
 ---
 ## 下载 Ollama
 

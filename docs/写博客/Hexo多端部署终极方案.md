@@ -2,11 +2,6 @@
 title: Hexo多端部署终极方案
 createTime: 2025/02/23 21:05:00
 permalink: /article/3ghh2hbc/
-contributors: 'CCCCOOH'
-copyright:
-  author:
-    name: CCCCOOH
-    url: https://github.com/ccccooh
 ---
 ## 一、故事背景
 

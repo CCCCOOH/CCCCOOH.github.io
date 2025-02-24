@@ -52,10 +52,10 @@
 <h2 id="使用方法" tabindex="-1"><a class="header-anchor" href="#使用方法"><span>使用方法</span></a></h2>
 <p>查询模型列表：</p>
 <p><img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202502030647700.png" alt="image-20250203064729663"></p>
-<div class="language-bash line-numbers-mode" data-ext="bash" data-title="bash"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">ollama</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> list</span></span></code></pre>
+<div class="language-bash line-numbers-mode" data-ext="bash" data-title="bash"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">ollama</span><span class="space"> </span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">list</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>运行模型：</p>
-<div class="language-bash line-numbers-mode" data-ext="bash" data-title="bash"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">ollama</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> run</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> NAME</span></span></code></pre>
+<div class="language-bash line-numbers-mode" data-ext="bash" data-title="bash"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">ollama</span><span class="space"> </span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">run</span><span class="space"> </span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">NAME</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><blockquote>
 <p>这里的<code v-pre>NAME</code>是使用<code v-pre>ollama list</code>后显示的<code v-pre>NAME</code>，例如上图中就是<code v-pre>deepseek-r1:1.5b</code>，具体取决于你安装了什么。</p>
@@ -67,11 +67,11 @@
 <p>可以使用创建一个<code v-pre>cat_girl.txt</code>的文本文件，并删除<code v-pre>.txt</code>后缀来达到同样的结果。</p>
 </blockquote>
 <p>接着用<code v-pre>VisualStudioCode</code>打开它，写入代码：</p>
-<div class="language- line-numbers-mode" data-ext="" data-title=""><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span>FROM deepseek-r1:1.5b</span></span>
+<div class="language- line-numbers-mode" data-ext="" data-title=""><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span>FROM</span><span class="space"> </span><span>deepseek-r1:1.5b</span></span>
 <span class="line"><span></span></span>
-<span class="line"><span>PARAMETER temperature 1</span></span>
+<span class="line"><span>PARAMETER</span><span class="space"> </span><span>temperature</span><span class="space"> </span><span>1</span></span>
 <span class="line"><span></span></span>
-<span class="line"><span>SYSTEM """</span></span>
+<span class="line"><span>SYSTEM</span><span class="space"> </span><span>"""</span></span>
 <span class="line"><span>三引号中间的文本替换成你自己的设定文本，比如下面这样，你也可以自由发挥：</span></span>
 <span class="line"><span></span></span>
 <span class="line"><span>猫娘是一种拟人化的生物，其行为似猫但类人。</span></span>
@@ -92,7 +92,7 @@
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>注意这里的<code v-pre>deepseek-r1:1.5b</code>要替换成你需要自定义的模型，<code v-pre>PARAMETER temperature</code>表示创意等级，该参数后面跟着的数字取值范围是<code v-pre>0~1</code>小数，如果是<code v-pre>0</code>就很严肃，<code v-pre>1</code>就像陪聊一样，也可以介于两者之间，如<code v-pre>0.5</code>。</p>
 <p>接着进入到这个文件的目录下，并使用指令 ：</p>
-<div class="language-bash line-numbers-mode" data-ext="bash" data-title="bash"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">ollama</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> create</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> CatGirl</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -f</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ./cat_girl</span></span></code></pre>
+<div class="language-bash line-numbers-mode" data-ext="bash" data-title="bash"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">ollama</span><span class="space"> </span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">create</span><span class="space"> </span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">CatGirl</span><span class="space"> </span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076">-f</span><span class="space"> </span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">./cat_girl</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>这里<code v-pre>-f</code>后的文件替换为你刚才创建的文件名，<code v-pre>create</code>后跟着的名字就是你的设定名，可以和文件名不同。</p>
 <p>完成上述步骤后，再次<code v-pre>orrama list</code> 就能看到新创建的模型了，再次使用<code v-pre>ollama run CatGirl</code>就能访问新建的猫娘模型<code v-pre>CatGirl</code>了，如果你使用了别的名字，换成对应的即可。</p>

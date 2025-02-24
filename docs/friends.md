@@ -15,4 +15,9 @@ list:
     link: https://tobykskgd.life/
     avatar: http://tobykskgd.life/wp-content/uploads/2024/02/IMG_3007.jpg
     desc: C’est comme ça
+  -
+    name: PengZhanBo
+    link: https://pengzhanbo.cn/
+    avatar: https://pengzhanbo.cn/images/blogger-fav.png
+    desc: 膜拜大佬...
 ---

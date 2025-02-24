@@ -2,11 +2,6 @@
 title: 换到Vuepress后遇到的问题和感悟
 createTime: 2025/02/24 18:45:00
 permalink: /article/2ke6oqe0/
-contributors: 'CCCCOOH'
-copyright:
-  author:
-    name: CCCCOOH
-    url: https://github.com/ccccooh
 ---
 
 ## 1.前言
