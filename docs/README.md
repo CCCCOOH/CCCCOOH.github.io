@@ -3,9 +3,11 @@ pageLayout: home
 externalLinkIcon: false
 config:
   -
-    type: hero
-    full: true
-    background: tint-plate
+    type: banner
+    banner: https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/hollow.jpeg
+    bannerMask:
+      light: 0.1
+      dark: 0.3
     hero:
       name: Sy_COOH
       tagline: Here is my blog site.
@@ -50,12 +52,12 @@ config:
   -
     type: text-image
     title: About
-    description: 学最过气前端编程、做独立游戏开发白日梦。
+    description: 学过气前端编程、做独立游戏开发白日梦。
     image: https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1280px-Knight_Action.png
     list:
       -
         title: Games
-        description: Counter-Strike2、HollowKnight、蔚蓝...
+        description: Counter-Strike2、HollowKnight、蔚蓝
       -
         title: Sport
         description: 乒乓球...
