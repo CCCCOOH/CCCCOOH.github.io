@@ -8,8 +8,9 @@ import * as clientConfig6 from '/Users/sy/codes/CCCCOOH.github.io/docs/.vuepress
 import * as clientConfig7 from '/Users/sy/codes/CCCCOOH.github.io/docs/.vuepress/.temp/md-enhance/config.js'
 import * as clientConfig8 from '/Users/sy/codes/CCCCOOH.github.io/docs/.vuepress/.temp/md-power/config.js'
 import * as clientConfig9 from '/Users/sy/codes/CCCCOOH.github.io/docs/.vuepress/.temp/markdown-math/config.js'
-import * as clientConfig10 from '/Users/sy/codes/CCCCOOH.github.io/node_modules/.pnpm/vuepress-theme-plume@1.0.0-rc.131_@algolia+client-search@5.20.3_@iconify+json@2.2.310_l_09230592231dbe5410b709812b482e1b/node_modules/vuepress-theme-plume/lib/client/config.js'
-import * as clientConfig11 from '/Users/sy/codes/CCCCOOH.github.io/docs/.vuepress/client.ts'
+import * as clientConfig10 from '/Users/sy/codes/CCCCOOH.github.io/node_modules/.pnpm/@vuepress+plugin-comment@2.0.0-rc.73_typescript@5.7.3_vuepress@2.0.0-rc.19_@vuepress+bu_d7d2a4ab9eabcc6e8f7d6fee66e655cf/node_modules/@vuepress/plugin-comment/lib/client/config.js'
+import * as clientConfig11 from '/Users/sy/codes/CCCCOOH.github.io/node_modules/.pnpm/vuepress-theme-plume@1.0.0-rc.131_@algolia+client-search@5.20.3_@iconify+json@2.2.310_l_09230592231dbe5410b709812b482e1b/node_modules/vuepress-theme-plume/lib/client/config.js'
+import * as clientConfig12 from '/Users/sy/codes/CCCCOOH.github.io/docs/.vuepress/client.ts'
 
 export const clientConfigs = [
   clientConfig0,
@@ -24,4 +25,5 @@ export const clientConfigs = [
   clientConfig9,
   clientConfig10,
   clientConfig11,
+  clientConfig12,
 ].map((m) => m.default).filter(Boolean)

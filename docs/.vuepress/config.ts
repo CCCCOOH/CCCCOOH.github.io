@@ -23,7 +23,7 @@ export default defineUserConfig({
       // ... more
     ],
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-    // hostname: 'https://your_site_url',
+    hostname: 'https://shenying.online',
 
     /* 文档仓库配置，用于 editLink */
     // docsRepo: '',
@@ -34,8 +34,8 @@ export default defineUserConfig({
     // editLink: true,
     // lastUpdated: true,
     // contributors: true,
-    // changelog: false,
-
+    changelog: true,
+    copyright: 'CC-BY-4.0',
     /**
      * 博客
      * @see https://theme-plume.vuejs.press/config/basic/#blog
@@ -161,17 +161,17 @@ export default defineUserConfig({
        * 评论 comments
        * @see https://theme-plume.vuejs.press/guide/features/comments/
        */
-      // comment: {
-      //   provider: '', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
-      //   comment: true,
-      //   repo: '',
-      //   repoId: '',
-      //   category: '',
-      //   categoryId: '',
-      //   mapping: 'pathname',
-      //   reactionsEnabled: true,
-      //   inputPosition: 'top',
-      // },
+      comment: {
+        provider: 'Giscus', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
+        comment: true,
+        repo: 'CCCCOOH/comment-system',
+        repoId: 'R_kgDONgxrhg',
+        category: 'Announcements',
+        categoryId: 'DIC_kwDONgxrhs4CnSFB',
+        mapping: 'pathname',
+        reactionsEnabled: true,
+        inputPosition: 'top',
+      },
     },
 
     /**
