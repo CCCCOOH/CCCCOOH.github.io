@@ -1,4 +1,5 @@
 <template><div><!-- 手动导入Repo卡片组件 -->
+<h2 align="center" style="margin-bottom: 30px; font-size: 2em; font-weight: bold;">Projects</h2>
 <CardGrid>
 <RepoCard repo="CCCCOOH/Xjufe_small_platformergame" />
 <RepoCard repo="CCCCOOH/Godot3.3.3Platfomr2D" />

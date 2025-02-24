@@ -24,7 +24,7 @@ config:
           link: https://github.com/CCCCOOH
   -
     type: features
-    title: 'Language'
+    title: 'Languages'
     features:
       -
         title: Vue
@@ -67,6 +67,8 @@ config:
 <script setup>
 import RepoCard from 'vuepress-theme-plume/features/RepoCard.vue'
 </script>
+
+<h2 align="center" style="margin-bottom: 30px; font-size: 2em; font-weight: bold;">Projects</h2>
 
 <CardGrid>
 <RepoCard repo="CCCCOOH/Xjufe_small_platformergame" />
