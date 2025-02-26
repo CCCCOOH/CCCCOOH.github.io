@@ -20,8 +20,8 @@ config:
           link: /blog/
         -
           theme: alt
-          text: Github →
-          link: https://github.com/CCCCOOH
+          text: 笔记 →
+          link: /demo/
   -
     type: features
     title: 'Languages'
