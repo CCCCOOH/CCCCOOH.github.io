@@ -1,5 +1,4 @@
-<template><div><h1 id="一、引言" tabindex="-1"><a class="header-anchor" href="#一、引言"><span>一、引言</span></a></h1>
-<p>自从使用了Hexo写博客后，加上最常用的电脑逐渐变成了Mac。两者在一起迸发出的化学反应导致我使用终端的频率不断增加，甚至于现在有了想要抛弃VsCode转向Vim的想法。</p>
+<template><div><p>自从使用了Hexo写博客后，加上最常用的电脑逐渐变成了Mac。两者在一起迸发出的化学反应导致我使用终端的频率不断增加，甚至于现在有了想要抛弃VsCode转向Vim的想法。</p>
 <p>今天给zsh增加了美化和插件，还发明了一个很高效的Hexo工作流，这里就来说一下。</p>
 <h1 id="二、美化" tabindex="-1"><a class="header-anchor" href="#二、美化"><span>二、美化</span></a></h1>
 <p>关于zsh的美化，网上已经有大量的教程了，本文不单独赘述。这里把我看到的讲的很好的教程贴出来：</p>

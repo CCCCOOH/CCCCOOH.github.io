@@ -1,5 +1,4 @@
-<template><div><h1 id="promise-对象" tabindex="-1"><a class="header-anchor" href="#promise-对象"><span>Promise 对象</span></a></h1>
-<p><code v-pre>Promise</code>对象用于解决<code v-pre>Javascript</code>中的地狱回调问题，有效的减少了程序回调的嵌套调用。</p>
+<template><div><p><code v-pre>Promise</code>对象用于解决<code v-pre>Javascript</code>中的地狱回调问题，有效的减少了程序回调的嵌套调用。</p>
 <h1 id="创建" tabindex="-1"><a class="header-anchor" href="#创建"><span>创建</span></a></h1>
 <p>如果要创建一个<code v-pre>Promise</code>对象，最简单的方法就是直接<code v-pre>new</code>一个。但是，如果深入学习，会发现使用<code v-pre>Promise</code>下的静态方法<code v-pre>Promise.resolve()</code>也能创建一个<code v-pre>Promise</code>对象：</p>
 <div class="language-js line-numbers-mode" data-ext="js" data-title="js"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">//</span><span class="space"> </span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">创建方法一</span></span>
