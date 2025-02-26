@@ -19,9 +19,13 @@ config:
           text: 博客
           link: /blog/
         -
-          theme: alt
-          text: 笔记 →
+          theme: sponsor
+          text: 笔记
           link: /demo/
+        -
+          theme: alt
+          text: Github →
+          link: https://github.com/CCCCOOH
   -
     type: features
     title: 'Languages'
