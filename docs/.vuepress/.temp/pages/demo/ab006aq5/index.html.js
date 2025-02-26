@@ -1,4 +1,4 @@
-import comp from "E:/CCCCOOH.github.io/docs/.vuepress/.temp/pages/demo/ab006aq5/index.html.vue"
+import comp from "/Users/sy/codes/CCCCOOH.github.io/docs/.vuepress/.temp/pages/demo/ab006aq5/index.html.vue"
 const data = JSON.parse("{\"path\":\"/demo/ab006aq5/\",\"title\":\"ES6-Set-Map对象小记\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"ES6-Set-Map对象小记\",\"createTime\":\"2025/02/23 21:35:39\",\"permalink\":\"/demo/ab006aq5/\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":1.94,\"words\":583},\"filePathRelative\":\"notes/demo/3.JavaScript/ES6-Set-Map对象小记.md\"}")
 export { comp, data }
 

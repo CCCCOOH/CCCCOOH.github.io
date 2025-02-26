@@ -1,5 +1,4 @@
-<template><div><h1 id="readme" tabindex="-1"><a class="header-anchor" href="#readme"><span>Readme</span></a></h1>
-<p>最近开始学习Unity制作2D动作游戏，由于一些操作第一次接触，为了加深印象，准备写这样一篇同步教程的笔记。</p>
+<template><div><p>最近开始学习Unity制作2D动作游戏，由于一些操作第一次接触，为了加深印象，准备写这样一篇同步教程的笔记。</p>
 <p>之前也接触过Unity，用 Unity 制作过一个非常简单的小游戏 Flappy Bird，并且魔改成了泰拉瑞亚的版本。这一次打算更加深入的学习一下 Unity，首先是一直在学的 Godot 有点遇到了瓶颈。</p>
 <h2 id="godot-瓶颈" tabindex="-1"><a class="header-anchor" href="#godot-瓶颈"><span>Godot 瓶颈</span></a></h2>
 <p>学了几个月的 Godot 引擎了，很多功能对我来说都很熟悉。瓦片制作，粒子效果，场景，信号。。。感觉用 Godot 制作游戏开始枯燥起来，一切都在不停的重复。但其实，让我开始尝试 Unity 最根本的原因是 Godot 的教程太少了。在看了很多很多教程后，我发现 Godot 的优质教程真的有，但不多。于是决定&quot;偷窥&quot;一些Unity教程，等学到一些新的技巧后再做决定，决定以后使用哪个引擎。希望接触了 Unity 后能带给我更多的想法和改变。</p>

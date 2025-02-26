@@ -1,5 +1,4 @@
-<template><div><h1 id="example1" tabindex="-1"><a class="header-anchor" href="#example1"><span>Example1</span></a></h1>
-<blockquote>
+<template><div><blockquote>
 <p>谁从小还没有一个当黑帽子的梦想呢，所以就来讲讲SQL💉🩸吧...</p>
 </blockquote>
 <h2 id="环境要求" tabindex="-1"><a class="header-anchor" href="#环境要求"><span>环境要求</span></a></h2>

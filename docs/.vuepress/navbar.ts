@@ -15,5 +15,5 @@ export const navbar = defineNavbarConfig([
     icon: 'solar:notebook-bold'
     // items: [{ text: '示例', link: '/notes/demo/README.md' }]
   },
-  { text: 'Links', link: '/friends/', icon: 'solar:people-nearby-bold' },
+  { text: 'Links', link: '/links/', icon: 'solar:people-nearby-bold' },
 ])
