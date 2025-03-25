@@ -1,4 +1,5 @@
-<template><div><h2 id="添加元素" tabindex="-1"><a class="header-anchor" href="#添加元素"><span>添加元素</span></a></h2>
+<template><div><h1 id="set-对象" tabindex="-1"><a class="header-anchor" href="#set-对象"><span>Set 对象</span></a></h1>
+<h2 id="添加元素" tabindex="-1"><a class="header-anchor" href="#添加元素"><span>添加元素</span></a></h2>
 <div class="language-js line-numbers-mode" data-ext="js" data-title="js"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">set</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">add</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">value</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h2 id="常用方法" tabindex="-1"><a class="header-anchor" href="#常用方法"><span>常用方法</span></a></h2>

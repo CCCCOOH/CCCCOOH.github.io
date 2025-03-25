@@ -1,4 +1,5 @@
-<template><div><p>学习vim的过程中发现了很多很好的资源，其中不乏bilibili上up主的精品教程。也在YouTube上看过很多教程。但Learn-Vim这个Github仓库实在让我受益良多。</p>
+<template><div><h1 id="一、前言" tabindex="-1"><a class="header-anchor" href="#一、前言"><span>一、前言</span></a></h1>
+<p>学习vim的过程中发现了很多很好的资源，其中不乏bilibili上up主的精品教程。也在YouTube上看过很多教程。但Learn-Vim这个Github仓库实在让我受益良多。</p>
 <p>本笔记便是出于此仓库：</p>
 <blockquote>
 <p><a href="https://github.com/iggredible/Learn-Vim/blob/master/" target="_blank" rel="noopener noreferrer">仓库地址</a></p>

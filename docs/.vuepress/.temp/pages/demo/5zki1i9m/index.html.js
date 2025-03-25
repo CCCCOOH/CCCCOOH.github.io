@@ -1,4 +1,4 @@
-import comp from "/Users/sy/codes/CCCCOOH.github.io/docs/.vuepress/.temp/pages/demo/5zki1i9m/index.html.vue"
+import comp from "E:/CCCCOOH.github.io/docs/.vuepress/.temp/pages/demo/5zki1i9m/index.html.vue"
 const data = JSON.parse("{\"path\":\"/demo/5zki1i9m/\",\"title\":\"JavaScript如何实现类型判断？\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"JavaScript如何实现类型判断？\",\"createTime\":\"2025/02/23 21:35:59\",\"permalink\":\"/demo/5zki1i9m/\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":2.14,\"words\":643},\"filePathRelative\":\"notes/demo/3.JavaScript/JavaScript如何实现类型判断？.md\"}")
 export { comp, data }
 

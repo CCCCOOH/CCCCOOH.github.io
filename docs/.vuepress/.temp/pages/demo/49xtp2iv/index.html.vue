@@ -1,4 +1,5 @@
-<template><div><p><code v-pre>BOM</code>指的是浏览器对象模型：<code v-pre>Browser Object Mode</code>，通过操作 <code v-pre>window</code> 对象的属性和方法来实现与浏览器的交互。</p>
+<template><div><h1 id="bom-操作" tabindex="-1"><a class="header-anchor" href="#bom-操作"><span>BOM 操作</span></a></h1>
+<p><code v-pre>BOM</code>指的是浏览器对象模型：<code v-pre>Browser Object Mode</code>，通过操作 <code v-pre>window</code> 对象的属性和方法来实现与浏览器的交互。</p>
 <p><code v-pre>BOM</code>的构成如下图所示：</p>
 <p><img src="https://doc.shiyanlou.com/courses/4385/1347963/934aa25def575c514b29c151a0cab411-0" alt="图片描述"></p>
 <p>其中，<code v-pre>window</code>对象是顶级对象，在 <code v-pre>window</code> 对象下面有一些重要的属性：</p>
