@@ -1,5 +1,5 @@
 import comp from "E:/CCCCOOH.github.io/docs/.vuepress/.temp/pages/article/2ke6oqe0/index.html.vue"
-const data = JSON.parse("{\"path\":\"/article/2ke6oqe0/\",\"title\":\"换到Vuepress后遇到的问题和感悟\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"换到Vuepress后遇到的问题和感悟\",\"createTime\":\"2025/02/24 18:45:00\",\"permalink\":\"/article/2ke6oqe0/\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":4.37,\"words\":1312},\"filePathRelative\":\"写博客/换到Vuepress后遇到的问题和感悟.md\",\"categoryList\":[{\"id\":\"bc47aa\",\"sort\":10002,\"name\":\"写博客\"}]}")
+const data = JSON.parse("{\"path\":\"/article/2ke6oqe0/\",\"title\":\"换到Vuepress后遇到的问题和感悟\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"换到Vuepress后遇到的问题和感悟\",\"createTime\":\"2025/02/24 18:45:00\",\"permalink\":\"/article/2ke6oqe0/\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":4.37,\"words\":1312},\"filePathRelative\":\"写博客/换到Vuepress后遇到的问题和感悟.md\",\"categoryList\":[{\"id\":\"bc47aa\",\"sort\":10003,\"name\":\"写博客\"}]}")
 export { comp, data }
 
 if (import.meta.webpackHot) {
