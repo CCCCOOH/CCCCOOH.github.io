@@ -1,0 +1,1365 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sy">
+  <meta name="keywords" content="Sy博客">
+  
+    <meta name="description" content="1.认识路由路由，顾名思义，它是指路径的指向或由来，即访问一个地址后它的指向，确定地址指向后，将会根据不同的路由地址，编写相应的代码，如下图所示。 ::: center::: 一次地址的指向，实质上是一次数据请求的过程，在这种请求的过程中，还可以携带请求的方式，如 POST 或 GET，同时，也可以携带请求的参数，根据这些请求携带的方式和参数，即使是同一个地址，也可以执行不同的代码，如下图所示。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Node.js】初始化路由">
+<meta property="og:url" content="https://ccccooh.github.io/demo/d4py24wo/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="1.认识路由路由，顾名思义，它是指路径的指向或由来，即访问一个地址后它的指向，确定地址指向后，将会根据不同的路由地址，编写相应的代码，如下图所示。 ::: center::: 一次地址的指向，实质上是一次数据请求的过程，在这种请求的过程中，还可以携带请求的方式，如 POST 或 GET，同时，也可以携带请求的参数，根据这些请求携带的方式和参数，即使是同一个地址，也可以执行不同的代码，如下图所示。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250309001102.png">
+<meta property="article:published_time" content="2025-07-05T06:40:04.295Z">
+<meta property="article:modified_time" content="2025-07-05T06:40:04.295Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250309001102.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>【Node.js】初始化路由 - SHEN YING</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"ccccooh.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/hollow_gif2.webp","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Single-Y</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【Node.js】初始化路由"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-05 14:40" pubdate>
+          2025年7月5日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="前端"
+        id="heading-9abfe4a03928eb88a75a5cd95822dfef" role="tab" data-toggle="collapse" href="#collapse-9abfe4a03928eb88a75a5cd95822dfef"
+        aria-expanded="true"
+      >
+        前端
+        <span class="list-group-count">(35)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-9abfe4a03928eb88a75a5cd95822dfef"
+           role="tabpanel" aria-labelledby="heading-9abfe4a03928eb88a75a5cd95822dfef">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ECharts"
+        id="heading-06dbbc5f251bd5a8dd14475108a2516b" role="tab" data-toggle="collapse" href="#collapse-06dbbc5f251bd5a8dd14475108a2516b"
+        aria-expanded="false"
+      >
+        ECharts
+        <span class="list-group-count">(5)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-06dbbc5f251bd5a8dd14475108a2516b"
+           role="tabpanel" aria-labelledby="heading-06dbbc5f251bd5a8dd14475108a2516b">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/enaku3vs/" title="【ECharts】1.认识ECharts"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ECharts】1.认识ECharts</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/n3g4dbp4/" title="【ECharts】2.ECharts基础知识"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ECharts】2.ECharts基础知识</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/pk9z1xu2/" title="【ECharts】3.基本图表绘制"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ECharts】3.基本图表绘制</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/3n73zpsx/" title="【ECharts】4.异步数据加载"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ECharts】4.异步数据加载</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/dplmiu4e/" title="【ECharts】5.事件处理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ECharts】5.事件处理</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ElementPlus"
+        id="heading-a6dccc0e99a2158b194b6504125239ef" role="tab" data-toggle="collapse" href="#collapse-a6dccc0e99a2158b194b6504125239ef"
+        aria-expanded="false"
+      >
+        ElementPlus
+        <span class="list-group-count">(5)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-a6dccc0e99a2158b194b6504125239ef"
+           role="tabpanel" aria-labelledby="heading-a6dccc0e99a2158b194b6504125239ef">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/b2vswo6h/" title="【ElementPlus】1.安装"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ElementPlus】1.安装</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/vytdv5ht/" title="【ElementPlus】2.Space 间距组件"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ElementPlus】2.Space 间距组件</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/ckgp76qd/" title="【ElementPlus】3.TimeSelect 组件"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ElementPlus】3.TimeSelect 组件</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/tag6e3yo/" title="【ElementPlus】4.Virtualized Tree 虚拟化树形控件"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ElementPlus】4.Virtualized Tree 虚拟化树形控件</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/faa6sr0g/" title="【ElementPlus】5.Affix 骨钉"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ElementPlus】5.Affix 骨钉</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="JavaScript"
+        id="heading-686155af75a60a0f6e9d80c1f7edd3e9" role="tab" data-toggle="collapse" href="#collapse-686155af75a60a0f6e9d80c1f7edd3e9"
+        aria-expanded="false"
+      >
+        JavaScript
+        <span class="list-group-count">(6)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-686155af75a60a0f6e9d80c1f7edd3e9"
+           role="tabpanel" aria-labelledby="heading-686155af75a60a0f6e9d80c1f7edd3e9">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/ab006aq5/" title="ES6-Set-Map对象小记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">ES6-Set-Map对象小记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/nxyiresv/" title="ES6函数、对象和面向对象扩展"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">ES6函数、对象和面向对象扩展</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/k2rykkmj/" title="ES6异步编程中Promise与Proxy对象"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">ES6异步编程中Promise与Proxy对象</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/5zki1i9m/" title="JavaScript如何实现类型判断？"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">JavaScript如何实现类型判断？</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/d0p0ehmg/" title="Javascript-ES6扩展写法"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Javascript-ES6扩展写法</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/49xtp2iv/" title="Js扩展DOM、BOM、AJAX、事件、定时器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Js扩展DOM、BOM、AJAX、事件、定时器</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Mongodb"
+        id="heading-c1f54d1681966e9eae45d5846783de99" role="tab" data-toggle="collapse" href="#collapse-c1f54d1681966e9eae45d5846783de99"
+        aria-expanded="false"
+      >
+        Mongodb
+        <span class="list-group-count">(5)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-c1f54d1681966e9eae45d5846783de99"
+           role="tabpanel" aria-labelledby="heading-c1f54d1681966e9eae45d5846783de99">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/0vwlcvyr/" title="【Mongodb】1.快速开始"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Mongodb】1.快速开始</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/blc8jgxs/" title="【Mongodb】2.通过Express和MongoDb实现RestfulAPI应用"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Mongodb】2.通过Express和MongoDb实现RestfulAPI应用</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/qqr7ryjv/" title="【Mongodb】3.创建文章Model和保存文章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Mongodb】3.创建文章Model和保存文章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/bczxta4p/" title="【Mongodb】4.查询所有文章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Mongodb】4.查询所有文章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/re171jfu/" title="【Mongodb】5.使用模型"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Mongodb】5.使用模型</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Mongoose"
+        id="heading-cadcdedb567abae643e15dcf0974e503" role="tab" data-toggle="collapse" href="#collapse-cadcdedb567abae643e15dcf0974e503"
+        aria-expanded="false"
+      >
+        Mongoose
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-cadcdedb567abae643e15dcf0974e503"
+           role="tabpanel" aria-labelledby="heading-cadcdedb567abae643e15dcf0974e503">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/iyyihe7l/" title="【mongoose】1.简介"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【mongoose】1.简介</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/c1386z98/" title="【mongoose】2.Schema和Model"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【mongoose】2.Schema和Model</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/vqh5zjut/" title="【mongoose】3.阅读官方文档"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【mongoose】3.阅读官方文档</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Node.js"
+        id="heading-3b2819dd4c24eda2faf2052eef449551" role="tab" data-toggle="collapse" href="#collapse-3b2819dd4c24eda2faf2052eef449551"
+        aria-expanded="true"
+      >
+        Node.js
+        <span class="list-group-count">(4)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-3b2819dd4c24eda2faf2052eef449551"
+           role="tabpanel" aria-labelledby="heading-3b2819dd4c24eda2faf2052eef449551">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/aa32xoz8/" title="【Node.js】web请求"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Node.js】web请求</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/d4py24wo/" title="【Node.js】初始化路由"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">【Node.js】初始化路由</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/ah01upt6/" title="【Node.js】文件操作"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Node.js】文件操作</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/j0laz2l5/" title="【Node.js】认识Node.js"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Node.js】认识Node.js</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Pinia"
+        id="heading-7cb874f094c9a1f6db165d391b771796" role="tab" data-toggle="collapse" href="#collapse-7cb874f094c9a1f6db165d391b771796"
+        aria-expanded="false"
+      >
+        Pinia
+        <span class="list-group-count">(4)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-7cb874f094c9a1f6db165d391b771796"
+           role="tabpanel" aria-labelledby="heading-7cb874f094c9a1f6db165d391b771796">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/95fgxdcq/" title="【Pinia】Pinia核心概念"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Pinia】Pinia核心概念</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/rrm6slri/" title="【Pinia】Pinia的安装和配置"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Pinia】Pinia的安装和配置</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/gvz1avb2/" title="【Pinia】初始Pinia"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Pinia】初始Pinia</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/xmld3lww/" title="【Pinia】购物车项目"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Pinia】购物车项目</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Vue"
+        id="heading-2d8ec58babcec05d3fe8f712968de749" role="tab" data-toggle="collapse" href="#collapse-2d8ec58babcec05d3fe8f712968de749"
+        aria-expanded="false"
+      >
+        Vue
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-2d8ec58babcec05d3fe8f712968de749"
+           role="tabpanel" aria-labelledby="heading-2d8ec58babcec05d3fe8f712968de749">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2025/02/09/%E5%89%8D%E7%AB%AF/Vue/%E3%80%90Vue%E3%80%91Vue3%E9%87%8D%E4%BF%AE%E7%AC%94%E8%AE%B0/" title="【Vue】Vue3重修笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Vue】Vue3重修笔记</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="VueRouter"
+        id="heading-739027b28867c620ed386619b057577b" role="tab" data-toggle="collapse" href="#collapse-739027b28867c620ed386619b057577b"
+        aria-expanded="false"
+      >
+        VueRouter
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-739027b28867c620ed386619b057577b"
+           role="tabpanel" aria-labelledby="heading-739027b28867c620ed386619b057577b">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/1gpxctp3/" title="【VueRouter】1.vueRouter 路由管理器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【VueRouter】1.vueRouter 路由管理器</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/i99ir9kd/" title="【VueRouter】2.安装和使用"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【VueRouter】2.安装和使用</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">【Node.js】初始化路由</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1-认识路由"><a href="#1-认识路由" class="headerlink" title="1.认识路由"></a>1.认识路由</h2><p>路由，顾名思义，它是指路径的指向或由来，即访问一个地址后它的指向，确定地址指向后，将会根据不同的路由地址，编写相应的代码，如下图所示。</p>
+<p>::: center<br><img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250309001102.png" srcset="/img/hollow_gif2.webp" lazyload alt="20250309001102"><br>:::</p>
+<p>一次地址的指向，实质上是一次数据请求的过程，在这种请求的过程中，还可以携带请求的方式，如 POST 或 GET，同时，也可以携带请求的参数，根据这些请求携带的方式和参数，即使是同一个地址，也可以执行不同的代码，如下图所示。</p>
+<p>::: center<br><img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250309001032.png" srcset="/img/hollow_gif2.webp" lazyload alt="20250309001032"><br>:::</p>
+<p>借助路由的这些特性，被广泛地应用于项目中各页面的切换，数据接口的请求，因此，路由是项目开发中必须要掌握的内容。在理解了它的重要性之后，如何去配置一个路由呢？带着这个问题，下面来说路由的配置方法。</p>
+<h2 id="2-配置路由"><a href="#2-配置路由" class="headerlink" title="2.配置路由"></a>2.配置路由</h2><p>在 <code>node</code> 中配置路由十分简单，首先，使用以下命令下载搭建好的开发环境项目包，地址如下所示：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget https://labfile.oss.aliyuncs.com/courses/4380/router.zip &amp;&amp; unzip router.zip<br></code></pre></td></tr></table></figure>
+
+<p>然后，解压该项目包至 <code>project</code> 文件夹中，并打开项目包 <code>router</code> 文件夹，找到 <code>bin</code> 文件夹，在该文件夹下，创建一个名称为 <code>reqRouters</code> 的 js 文件，加入如下所示的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">reqRouters</span> = (<span class="hljs-params">req, res</span>) =&gt; &#123;<br>  <span class="hljs-keyword">if</span> (req.<span class="hljs-property">path</span> === <span class="hljs-string">&quot;/aa&quot;</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;首页&quot;</span>;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (req.<span class="hljs-property">path</span> === <span class="hljs-string">&quot;/bb&quot;</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;列表页&quot;</span>;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (req.<span class="hljs-property">path</span> === <span class="hljs-string">&quot;/cc&quot;</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;详细页&quot;</span>;<br>  &#125;<br>&#125;;<br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = reqRouters;<br></code></pre></td></tr></table></figure>
+
+<p>上述代码中定义了一个 <code>reqRouters</code> 函数，在函数中，参数<code>req</code>表示请求携带的对象，用于创建服务器请求时回调函数使用，在这个<code>req</code>对象中，通过<code>path</code>来获取请求到时的路由地址，根据不同的地址，返回不同的内容，最后输出这个名称为 <code>reqRouters</code> 函数。</p>
+<p>接下来，再次找到 <code>bin</code> 文件夹，打开名称为 <code>app</code> 的 js 文件，删除原有的内容，加入如下所示的代码。</p>
+<p>:::: code-tabs<br>@tab app.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> reqRouters = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./reqRouters&quot;</span>);<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">serverHandle</span> = (<span class="hljs-params">req, res</span>) =&gt; &#123;<br>  res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">&quot;Content-Type&quot;</span>, <span class="hljs-string">&quot;application/json&quot;</span>);<br>  req.<span class="hljs-property">path</span> = req.<span class="hljs-property">url</span>.<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;?&quot;</span>)[<span class="hljs-number">0</span>];<br>  <span class="hljs-keyword">const</span> result = <span class="hljs-title function_">reqRouters</span>(req, res);<br>  <span class="hljs-keyword">if</span> (result) &#123;<br>    res.<span class="hljs-title function_">write</span>(result);<br>    res.<span class="hljs-title function_">end</span>();<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br>  res.<span class="hljs-title function_">writeHead</span>(<span class="hljs-number">404</span>, &#123; <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;text/plain&quot;</span> &#125;);<br>  res.<span class="hljs-title function_">write</span>(<span class="hljs-string">&quot;404 Not Found\n&quot;</span>);<br>  res.<span class="hljs-title function_">end</span>();<br>&#125;;<br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = serverHandle;<br></code></pre></td></tr></table></figure>
+<p>::::</p>
+<p>在上述代码中，首先，使用 <code>require</code> 输入 <code>reqRouters</code> 模块，用于获取请求输出的内容，其次，定义一个名称为 <code>serverHandle</code> 的函数，用于服务创建时的回调，在该函数中，向 <code>reqRouters</code> 函数传入请求的路由地址，获取输出的内容并保存至变量 result 中，最后，判断变量 <code>result</code> 中是否有内容，如果有，则直接输出在页面中，否则，在页面中输出 “<code>404 Not Found</code>“ 的信息。</p>
+<p>最后，找到 <code>bin</code> 文件夹，打开名称为 <code>index</code> 的 js 文件，删除原有的内容，加入如下所示的代码。</p>
+<p>:::: code-tabs<br>@tab index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;http&quot;</span>);<br><span class="hljs-keyword">const</span> serverHandle = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./app&quot;</span>);<br><span class="hljs-keyword">const</span> port = <span class="hljs-number">8080</span>;<br><span class="hljs-keyword">const</span> server = http.<span class="hljs-title function_">createServer</span>(serverHandle);<br>server.<span class="hljs-title function_">listen</span>(port, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;服务器运行在 8080 端口...&quot;</span>);<br>&#125;);<br></code></pre></td></tr></table></figure>
+<p>::::</p>
+<p>在上述代码中，首先，分别导入 <code>http</code> 和 <code>serverHandle</code> 模块，前者用于创建一个新的服务，是 <code>node</code> 自带模块， 后者用于创建服务后的回调函数，当服务创建成功后，使用 <code>listen</code> 方法，在指定的 <code>8080</code> 端口下侦听，当服务启动后，就可以在浏览器的地址栏中，根据启动的地址和端口访问这个服务了，由于配置的路由在服务中，这时，就可以按配置的路由访问页面了 🤪</p>
+<h2 id="3-访问路由"><a href="#3-访问路由" class="headerlink" title="3.访问路由"></a>3.访问路由</h2><p>要访问路由，需要先启动服务，因此，首先，在项目文件夹<code>router</code>下打开终端界面，并输入如下指令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm run dev<br></code></pre></td></tr></table></figure>
+
+<p>服务启动后的界面效果如下图所示：</p>
+<p>::: center<br><img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250309003725.png" srcset="/img/hollow_gif2.webp" lazyload alt="20250309003725"><br>:::</p>
+<p>服务器启动成功后就可以在浏览器中，根据指定的地址和端口，访问路由对应的的页面了。</p>
+<p>当在浏览器地址栏中输入 <code>localhost:8080/aa</code> 时，它的 <code>url.path</code> 值为 ‘&#x2F;a’ ，传给 <code>reqRouters</code> 函数后，则返回 “首页” 字符，因此，页面中输出 “首页” 内容，其他输入地址依此类推，根据不同的 <code>url.path</code> 值，向页面输出不同的内容，最终实现路由的功能。</p>
+<h2 id="4-路由开发"><a href="#4-路由开发" class="headerlink" title="4.路由开发"></a>4.路由开发</h2><h3 id="4-1-获取请求方式"><a href="#4-1-获取请求方式" class="headerlink" title="4.1 获取请求方式"></a>4.1 获取请求方式</h3><p>在发送一次请求时，不同的请求方式，将会返回不同的数据，目前常用的请求方式分为 <code>GET</code> 和 <code>POST</code> 两种，前者常用于查询请求，后者用于增加、修改和删除的请求，那么，在 <code>node</code> 中，如何获取路由中的请求方式呢？</p>
+<p>首先，使用以下命令获取搭建好的路由初始化项目包，地址如下所示：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget https://labfile.oss.aliyuncs.com/courses/4380/router-param.zip &amp;&amp; unzip router-param.zip<br></code></pre></td></tr></table></figure>
+
+<p>打开<code>router-param/bin/reqRouters.js</code>文件，将代码删除并修改为：</p>
+<p>:::: code-tabs<br>@tab reqRouters.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">reqRouters</span> = (<span class="hljs-params">req, res</span>) =&gt; &#123;<br>  <span class="hljs-keyword">if</span> (req.<span class="hljs-property">method</span> === <span class="hljs-string">&quot;GET&quot;</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;这是一次 GET 方式请求&quot;</span>;<br>  <span class="hljs-keyword">if</span> (req.<span class="hljs-property">method</span> === <span class="hljs-string">&quot;POST&quot;</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;这是一次 POST 方式请求&quot;</span>;<br>&#125;;<br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = reqRouters;<br></code></pre></td></tr></table></figure>
+<p>::::</p>
+<p>上面通过<code>req</code>的<code>method</code>属性获取到了服务器请求的方式，并返回不同的文字。</p>
+<p>修改完成后在<code>router-param</code>文件夹下，打开终端输入指令启动 Node 服务：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm run dev<br></code></pre></td></tr></table></figure>
+
+<p>如果需要测试<code>POST</code>请求，需要借助到之前的<code>postman</code>工具，更多内容见<a target="_blank" rel="noopener" href="https://www.postman.com/">官网</a>。</p>
+<p>::: center<br><img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250309145521.png" srcset="/img/hollow_gif2.webp" lazyload alt="20250309145521"><br>:::</p>
+<p>通过上述例子知道，我们可以获取路由的方式。不仅如此，我们还能获取到路由的参数，接下来以 <code>GET</code> 方式为例，介绍路由的参数。</p>
+<h3 id="4-2-获取-GET-方式传参"><a href="#4-2-获取-GET-方式传参" class="headerlink" title="4.2 获取 GET 方式传参"></a>4.2 获取 GET 方式传参</h3><p>我们知道路由传参是通过在<code>url</code>后面加上<code>?</code>并让参数以<code>&amp;</code>分隔的方式来组合。</p>
+<p>获取<code>GET</code>方式传参的过程实际上是根据传参名称来获取变量值的过程。操作起来就是，先实例化一个 <code>URL对象</code> ，然后通过该对象获取<br>网址查询参数的 <code>searchParams</code> 对象，根据参数的名称获取对应的值。</p>
+<p>打开<code>reqRouters.js</code>，将代码修改为：</p>
+<p>:::: code-tabs<br>@tab reqRouters.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 引入 url 模块</span><br><span class="hljs-keyword">var</span> url = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;url&quot;</span>);<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">reqRouters</span> = (<span class="hljs-params">req, res</span>) =&gt; &#123;<br>  <span class="hljs-keyword">if</span> (req.<span class="hljs-property">method</span> === <span class="hljs-string">&quot;GET&quot;</span>) &#123;<br>    <span class="hljs-keyword">const</span> myURL = <span class="hljs-keyword">new</span> <span class="hljs-title function_">URL</span>(req.<span class="hljs-property">url</span>, req.<span class="hljs-property">headers</span>.<span class="hljs-property">host</span>);<br>    <span class="hljs-keyword">let</span> params = myURL.<span class="hljs-property">searchParams</span>;<br>    <span class="hljs-keyword">if</span> (params.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;id&quot;</span>) &amp;&amp; params.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;name&quot;</span>)) &#123;<br>      <span class="hljs-keyword">return</span> params.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;id&quot;</span>) + <span class="hljs-string">&quot;,&quot;</span> + params.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;name&quot;</span>);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;没有传入相应参数！&quot;</span>;<br>    &#125;<br>  &#125;<br>&#125;;<br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = reqRouters;<br></code></pre></td></tr></table></figure>
+<p>::::</p>
+<p>上述代码中，首先实例化了一个 URL 对象，在实例化的过程中传入了两个参数，第一个参数是 <code>url</code> 的请求地址，第二个是<code>base</code> 表示要解析的基本网址，包括地址的域名和端口。如果 <code>url</code> 地址是相对的，则要添加第二个参数，如果是绝对地址就可以省略第二个参数。</p>
+<p>然后判断网址查询参数 <code>params = myURL.searchParams</code> 是否存在对应的 URL 参数，处理和返回它。</p>
+<p>在项目文件夹<code>router-params</code>下输入指令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm run dev<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-3-获取-POST-方式传参"><a href="#4-3-获取-POST-方式传参" class="headerlink" title="4.3  获取 POST 方式传参"></a>4.3  获取 POST 方式传参</h3><p>相比 <code>GET</code> 方式来说，<code>POST</code>要复杂很多，但也更加安全。使用 POST 传参时，携带的请求数据并不在路由中，而是在请求对象中，因此，需要绑定请求过程中的两个事件，一个<code>data</code>事件，一个<code>end</code>事件。</p>
+<p>在<code>data</code>事件中获取并累加每次请求传入的参数值，<code>end</code>事件会在1请求结束后触发，在事件中处理累加结束后的请求参数，输出至页面中。</p>
+<p>修改<code>router-param</code>中的<code>bin</code>下的<code>index.js</code>文件，删除原有代码并替换成：<br>:::: code-tabs<br>@tab index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;http&quot;</span>);<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">serverHandle</span> = (<span class="hljs-params">req, res</span>) =&gt; &#123;<br>  <span class="hljs-keyword">if</span> (req.<span class="hljs-property">method</span> === <span class="hljs-string">&quot;POST&quot;</span>) &#123;<br>    <span class="hljs-keyword">var</span> strPOST = <span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-comment">// 绑定数据请求事件，每当接受到请求体的数据，就累加到 strPOST 变量中</span><br>    req.<span class="hljs-title function_">on</span>(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">chunk</span>) &#123;<br>      strPOST += chunk;<br>    &#125;);<br>    <span class="hljs-comment">// 绑定数据请求结束事件，向页面输出指定的参数值</span><br>    req.<span class="hljs-title function_">on</span>(<span class="hljs-string">&quot;end&quot;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      res.<span class="hljs-title function_">setHeader</span>(<span class="hljs-string">&quot;Content-Type&quot;</span>, <span class="hljs-string">&quot;application/json&quot;</span>);<br>      <span class="hljs-keyword">let</span> objPOST = <span class="hljs-keyword">new</span> <span class="hljs-title class_">URLSearchParams</span>(strPOST);<br>      <span class="hljs-keyword">if</span> (objPOST.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;id&quot;</span>) &amp;&amp; objPOST.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;name&quot;</span>)) &#123;<br>        <span class="hljs-keyword">const</span> result = objPOST.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;id&quot;</span>) + <span class="hljs-string">&quot;,&quot;</span> + objPOST.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;name&quot;</span>);<br>        res.<span class="hljs-title function_">write</span>(result);<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        res.<span class="hljs-title function_">write</span>(<span class="hljs-string">&quot;没有传入相应参数！&quot;</span>);<br>      &#125;<br>      res.<span class="hljs-title function_">end</span>();<br>      <span class="hljs-keyword">return</span>;<br>    &#125;);<br>  &#125;<br>&#125;;<br><span class="hljs-keyword">const</span> port = <span class="hljs-number">8080</span>;<br><span class="hljs-keyword">const</span> server = http.<span class="hljs-title function_">createServer</span>(serverHandle);<br>server.<span class="hljs-title function_">listen</span>(port, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;服务器运行在 8080 端口...&quot;</span>);<br>&#125;);<br></code></pre></td></tr></table></figure>
+<p>::::</p>
+<p>在事件<code>data</code>中每次累加参数，在<code>end</code>中查询参数是否包含<code>id</code>或<code>name</code>，然后写入页面。</p>
+<p>修改完成后，在 <code>router-param</code> 下，打开终端界面：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm run dev<br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%89%8D%E7%AB%AF/Node-js/" class="category-chain-item">Node.js</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>【Node.js】初始化路由</div>
+      <div>https://ccccooh.github.io/demo/d4py24wo/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Sy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年7月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/demo/aa32xoz8/" title="【Node.js】web请求">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【Node.js】web请求</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/0yvjvflq/" title="最难部署的数据库非Mongodb莫属">
+                        <span class="hidden-mobile">最难部署的数据库非Mongodb莫属</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.css')
+      Fluid.utils.createScript('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://comment-system-gamma.vercel.app/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
