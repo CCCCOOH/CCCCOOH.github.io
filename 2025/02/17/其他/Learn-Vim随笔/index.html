@@ -1,0 +1,790 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sy">
+  <meta name="keywords" content="Sy博客">
+  
+    <meta name="description" content="Vim学习随笔，记录关键知识点📝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learn-Vim随笔">
+<meta property="og:url" content="https://ccccooh.github.io/2025/02/17/%E5%85%B6%E4%BB%96/Learn-Vim%E9%9A%8F%E7%AC%94/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="Vim学习随笔，记录关键知识点📝">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/vim.png">
+<meta property="article:published_time" content="2025-02-17T04:10:11.000Z">
+<meta property="article:modified_time" content="2025-07-17T19:02:56.007Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="其他">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/vim.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Learn-Vim随笔 - SHEN YING</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"ccccooh.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/hollow_gif2.webp","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Single-Y</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://sygmail.github.io/" target="_self">
+                <i class="iconfont icon-code"></i>
+                <span></span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" target="_self">
+                <i class="iconfont icon-bilibili-fill"></i>
+                <span></span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span></span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Learn-Vim随笔"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-17 12:10" pubdate>
+          2025年2月17日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Learn-Vim随笔</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年7月18日 凌晨
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="一前言">一、前言</h1>
+<p>学习vim的过程中发现了很多很好的资源，其中不乏bilibili上up主的精品教程。也在YouTube上看过很多教程。但Learn-Vim这个Github仓库实在让我受益良多。</p>
+<p>本笔记便是出于此仓库： &gt; <a
+target="_blank" rel="noopener" href="https://github.com/iggredible/Learn-Vim/blob/master/">仓库地址</a></p>
+<p>附上个人.vimrc配置文件: <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">syntax</span> <span class="hljs-keyword">on</span>	<span class="hljs-comment">&quot; 开启语法高亮</span><br><span class="hljs-keyword">set</span> <span class="hljs-keyword">number</span>	<span class="hljs-comment">&quot; 设置行号</span><br><span class="hljs-keyword">set</span> relativenumber	<span class="hljs-comment">&quot; 设置相对行号</span><br><span class="hljs-keyword">set</span> wrap		<span class="hljs-comment">&quot; 开启代码包裹，防止溢出屏幕	</span><br><span class="hljs-keyword">set</span> showcmd		<span class="hljs-comment">&quot; 显示命令</span><br><span class="hljs-keyword">set</span> wildmenu		<span class="hljs-comment">&quot; 开启补全菜单</span><br><span class="hljs-keyword">set</span> hlsearch		<span class="hljs-comment">&quot; 开启搜索高亮</span><br><span class="hljs-keyword">set</span> incsearch		<span class="hljs-comment">&quot; 开启实时搜索高亮</span><br><span class="hljs-keyword">set</span> ignorecase		<span class="hljs-comment">&quot; 搜索忽略大小写</span><br><span class="hljs-keyword">set</span> cursorline		<span class="hljs-comment">&quot; 开启鼠标地平线</span><br><br><span class="hljs-comment">&quot; 按下冒号重制高亮</span><br>exec <span class="hljs-string">&quot;nohlsearch&quot;</span>	<br><span class="hljs-comment">&quot; 将大写JK映射为5倍jk</span><br><span class="hljs-keyword">noremap</span> J <span class="hljs-number">5</span><span class="hljs-keyword">j</span><br><span class="hljs-keyword">noremap</span> K <span class="hljs-number">5</span><span class="hljs-keyword">k</span><br><span class="hljs-keyword">nnoremap</span> <span class="hljs-symbol">&lt;esc&gt;</span><span class="hljs-symbol">&lt;esc&gt;</span> :<span class="hljs-keyword">noh</span><span class="hljs-symbol">&lt;return&gt;</span><span class="hljs-symbol">&lt;esc&gt;</span><br><span class="hljs-comment">&quot; 映射自动保存</span><br><span class="hljs-keyword">map</span> S :<span class="hljs-keyword">w</span><span class="hljs-symbol">&lt;CR&gt;</span><br><span class="hljs-keyword">map</span> Q :q<span class="hljs-symbol">&lt;CR&gt;</span><br><span class="hljs-keyword">map</span> s :<span class="hljs-symbol">&lt;nop&gt;</span><br><span class="hljs-keyword">map</span> R  :<span class="hljs-keyword">source</span><span class="hljs-symbol">&lt;CR&gt;</span><br><br><span class="hljs-keyword">call</span> plug#begin()<br><br>Plug <span class="hljs-string">&#x27;vim-airline/vim-airline&#x27;</span><br>Plug <span class="hljs-string">&#x27;iamcco/markdown-preview.nvim&#x27;</span>, &#123; <span class="hljs-string">&#x27;do&#x27;</span>: &#123; -&gt; mkdp#util#install() &#125;, <span class="hljs-string">&#x27;for&#x27;</span>: [<span class="hljs-string">&#x27;markdown&#x27;</span>, <span class="hljs-string">&#x27;vim-plug&#x27;</span>]&#125;<br>Plug <span class="hljs-string">&#x27;iamcco/markdown-preview.nvim&#x27;</span>, &#123; <span class="hljs-string">&#x27;do&#x27;</span>: <span class="hljs-string">&#x27;cd app &amp;&amp; npx --yes yarn install&#x27;</span> &#125;<br>Plug <span class="hljs-string">&#x27;preservim/nerdtree&#x27;</span><br>Plug <span class="hljs-string">&#x27;jiangmiao/auto-pairs&#x27;</span><br>Plug <span class="hljs-string">&#x27;preservim/nerdcommenter&#x27;</span><br>Plug <span class="hljs-string">&#x27;connorholyday/vim-snazzy&#x27;</span><br><br><span class="hljs-keyword">call</span> plug#end()<br><br><br>color molokai<br><br><span class="hljs-keyword">map</span> sr :<span class="hljs-keyword">set</span> splitright<span class="hljs-symbol">&lt;CR&gt;</span>:<span class="hljs-keyword">vsplit</span><span class="hljs-symbol">&lt;CR&gt;</span><br><span class="hljs-keyword">map</span> <span class="hljs-keyword">sl</span> :<span class="hljs-keyword">set</span> nosplitright<span class="hljs-symbol">&lt;CR&gt;</span>:<span class="hljs-keyword">vsplit</span><span class="hljs-symbol">&lt;CR&gt;</span><br><span class="hljs-keyword">map</span> <span class="hljs-keyword">st</span> :<span class="hljs-keyword">set</span> nosplitbelow<span class="hljs-symbol">&lt;CR&gt;</span>:<span class="hljs-keyword">split</span><span class="hljs-symbol">&lt;CR&gt;</span><br><span class="hljs-keyword">map</span> <span class="hljs-keyword">sb</span> :<span class="hljs-keyword">set</span> splitbelow<span class="hljs-symbol">&lt;CR&gt;</span>:<span class="hljs-keyword">split</span><span class="hljs-symbol">&lt;CR&gt;</span><br><br><span class="hljs-keyword">noremap</span> <span class="hljs-symbol">&lt;Up&gt;</span> <span class="hljs-symbol">&lt;NOP&gt;</span><br><span class="hljs-keyword">noremap</span> <span class="hljs-symbol">&lt;Down&gt;</span> <span class="hljs-symbol">&lt;NOP&gt;</span><br><span class="hljs-keyword">noremap</span> <span class="hljs-symbol">&lt;Left&gt;</span> <span class="hljs-symbol">&lt;NOP&gt;</span><br><span class="hljs-keyword">noremap</span> <span class="hljs-symbol">&lt;Right&gt;</span> <span class="hljs-symbol">&lt;NOP&gt;</span><br></code></pre></td></tr></table></figure></p>
+<h1 id="二vim语法">二、vim语法</h1>
+<p>vim的语法只有一句，<code>verb+noun</code>！</p>
+<h2 id="动词">2.1 动词</h2>
+<p>这里简要罗列出vim的动词列表： <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-attribute">y</span>    复制<br>d    删除<br>c    修改(删除并开始编辑) <br></code></pre></td></tr></table></figure></p>
+<h2 id="名词">2.2 名词</h2>
+<p>以下皆是名词，但分为了两种。 ### 2.2.1 简单名词</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">h</span>    左<br>j    下<br>k    上<br>l    右<br>w    单词<br>&#125;    跳到下一段落<br><span class="hljs-variable">$</span>    行末尾<br></code></pre></td></tr></table></figure>
+<h3 id="补充的名词">2.2.2 补充的名词</h3>
+<figure class="highlight bnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bnf">w         一个单词<br>p         一个段落<br>s         一个句子<br>( or )    一对 ( ) 括号<br>&#123; or &#125;    一对 &#123; &#125; 括号<br>[ or ]    一对 [ ] 括号<br><span class="hljs-attribute">&lt; or &gt;</span>    一对 <span class="hljs-attribute">&lt; &gt;</span> 括号<br>t         一对XML标签,例如<span class="hljs-attribute">&lt;html&gt;</span><span class="hljs-attribute">&lt;/html&gt;</span><br>&quot;         一对 &quot; &quot; 引号<br>&#x27;         一对 &#x27; &#x27; 引号<br>`         一对 ` ` 引号<br></code></pre></td></tr></table></figure>
+<h1 id="三移动">三、移动</h1>
+<h2 id="字符导航">3.1 字符导航</h2>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs css">h   向左<br>j   向下<br>k   向上<br>l   向右<br>gj  Down in <span class="hljs-selector-tag">a</span> soft-wrapped <span class="hljs-selector-tag">line</span><br>gk  Up in <span class="hljs-selector-tag">a</span> soft-wrapped <span class="hljs-selector-tag">line</span><br></code></pre></td></tr></table></figure>
+<p>禁用箭头的设置: <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">noremap</span> <span class="hljs-symbol">&lt;Up&gt;</span> <span class="hljs-symbol">&lt;NOP&gt;</span><br><span class="hljs-keyword">noremap</span> <span class="hljs-symbol">&lt;Down&gt;</span> <span class="hljs-symbol">&lt;NOP&gt;</span><br><span class="hljs-keyword">noremap</span> <span class="hljs-symbol">&lt;Left&gt;</span> <span class="hljs-symbol">&lt;NOP&gt;</span><br><span class="hljs-keyword">noremap</span> <span class="hljs-symbol">&lt;Right&gt;</span> <span class="hljs-symbol">&lt;NOP&gt;</span><br></code></pre></td></tr></table></figure></p>
+<p>相对行号: <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-built_in">set</span> <span class="hljs-built_in">relative</span> <span class="hljs-built_in">number</span><br></code></pre></td></tr></table></figure></p>
+<h2 id="计算编号">3.2 计算编号</h2>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-string">[count]</span> + motion<br></code></pre></td></tr></table></figure>
+<h2 id="词语导航">3.3 词语导航</h2>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">w     移动到下一个<span class="hljs-built_in">word</span>的开头<br>W     移动到下一个<span class="hljs-built_in">WORD</span>的开头<br>e     移动到下一个<span class="hljs-built_in">word</span>的结尾<br>E     移动到下一个<span class="hljs-built_in">WORD</span>的结尾<br>b     移动到上一个<span class="hljs-built_in">word</span>的开头<br>B     移动到上一个<span class="hljs-built_in">WORD</span>的开头<br>ge    移动到上一个<span class="hljs-built_in">word</span>的结尾<br>gE    移动到上一个<span class="hljs-built_in">WORD</span>的结尾<br></code></pre></td></tr></table></figure>
+<h2 id="行导航">3.4 行导航</h2>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs excel"><span class="hljs-number">0</span>     跳转到当前行的第一个字符<br>^     跳转到当前行的第一个非空白字符<br>g_    跳转到当前行的最后一个非空白字符<br>$     跳转到当前行的最后一个字符<br><span class="hljs-built_in">n</span>|    跳转到当前行的第<span class="hljs-built_in">n</span>列<br></code></pre></td></tr></table></figure>
+<h2 id="搜索动词">3.5 搜索动词</h2>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs excel">f    在同一行搜索下一个匹配<br>F    在同一行搜索前一个匹配<br><span class="hljs-built_in">t</span>    在同一行搜索下一个匹配，但是光标落在目标前<br><span class="hljs-built_in">T</span>    在同一行搜索下一个匹配，但是光标落在目标后<br>;    在同一行使用上一次搜索，方向相同<br>,    在同一行使用上一次搜索，方向相反<br></code></pre></td></tr></table></figure>
+<h2 id="句子导航和段落导航">3.6 句子导航和段落导航</h2>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs scss">(    跳到上一个句子<br>)    跳到下一个句子<br></code></pre></td></tr></table></figure>
+<p>下面是一个有两个段落的句子：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">I</span> am <span class="hljs-selector-tag">a</span> sentence. <span class="hljs-selector-tag">I</span> am another sentence because <span class="hljs-selector-tag">I</span> end with <span class="hljs-selector-tag">a</span> period. <span class="hljs-selector-tag">I</span> am still <span class="hljs-selector-tag">a</span> sentence when ending with an exclamation point! What about question <span class="hljs-selector-tag">mark</span>? <span class="hljs-selector-tag">I</span> am not quite <span class="hljs-selector-tag">a</span> sentence because of the hyphen - and neither semicolon ; nor colon :<br><br>There is an empty line above me.<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>个人感觉句子、段落在代码里可能就不是那么实用。但用于写文章博客还是很屌的。</p>
+</blockquote>
+<h2 id="匹配导航">3.7 匹配导航</h2>
+<blockquote>
+<p>程序员专用</p>
+</blockquote>
+<p>光标在成对的括号中其中一对上时按下<code>%</code>来跳到对应的括号上。</p>
+<p>使用场景： <figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scheme">(<span class="hljs-name"><span class="hljs-built_in">define</span></span> (<span class="hljs-name">fib</span> n)<br>  (<span class="hljs-name"><span class="hljs-built_in">cond</span></span> ((<span class="hljs-name"><span class="hljs-built_in">=</span></span> n <span class="hljs-number">0</span>) <span class="hljs-number">0</span>)<br>        ((<span class="hljs-name"><span class="hljs-built_in">=</span></span> n <span class="hljs-number">1</span>) <span class="hljs-number">1</span>)<br>        (<span class="hljs-name"><span class="hljs-built_in">else</span></span><br>          (<span class="hljs-name"><span class="hljs-built_in">+</span></span> (<span class="hljs-name">fib</span> (<span class="hljs-name"><span class="hljs-built_in">-</span></span> n <span class="hljs-number">1</span>)) (<span class="hljs-name">fib</span> (<span class="hljs-name"><span class="hljs-built_in">-</span></span> n <span class="hljs-number">2</span>)))<br>        )))<br></code></pre></td></tr></table></figure>
+光标在其中一个括号上可以快速跳转到对应的括号。</p>
+<h2 id="行号导航">3.8 行号导航</h2>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs excel">gg    去到第一行<br>G     去到最后一行<br>nG    去到第<span class="hljs-built_in">n</span>行<br><span class="hljs-built_in">n</span>%    去到第百分之<span class="hljs-built_in">n</span>行<br></code></pre></td></tr></table></figure>
+<p>使用<code>ctrl+g</code>来显示行数。</p>
+<p>gg和GG绝对是实用中的实用。</p>
+<h2 id="窗口导航">3.9 窗口导航</h2>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs excel">H     去到屏幕的最上方<br>M     去到屏幕的最中间<br>L     去到屏幕的最底部  <br>nH    去到离屏幕顶部<span class="hljs-built_in">n</span>行的位置<br>nL    去到离屏幕底部<span class="hljs-built_in">n</span>行的位置<br></code></pre></td></tr></table></figure>
+<h2 id="滚动">3.10 滚动</h2>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs css">Ctrl-E    向下滚动一行<br>Ctrl-D    向下滚动半个屏幕<br>Ctrl-F    向下滚动<br>Ctrl-<span class="hljs-attribute">Y</span>    向上滚动一行<br>Ctrl-U    向上滚动半个屏幕<br>Ctrl-<span class="hljs-selector-tag">B</span>    向上滚动整个屏幕<br></code></pre></td></tr></table></figure>
+<h2 id="搜索导航">3.11 搜索导航</h2>
+<blockquote>
+<p>这里的搜索是整个文档的。</p>
+</blockquote>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs excel">/    向后搜索一个匹配<br>?    向前搜索一个匹配<br><span class="hljs-built_in">n</span>    重复上一个匹配，方向相同<br><span class="hljs-built_in">N</span>    重复上一个匹配，方向相反<br></code></pre></td></tr></table></figure>
+<p>搜索结束后关闭高亮(在~/.vimrc中添加配置)： <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir">nnoremap &lt;esc&gt;&lt;esc&gt; <span class="hljs-symbol">:noh&lt;return&gt;&lt;esc&gt;</span><br></code></pre></td></tr></table></figure> 额外的补充:
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs clean">*     向后搜索光标位置的单词<br>#     向前搜索光标位置的单词<br>g*    在*的基础上增加了模糊匹配<br>g#    在#的基础上增加了模糊匹配<br></code></pre></td></tr></table></figure></p>
+<h2 id="标记位置">3.12 标记位置</h2>
+<p>标记当前位置，类似书签。 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">ma    标记<span class="hljs-keyword">a</span>的位置<br>`<span class="hljs-keyword">a</span>    精确跳转到标记的<span class="hljs-keyword">a</span>的位置<br><span class="hljs-string">&#x27;a    跳转到标记a的行首</span><br></code></pre></td></tr></table></figure>
+其中小写表示局部标记，大些表示全局标记。</p>
+<p>局部标记每个文件(缓冲区)只有一个，全局标记所有文件共享。</p>
+<p>使用marks来查看所有的标记。</p>
+<p>更多的标记用的不多，这里直接饮用(不是错别字❌)原文:
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-string">&#x27;&#x27;</span>    Jump back <span class="hljs-keyword">to</span> the <span class="hljs-keyword">last</span> <span class="hljs-built_in">line</span> in current <span class="hljs-keyword">buffer</span> before jump<br>``    Jump back <span class="hljs-keyword">to</span> the <span class="hljs-keyword">last</span> position in current <span class="hljs-keyword">buffer</span> before jump<br>`[    Jump <span class="hljs-keyword">to</span> beginning of previously changed / yanked text<br>`]    Jump <span class="hljs-keyword">to</span> the ending of previously changed / yanked text<br>`&lt;    Jump <span class="hljs-keyword">to</span> the beginning of <span class="hljs-keyword">last</span> <span class="hljs-keyword">visual</span> selection<br>`&gt;    Jump <span class="hljs-keyword">to</span> the ending of <span class="hljs-keyword">last</span> <span class="hljs-keyword">visual</span> selection<br>`<span class="hljs-number">0</span>    Jump back <span class="hljs-keyword">to</span> the <span class="hljs-keyword">last</span> edited <span class="hljs-keyword">file</span> when exiting <span class="hljs-keyword">vim</span><br></code></pre></td></tr></table></figure></p>
+<h2 id="所有的跳转">3.13 所有的跳转</h2>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs excel">&#x27;a       去到标记的a行<br>`a       去到标记的a位置<br>G       Go to the line(这个没懂，shift+G不是跳转到文档底部吗？)<br>/       向后搜索<br>?       向前搜索<br><span class="hljs-built_in">n</span>       重复最后一次搜索，方向一致<br><span class="hljs-built_in">N</span>       重复最后一次搜索，方向相反<br>%       找到匹配项<br>(       跳到上一句<br>)       跳到下一句<br>&#123;       跳到上一段<br>&#125;       跳到下一段<br>L       去到显示窗口的最后一行<br>M       去到窗口的中间<br>H       去到显示窗口的顶部<br>[[      去到上一次会话<br>]]      去到下一次会话<br><span class="hljs-symbol">:s</span>      <span class="hljs-built_in">Substitute</span><br><span class="hljs-symbol">:ta</span>g    去到定义的标签<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>具体说明见Lear-Vim作者文档✍️。</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%85%B6%E4%BB%96/" class="category-chain-item">其他</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%85%B6%E4%BB%96/" class="print-no-link">#其他</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Learn-Vim随笔</div>
+      <div>https://ccccooh.github.io/2025/02/17/其他/Learn-Vim随笔/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Sy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年2月17日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/demo/nxyiresv/" title="ES6函数、对象和面向对象扩展">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">ES6函数、对象和面向对象扩展</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/02/16/%E5%85%B6%E4%BB%96/mac%E7%BB%88%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81%E4%BC%98%E5%8C%96%E8%AE%A1%E5%88%92/" title="mac终端工作流优化">
+                        <span class="hidden-mobile">mac终端工作流优化</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.css')
+      Fluid.utils.createScript('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://comment-system-gamma.vercel.app/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

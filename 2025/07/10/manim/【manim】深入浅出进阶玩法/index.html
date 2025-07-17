@@ -1,0 +1,1687 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sy">
+  <meta name="keywords" content="Sy博客">
+  
+    <meta name="description" content="manim 从入门到精通">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【manim】Animations 详解">
+<meta property="og:url" content="https://ccccooh.github.io/2025/07/10/manim/%E3%80%90manim%E3%80%91%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E8%BF%9B%E9%98%B6%E7%8E%A9%E6%B3%95/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="manim 从入门到精通">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-10%2016.58.38.png">
+<meta property="article:published_time" content="2025-07-10T13:59:00.000Z">
+<meta property="article:modified_time" content="2025-07-17T19:02:56.007Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content=" manim">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-10%2016.58.38.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>【manim】Animations 详解 - SHEN YING</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"ccccooh.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/hollow_gif2.webp","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Single-Y</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://sygmail.github.io/" target="_self">
+                <i class="iconfont icon-code"></i>
+                <span></span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" target="_self">
+                <i class="iconfont icon-bilibili-fill"></i>
+                <span></span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span></span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【manim】Animations 详解"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-10 21:59" pubdate>
+          2025年7月10日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          40 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">【manim】Animations 详解</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年7月18日 凌晨
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="animations">Animations</h2>
+<p><code>Animations</code>很重要，用于操作<code>Manim</code>中的动画行为。比如下面的<code>self.play()</code>方法中，<code>Create()</code>就是<code>Animtions</code>类下的一个方法，下面来详细说说有哪些。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-variable language_">self</span>.play(Create(circle))<br></code></pre></td></tr></table></figure>
+<h3 id="animation">animation</h3>
+<h4 id="add">Add</h4>
+<p>定义：<code>manim.animation.animation.Add</code></p>
+<p>该方法会立即在场景中添加<code>Mobject</code>。</p>
+<blockquote>
+<p>完整的例子参考官方文档，这里只写简要的使用介绍。下文如此。</p>
+</blockquote>
+<p>示例： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">c = Circle()<br><span class="hljs-variable language_">self</span>.play(Succession(Add(c)),Create(c))<br></code></pre></td></tr></table></figure></p>
+<p>该方法区别于<code>self.add()</code>，特点是放在<code>Succession()</code>
+中使用。</p>
+<h3 id="composition">composition</h3>
+<p>一次显示多个动画的工具，部分方法我感觉没什么用本文就不记录了，如有需要自行查阅官方文档。</p>
+<blockquote>
+<p>其实也看不太懂，以后研究明白再记录吧。</p>
+</blockquote>
+<table>
+
+<thead>
+<tr class="header">
+<th>方法名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.AnimationGroup.html#manim.animation.composition.AnimationGroup"
+title="manim.animation.composition.AnimationGroup"><code>AnimationGroup</code></a></td>
+<td>Plays a group or series of <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.animation.Animation.html#manim.animation.animation.Animation"
+title="manim.animation.animation.Animation"><code>Animation</code></a>.</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.LaggedStart.html#manim.animation.composition.LaggedStart"
+title="manim.animation.composition.LaggedStart"><code>LaggedStart</code></a></td>
+<td>Adjusts the timing of a series of <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.animation.Animation.html#manim.animation.animation.Animation"
+title="manim.animation.animation.Animation"><code>Animation</code></a> according
+to <code>lag_ratio</code>.</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.LaggedStartMap.html#manim.animation.composition.LaggedStartMap"
+title="manim.animation.composition.LaggedStartMap"><code>LaggedStartMap</code></a></td>
+<td>Plays a series of <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.animation.Animation.html#manim.animation.animation.Animation"
+title="manim.animation.animation.Animation"><code>Animation</code></a> while
+mapping a function to submobjects.</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.Succession.html#manim.animation.composition.Succession"
+title="manim.animation.composition.Succession"><code>Succession</code></a></td>
+<td>Plays a series of animations in succession.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="laggedstartmap">LaggedStartMap</h4>
+<p><code>LaggedStart(xxx, xxx, lage_ratio=0.25, run_time=4)</code>，<code>lage_ratio</code>为延迟因子，<code>run_time</code>为动画时间。</p>
+<p>让动画延迟执行，需要注意
+<code>LaggedStart()</code>中不能直接放入<code>Circle</code>这类<code>Mobject</code>，报错遇到了别慌。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">SingleScene</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>   <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>      dot1 = Dot(point=LEFT * <span class="hljs-number">2</span> + UP, radius=<span class="hljs-number">0.16</span>)<br>      dot2 = Dot(point=LEFT * <span class="hljs-number">2</span>, radius=<span class="hljs-number">0.16</span>)<br>      dot3 = Dot(point=LEFT * <span class="hljs-number">2</span> + DOWN, radius=<span class="hljs-number">0.16</span>)<br>      <span class="hljs-variable language_">self</span>.play(<br>         LaggedStart(<br>            dot1.animate.shift(RIGHT * <span class="hljs-number">4</span>),<br>            dot2.animate.shift(RIGHT * <span class="hljs-number">4</span>),<br>            dot3.animate.shift(RIGHT * <span class="hljs-number">4</span>),<br>            lag_ratio=<span class="hljs-number">.25</span>,<br>            run_time=<span class="hljs-number">4</span><br>         )<br>      )<br></code></pre></td></tr></table></figure>
+<h4 id="succession">Succession</h4>
+<p>正常的<code>self.play()</code>中写入多个动画会同时执行而不分先后。为了克服这一点，使用<code>Succession()</code>可以将多个动画串在一起为一个组，每个<code>Succession</code>组内的动画串行执行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">SuccessionExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        dot1 = Dot(point=LEFT * <span class="hljs-number">2</span> + UP * <span class="hljs-number">2</span>, radius=<span class="hljs-number">0.16</span>, color=BLUE)<br>        dot2 = Dot(point=LEFT * <span class="hljs-number">2</span> + DOWN * <span class="hljs-number">2</span>, radius=<span class="hljs-number">0.16</span>, color=MAROON)<br>        dot3 = Dot(point=RIGHT * <span class="hljs-number">2</span> + DOWN * <span class="hljs-number">2</span>, radius=<span class="hljs-number">0.16</span>, color=GREEN)<br>        dot4 = Dot(point=RIGHT * <span class="hljs-number">2</span> + UP * <span class="hljs-number">2</span>, radius=<span class="hljs-number">0.16</span>, color=YELLOW)<br>        <span class="hljs-variable language_">self</span>.add(dot1, dot2, dot3, dot4)<br><br>        <span class="hljs-variable language_">self</span>.play(Succession(<br>            dot1.animate.move_to(dot2),<br>            dot2.animate.move_to(dot3),<br>            dot3.animate.move_to(dot4),<br>            dot4.animate.move_to(dot1)<br>        ))<br></code></pre></td></tr></table></figure>
+<h3 id="creation">creation</h3>
+<p><code>creation</code>下的方法用于显示或移除动画，极其实用。</p>
+<p>官网文档地址对照表：</p>
+<table>
+
+<thead>
+<tr class="header">
+<th>方法名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.AddTextLetterByLetter.html#manim.animation.creation.AddTextLetterByLetter"
+title="manim.animation.creation.AddTextLetterByLetter"><code>AddTextLetterByLetter</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.text.text_mobject.Text.html#manim.mobject.text.text_mobject.Text"
+title="manim.mobject.text.text_mobject.Text"><code>Text</code></a>现场逐字逐句展示。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.AddTextWordByWord.html#manim.animation.creation.AddTextWordByWord"
+title="manim.animation.creation.AddTextWordByWord"><code>AddTextWordByWord</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.text.text_mobject.Text.html#manim.mobject.text.text_mobject.Text"
+title="manim.mobject.text.text_mobject.Text"><code>Text</code></a>现场逐字逐句展示。（已废弃）</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.Create.html#manim.animation.creation.Create"
+title="manim.animation.creation.创建"><code>Create</code></a></td>
+<td>逐步显示 VMobject。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.DrawBorderThenFill.html#manim.animation.creation.DrawBorderThenFill"
+title="manim.动画.创建.DrawBorderThenFill"><code>DrawBorderThenFill</code></a></td>
+<td>先绘制边框，然后显示填充。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.RemoveTextLetterByLetter.html#manim.animation.creation.RemoveTextLetterByLetter"
+title="manim.animation.creation.RemoveTextLetterByLetter"><code>RemoveTextLetterByLetter</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.text.text_mobject.Text.html#manim.mobject.text.text_mobject.Text"
+title="manim.mobject.text.text_mobject.Text"><code>Text</code></a>从场景中逐个字母地删除。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.ShowIncreasingSubsets.html#manim.animation.creation.ShowIncreasingSubsets"
+title="manim.animation.creation.ShowIncreasingSubsets"><code>ShowIncreasingSubsets</code></a></td>
+<td>一次显示一个子对象，所有先前的子对象仍显示在屏幕上。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.ShowPartial.html#manim.animation.creation.ShowPartial"
+title="manim.animation.creation.ShowPartial"><code>ShowPartial</code></a></td>
+<td>部分显示 VMobject 的动画的抽象类。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.ShowSubmobjectsOneByOne.html#manim.animation.creation.ShowSubmobjectsOneByOne"
+title="manim.animation.creation.ShowSubmobjectsOneByOne"><code>ShowSubmobjectsOneByOne</code></a></td>
+<td>一次显示一个子对象，从屏幕上删除所有先前显示的子对象。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.SpiralIn.html#manim.animation.creation.SpiralIn"
+title="manim.animation.creation.SpiralIn"><code>SpiralIn</code></a></td>
+<td>创建 Mobject，其中子 Mobject 以螺旋轨迹飞入。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.TypeWithCursor.html#manim.animation.creation.TypeWithCursor"
+title="manim.animation.creation.TypeWithCursor"><code>TypeWithCursor</code></a></td>
+<td>类似于<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.AddTextLetterByLetter.html#manim.animation.creation.AddTextLetterByLetter"
+title="manim.animation.creation.AddTextLetterByLetter"><code>AddTextLetterByLetter</code></a>，但在末尾有一个额外的光标
+mobject。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.Uncreate.html#manim.animation.creation.Uncreate"
+title="manim.animation.creation.取消创建"><code>Uncreate</code></a></td>
+<td>类似<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.Create.html#manim.animation.creation.Create"
+title="manim.animation.creation.创建"><code>Create</code></a>，但反过来。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.UntypeWithCursor.html#manim.animation.creation.UntypeWithCursor"
+title="manim.animation.creation.UntypeWithCursor"><code>UntypeWithCursor</code></a></td>
+<td>类似于<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.RemoveTextLetterByLetter.html#manim.animation.creation.RemoveTextLetterByLetter"
+title="manim.animation.creation.RemoveTextLetterByLetter"><code>RemoveTextLetterByLetter</code></a>，但在末尾有一个额外的光标
+mobject。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.Unwrite.html#manim.animation.creation.Unwrite"
+title="manim.animation.creation.Unwrite"><code>Unwrite</code></a></td>
+<td>模拟用手擦除 a<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.text.text_mobject.Text.html#manim.mobject.text.text_mobject.Text"
+title="manim.mobject.text.text_mobject.Text"><code>Text</code></a>或
+a <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.types.vectorized_mobject.VMobject.html#manim.mobject.types.vectorized_mobject.VMobject"
+title="manim.mobject.types.vectorized_mobject.VMobject"><code>VMobject</code></a>。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.Write.html#manim.animation.creation.Write"
+title="manim.animation.creation.Write"><code>Write</code></a></td>
+<td>模拟手写<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.text.text_mobject.Text.html#manim.mobject.text.text_mobject.Text"
+title="manim.mobject.text.text_mobject.Text"><code>Text</code></a>或手画<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.types.vectorized_mobject.VMobject.html#manim.mobject.types.vectorized_mobject.VMobject"
+title="manim.mobject.types.vectorized_mobject.VMobject"><code>VMobject</code></a>。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="addtextletterbyletter">AddTextLetterByLetter</h4>
+<p>方法名：<code>manim.animation.creation.AddTextLetterByLetter</code></p>
+<p>作用：逐字显示文本。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">t = Text(<span class="hljs-string">&quot;你好，世界&quot;</span>)<br><span class="hljs-variable language_">self</span>.play(AddTextLetterByLetter(t))<br></code></pre></td></tr></table></figure>
+<h4 id="create">Create</h4>
+<p>逐步显示一个<code>VMobject</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">CreateScene</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.play(Create(Square()))<br></code></pre></td></tr></table></figure>
+<h4 id="drawborderthenfill">DrawBorderThenFill</h4>
+<blockquote>
+<p>下文省略方法名，自己去官网看吧，咱也不记这个。</p>
+</blockquote>
+<p>先画框架再填充图形。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ShowDrawBorderThenFill</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.play(DrawBorderThenFill(Square(fill_opacity=<span class="hljs-number">1</span>, fill_color=ORANGE)))<br></code></pre></td></tr></table></figure>
+<h4 id="removetextletterbyletter">RemoveTextLetterByLetter</h4>
+<p>逐字移除字符。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">SingleScene</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>   <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>      t = Text(<span class="hljs-string">&quot;你好，世界&quot;</span>)<br>      <span class="hljs-variable language_">self</span>.play(RemoveTextLetterByLetter(t))<br></code></pre></td></tr></table></figure>
+<h4 id="spiralin">SpiralIn</h4>
+<p>螺旋显示对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">SpiralInExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        pi = MathTex(<span class="hljs-string">r&quot;\pi&quot;</span>).scale(<span class="hljs-number">7</span>)<br>        pi.shift(<span class="hljs-number">2.25</span> * LEFT + <span class="hljs-number">1.5</span> * UP)<br>        circle = Circle(color=GREEN_C, fill_opacity=<span class="hljs-number">1</span>).shift(LEFT)<br>        square = Square(color=BLUE_D, fill_opacity=<span class="hljs-number">1</span>).shift(UP)<br>        shapes = VGroup(pi, circle, square)<br>        <span class="hljs-variable language_">self</span>.play(SpiralIn(shapes))<br></code></pre></td></tr></table></figure>
+<h4 id="typewithcursor">TypeWithCursor</h4>
+<p>带有光标的输入。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">InsertingTextExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        text = Text(<span class="hljs-string">&quot;Inserting&quot;</span>, color=PURPLE).scale(<span class="hljs-number">1.5</span>).to_edge(LEFT)<br>        cursor = Rectangle(<br>            color = GREY_A,<br>            fill_color = GREY_A,<br>            fill_opacity = <span class="hljs-number">1.0</span>,<br>            height = <span class="hljs-number">1.1</span>,<br>            width = <span class="hljs-number">0.5</span>,<br>        ).move_to(text[<span class="hljs-number">0</span>]) <span class="hljs-comment"># Position the cursor</span><br><br>        <span class="hljs-variable language_">self</span>.play(TypeWithCursor(text, cursor))<br>        <span class="hljs-variable language_">self</span>.play(Blink(cursor, blinks=<span class="hljs-number">2</span>))<br></code></pre></td></tr></table></figure>
+<h4 id="uncreate">Uncreate</h4>
+<p>与<code>Create</code>相反。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ShowUncreate</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.play(Uncreate(Square()))<br></code></pre></td></tr></table></figure>
+<h4 id="untypewithcursor">UntypeWithCursor</h4>
+<p>和<code>TypeWithCursor</code>相反。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">DeletingTextExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        text = Text(<span class="hljs-string">&quot;Deleting&quot;</span>, color=PURPLE).scale(<span class="hljs-number">1.5</span>).to_edge(LEFT)<br>        cursor = Rectangle(<br>            color = GREY_A,<br>            fill_color = GREY_A,<br>            fill_opacity = <span class="hljs-number">1.0</span>,<br>            height = <span class="hljs-number">1.1</span>,<br>            width = <span class="hljs-number">0.5</span>,<br>        ).move_to(text[<span class="hljs-number">0</span>]) <span class="hljs-comment"># Position the cursor</span><br><br>        <span class="hljs-variable language_">self</span>.play(UntypeWithCursor(text, cursor))<br>        <span class="hljs-variable language_">self</span>.play(Blink(cursor, blinks=<span class="hljs-number">2</span>))<br></code></pre></td></tr></table></figure>
+<h4 id="unwrite">Unwrite</h4>
+<p>与<code>Write</code>相反。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">UnwriteReverseTrue</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        text = Tex(<span class="hljs-string">&quot;Alice and Bob&quot;</span>).scale(<span class="hljs-number">3</span>)<br>        <span class="hljs-variable language_">self</span>.add(text)<br>        <span class="hljs-variable language_">self</span>.play(Unwrite(text))<br></code></pre></td></tr></table></figure>
+<p>也可以另方向相反，只需要加上参数，<code>reverse=False</code>。</p>
+<h4 id="write">Write</h4>
+<p>网上很常见的方法，很多创作者都在用该方法显示文字。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ShowWrite</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.play(Write(Text(<span class="hljs-string">&quot;Hello&quot;</span>, font_size=<span class="hljs-number">144</span>)))<br></code></pre></td></tr></table></figure>
+<p>可选参数： - <code>reverse=True</code> -
+<code>remover=False</code></p>
+<h3 id="fading">fading</h3>
+<p>淡入和淡出，比较常用在过渡动画。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Fading</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        tex_in = Tex(<span class="hljs-string">&quot;Fade&quot;</span>, <span class="hljs-string">&quot;In&quot;</span>).scale(<span class="hljs-number">3</span>)<br>        tex_out = Tex(<span class="hljs-string">&quot;Fade&quot;</span>, <span class="hljs-string">&quot;Out&quot;</span>).scale(<span class="hljs-number">3</span>)<br>        <span class="hljs-variable language_">self</span>.play(FadeIn(tex_in, shift=DOWN, scale=<span class="hljs-number">0.66</span>))<br>        <span class="hljs-variable language_">self</span>.play(ReplacementTransform(tex_in, tex_out))<br>        <span class="hljs-variable language_">self</span>.play(FadeOut(tex_out, shift=DOWN * <span class="hljs-number">2</span>, scale=<span class="hljs-number">1.5</span>))<br></code></pre></td></tr></table></figure>
+<h4 id="fadein">FadeIn</h4>
+<p>淡入，可选参数： - <strong>mobjects</strong> (<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a>)
+传入被作用动画的Mobject 对象 - <strong>shift</strong> – 淡入时的偏移 -
+<strong>target_position</strong> –
+淡入开始时的位置，回逐渐过渡到正常位置 - <strong>scale</strong> –
+淡入开始时的大小，会逐渐过渡到正常大小</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">FadeInExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        dot = Dot(UP * <span class="hljs-number">2</span> + LEFT)<br>        <span class="hljs-variable language_">self</span>.add(dot)<br>        tex = Tex(<br>            <span class="hljs-string">&quot;FadeIn with &quot;</span>, <span class="hljs-string">&quot;shift &quot;</span>, <span class="hljs-string">r&quot; or target\_position&quot;</span>, <span class="hljs-string">&quot; and scale&quot;</span><br>        ).scale(<span class="hljs-number">1</span>)<br>        animations = [<br>            FadeIn(tex[<span class="hljs-number">0</span>]),<br>            FadeIn(tex[<span class="hljs-number">1</span>], shift=DOWN),<br>            FadeIn(tex[<span class="hljs-number">2</span>], target_position=dot),<br>            FadeIn(tex[<span class="hljs-number">3</span>], scale=<span class="hljs-number">1.5</span>),<br>        ]<br>        <span class="hljs-variable language_">self</span>.play(AnimationGroup(*animations, lag_ratio=<span class="hljs-number">0.5</span>))<br></code></pre></td></tr></table></figure>
+<h4 id="fadeout">FadeOut</h4>
+<p>淡出，参数同上，这里直接贴英文版，更详尽一些。 -
+<strong>mobjects</strong> (<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a>) – The
+mobjects to be faded out. - <strong>shift</strong> – The vector by which
+the mobject shifts while being faded out. -
+<strong>target_position</strong> – The position to which the mobject
+moves while being faded out. In case another mobject is given as target
+position, its center is used. - <strong>scale</strong> – The factor by
+which the mobject is scaled while being faded out.</p>
+<p>演示代码： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">FadeInExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        dot = Dot(UP * <span class="hljs-number">2</span> + LEFT)<br>        <span class="hljs-variable language_">self</span>.add(dot)<br>        tex = Tex(<br>            <span class="hljs-string">&quot;FadeOut with &quot;</span>, <span class="hljs-string">&quot;shift &quot;</span>, <span class="hljs-string">r&quot; or target\_position&quot;</span>, <span class="hljs-string">&quot; and scale&quot;</span><br>        ).scale(<span class="hljs-number">1</span>)<br>        animations = [<br>            FadeOut(tex[<span class="hljs-number">0</span>]),<br>            FadeOut(tex[<span class="hljs-number">1</span>], shift=DOWN),<br>            FadeOut(tex[<span class="hljs-number">2</span>], target_position=dot),<br>            FadeOut(tex[<span class="hljs-number">3</span>], scale=<span class="hljs-number">0.5</span>),<br>        ]<br>        <span class="hljs-variable language_">self</span>.play(AnimationGroup(*animations, lag_ratio=<span class="hljs-number">0.5</span>))<br></code></pre></td></tr></table></figure></p>
+<h3 id="growing">growing</h3>
+<p>对象从点开始生长来引入场景。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Growing</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        square = Square()<br>        circle = Circle()<br>        triangle = Triangle()<br>        arrow = Arrow(LEFT, RIGHT)<br>        star = Star()<br><br>        VGroup(square, circle, triangle).set_x(<span class="hljs-number">0</span>).arrange(buff=<span class="hljs-number">1.5</span>).set_y(<span class="hljs-number">2</span>)<br>        VGroup(arrow, star).move_to(DOWN).set_x(<span class="hljs-number">0</span>).arrange(buff=<span class="hljs-number">1.5</span>).set_y(-<span class="hljs-number">2</span>)<br><br>        <span class="hljs-variable language_">self</span>.play(GrowFromPoint(square, ORIGIN))<br>        <span class="hljs-variable language_">self</span>.play(GrowFromCenter(circle))<br>        <span class="hljs-variable language_">self</span>.play(GrowFromEdge(triangle, DOWN))<br>        <span class="hljs-variable language_">self</span>.play(GrowArrow(arrow))<br>        <span class="hljs-variable language_">self</span>.play(SpinInFromNothing(star))<br></code></pre></td></tr></table></figure>
+<p>官方目录：</p>
+<table>
+
+<thead>
+<tr class="header">
+<th>方法名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.growing.GrowArrow.html#manim.animation.growing.GrowArrow"
+title="manim.animation.growing.GrowArrow"><code>GrowArrow</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.geometry.line.Arrow.html#manim.mobject.geometry.line.Arrow"
+title="manim.mobject.geometry.line.Arrow"><code>Arrow</code></a>通过从其起点向其终点生长来引入。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.growing.GrowFromCenter.html#manim.animation.growing.GrowFromCenter"
+title="manim.动画.生长.从中心生长"><code>GrowFromCenter</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>通过从中心生长来引入。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.growing.GrowFromEdge.html#manim.animation.growing.GrowFromEdge"
+title="manim.animation.growing.GrowFromEdge"><code>GrowFromEdge</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>通过从其边界框边缘之一增长来引入。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.growing.GrowFromPoint.html#manim.animation.growing.GrowFromPoint"
+title="manim.animation.growing.GrowFromPoint"><code>GrowFromPoint</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>通过从一个点扩展它来引入一个。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.growing.SpinInFromNothing.html#manim.animation.growing.SpinInFromNothing"
+title="manim.animation.growing.SpinInFromNothing"><code>SpinInFromNothing</code></a></td>
+<td>引入<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>旋转并从中心开始生长。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="growarrow">GrowArrow</h4>
+<p><code>Arrow</code>通过其起点和终点来引入。</p>
+<p>参数： - <strong>arrow</strong> (<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.geometry.line.Arrow.html#manim.mobject.geometry.line.Arrow"
+title="manim.mobject.geometry.line.Arrow"><em>Arrow</em></a>) –
+要引入的箭头。 - <strong>point_color</strong> (<em>str</em>) –
+完全填充前的初始颜色，留空将自动匹配箭头颜色。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">GrowArrowExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        arrows = [Arrow(<span class="hljs-number">2</span> * LEFT, <span class="hljs-number">2</span> * RIGHT), Arrow(<span class="hljs-number">2</span> * DR, <span class="hljs-number">2</span> * UL)]<br>        VGroup(*arrows).set_x(<span class="hljs-number">0</span>).arrange(buff=<span class="hljs-number">2</span>)<br>        <span class="hljs-variable language_">self</span>.play(GrowArrow(arrows[<span class="hljs-number">0</span>]))<br>        <span class="hljs-variable language_">self</span>.play(GrowArrow(arrows[<span class="hljs-number">1</span>], point_color=RED))<br></code></pre></td></tr></table></figure>
+<h4 id="growfromcenter">GrowFromCenter</h4>
+<p>让<code>Mobject</code>从中心开始生长。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要引入的
+mobjects。 - <strong>point_color</strong> ( <em>str</em> ) –
+对象在增长到其实际大小之前的初始颜色。留空可匹配对象的颜色。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">GrowFromCenterExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        squares = [Square() <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>)]<br>        VGroup(*squares).set_x(<span class="hljs-number">0</span>).arrange(buff=<span class="hljs-number">2</span>)<br>        <span class="hljs-variable language_">self</span>.play(GrowFromCenter(squares[<span class="hljs-number">0</span>]))<br>        <span class="hljs-variable language_">self</span>.play(GrowFromCenter(squares[<span class="hljs-number">1</span>], point_color=RED))<br></code></pre></td></tr></table></figure>
+<h4 id="growfromedge">GrowFromEdge</h4>
+<p>从边界框边缘之一开始增长引入。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要引入的
+<code>mobjects</code>。 - <strong>edge</strong> ( <em>np.ndarray</em> )
+– 寻找 <code>mobject</code> 边界框边缘的方向。 -
+<strong>point_color</strong> ( <em>str</em> ) –
+对象在增长到其实际大小之前的初始颜色。留空可匹配对象的颜色。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">GrowFromEdgeExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        squares = [Square() <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>)]<br>        VGroup(*squares).set_x(<span class="hljs-number">0</span>).arrange(buff=<span class="hljs-number">1</span>)<br>        <span class="hljs-variable language_">self</span>.play(GrowFromEdge(squares[<span class="hljs-number">0</span>], DOWN))<br>        <span class="hljs-variable language_">self</span>.play(GrowFromEdge(squares[<span class="hljs-number">1</span>], RIGHT))<br>        <span class="hljs-variable language_">self</span>.play(GrowFromEdge(squares[<span class="hljs-number">2</span>], UR))<br>        <span class="hljs-variable language_">self</span>.play(GrowFromEdge(squares[<span class="hljs-number">3</span>], UP, point_color=RED))<br></code></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th>其余可选属性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>path_arc</code></td>
+</tr>
+<tr class="even">
+<td><code>path_func</code></td>
+</tr>
+<tr class="odd">
+<td><code>run_time</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="growfrompoint">GrowFromPoint</h4>
+<p>从点开始生长来引入。可以是外部的点。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要引入的
+<code>mobjects</code>。 - <strong>point</strong>（<em>np.ndarray</em>）
+– <code>mobject</code> 生长的点。 -
+<strong>point_color</strong> ( <em>str</em> ) –
+对象在增长到其实际大小之前的初始颜色。留空可匹配对象的颜色。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">GrowFromPointExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        dot = Dot(<span class="hljs-number">3</span> * UR, color=GREEN)<br>        squares = [Square() <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>)]<br>        VGroup(*squares).set_x(<span class="hljs-number">0</span>).arrange(buff=<span class="hljs-number">1</span>)<br>        <span class="hljs-variable language_">self</span>.add(dot)<br>        <span class="hljs-variable language_">self</span>.play(GrowFromPoint(squares[<span class="hljs-number">0</span>], ORIGIN))<br>        <span class="hljs-variable language_">self</span>.play(GrowFromPoint(squares[<span class="hljs-number">1</span>], [-<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>]))<br>        <span class="hljs-variable language_">self</span>.play(GrowFromPoint(squares[<span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, -<span class="hljs-number">2</span>, <span class="hljs-number">0</span>], RED))<br>        <span class="hljs-variable language_">self</span>.play(GrowFromPoint(squares[<span class="hljs-number">3</span>], dot, dot.get_color()))<br></code></pre></td></tr></table></figure>
+<p>说明：<code>ORIGIN</code>是屏幕中心点，是<code>manim</code>中的原点。</p>
+<h4 id="spininfromnothing">SpinInFromNothing</h4>
+<p>从中心开始旋转生长。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要引入的
+mobjects。 - <strong>angle</strong>（<em>浮点数</em>） –
+物体达到其最大尺寸前的旋转角度。例如，<span
+class="math inline">2 * <em>P</em><em>I</em></span>
+表示物体在完全进入物体之前会旋转一圈。 -
+<strong>point_color</strong> ( <em>str</em> ) –
+对象在增长到其实际大小之前的初始颜色。留空可匹配对象的颜色。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">SpinInFromNothingExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        squares = [Square() <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>)]<br>        VGroup(*squares).set_x(<span class="hljs-number">0</span>).arrange(buff=<span class="hljs-number">2</span>)<br>        <span class="hljs-variable language_">self</span>.play(SpinInFromNothing(squares[<span class="hljs-number">0</span>]))<br>        <span class="hljs-variable language_">self</span>.play(SpinInFromNothing(squares[<span class="hljs-number">1</span>], angle=<span class="hljs-number">2</span> * PI))<br>        <span class="hljs-variable language_">self</span>.play(SpinInFromNothing(squares[<span class="hljs-number">2</span>], point_color=RED))<br></code></pre></td></tr></table></figure>
+<h3 id="indication">indication</h3>
+<p>吸引人注意的动画。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Indications</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        indications = [ApplyWave,Circumscribe,Flash,FocusOn,Indicate,ShowPassingFlash,Wiggle]<br>        names = [Tex(i.__name__).scale(<span class="hljs-number">3</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> indications]<br><br>        <span class="hljs-variable language_">self</span>.add(names[<span class="hljs-number">0</span>])<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(names)):<br>            <span class="hljs-keyword">if</span> indications[i] <span class="hljs-keyword">is</span> Flash:<br>                <span class="hljs-variable language_">self</span>.play(Flash(UP))<br>            <span class="hljs-keyword">elif</span> indications[i] <span class="hljs-keyword">is</span> ShowPassingFlash:<br>                <span class="hljs-variable language_">self</span>.play(ShowPassingFlash(Underline(names[i])))<br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-variable language_">self</span>.play(indications[i](names[i]))<br>            <span class="hljs-variable language_">self</span>.play(AnimationGroup(<br>                FadeOut(names[i], shift=UP*<span class="hljs-number">1.5</span>),<br>                FadeIn(names[(i+<span class="hljs-number">1</span>)%<span class="hljs-built_in">len</span>(names)], shift=UP*<span class="hljs-number">1.5</span>),<br>            ))<br></code></pre></td></tr></table></figure>
+<p>上述代码遍历所有的<code>indications</code>方法，通过<code>__name__</code>拿到其命名存入<code>names</code>数组。遍历<code>indications</code>通过<code>is</code>判断其类型播放对应动画。</p>
+<p>官方目录：</p>
+<table>
+
+<thead>
+<tr class="header">
+<th>方法名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.ApplyWave.html#manim.animation.indication.ApplyWave"
+title="manim.动画.指示.ApplyWave"><code>ApplyWave</code></a></td>
+<td>通过 Mobject 发送波并暂时扭曲它。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.Blink.html#manim.animation.indication.Blink"
+title="manim.animation.indication.闪烁"><code>Blink</code></a></td>
+<td>使物体闪烁。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.Circumscribe.html#manim.animation.indication.Circumscribe"
+title="manim.animation.indication.外切"><code>Circumscribe</code></a></td>
+<td>在对象周围画一条临时线。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.Flash.html#manim.animation.indication.Flash"
+title="manim.动画.指示.Flash"><code>Flash</code></a></td>
+<td>向各个方向发出线路。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.FocusOn.html#manim.animation.indication.FocusOn"
+title="manim.动画.指示.FocusOn"><code>FocusOn</code></a></td>
+<td>将聚光灯缩小到一个位置。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.Indicate.html#manim.animation.indication.Indicate"
+title="manim.animation.indication.指示"><code>Indicate</code></a></td>
+<td>通过临时调整大小和重新着色来指示 Mobject。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.ShowPassingFlash.html#manim.animation.indication.ShowPassingFlash"
+title="manim.animation.indication.ShowPassingFlash"><code>ShowPassingFlash</code></a></td>
+<td>每帧仅显示 VMobject 的一小部分。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.ShowPassingFlashWithThinningStrokeWidth.html#manim.animation.indication.ShowPassingFlashWithThinningStrokeWidth"
+title="manim.animation.indication.ShowPassingFlashWithThinningStrokeWidth"><code>ShowPassingFlashWithThinningStrokeWidth</code></a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.Wiggle.html#manim.animation.indication.Wiggle"
+title="manim.动画.指示.摆动"><code>Wiggle</code></a></td>
+<td>摆动 Mobject。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="applywave">ApplyWave</h4>
+<p>波浪一般扭曲一个<code>Mobject</code>。</p>
+<p>参数: - <strong>mobject</strong> (<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a>) –
+需要被扭曲的<code>Mobject</code>对象 -
+<strong>direction</strong> (<em>np.ndarray</em>) – 波浪推动形状点的方向
+- <strong>amplitude</strong> (<em>float</em>) – 形状的距离点发生偏移 -
+<strong>wave_func</strong> (Callable[[float], float]) –
+定义一个波侧形状的函数 - <strong>time_width</strong> (<em>float</em>) –
+相对于 mobject 宽度的波的长度 - <strong>ripples</strong> (<em>int</em>)
+– 波浪的涟漪数量 - <strong>run_time</strong> (<em>float</em>) –
+动画的持续时间</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ApplyingWaves</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        tex = Tex(<span class="hljs-string">&quot;WaveWaveWaveWaveWave&quot;</span>).scale(<span class="hljs-number">2</span>)<br>        <span class="hljs-variable language_">self</span>.play(ApplyWave(tex))<br>        <span class="hljs-variable language_">self</span>.play(ApplyWave(<br>            tex,<br>            direction=RIGHT,<br>            time_width=<span class="hljs-number">0.5</span>,<br>            amplitude=<span class="hljs-number">0.3</span><br>        ))<br>        <span class="hljs-variable language_">self</span>.play(ApplyWave(<br>            tex,<br>            rate_func=linear,<br>            ripples=<span class="hljs-number">4</span><br>        ))<br></code></pre></td></tr></table></figure>
+<h4 id="blink">Blink</h4>
+<p>闪烁，一闪一闪什么来着…</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要闪烁的
+<code>mobject</code>。 - <strong>time_on</strong> ( <em>float</em> ) –
+mobject 闪烁一次的持续时间。 -
+<strong>time_off</strong> ( <em>float</em> ) – mobject
+隐藏一次闪烁的持续时间。 - <strong>闪烁</strong>（<em>int</em>）-
+闪烁次数 - <strong>hide_at_end</strong> ( <em>bool</em> ) –
+是否在动画结束时隐藏 mobject。 - <strong>kwargs</strong> – 要传递给<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.Succession.html#manim.animation.composition.Succession"
+title="manim.动画.组合.继承"><code>Succession</code></a>构造函数的附加参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">BlinkingExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        text = Text(<span class="hljs-string">&quot;Blinking&quot;</span>).scale(<span class="hljs-number">1.5</span>)<br>        <span class="hljs-variable language_">self</span>.add(text)<br>        <span class="hljs-variable language_">self</span>.play(Blink(text, blinks=<span class="hljs-number">3</span>))<br></code></pre></td></tr></table></figure>
+<h4 id="circumscribe">Circumscribe</h4>
+<p>在对象周围画一条临时的线。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要外接的
+<code>mobject</code>。 - <strong>shape</strong>（<em>类型</em>） –
+包围给定对象的形状。可以 <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.geometry.polygram.Rectangle.html#manim.mobject.geometry.polygram.Rectangle"
+title="manim.mobject.geometry.polygram.Rectangle"><code>Rectangle</code></a>或<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.geometry.arc.Circle.html#manim.mobject.geometry.arc.Circle"
+title="manim.mobject.geometry.arc.Circle"><code>Circle</code></a> -
+<strong>fade_in</strong> – 是否使周围的形状淡入。否则将被绘制。 -
+<strong>fade_out</strong> – 是否使周围的形状淡出。否则将不绘制。 -
+<strong>time_width</strong> – 绘制和取消绘制的
+<code>time_width</code>。如果 <code>fade_in</code> 或
+<code>fade_out</code> 为 <code>True</code>  ，则忽略该值。 -
+<strong>buff</strong>（<em>float</em>） – 周围形状和给定​​
+<code>mobject</code> 之间的距离。 - <strong>color</strong>（<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.utils.color.core.html#manim.utils.color.core.ParsableManimColor"
+title="manim.utils.color.core.ParsableManimColor"><em>ParsableManimColor</em></a>）
+– 周围形状的颜色。 - <strong>run_time</strong> – 整个动画的持续时间。 -
+<strong>kwargs</strong> – 传递给<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.Succession.html#manim.animation.composition.Succession"
+title="manim.动画.组合.继承"><code>Succession</code></a>构造函数的附加参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">UsingCircumscribe</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        lbl = Tex(<span class="hljs-string">r&quot;Circum-\\scribe&quot;</span>).scale(<span class="hljs-number">2</span>)<br>        <span class="hljs-variable language_">self</span>.add(lbl)<br>        <span class="hljs-variable language_">self</span>.play(Circumscribe(lbl))<br>        <span class="hljs-variable language_">self</span>.play(Circumscribe(lbl, Circle))<br>        <span class="hljs-variable language_">self</span>.play(Circumscribe(lbl, fade_out=<span class="hljs-literal">True</span>))<br>        <span class="hljs-variable language_">self</span>.play(Circumscribe(lbl, time_width=<span class="hljs-number">2</span>))<br>        <span class="hljs-variable language_">self</span>.play(Circumscribe(lbl, Circle, <span class="hljs-literal">True</span>))<br></code></pre></td></tr></table></figure>
+<p>一个更加简单的例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">SingleScene</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>   <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>      t = Text(<span class="hljs-string">&quot;Hello&quot;</span>)<br>      <span class="hljs-variable language_">self</span>.add(t)<br>      <span class="hljs-variable language_">self</span>.play(Circumscribe(t, Circle))<br></code></pre></td></tr></table></figure>
+<h4 id="flash">Flash</h4>
+<p>向各个方向发出线路。</p>
+<p>参数： - <strong>point</strong> ( <em>np.ndarray</em> <em>|</em> <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) –
+闪光线的中心。如果是，<code>Mobject</code>则使用其中心。 -
+<strong>line_length</strong> ( <em>float</em> ) – 闪光线的长度。 -
+<strong>num_lines</strong> ( <em>int</em> ) – 闪光线的数量。 -
+<strong>flash_radius</strong> ( <em>float</em> ) –闪光线起始点的距离。 -
+<strong>line_stroke_width</strong> ( <em>int</em> ) - 闪光线的笔触宽度。
+- <strong>color</strong>（<em>str</em>） – 闪光线的颜色。 -
+<strong>time_width</strong> ( <em>float</em> ) –
+闪光线的时间宽度。<code>ShowPassingFlash</code>更多详情，请参阅。 -
+<strong>run_time</strong>（<em>float</em>） – 动画的持续时间。 -
+<strong>kwargs</strong> – 传递给<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.Succession.html#manim.animation.composition.Succession"
+title="manim.动画.组合.继承"><code>Succession</code></a>构造函数的附加参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">UsingFlash</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        dot = Dot(color=YELLOW).shift(DOWN)<br>        <span class="hljs-variable language_">self</span>.add(Tex(<span class="hljs-string">&quot;Flash the dot below:&quot;</span>), dot)<br>        <span class="hljs-variable language_">self</span>.play(Flash(dot))<br>        <span class="hljs-variable language_">self</span>.wait()<br></code></pre></td></tr></table></figure>
+<p>高级例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">FlashOnCircle</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        radius = <span class="hljs-number">2</span><br>        circle = Circle(radius)<br>        <span class="hljs-variable language_">self</span>.add(circle)<br>        <span class="hljs-variable language_">self</span>.play(Flash(<br>            circle, line_length=<span class="hljs-number">1</span>,<br>            num_lines=<span class="hljs-number">30</span>, color=RED,<br>            flash_radius=radius+SMALL_BUFF,<br>            time_width=<span class="hljs-number">0.3</span>, run_time=<span class="hljs-number">2</span>,<br>            rate_func = rush_from<br>        ))<br></code></pre></td></tr></table></figure>
+<h4 id="focuson">FocusOn</h4>
+<p>将灯光缩小到一个位置，类似于聚光灯。</p>
+<p>参数：</p>
+<ul>
+<li><strong>focus_point</strong> ( <em>np.ndarray</em> <em>|</em> <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) –
+聚光灯收缩的点。如果是<code>Mobject</code>则使用其中心。</li>
+<li><strong>opacity</strong>（<em>浮点数</em>） –
+聚光灯的不透明度。</li>
+<li><strong>color</strong>（<em>str</em>） – 聚光灯的颜色。</li>
+<li><strong>run_time</strong>（<em>float</em>） – 动画的持续时间。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">UsingFocusOn</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        dot = Dot(color=YELLOW).shift(DOWN)<br>        <span class="hljs-variable language_">self</span>.add(Tex(<span class="hljs-string">&quot;Focusing on the dot below:&quot;</span>), dot)<br>        <span class="hljs-variable language_">self</span>.play(FocusOn(dot))<br>        <span class="hljs-variable language_">self</span>.wait()<br></code></pre></td></tr></table></figure>
+<h4 id="indicate">Indicate</h4>
+<p>临时调整大小和重新着色来强调 <code>Mobject</code>。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要指示的
+mobject。 - <strong>scale_factor</strong> ( <em>float</em> ) –
+对象时间缩放的因子 - <strong>color</strong>（<em>str</em>） – mobject
+暂时呈现的颜色。 -
+<strong>rate_func</strong> ( <em>Callable</em> [/[float,float|None],np.ndarray])
+– 定义每个时间点的动画进度的函数。 - <strong>kwargs</strong> – 传递给<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.Succession.html#manim.animation.composition.Succession"
+title="manim.动画.组合.继承"><code>Succession</code></a>构造函数的附加参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">UsingIndicate</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        tex = Tex(<span class="hljs-string">&quot;Indicate&quot;</span>).scale(<span class="hljs-number">3</span>)<br>        <span class="hljs-variable language_">self</span>.play(Indicate(tex))<br>        <span class="hljs-variable language_">self</span>.wait()<br></code></pre></td></tr></table></figure>
+<h4 id="showpassingflash">ShowPassingFlash</h4>
+<p>类似于笔触动画，每一帧只显示<code>Mobj</code> 第一部分。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.types.vectorized_mobject.VMobject.html#manim.mobject.types.vectorized_mobject.VMobject"
+title="manim.mobject.types.vectorized_mobject.VMobject"><em>VMobject</em></a> )
+– 笔触具有动画效果的 <code>mobject</code>。 -
+<strong>time_width</strong> ( <em>float</em> ) –
+相对于笔划长度的碎片长度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TimeWidthValues</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        p = RegularPolygon(<span class="hljs-number">5</span>, color=DARK_GRAY, stroke_width=<span class="hljs-number">6</span>).scale(<span class="hljs-number">3</span>)<br>        lbl = VMobject()<br>        <span class="hljs-variable language_">self</span>.add(p, lbl)<br>        p = p.copy().set_color(BLUE)<br>        <span class="hljs-keyword">for</span> time_width <span class="hljs-keyword">in</span> [<span class="hljs-number">0.2</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]:<br>            lbl.become(Tex(<span class="hljs-string">r&quot;\texttt&#123;time\_width=&#123;&#123;%.1f&#125;&#125;&#125;&quot;</span>%time_width))<br>            <span class="hljs-variable language_">self</span>.play(ShowPassingFlash(<br>                p.copy().set_color(BLUE),<br>                run_time=<span class="hljs-number">2</span>,<br>                time_width=time_width<br>            ))<br></code></pre></td></tr></table></figure>
+<h4 id="wiggle">Wiggle</h4>
+<p>摆动<code>Mobj</code>。</p>
+<p>参数： - <strong>mobject</strong>（<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a>） – 要摆动的
+<code>mobject</code>。 - <strong>scale_value</strong> ( <em>float</em> )
+– <code>mobject</code> 临时缩放的因子。 -
+<strong>rotation_angle</strong> ( <em>float</em> ) – 摆动角度。 -
+<strong>n_wiggles</strong> ( <em>int</em> ) – 摆动的次数。 -
+<strong>scale_about_point</strong> ( <em>np.ndarray</em> <em>|</em> <em>None</em> )
+– <code>mobject</code> 缩放的点。 -
+<strong>rotate_about_point</strong> ( <em>np.ndarray</em> <em>|</em> <em>None</em> )
+– <code>mobject</code> 围绕其旋转的点。 -
+<strong>run_time</strong> ( <em>float</em> ) – 动画的持续时间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ApplyingWaves</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        tex = Tex(<span class="hljs-string">&quot;Wiggle&quot;</span>).scale(<span class="hljs-number">3</span>)<br>        <span class="hljs-variable language_">self</span>.play(Wiggle(tex))<br>        <span class="hljs-variable language_">self</span>.wait()<br></code></pre></td></tr></table></figure>
+<h3 id="movement">movement</h3>
+<p>与运动相关的动画。</p>
+<p>目录：</p>
+<blockquote>
+<p>为避免歧义这里不翻译。</p>
+</blockquote>
+<table>
+
+<thead>
+<tr class="header">
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.movement.ComplexHomotopy.html#manim.animation.movement.ComplexHomotopy"
+title="manim.animation.movement.ComplexHomotopy"><code>ComplexHomotopy</code></a></td>
+<td>Complex Homotopy a function Cx[0, 1] to C</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.movement.Homotopy.html#manim.animation.movement.Homotopy"
+title="manim.animation.movement.Homotopy"><code>Homotopy</code></a></td>
+<td>A Homotopy.</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.movement.MoveAlongPath.html#manim.animation.movement.MoveAlongPath"
+title="manim.animation.movement.MoveAlongPath"><code>MoveAlongPath</code></a></td>
+<td>Make one mobject move along the path of another mobject.</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.movement.PhaseFlow.html#manim.animation.movement.PhaseFlow"
+title="manim.animation.movement.PhaseFlow"><code>PhaseFlow</code></a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.movement.SmoothedVectorizedHomotopy.html#manim.animation.movement.SmoothedVectorizedHomotopy"
+title="manim.animation.movement.SmoothedVectorizedHomotopy"><code>SmoothedVectorizedHomotopy</code></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="homotopy">Homotopy</h4>
+<p><code>Latex</code>不便于粘贴，只好用<code>Google</code>翻译截图之：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-10%2021.17.14.png" srcset="/img/hollow_gif2.webp" lazyload
+alt="官方描述" />
+<figcaption aria-hidden="true">官方描述</figcaption>
+</figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">HomotopyExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        square = Square()<br><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">homotopy</span>(<span class="hljs-params">x, y, z, t</span>):<br>            <span class="hljs-keyword">if</span> t &lt;= <span class="hljs-number">0.25</span>:<br>                progress = t / <span class="hljs-number">0.25</span><br>                <span class="hljs-keyword">return</span> (x, y + progress * <span class="hljs-number">0.2</span> * np.sin(x), z)<br>            <span class="hljs-keyword">else</span>:<br>                wave_progress = (t - <span class="hljs-number">0.25</span>) / <span class="hljs-number">0.75</span><br>                <span class="hljs-keyword">return</span> (x, y + <span class="hljs-number">0.2</span> * np.sin(x + <span class="hljs-number">10</span> * wave_progress), z)<br><br>        <span class="hljs-variable language_">self</span>.play(Homotopy(homotopy, square, rate_func= linear, run_time=<span class="hljs-number">2</span>))<br></code></pre></td></tr></table></figure>
+<h4 id="movealongpath">MoveAlongPath</h4>
+<p>使一个 <code>mobject</code> 沿着另一个 <code>mobject</code>
+的路径移动。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MoveAlongPathExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        d1 = Dot().set_color(ORANGE)<br>        l1 = Line(LEFT, RIGHT)<br>        l2 = VMobject()<br>        <span class="hljs-variable language_">self</span>.add(d1, l1, l2)<br>        l2.add_updater(<span class="hljs-keyword">lambda</span> x: x.become(Line(LEFT, d1.get_center()).set_color(ORANGE)))<br>        <span class="hljs-variable language_">self</span>.play(MoveAlongPath(d1, l1), rate_func=linear)<br></code></pre></td></tr></table></figure>
+<h3 id="numbers">numbers</h3>
+<p>改变数字的动画。</p>
+<blockquote>
+<p>官方给出的说明较为简略，以文档为准。</p>
+</blockquote>
+<p>目录：</p>
+<table>
+
+<thead>
+<tr class="header">
+<th>方法名</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.numbers.ChangeDecimalToValue.html#manim.animation.numbers.ChangeDecimalToValue"
+title="manim.animation.numbers.ChangeDecimalToValue"><code>ChangeDecimalToValue</code></a></td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.numbers.ChangingDecimal.html#manim.animation.numbers.ChangingDecimal"
+title="manim.animation.numbers.ChangingDecimal"><code>ChangingDecimal</code></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="rotation">rotation</h3>
+<p>与旋转相关的动画。</p>
+<table>
+
+<thead>
+<tr class="header">
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.rotation.Rotate.html#manim.animation.rotation.Rotate"
+title="manim.animation.rotation.Rotate"><code>Rotate</code></a></td>
+<td>旋转一个 Mobject</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.rotation.Rotating.html#manim.animation.rotation.Rotating"
+title="manim.animation.rotation.Rotating"><code>Rotating</code></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="rotate">Rotate</h4>
+<p>旋转一个<code>Mobj</code>。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要旋转的
+<code>mobject</code>。 - <strong>angle</strong>（<em>浮点数</em>） –
+旋转角度。 - <strong>axis</strong>（<em>np.ndarray</em>）– 作为
+<code>numpy</code> 向量的旋转轴。 -
+<strong>about_point</strong> ( <em>Sequence</em> [float]|<em>None</em>)
+– 旋转中心。 -
+<strong>about_edge</strong> ( <em>Sequence</em> [float]<em>None</em> ) –
+如果<code>about_point</code>为<code>None</code>，则此参数指定要作为旋转中心的边界框点的方向。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">UsingRotate</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.play(<br>            Rotate(<br>                Square(side_length=<span class="hljs-number">0.5</span>).shift(UP * <span class="hljs-number">2</span>),<br>                angle=<span class="hljs-number">2</span>*PI,<br>                about_point=ORIGIN,<br>                rate_func=linear,<br>            ),<br>            Rotate(Square(side_length=<span class="hljs-number">0.5</span>), angle=<span class="hljs-number">2</span>*PI, rate_func=linear),<br>            )<br></code></pre></td></tr></table></figure>
+<h3 id="specialized">specialized</h3>
+<p>比较特殊的方法，特殊到只有一个。</p>
+<table>
+
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.specialized.Broadcast.html#manim.animation.specialized.Broadcast"
+title="manim.animation.specialized.Broadcast"><code>Broadcast</code></a></td>
+<td>从 开始广播一个 mobject <code>initial_width</code>，直到达到
+<code>mobject</code> 的实际大小。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="broadcast">Broadcast</h4>
+<p>从 开始广播一个 mobject <code>initial_width</code>，直到达到 mobject
+的实际大小。</p>
+<p>参数： - <strong>mobject</strong> – 要广播的 <code>mobject</code>。 -
+<strong>focal_point</strong> ( <em>Sequence</em> <em>[float]</em> ) –
+广播的中心，默认为 <code>ORIGIN</code>。 -
+<strong>n_mobs</strong> ( <em>int</em> ) – 从焦点出现的
+<code>mobject</code> 的数量，默认为 <code>5</code>。 -
+<strong>initial_opacity</strong> ( <em>float</em> ) – 从广播发出的
+<code>mobjects</code> 的起始笔触不透明度，默认为 <code>1</code>。 -
+<strong>final_opacity</strong> ( <em>float</em> ) – 广播发出的
+<code>mobjects</code> 的最终笔触不透明度，默认为 <code>0</code>。 -
+<strong>initial_width</strong> ( <em>float</em> ) –
+<code>mobjects</code> 的初始宽度，默认为 <code>0.0</code>。 -
+<strong>remover</strong>（<em>bool</em>）-动画结束后是否应从场景中移除
+<code>mobjects</code>，默认为 <code>True</code>。 -
+<strong>lag_ratio</strong> ( <em>float</em> ) – <code>mobject</code>
+每次迭代之间的时间，默认为 <code>0.2</code>。 -
+<strong>run_time</strong> ( <em>float</em> ) – 动画的总持续时间，默认为
+<code>3</code>。 - <strong>kwargs</strong>（<em>任意</em>） –
+要传递给的附加参数<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.LaggedStart.html#manim.animation.composition.LaggedStart"
+title="manim.animation.composition.LaggedStart"><code>LaggedStart</code></a>。</p>
+<p>参数很多，代码倒是简单（<del>纸老虎bushi</del>）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">BroadcastExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        mob = Circle(radius=<span class="hljs-number">4</span>, color=TEAL_A)<br>        <span class="hljs-variable language_">self</span>.play(Broadcast(mob))<br></code></pre></td></tr></table></figure>
+<h3 id="speedmodifier">speedmodifier</h3>
+<p>用于修改动画播放速度的实用程序。</p>
+<table>
+
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.speedmodifier.ChangeSpeed.html#manim.animation.speedmodifier.ChangeSpeed"
+title="manim.animation.speedmodifier.ChangeSpeed"><code>ChangeSpeed</code></a></td>
+<td>修改已传递动画的速度。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>个人觉得比较麻烦，暂时不想学，请看官方文档。</p>
+</blockquote>
+<h3 id="transform">transform</h3>
+<p>动画将一个对象转换为另一个对象。</p>
+<p>请看下方超级目录：</p>
+<table>
+
+<thead>
+<tr class="header">
+<th>方法名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ApplyComplexFunction.html#manim.animation.transform.ApplyComplexFunction"
+title="manim.animation.transform.ApplyComplexFunction"><code>ApplyComplexFunction</code></a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ApplyFunction.html#manim.animation.transform.ApplyFunction"
+title="manim.animation.transform.ApplyFunction"><code>ApplyFunction</code></a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ApplyMatrix.html#manim.animation.transform.ApplyMatrix"
+title="manim.animation.transform.ApplyMatrix"><code>ApplyMatrix</code></a></td>
+<td>将矩阵变换应用于 <code>mobject</code>。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ApplyMethod.html#manim.animation.transform.ApplyMethod"
+title="manim.animation.transform.ApplyMethod"><code>ApplyMethod</code></a></td>
+<td>通过应用一种方法来为 <code>mobject</code> 制作动画。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ApplyPointwiseFunction.html#manim.animation.transform.ApplyPointwiseFunction"
+title="manim.animation.transform.ApplyPointwiseFunction"><code>ApplyPointwiseFunction</code></a></td>
+<td>将逐点函数应用于 <code>mobject</code> 的动画。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ApplyPointwiseFunctionToCenter.html#manim.animation.transform.ApplyPointwiseFunctionToCenter"
+title="manim.animation.transform.ApplyPointwiseFunctionToCenter"><code>ApplyPointwiseFunctionToCenter</code></a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ClockwiseTransform.html#manim.animation.transform.ClockwiseTransform"
+title="manim.animation.transform.ClockwiseTransform"><code>ClockwiseTransform</code></a></td>
+<td>沿顺时针方向的圆弧变换 <code>mobject</code> 的点。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.CounterclockwiseTransform.html#manim.animation.transform.CounterclockwiseTransform"
+title="manim.animation.transform.CounterclockTransform"><code>CounterclockwiseTransform</code></a></td>
+<td>沿逆时针方向的圆弧变换物体的点。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.CyclicReplace.html#manim.animation.transform.CyclicReplace"
+title="manim.animation.transform.CyclicReplace"><code>CyclicReplace</code></a></td>
+<td>循环移动物体的动画。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.FadeToColor.html#manim.animation.transform.FadeToColor"
+title="manim.animation.transform.FadeToColor"><code>FadeToColor</code></a></td>
+<td>改变对象颜色的动画。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.FadeTransform.html#manim.animation.transform.FadeTransform"
+title="manim.animation.transform.FadeTransform"><code>FadeTransform</code></a></td>
+<td>将一个对象淡入另一个对象。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.FadeTransformPieces.html#manim.animation.transform.FadeTransformPieces"
+title="manim.animation.transform.FadeTransformPieces"><code>FadeTransformPieces</code></a></td>
+<td>将一个对象的子对象淡入另一个对象的子对象。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.MoveToTarget.html#manim.animation.transform.MoveToTarget"
+title="manim.animation.transform.MoveToTarget"><code>MoveToTarget</code></a></td>
+<td>将 <code>mobject</code> 转换为存储在其<code>target</code>属性中的
+<code>mobject</code>。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ReplacementTransform.html#manim.animation.transform.ReplacementTransform"
+title="manim.animation.transform.ReplacementTransform"><code>ReplacementTransform</code></a></td>
+<td>将 <code>mobject</code> 替换并变形为目标 <code>mobject</code>。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.Restore.html#manim.animation.transform.Restore"
+title="manim.animation.transform.恢复"><code>Restore</code></a></td>
+<td>将对象转换为其最后保存的状态。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ScaleInPlace.html#manim.animation.transform.ScaleInPlace"
+title="manim.animation.transform.ScaleInPlace"><code>ScaleInPlace</code></a></td>
+<td>按特定比例缩放物体的动画。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ShrinkToCenter.html#manim.animation.transform.ShrinkToCenter"
+title="manim.animation.transform.ShrinkToCenter"><code>ShrinkToCenter</code></a></td>
+<td>使物体缩小到中心的动画。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.Swap.html#manim.animation.transform.Swap"
+title="manim.animation.transform.Swap"><code>Swap</code></a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.Transform.html#manim.animation.transform.Transform"
+title="manim.animation.transform.变换"><code>Transform</code></a></td>
+<td><code>Transform</code> 将 <code>Mobject</code> 转换为目标
+<code>Mobject</code>。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.TransformAnimations.html#manim.animation.transform.TransformAnimations"
+title="manim.animation.transform.TransformAnimations"><code>TransformAnimations</code></a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.TransformFromCopy.html#manim.animation.transform.TransformFromCopy"
+title="manim.animation.transform.TransformFromCopy"><code>TransformFromCopy</code></a></td>
+<td>执行反向变换</td>
+</tr>
+</tbody>
+</table>
+<h4 id="applymatrix">ApplyMatrix</h4>
+<p>对<code>Mobject</code>应用矩阵变换。</p>
+<p>参数： - <strong>matrix</strong>（<em>np.ndarray</em>）– 转换矩阵。 -
+<strong>mobject</strong>（<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a>）– <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>。 -
+<strong>about_point</strong> ( <em>np.ndarray</em> ) –
+变换的原点。默认为<code>ORIGIN</code>。 - <strong>kwargs</strong> –
+传递给的进一步关键字参数<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ApplyPointwiseFunction.html#manim.animation.transform.ApplyPointwiseFunction"
+title="manim.animation.transform.ApplyPointwiseFunction"><code>ApplyPointwiseFunction</code></a>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ApplyMatrixExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        matrix = [[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">2</span>/<span class="hljs-number">3</span>]]<br>        <span class="hljs-variable language_">self</span>.play(ApplyMatrix(matrix, Text(<span class="hljs-string">&quot;Hello World!&quot;</span>)), ApplyMatrix(matrix, NumberPlane()))<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>由于不懂矩阵变化是啥东东，这里博主看不懂哟。 如果有大佬明白欢迎在
+Comments 指出原理。</p>
+</blockquote>
+<h4 id="applypointwisefunction">ApplyPointwiseFunction</h4>
+<p>将逐点函数应用于 <code>mobject</code> 的动画。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">WarpSquare</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        square = Square()<br>        <span class="hljs-variable language_">self</span>.play(<br>            ApplyPointwiseFunction(<br>                <span class="hljs-keyword">lambda</span> point: complex_to_R3(np.exp(R3_to_complex(point))), square<br>            )<br>        )<br>        <span class="hljs-variable language_">self</span>.wait()<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>看不懂（<del>弱</del>）。</p>
+</blockquote>
+<h4 id="clockwisetransform">ClockwiseTransform</h4>
+<p>沿顺时针方向的圆弧变换 <code>mobject</code> 的点。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ClockwiseExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        dl, dr = Dot(), Dot()<br>        sl, sr = Square(), Square()<br><br>        VGroup(dl, sl).arrange(DOWN).shift(<span class="hljs-number">2</span>*LEFT)<br>        VGroup(dr, sr).arrange(DOWN).shift(<span class="hljs-number">2</span>*RIGHT)<br><br>        <span class="hljs-variable language_">self</span>.add(dl, dr)<br>        <span class="hljs-variable language_">self</span>.wait()<br>        <span class="hljs-variable language_">self</span>.play(<br>            ClockwiseTransform(dl, sl),<br>            Transform(dr, sr)<br>        )<br>        <span class="hljs-variable language_">self</span>.wait()<br></code></pre></td></tr></table></figure>
+<h4 id="counterclockwisetransform">CounterclockwiseTransform</h4>
+<p>沿逆时针方向的圆弧变换物体的点。</p>
+<blockquote>
+<p>你问我参数呢？不知道，文档没写啊～</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">CounterclockwiseTransform_vs_Transform</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-comment"># set up the numbers</span><br>        c_transform = VGroup(DecimalNumber(number=<span class="hljs-number">3.141</span>, num_decimal_places=<span class="hljs-number">3</span>), DecimalNumber(number=<span class="hljs-number">1.618</span>, num_decimal_places=<span class="hljs-number">3</span>))<br>        text_1 = Text(<span class="hljs-string">&quot;CounterclockwiseTransform&quot;</span>, color=RED)<br>        c_transform.add(text_1)<br><br>        transform = VGroup(DecimalNumber(number=<span class="hljs-number">1.618</span>, num_decimal_places=<span class="hljs-number">3</span>), DecimalNumber(number=<span class="hljs-number">3.141</span>, num_decimal_places=<span class="hljs-number">3</span>))<br>        text_2 = Text(<span class="hljs-string">&quot;Transform&quot;</span>, color=BLUE)<br>        transform.add(text_2)<br><br>        ints = VGroup(c_transform, transform)<br>        texts = VGroup(text_1, text_2).scale(<span class="hljs-number">0.75</span>)<br>        c_transform.arrange(direction=UP, buff=<span class="hljs-number">1</span>)<br>        transform.arrange(direction=UP, buff=<span class="hljs-number">1</span>)<br><br>        ints.arrange(buff=<span class="hljs-number">2</span>)<br>        <span class="hljs-variable language_">self</span>.add(ints, texts)<br><br>        <span class="hljs-comment"># The mobs move in clockwise direction for ClockwiseTransform()</span><br>        <span class="hljs-variable language_">self</span>.play(CounterclockwiseTransform(c_transform[<span class="hljs-number">0</span>], c_transform[<span class="hljs-number">1</span>]))<br><br>        <span class="hljs-comment"># The mobs move straight up for Transform()</span><br>        <span class="hljs-variable language_">self</span>.play(Transform(transform[<span class="hljs-number">0</span>], transform[<span class="hljs-number">1</span>]))<br></code></pre></td></tr></table></figure>
+<p>为什么这么长，问就是官网复制的。</p>
+<h4 id="cyclicreplace">CyclicReplace</h4>
+<p>循环移动物体的动画，看起来像是扑克牌洗牌感觉适合用于制作排序算法的动画。</p>
+<p>参数： - <strong>mobjects</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要转换的
+<code>mobject</code> 列表。 -
+<strong>path_arc</strong> ( <em>float</em> ) –
+物体到达目标所遵循的弧度角度（以弧度为单位）。 -
+<strong>kwargs</strong> – 传递给的进一步关键字参数<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.Transform.html#manim.animation.transform.Transform"
+title="manim.animation.transform.变换"><code>Transform</code></a>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">CyclicReplaceExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        group = VGroup(Square(), Circle(), Triangle(), Star())<br>        group.arrange(RIGHT)<br>        <span class="hljs-variable language_">self</span>.add(group)<br><br>        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>):<br>            <span class="hljs-variable language_">self</span>.play(CyclicReplace(*group))<br></code></pre></td></tr></table></figure>
+<h4 id="fadetocolor">FadeToColor</h4>
+<p>改变对象颜色的动画。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">FadeToColorExample</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.play(FadeToColor(Text(<span class="hljs-string">&quot;Hello World!&quot;</span>), color=RED))<br></code></pre></td></tr></table></figure>
+<h4 id="fadetransform">FadeTransform</h4>
+<p>将一个对象淡入另一个对象。</p>
+<p>参数： - <strong>mobject</strong> – 起始<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>。 -
+<strong>target_mobject</strong> – 目标<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>。 -
+<strong>stretch</strong><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a> –
+控制动画过程中目标是否拉伸。默认值： <code>True</code>。 -
+<strong>dim_to_match</strong> – 如果目标对象未自动拉伸，则允许在目标<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>移入时调整其初始比例。将其分别设置为
+<code>0</code>、<code>1</code> 和 <code>2</code>， <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>分别将目标的长度与
+<span class="math inline"><em>x</em></span>、<span
+class="math inline"><em>y</em></span> 和 <span
+class="math inline"><em>z</em></span> 方向的起始长度相匹配。 -
+<strong>kwargs</strong> – 进一步的关键字参数被传递给父类。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">DifferentFadeTransforms</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        starts = [Rectangle(width=<span class="hljs-number">4</span>, height=<span class="hljs-number">1</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>)]<br>        VGroup(*starts).arrange(DOWN, buff=<span class="hljs-number">1</span>).shift(<span class="hljs-number">3</span>*LEFT)<br>        targets = [Circle(fill_opacity=<span class="hljs-number">1</span>).scale(<span class="hljs-number">0.25</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>)]<br>        VGroup(*targets).arrange(DOWN, buff=<span class="hljs-number">1</span>).shift(<span class="hljs-number">3</span>*RIGHT)<br><br>        <span class="hljs-variable language_">self</span>.play(*[FadeIn(s) <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> starts])<br>        <span class="hljs-variable language_">self</span>.play(<br>            FadeTransform(starts[<span class="hljs-number">0</span>], targets[<span class="hljs-number">0</span>], stretch=<span class="hljs-literal">True</span>),<br>            FadeTransform(starts[<span class="hljs-number">1</span>], targets[<span class="hljs-number">1</span>], stretch=<span class="hljs-literal">False</span>, dim_to_match=<span class="hljs-number">0</span>),<br>            FadeTransform(starts[<span class="hljs-number">2</span>], targets[<span class="hljs-number">2</span>], stretch=<span class="hljs-literal">False</span>, dim_to_match=<span class="hljs-number">1</span>)<br>        )<br><br>        <span class="hljs-variable language_">self</span>.play(*[FadeOut(mobj) <span class="hljs-keyword">for</span> mobj <span class="hljs-keyword">in</span> <span class="hljs-variable language_">self</span>.mobjects])<br></code></pre></td></tr></table></figure>
+<h4 id="fadetransformpieces">FadeTransformPieces</h4>
+<p>将一个对象的子对象淡入另一个对象的子对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> manim <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">FadeTransformSubmobjects</span>(<span class="hljs-title class_ inherited__">Scene</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">construct</span>(<span class="hljs-params">self</span>):<br>        src = VGroup(Square(), Circle().shift(LEFT + UP))<br>        src.shift(<span class="hljs-number">3</span>*LEFT + <span class="hljs-number">2</span>*UP)<br>        src_copy = src.copy().shift(<span class="hljs-number">4</span>*DOWN)<br><br>        target = VGroup(Circle(), Triangle().shift(RIGHT + DOWN))<br>        target.shift(<span class="hljs-number">3</span>*RIGHT + <span class="hljs-number">2</span>*UP)<br>        target_copy = target.copy().shift(<span class="hljs-number">4</span>*DOWN)<br><br>        <span class="hljs-variable language_">self</span>.play(FadeIn(src), FadeIn(src_copy))<br>        <span class="hljs-variable language_">self</span>.play(<br>            FadeTransform(src, target),<br>            FadeTransformPieces(src_copy, target_copy)<br>        )<br>        <span class="hljs-variable language_">self</span>.play(*[FadeOut(mobj) <span class="hljs-keyword">for</span> mobj <span class="hljs-keyword">in</span> <span class="hljs-variable language_">self</span>.mobjects])<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/manim/" class="category-chain-item">manim</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/manim/" class="print-no-link"># manim</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>【manim】Animations 详解</div>
+      <div>https://ccccooh.github.io/2025/07/10/manim/【manim】深入浅出进阶玩法/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Sy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年7月10日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/07/11/manim/%E3%80%90manim%E3%80%91Axes-%E5%9D%90%E6%A0%87%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%9F%BA%E7%B1%BB%E8%AF%A6%E8%A7%A3/" title="【manim】Axes 坐标系及其基类详解">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【manim】Axes 坐标系及其基类详解</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/07/10/manim/%E3%80%90manim%E3%80%91%E5%88%9D%E5%85%A5%E4%BB%A3%E7%A0%81%E5%8A%A8%E7%94%BB%E7%9A%84%E7%8E%8B%E5%9B%BD/" title="【manim】初入代码动画的王国">
+                        <span class="hidden-mobile">【manim】初入代码动画的王国</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.css')
+      Fluid.utils.createScript('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://comment-system-gamma.vercel.app/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
