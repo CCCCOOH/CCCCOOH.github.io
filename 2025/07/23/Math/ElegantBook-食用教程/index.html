@@ -1,0 +1,890 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sy">
+  <meta name="keywords" content="Sy博客">
+  
+    <meta name="description" content="简短的ElegantBook教程，参考官方文档。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ElegantBook 食用教程">
+<meta property="og:url" content="https://ccccooh.github.io/2025/07/23/Math/ElegantBook-%E9%A3%9F%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="简短的ElegantBook教程，参考官方文档。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507231326274.png">
+<meta property="article:published_time" content="2025-07-23T06:37:16.000Z">
+<meta property="article:modified_time" content="2025-07-30T03:20:05.361Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Overleaf">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507231326274.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>ElegantBook 食用教程 - SHEN YING</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"ccccooh.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading4.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Single-Y</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://sygmail.github.io/" target="_self">
+                <i class="iconfont icon-code"></i>
+                <span></span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" target="_self">
+                <i class="iconfont icon-bilibili-fill"></i>
+                <span></span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="ElegantBook 食用教程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-23 14:37" pubdate>
+          2025年7月23日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">ElegantBook 食用教程</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年7月30日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>本文大量参考 <del>复制粘贴</del> ElegantBook
+官方文档，更详尽内容请参考 ElegantBook 官方 Github 仓库。 ## 1.
+颜色主题</p>
+</blockquote>
+<p>模板内置 5 组颜色主题，分别为：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507231326274.png" srcset="/img/loading4.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>如果需要自定义颜色的话请选择 <strong>nocolor</strong> 选项或者使用
+<code>color=none</code>，然后在导言区定义
+<strong>structurecolor</strong>、<strong>main</strong>、<strong>second</strong>、<strong>third</strong>
+颜色，具体方法如下：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\definecolor</span>&#123;structurecolor&#125;&#123;RGB&#125;&#123;0,0,0&#125;<br><span class="hljs-keyword">\definecolor</span>&#123;main&#125;&#123;RGB&#125;&#123;70,70,70&#125;<br><span class="hljs-keyword">\definecolor</span>&#123;second&#125;&#123;RGB&#125;&#123;115,45,2&#125;<br><span class="hljs-keyword">\definecolor</span>&#123;third&#125;&#123;RGB&#125;&#123;0,80,80&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="封面">2. 封面</h2>
+<h3 id="封面个性化">2.1 封面个性化</h3>
+<p>面更加弹性化，用户可以自行选择输出的内容，包括\title
+在内的所有封面元素都可为空。目前封面的元素有：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507231330853.png" srcset="/img/loading4.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>另外，额外增加一个命令，有两个选项，分别是信息标题以及信息内容。比如需要显示User
+Name：111520，则可以使用：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\bioinfo</span>&#123;User Name&#125;&#123;115520&#125;<br></code></pre></td></tr></table></figure>
+<p>封面中间位置的色块的颜色可以使用下面命令进行修改：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\definecolor</span>&#123;customcolor&#125;&#123;RGB&#125;&#123;32,178,170&#125;<br><span class="hljs-keyword">\colorlet</span>&#123;coverlinecolor&#125;&#123;customcolor&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="封面图">2.2 封面图</h3>
+<p>封面图片的尺寸为1280×1024,更换图片的时候请严格按照封面图片尺寸进行裁剪。推荐一个免费的在线图片裁剪网站
+fotor.com。</p>
+<h3 id="徽标">2.3 徽标</h3>
+<p>本文用到的Logo
+比例为1:1，也即正方形图片，在更换图片的时候请选择合适的图片进行替换。</p>
+<h2 id="文章标题">3. 文章标题</h2>
+<p>本模板内置2 套章标题显示风格，包含hang （默认）与display
+两种风格，区别在于章标题单行显示（hang）与双行显示（display），本说明使用了hang。调用方式为：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\documentclass</span>[hang]&#123;elegantbook&#125; <span class="hljs-comment">%or</span><br><span class="hljs-keyword">\documentclass</span>[titlestyle=hang]&#123;elegantbook&#125;<br></code></pre></td></tr></table></figure>
+<p>在章标题内，章节编号默认是以数字显示，也即第1 章，第2
+章等等，如果想要把数字改为中文，可以使用：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\documentclass</span>[chinese]&#123;elegantbook&#125; <span class="hljs-comment">%or</span><br><span class="hljs-keyword">\documentclass</span>[scheme=chinese]&#123;elegantbook&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="数学环境简介">4. 数学环境简介</h2>
+<p>在这个模板中，定义了两种不同的定理模式mode，包括简单模式（simple）和炫彩模式（fancy），默认为fancy
+模式，不同模式的选择为：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\documentclass</span>[simple]&#123;elegantbook&#125; <span class="hljs-comment">%or</span><br><span class="hljs-keyword">\documentclass</span>[mode=simple]&#123;elegantbook&#125;<br></code></pre></td></tr></table></figure>
+<p>本模板定义了四大类环境：</p>
+<ol type="1">
+<li><p>定理类环境，包含标题和内容两部分，全部定理类环境的编号均以章节编号。根据格式的不同分为3
+种：</p>
+<ul>
+<li><strong>definition</strong> 环境，颜色为
+<strong>main</strong>；</li>
+<li><strong>theorem</strong>、<strong>lemma</strong>、<strong>corollary</strong>、<strong>axiom</strong>、<strong>postulate</strong>
+环境，颜色为 <strong>second</strong>；</li>
+<li><strong>proposition</strong> 环境，颜色为third。</li>
+</ul></li>
+<li><p>示例类环境，<strong>有example</strong>、<strong>problem</strong>、<strong>exercise</strong>
+环境（对应于例、例题、练习），自动编号，编号以章节为单位，其中
+<strong>exercise</strong> 有提示符。</p></li>
+<li><p>提示类环境，有note 环境，特点是：无编号，有引导符。</p></li>
+<li><p>结论类环境，有
+<strong>conclusion</strong>、<strong>assumption</strong>、<strong>property</strong>、<strong>remark</strong>、<strong>solution</strong>
+环境5，三者均以粗体的引导词为开头，和普通段落格式一致。</p></li>
+</ol>
+<blockquote>
+<p>本模板还添加了一个 <strong>result</strong> 选项，用于隐藏
+<strong>solution</strong> 和 <strong>proof</strong>
+环境，默认为显示（result=answer），隐藏使用
+<code>result=noanswer</code>。</p>
+</blockquote>
+<h2 id="定理类环境的使用">5. 定理类环境的使用</h2>
+<p>由于本模板使用了tcolorbox
+宏包来定制定理类环境，所以和普通的定理环境的使用有些许区别，定
+理的使用方法如下：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507231350843.png" srcset="/img/loading4.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>&#123;theorem&#125;&#123;theorem name&#125;&#123;label&#125;<br>The content of theorem.<br><span class="hljs-keyword">\end</span>&#123;theorem&#125;<br></code></pre></td></tr></table></figure>
+<p>第一个必选项theorem name 是定理的名字，第二个必选项label
+是交叉引用时所用到的标签，交叉引用的方法为。请注意，交叉引用时必须加上前缀thm:。</p>
+<p>在用户多次反馈下，4.x
+之后，引入了原生定理的支持方式，也就是使用可选项方式：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507231350547.png" srcset="/img/loading4.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>&#123;theorem&#125;[theorem name] <span class="hljs-keyword">\label</span>&#123;thm:theorem-label&#125;<br>The content of theorem.<br><span class="hljs-keyword">\end</span>&#123;theorem&#125;<br><span class="hljs-comment">% or</span><br><span class="hljs-keyword">\begin</span>&#123;theorem&#125; <span class="hljs-keyword">\label</span>&#123;thm:theorem-withou-name&#125;<br>The content of theorem without name.<br><span class="hljs-keyword">\end</span>&#123;theorem&#125;<br></code></pre></td></tr></table></figure>
+<p>其他相同用法的定理类环境有：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507231435235.png" srcset="/img/loading4.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507231340107.png" srcset="/img/loading4.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h2 id="其他三种环境的使用">6. 其他三种环境的使用</h2>
+<p>其他三种环境没有选项，可以直接使用，比如 example
+环境的使用方法与效果：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>&#123;example&#125;<br>This is the content of example environment.<br><span class="hljs-keyword">\end</span>&#123;example&#125;<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507231353894.png" srcset="/img/loading4.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>这几个都是同一类环境，区别在于 -
+示例环境（example）、练习（exercise）与例题（problem）章节自动编号； -
+注意（note），练习（exercise）环境有提醒引导符； -
+结论（conclusion）等环境都是普通段落环境，引导词加粗。</p>
+<h2 id="列表环境">7. 列表环境</h2>
+<p>本模板借助于tikz 定制了itemize 和enumerate 环境，其中itemize
+环境修改了3 层嵌套，而enumerate环境修改了4
+层嵌套（仅改变颜色）。示例如下：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507231341254.png" srcset="/img/loading4.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h2 id="参考文献">8. 参考文献</h2>
+<p>文献部分，本模板调用了biblatex 宏包，并提供了biber（默认）和bibtex
+两个后端选项，可以使用bibend进行修改：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\documentclass</span>[bibtex]&#123;elegantbook&#125;<br><span class="hljs-keyword">\documentclass</span>[bibend=bibtex]&#123;elegantbook&#125;<br></code></pre></td></tr></table></figure>
+<p>关于文献条目（bib item），你可以在谷歌学术，Mendeley，Endnote
+中取，然后把它们添加到reference.bib中。在文中引用的时候，引用它们的键值（bib
+key）即可。</p>
+<p>为了方便文献样式修改，模板引入了bibstyle 和citestyle
+选项，默认均为数字格式（numeric），参考文献示例：[1–3]
+使用了中国一个大型的P2P
+平台（人人贷）的数据来检验男性投资者和女性投资者在投资表现上是否有显著差异。</p>
+<p>如果需要设置为国标GB7714-2015，需要使用：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\documentclass</span>[citestyle=gb7714-2015, bibstyle=gb7714-2015]&#123;elegantbook&#125;<br></code></pre></td></tr></table></figure>
+<p>如果需要添加排序方式，可以在导言区加入：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\ExecuteBibliographyOptions</span>&#123;sorting=ynt&#125;<br></code></pre></td></tr></table></figure>
+<p>启用国标之后，可以加入sorting=gb7714-2015。</p>
+<h2 id="添加序章">9. 添加序章</h2>
+<p>如果你想在第一章前面添序章，不改变原本章节序号，可以在第一章内容前面使用：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\chapter</span>*&#123;Introduction&#125;<br><span class="hljs-keyword">\markboth</span>&#123;Introduction&#125;&#123;Introduction&#125;<br>The content of introduction.<br></code></pre></td></tr></table></figure>
+<h2 id="目录选项与深度">10. 目录选项与深度</h2>
+<p>本模板添加了一个目录选项toc，可以设置目录为单栏（onecol）和双栏（twocol）显示，比如双栏显示可以使用：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\documentclass</span>[twocol]&#123;elegantbook&#125;<br><span class="hljs-keyword">\documentclass</span>[toc=twocol]&#123;elegantbook&#125;<br></code></pre></td></tr></table></figure>
+<p>默认本模板目录深度为1，你可以在导言区使用：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\setcounter</span>&#123;tocdepth&#125;&#123;2&#125;<br></code></pre></td></tr></table></figure>
+<p>将其修改为2 级目录（章与节）显示。</p>
+<h2 id="章节摘要">11. 章节摘要</h2>
+<p>模板新增了一个章节摘要环境（introduction），使用示例：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>&#123;introduction&#125;<br><span class="hljs-keyword">\item</span> Definition of Theorem<br><span class="hljs-keyword">\item</span> Ask for help<br><span class="hljs-keyword">\item</span> Optimization Problem<br><span class="hljs-keyword">\item</span> Property of Cauchy Series<br><span class="hljs-keyword">\item</span> Angle of Corner<br><span class="hljs-keyword">\end</span>&#123;introduction&#125;<br></code></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507231344330.png" srcset="/img/loading4.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>环境的标题文字可以通过这个环境的可选参数进行修改，修改方法为：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>&#123;introduction&#125;[Brief Introduction]<br>...<br><span class="hljs-keyword">\end</span>&#123;introduction&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="课后习题">12. 课后习题</h2>
+<p>前面我们介绍了例题和练习两个环境，这里我们再加一个，章后习题（problemset）环境，用于在每一章结尾，显示本章的练习。使用方法如下：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>&#123;problemset&#125;<br><span class="hljs-keyword">\item</span> exercise 1<br><span class="hljs-keyword">\item</span> exercise 2<br><span class="hljs-keyword">\item</span> exercise 3<br><span class="hljs-keyword">\end</span>&#123;problemset&#125;<br></code></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507231345088.png" srcset="/img/loading4.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/math/" class="category-chain-item">math</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Overleaf/" class="print-no-link">#Overleaf</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>ElegantBook 食用教程</div>
+      <div>https://ccccooh.github.io/2025/07/23/Math/ElegantBook-食用教程/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Sy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年7月23日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/07/23/Math/OCR-Latex%E8%B8%A9%E5%9D%91/" title="【心碎踩坑王】OCR-Latex踩坑">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【心碎踩坑王】OCR-Latex踩坑</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/07/23/Math/%E3%80%90Latex%E3%80%9130%E5%88%86%E9%92%9F%E5%AD%A6%E4%BC%9ALaTeX/" title="【Latex】30分钟学会LaTeX">
+                        <span class="hidden-mobile">【Latex】30分钟学会LaTeX</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.css')
+      Fluid.utils.createScript('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://comment-system-gamma.vercel.app/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

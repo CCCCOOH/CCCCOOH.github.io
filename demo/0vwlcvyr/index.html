@@ -1,0 +1,1399 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Sy">
+  <meta name="keywords" content="Sy博客">
+  
+    <meta name="description" content="一、介绍 MongoDb是文档存储结构的数据库，与传统的SQL数据库有所不同。这是一开始学习Mongodb给我的印象。 传统的Sql数据库中有数据库、表、记录这三个层次的概念，映射到MongoDb中：数据库就是一个Connection连接，表则是一个Collection集合，集合或者说表中的每一个记录在Mongodb中叫做一个个的文档。 初步学习下来，Mongodb的集合像是一个存储Json格式的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Mongodb】1.快速开始">
+<meta property="og:url" content="https://ccccooh.github.io/demo/0vwlcvyr/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="一、介绍 MongoDb是文档存储结构的数据库，与传统的SQL数据库有所不同。这是一开始学习Mongodb给我的印象。 传统的Sql数据库中有数据库、表、记录这三个层次的概念，映射到MongoDb中：数据库就是一个Connection连接，表则是一个Collection集合，集合或者说表中的每一个记录在Mongodb中叫做一个个的文档。 初步学习下来，Mongodb的集合像是一个存储Json格式的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/image-20250325233457055.png">
+<meta property="article:published_time" content="2025-03-25T13:01:22.000Z">
+<meta property="article:modified_time" content="2025-07-30T03:20:05.364Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/image-20250325233457055.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>【Mongodb】1.快速开始 - SHEN YING</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"ccccooh.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading4.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Single-Y</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://sygmail.github.io/" target="_self">
+                <i class="iconfont icon-code"></i>
+                <span></span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" target="_self">
+                <i class="iconfont icon-bilibili-fill"></i>
+                <span></span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【Mongodb】1.快速开始"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-03-25 21:01" pubdate>
+          2025年3月25日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="前端"
+        id="heading-9abfe4a03928eb88a75a5cd95822dfef" role="tab" data-toggle="collapse" href="#collapse-9abfe4a03928eb88a75a5cd95822dfef"
+        aria-expanded="true"
+      >
+        前端
+        <span class="list-group-count">(35)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-9abfe4a03928eb88a75a5cd95822dfef"
+           role="tabpanel" aria-labelledby="heading-9abfe4a03928eb88a75a5cd95822dfef">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ECharts"
+        id="heading-06dbbc5f251bd5a8dd14475108a2516b" role="tab" data-toggle="collapse" href="#collapse-06dbbc5f251bd5a8dd14475108a2516b"
+        aria-expanded="false"
+      >
+        ECharts
+        <span class="list-group-count">(5)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-06dbbc5f251bd5a8dd14475108a2516b"
+           role="tabpanel" aria-labelledby="heading-06dbbc5f251bd5a8dd14475108a2516b">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/enaku3vs/" title="【ECharts】1.认识ECharts"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ECharts】1.认识ECharts</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/n3g4dbp4/" title="【ECharts】2.ECharts基础知识"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ECharts】2.ECharts基础知识</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/pk9z1xu2/" title="【ECharts】3.基本图表绘制"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ECharts】3.基本图表绘制</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/3n73zpsx/" title="【ECharts】4.异步数据加载"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ECharts】4.异步数据加载</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/dplmiu4e/" title="【ECharts】5.事件处理"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ECharts】5.事件处理</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="ElementPlus"
+        id="heading-a6dccc0e99a2158b194b6504125239ef" role="tab" data-toggle="collapse" href="#collapse-a6dccc0e99a2158b194b6504125239ef"
+        aria-expanded="false"
+      >
+        ElementPlus
+        <span class="list-group-count">(5)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-a6dccc0e99a2158b194b6504125239ef"
+           role="tabpanel" aria-labelledby="heading-a6dccc0e99a2158b194b6504125239ef">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/b2vswo6h/" title="【ElementPlus】1.安装"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ElementPlus】1.安装</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/vytdv5ht/" title="【ElementPlus】2.Space 间距组件"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ElementPlus】2.Space 间距组件</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/ckgp76qd/" title="【ElementPlus】3.TimeSelect 组件"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ElementPlus】3.TimeSelect 组件</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/tag6e3yo/" title="【ElementPlus】4.Virtualized Tree 虚拟化树形控件"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ElementPlus】4.Virtualized Tree 虚拟化树形控件</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/faa6sr0g/" title="【ElementPlus】5.Affix 骨钉"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【ElementPlus】5.Affix 骨钉</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="JavaScript"
+        id="heading-686155af75a60a0f6e9d80c1f7edd3e9" role="tab" data-toggle="collapse" href="#collapse-686155af75a60a0f6e9d80c1f7edd3e9"
+        aria-expanded="false"
+      >
+        JavaScript
+        <span class="list-group-count">(6)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-686155af75a60a0f6e9d80c1f7edd3e9"
+           role="tabpanel" aria-labelledby="heading-686155af75a60a0f6e9d80c1f7edd3e9">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/ab006aq5/" title="ES6-Set-Map对象小记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">ES6-Set-Map对象小记</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/nxyiresv/" title="ES6函数、对象和面向对象扩展"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">ES6函数、对象和面向对象扩展</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/k2rykkmj/" title="ES6异步编程中Promise与Proxy对象"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">ES6异步编程中Promise与Proxy对象</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/5zki1i9m/" title="JavaScript如何实现类型判断？"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">JavaScript如何实现类型判断？</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/d0p0ehmg/" title="Javascript-ES6扩展写法"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Javascript-ES6扩展写法</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/49xtp2iv/" title="Js扩展DOM、BOM、AJAX、事件、定时器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">Js扩展DOM、BOM、AJAX、事件、定时器</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Mongodb"
+        id="heading-c1f54d1681966e9eae45d5846783de99" role="tab" data-toggle="collapse" href="#collapse-c1f54d1681966e9eae45d5846783de99"
+        aria-expanded="true"
+      >
+        Mongodb
+        <span class="list-group-count">(5)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-c1f54d1681966e9eae45d5846783de99"
+           role="tabpanel" aria-labelledby="heading-c1f54d1681966e9eae45d5846783de99">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/0vwlcvyr/" title="【Mongodb】1.快速开始"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">【Mongodb】1.快速开始</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/blc8jgxs/" title="【Mongodb】2.通过Express和MongoDb实现RestfulAPI应用"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Mongodb】2.通过Express和MongoDb实现RestfulAPI应用</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/qqr7ryjv/" title="【Mongodb】3.创建文章Model和保存文章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Mongodb】3.创建文章Model和保存文章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/bczxta4p/" title="【Mongodb】4.查询所有文章"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Mongodb】4.查询所有文章</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/re171jfu/" title="【Mongodb】5.使用模型"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Mongodb】5.使用模型</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Mongoose"
+        id="heading-cadcdedb567abae643e15dcf0974e503" role="tab" data-toggle="collapse" href="#collapse-cadcdedb567abae643e15dcf0974e503"
+        aria-expanded="false"
+      >
+        Mongoose
+        <span class="list-group-count">(3)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-cadcdedb567abae643e15dcf0974e503"
+           role="tabpanel" aria-labelledby="heading-cadcdedb567abae643e15dcf0974e503">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/iyyihe7l/" title="【mongoose】1.简介"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【mongoose】1.简介</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/c1386z98/" title="【mongoose】2.Schema和Model"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【mongoose】2.Schema和Model</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/vqh5zjut/" title="【mongoose】3.阅读官方文档"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【mongoose】3.阅读官方文档</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Node.js"
+        id="heading-3b2819dd4c24eda2faf2052eef449551" role="tab" data-toggle="collapse" href="#collapse-3b2819dd4c24eda2faf2052eef449551"
+        aria-expanded="false"
+      >
+        Node.js
+        <span class="list-group-count">(4)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-3b2819dd4c24eda2faf2052eef449551"
+           role="tabpanel" aria-labelledby="heading-3b2819dd4c24eda2faf2052eef449551">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/aa32xoz8/" title="【Node.js】web请求"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Node.js】web请求</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/d4py24wo/" title="【Node.js】初始化路由"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Node.js】初始化路由</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/ah01upt6/" title="【Node.js】文件操作"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Node.js】文件操作</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/j0laz2l5/" title="【Node.js】认识Node.js"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Node.js】认识Node.js</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Pinia"
+        id="heading-7cb874f094c9a1f6db165d391b771796" role="tab" data-toggle="collapse" href="#collapse-7cb874f094c9a1f6db165d391b771796"
+        aria-expanded="false"
+      >
+        Pinia
+        <span class="list-group-count">(4)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-7cb874f094c9a1f6db165d391b771796"
+           role="tabpanel" aria-labelledby="heading-7cb874f094c9a1f6db165d391b771796">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/95fgxdcq/" title="【Pinia】Pinia核心概念"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Pinia】Pinia核心概念</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/rrm6slri/" title="【Pinia】Pinia的安装和配置"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Pinia】Pinia的安装和配置</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/gvz1avb2/" title="【Pinia】初始Pinia"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Pinia】初始Pinia</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/xmld3lww/" title="【Pinia】购物车项目"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Pinia】购物车项目</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Vue"
+        id="heading-2d8ec58babcec05d3fe8f712968de749" role="tab" data-toggle="collapse" href="#collapse-2d8ec58babcec05d3fe8f712968de749"
+        aria-expanded="false"
+      >
+        Vue
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-2d8ec58babcec05d3fe8f712968de749"
+           role="tabpanel" aria-labelledby="heading-2d8ec58babcec05d3fe8f712968de749">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2025/02/09/%E5%89%8D%E7%AB%AF/Vue/%E3%80%90Vue%E3%80%91Vue3%E9%87%8D%E4%BF%AE%E7%AC%94%E8%AE%B0/" title="【Vue】Vue3重修笔记"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【Vue】Vue3重修笔记</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="VueRouter"
+        id="heading-739027b28867c620ed386619b057577b" role="tab" data-toggle="collapse" href="#collapse-739027b28867c620ed386619b057577b"
+        aria-expanded="false"
+      >
+        VueRouter
+        <span class="list-group-count">(2)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse " id="collapse-739027b28867c620ed386619b057577b"
+           role="tabpanel" aria-labelledby="heading-739027b28867c620ed386619b057577b">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/demo/1gpxctp3/" title="【VueRouter】1.vueRouter 路由管理器"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【VueRouter】1.vueRouter 路由管理器</span>
+        </a>
+      
+    
+      
+      
+        <a href="/demo/i99ir9kd/" title="【VueRouter】2.安装和使用"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">【VueRouter】2.安装和使用</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">【Mongodb】1.快速开始</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年7月30日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="一介绍">一、介绍</h2>
+<p><code>MongoDb</code>是文档存储结构的数据库，与传统的SQL数据库有所不同。这是一开始学习<code>Mongodb</code>给我的印象。</p>
+<p>传统的Sql数据库中有数据库、表、记录这三个层次的概念，映射到<code>MongoDb</code>中：数据库就是一个<code>Connection</code>连接，表则是一个<code>Collection</code>集合，集合或者说表中的每一个记录在<code>Mongodb</code>中叫做一个个的文档。</p>
+<p>初步学习下来，<code>Mongodb</code>的集合像是一个存储<code>Json</code>格式的容器，似乎非常贴合web请求的<code>Json</code>格式，让前端开发者旋转。</p>
+<h2 id="二开始mongo">二、开始Mongo</h2>
+<h3 id="添加文档创建集合">2.1 添加文档/创建集合</h3>
+<p>下载部署完成 <code>Mongodb</code>
+后，可以通过如下命令来创建一个集合：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.postCollection.insertOne(&#123;<br>title: &quot;mongodb 入门教程&quot;,<br>author: &#123;<br>	name: &quot;Sy&quot;,<br>	avatar: &quot;https://shenying.online&quot;<br>&#125;,<br>createdAt: &quot;2025-3-25&quot;,<br>content: &quot;Mongodb 是文档存储结构的数据库&quot;,<br>comments: [<br>  &#123;<br>		<span class="hljs-keyword">user</span>: &quot;小明&quot;,<br>		comment: &quot;真不错&quot;<br>	&#125;,<br>  &#123;<br>		<span class="hljs-keyword">user</span>: &quot;toby&quot;,<br>		comment: &quot;wow!&quot;<br>	&#125;<br>]<br>&#125;)<br></code></pre></td></tr></table></figure>
+<p>这里的<code>postCollection</code>是我们当前创建的集合的名字，相当于在<code>sql</code>中创建了一张名为<code>postCollection</code>的表。</p>
+<blockquote>
+<p>实际上，<code>insertOne</code>是用来在集合中添加文档数据的，但是因为没有该集合，所以<code>mongoDb</code>会自动创建这个名字的集合并插入数据，完成API的功能。</p>
+</blockquote>
+<p>你也可以用同样的方式创建一张学生表（在<code>mongodb</code>中尽量叫他集合，下面也是如此）：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.Students.insertOne(&#123;内容省略...&#125;)<br></code></pre></td></tr></table></figure>
+<h3 id="查询集合数据">2.2 查询集合数据</h3>
+<ol type="1">
+<li>查询集合的全部文档</li>
+</ol>
+<p>要查询集合的所有元素可以使用<code>db.集合名.find(&#123;&#125;)</code>方法，不传递空对象则默认传递空对象，效果为查询集合的所有文档。</p>
+<ol start="2" type="1">
+<li>带条件的集合文档查询</li>
+</ol>
+<p>以一张学生表为例，假设每一个学生文档有如下属性：<code>name</code>，<code>age</code>，<code>sex</code>，如果要查询满足姓名为<code>sy</code>的学生，可以这样查：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.Students.find(&#123;name: <span class="hljs-string">&#x27;sy&#x27;</span>&#125;)<br></code></pre></td></tr></table></figure>
+<p>注意这里的<code>Students</code>是学生集合的名字。</p>
+<ol start="3" type="1">
+<li>查询嵌套的文档结构：</li>
+</ol>
+<p>假如文档的结构是这样的：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>title<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mongodb 入门教程&quot;</span><span class="hljs-punctuation">,</span><br>author<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>	name<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Sy&quot;</span><span class="hljs-punctuation">,</span><br>	avatar<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://shenying.online&quot;</span><br><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>createdAt<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2025-3-25&quot;</span><span class="hljs-punctuation">,</span><br>content<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Mongodb 是文档存储结构的数据库&quot;</span><span class="hljs-punctuation">,</span><br>comments<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>  <span class="hljs-punctuation">&#123;</span><br>		user<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;小明&quot;</span><span class="hljs-punctuation">,</span><br>		comment<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;真不错&quot;</span><br>	<span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-punctuation">&#123;</span><br>		user<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;toby&quot;</span><span class="hljs-punctuation">,</span><br>		comment<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;wow!&quot;</span><br>	<span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+<p>想要按照这里<code>author.name</code>这个二级属性来进行条件查询就需要这样写：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.postCollection.find(&#123;&quot;author.name&quot;: &quot;Sy&quot;&#125;)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>注意这里的传递键名需要用双引号包裹，有所不同。</p>
+</blockquote>
+<h3 id="更新集合数据">2.3 更新集合数据</h3>
+<p>更新数据和查询数据语法类似，存在两中方法：</p>
+<ul>
+<li><code>updateOne()</code> 仅修改一条数据</li>
+<li><code>updateMany()</code> 修改所有满足查询条件数据</li>
+</ul>
+<p>他们都接受两个参数，依次是：1. <strong>查询修改的条件</strong> 2.
+<strong>要修改的属性</strong></p>
+<p>直接用之前的修改方法会出现报错：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.user.updateOne(&#123;name: &quot;Sy&quot;&#125;, &#123;name: &quot;谌y&quot;&#125;)<br></code></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/image-20250325212710634.png" srcset="/img/loading4.gif" lazyload
+alt="image-20250325212710634" />
+<figcaption aria-hidden="true">image-20250325212710634</figcaption>
+</figure>
+<p>从这里可以得知，MongoDb中修改数据需要专门的操作符语法。</p>
+<ol type="1">
+<li><code>$set</code></li>
+</ol>
+<p>在修改的属性参数最外层再包一层大括号，并将<code>$set</code>键所对应的值设置为<code>&#123;name: "Syyyy", age: 19...&#125;</code>表示要修改<code>$set</code>所对应的所有属性。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.user.updateMany(&#123;&#125;, &#123;$<span class="hljs-keyword">set</span>: &#123;name: <span class="hljs-string">&#x27;kkk&#x27;</span>&#125;&#125;)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>如果不这样做，<code>Mongodb</code>
+就无法保证唯一性，请问你是只修改<code>name</code>还是要将这个文档修改为<code>&#123; name: xxx &#125;</code>并舍去其他的键呢？</p>
+</blockquote>
+<h3 id="删除集合数据">2.3 删除集合数据</h3>
+<p>与更新类似，删除数据根据数量也有两种写法：</p>
+<ul>
+<li><code>deleteOne()</code> 删除一条数据</li>
+<li><code>deleteMany()</code> 删除所有满足查询条件数据</li>
+</ul>
+<p>语法很简单：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">db.user.delete(&#123; _id: ObjectId(<span class="hljs-string">&#x27;67e2ae7c7da85b2443b61a2a&#x27;</span>) &#125;)<br></code></pre></td></tr></table></figure>
+<p>这里的<code>_id</code>是<code>MongoDb</code>在创建文档时自动为我们生成的唯一标识，帮我们省去了自己后端使用雪花算法、<code>uuid</code>生成标识的时间。</p>
+<h2 id="三总结">三、总结</h2>
+<p>经过一番使用，可以看出MongoDb有一些比较特别的地方。</p>
+<p>首先是性能方面，MongoDb适用于性能要求很高但是数据一致性要求不高的应用中。因为创建集合、数据分片过于方便，这样会导致很多数据不会保持相同的文档结构。</p>
+<p>因为其操作语法和<code>JavaScript</code>非常接近，所以用 JS
+创建的应用可以首选 MongoDb 作为数据库存储引擎。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%89%8D%E7%AB%AF/Mongodb/" class="category-chain-item">Mongodb</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>【Mongodb】1.快速开始</div>
+      <div>https://ccccooh.github.io/demo/0vwlcvyr/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Sy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年3月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/demo/blc8jgxs/" title="【Mongodb】2.通过Express和MongoDb实现RestfulAPI应用">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【Mongodb】2.通过Express和MongoDb实现RestfulAPI应用</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/0yvjvflq/" title="最难部署的数据库非Mongodb莫属">
+                        <span class="hidden-mobile">最难部署的数据库非Mongodb莫属</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.css')
+      Fluid.utils.createScript('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://comment-system-gamma.vercel.app/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
