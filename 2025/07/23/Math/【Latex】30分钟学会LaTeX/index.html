@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagesimg/icon.png">
+  <link rel="mask-icon" href="/images/icon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.0.5/fancybox/fancybox.css" integrity="sha256-uTcjoMD6rPt4OyV3Rs02Slxl0BJGMNVKAm/1eYPt2go=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ccccooh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.23.2","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":"flat","style":null},"fold":{"enable":true,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":100,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="教程向，30分学会LaTeX">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Latex】30分钟学会LaTeX">
+<meta property="og:url" content="https://ccccooh.github.io/2025/07/23/Math/%E3%80%90Latex%E3%80%9130%E5%88%86%E9%92%9F%E5%AD%A6%E4%BC%9ALaTeX/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="教程向，30分学会LaTeX">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507230738619.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507230801560.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507230809454.png">
+<meta property="og:image" content="https://sharelatex-wiki-cdn-671420.c.cdn77.org/learn-scripts/images/1/17/ImagesInAFolder.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507230814015.png">
+<meta property="og:image" content="https://images.ctfassets.net/nrgyaltdicpt/1lDj29Mg9ZuLNHXwZrTJew/cd7d950c65fd05b251c4aa55746f4eb7/LL30Fig7-plain.svg">
+<meta property="og:image" content="https://images.ctfassets.net/nrgyaltdicpt/2vkfa7RiAIJxv5wIZbg9UK/530c384f159d091a587de279d13fefec/LL30Fig8-plain.svg">
+<meta property="og:image" content="https://images.ctfassets.net/nrgyaltdicpt/77oK8pfew1B1VvxiBtALag/15714f2da4e469bbb8cf70a0d3733e5d/LL30Fig9-plain.svg">
+<meta property="og:image" content="https://images.ctfassets.net/nrgyaltdicpt/6n1FPYFzmzCHPpWoEoYQZM/79b33f1096be06326bff7d2e1976c67c/LL30Fig11-plain.svg">
+<meta property="og:image" content="https://images.ctfassets.net/nrgyaltdicpt/5xfm4NybWckHL5ndpdnBRq/bc0b5e27044820ea5cdd11648a68f543/LL30Fig12r-plain.svg">
+<meta property="og:image" content="https://images.ctfassets.net/nrgyaltdicpt/hT85gkewCDlxCHeNU5slE/9256c129b25bec7a93dcfe9e44b0654a/LL30Fig13r-plain.svg">
+<meta property="og:image" content="https://images.ctfassets.net/nrgyaltdicpt/4cPu8x8ZxuDVF6efcZ03yi/91aa6aa84719613b0e25c725b70aa0b8/LL30Fig14-plain.svg">
+<meta property="og:image" content="https://images.ctfassets.net/nrgyaltdicpt/5DdSH06hFli8k4lR0dxw4m/a55cddf9aa10b64302ae7b72ba0c6447/LL30Fig15r-plain.svg">
+<meta property="og:image" content="https://images.ctfassets.net/nrgyaltdicpt/1A1T7YsurQdM058OwmLqd8/7f6e962c31356bafa702bab9062f6061/LL30Fig16-plain.svg">
+<meta property="og:image" content="https://images.ctfassets.net/nrgyaltdicpt/5K46QavbKv9vF4RI1GbUf2/f22d4f8a06d00251166f86d2c891321e/LL30Fig17-plain.svg">
+<meta property="og:image" content="https://images.ctfassets.net/nrgyaltdicpt/5uWYGUhK1XJJJaWz5R1EmX/3ee88bf6b2eaf8d0644b57fa8064800b/LL30Fig18-plain.svg">
+<meta property="og:image" content="https://images.ctfassets.net/nrgyaltdicpt/1Cy9FcRnDVDRUPQdCgaKq6/c21e5f7d9a53514756c6e1f2996e51e0/LL30Fig19-plain.svg">
+<meta property="og:image" content="https://images.ctfassets.net/nrgyaltdicpt/1f5w74UIaTCkpApaPdVeWf/580a87c2413ddc9d6bdef3bf462689fc/LL30Fig20-plain.svg">
+<meta property="og:image" content="https://images.ctfassets.net/nrgyaltdicpt/MxY592Q6EGsDKMA2mZw0t/fffa41a0a0d30770526f73aff72a7be1/LL30Fig21r-plain.svg">
+<meta property="article:published_time" content="2025-07-23T00:57:00.000Z">
+<meta property="article:modified_time" content="2025-08-04T06:46:40.525Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="latex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507230738619.png">
+
+
+<link rel="canonical" href="https://ccccooh.github.io/2025/07/23/Math/%E3%80%90Latex%E3%80%9130%E5%88%86%E9%92%9F%E5%AD%A6%E4%BC%9ALaTeX/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ccccooh.github.io/2025/07/23/Math/%E3%80%90Latex%E3%80%9130%E5%88%86%E9%92%9F%E5%AD%A6%E4%BC%9ALaTeX/","path":"2025/07/23/Math/【Latex】30分钟学会LaTeX/","title":"【Latex】30分钟学会LaTeX"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【Latex】30分钟学会LaTeX | SHEN YING</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.0.5/fancybox/fancybox.umd.js" integrity="sha256-UiSieVaV/DXce2LW7QH+o77w+AIoAvSCPBkezriZ2DQ=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/6.1.3/pangu.umd.js" integrity="sha256-erngBMP3zzoIM6eqQ8dmrReh2vqCRgWmORroIfVoDlE=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/3.0.1/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://ccccooh.github.io/2025/07/23/Math/%E3%80%90Latex%E3%80%9130%E5%88%86%E9%92%9F%E5%AD%A6%E4%BC%9ALaTeX/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SHEN YING</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Syの小窝</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFlatex"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是LaTeX?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0-latex"><span class="nav-number">2.</span> <span class="nav-text">2. 为什么要学习 LaTeX？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87-latex-%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">3. 编写你的第一篇 LaTeX 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3-preamble"><span class="nav-number">4.</span> <span class="nav-text">4. 文档 preamble</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%85%E6%8B%AC%E6%A0%87%E9%A2%98%E4%BD%9C%E8%80%85%E5%92%8C%E6%97%A5%E6%9C%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">5.</span> <span class="nav-text">5. 包括标题、作者和日期信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%B3%A8%E9%87%8A"><span class="nav-number">6.</span> <span class="nav-text">6. 添加注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B2%97%E4%BD%93%E6%96%9C%E4%BD%93%E5%92%8C%E4%B8%8B%E6%8D%A2%E7%BA%BF"><span class="nav-number">7.</span> <span class="nav-text">7. 粗体、斜体和下换线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%9B%BE%E5%83%8F"><span class="nav-number">8.</span> <span class="nav-text">8. 添加图像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E6%A0%87%E7%AD%BE%E5%92%8C%E5%8F%82%E8%80%83"><span class="nav-number">9.</span> <span class="nav-text">9. 标题、标签和参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8latex%E4%B8%AD%E5%88%9B%E5%BB%BA%E5%88%97%E8%A1%A8"><span class="nav-number">10.</span> <span class="nav-text">10. 在LaTeX中创建列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adding-math-to-latex"><span class="nav-number">11.</span> <span class="nav-text">11. Adding math to LaTeX</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inline-math-mode"><span class="nav-number">11.1.</span> <span class="nav-text">11.1 inline math mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#display-math-mode"><span class="nav-number">11.2.</span> <span class="nav-text">11.2 Display math mode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%96%87%E6%A1%A3%E7%BB%93%E6%9E%84"><span class="nav-number">12.</span> <span class="nav-text">12. 基本文档结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">12.1.</span> <span class="nav-text">12.1 摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AE%B5%E8%90%BD%E4%B8%8E%E6%8D%A2%E8%A1%8C"><span class="nav-number">12.2.</span> <span class="nav-text">12.2 段落与换行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%A0%E8%8A%82---chapter"><span class="nav-number">12.3.</span> <span class="nav-text">12.3 章节 - chapter</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8"><span class="nav-number">13.</span> <span class="nav-text">13. 创建表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC"><span class="nav-number">13.1.</span> <span class="nav-text">13.1 基本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#captiontitlereference"><span class="nav-number">13.2.</span> <span class="nav-text">13.2 Caption、Title、Reference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%9B%AE%E5%BD%95"><span class="nav-number">13.3.</span> <span class="nav-text">14. 添加目录</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Sy"
+      src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif">
+  <p class="site-author-name" itemprop="name">Sy</p>
+  <div class="site-description" itemprop="description">Sy with web,game and other.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ccccooh.github.io/2025/07/23/Math/%E3%80%90Latex%E3%80%9130%E5%88%86%E9%92%9F%E5%AD%A6%E4%BC%9ALaTeX/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif">
+      <meta itemprop="name" content="Sy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SHEN YING">
+      <meta itemprop="description" content="Sy with web,game and other.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【Latex】30分钟学会LaTeX | SHEN YING">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Latex】30分钟学会LaTeX
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-07-23 08:57:00" itemprop="dateCreated datePublished" datetime="2025-07-23T08:57:00+08:00">2025-07-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-04 14:46:40" itemprop="dateModified" datetime="2025-08-04T14:46:40+08:00">2025-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/math/" itemprop="url" rel="index"><span itemprop="name">math</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/math/latex/" itemprop="url" rel="index"><span itemprop="name">latex</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>本文是笔记。尊重原文，<a
+target="_blank" rel="noopener" href="https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes#Creating_lists_in_LaTeX">参考原文地址</a>。</p>
+</blockquote>
+<h2 id="什么是latex">1. 什么是LaTeX?</h2>
+<p><span
+class="math inline"><em>L</em><sup><em>A</em></sup><em>T</em><sub><em>E</em></sub><em>X</em></span>
+发音为 “LAY-tek” 亦或是
+“LAH-tek”。是一款用于排版专业外观文档的工具。然而，Latex的工作方式类似于
+Markdown。文档<span
+class="math inline">$\xrightarrow[排版]{TeX引擎}$</span>排版后文档。这意味着能够通过LaTeX语法来产生专业排版的PDF文件。</p>
+<h2 id="为什么要学习-latex">2. 为什么要学习 LaTeX？</h2>
+<p>你当然可以提出各种拒绝使用LaTeX的理由，那是你的事儿。But
+最终选择LaTeX的用户往往在意以下优点：</p>
+<ul>
+<li>支持排版<strong>极其复杂的数学</strong>、表格和其他科学的技术内容；</li>
+<li>脚注、交叉引用和书目管理设施；</li>
+<li>易于制作复杂或繁琐的文档元素，如索引、词汇表、目录、图表列表；</li>
+<li>强大的<strong>编程性和可扩展性</strong>，数千个插件，<strong>高度定制</strong>；</li>
+</ul>
+<p>总而言之，各种好处，不胜枚举。当然，有些类型的文档 LaTeX
+并不擅长，这类“自由格式”文档往往通过 Word 解决。</p>
+<p>与 Markdown 类似，LaTeX
+将文档的内容和其样式进行了分离。更换“主题”无需修改内容即可修改样式。</p>
+<h2 id="编写你的第一篇-latex-代码">3. 编写你的第一篇 LaTeX 代码</h2>
+<p>第一步是创建一个新的 LaTeX 项目，在电脑上创建一个新的
+<code>.tex</code> 文件来完成此操作。在”尊贵“的 mac
+上用终端命令做到这一步。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line">First document. This is a simple example, with no </span><br><span class="line">extra parameters or packages included.</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<p>此示例将产生的输出：</p>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507230738619.png"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>你可以看到，LaTeX
+已自动缩进段落首行，帮你处理好了格式问题。让我们仔细看看代码的每个部分都做了什么。</p>
+<p>第一行代码 <code>\documentclass&#123;article&#125;</code>
+申明了文档类型，它控制文档的整体外观。设置好文档类型后，文档的内容介于
+<code>\begin&#123;document&#125;</code> 和 <code>\end&#123;document&#125;</code>
+标签之间。</p>
+<h2 id="文档-preamble">4. 文档 preamble</h2>
+<p>文档的 preamble是有别于 body 中的内容的。最小的文档 <span
+class="math inline"><em>p</em><em>r</em><em>e</em><em>a</em><em>m</em><em>b</em><em>l</em><em>e</em></span>
+如下所示：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span> [12pt, letterpaper] &#123;文章&#125; </span><br><span class="line"><span class="keyword">\usepackage</span> &#123; graphicx &#125;</span><br></pre></td></tr></table></figure>
+<p>其中 <code>\documentclass[12pt, letterpaper]&#123;article&#125;</code>
+定义了文档的整体类。</p>
+<p>在此示例中，这两个参数执行以下操作： - <code>12pt</code>设置字体大小
+- <code>letterpaper</code>设置纸张尺寸</p>
+<p>当然，也可以使用其他字体大小，<code>9pt</code>、<code>11pt</code>、<code>12pt</code>，但如果未指定，则默认大小为<code>10pt</code>。置于纸张尺寸，其他可能的值有
+a4papaer 和 legalpaper。<a
+target="_blank" rel="noopener" href="https://www.overleaf.com/learn/latex/Page_size_and_margins">更多信息参阅</a>。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span> &#123; graphicx &#125;</span><br></pre></td></tr></table></figure>
+<p>这是一个加载外部包的示例，使其能够导入外部图形文件。<a
+target="_blank" rel="noopener" href="https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes#Finding_and_using_LaTeX_packages">查找和使用LaTeX包</a>。</p>
+<h2 id="包括标题作者和日期信息">5. 包括标题、作者和日期信息</h2>
+<p>在 <span
+class="math inline"><em>p</em><em>r</em><em>e</em><em>a</em><em>m</em><em>b</em><em>l</em><em>e</em></span>
+中（注意不是文档正文）添加三行</p>
+<ul>
+<li>: 文档标题</li>
+<li>: 作者姓名，可选命令。
+<ul>
+<li>: 可以添加到作者姓名后，位于 author
+命令的括号内。如果你需要致谢某个机构，这非常有用。</li>
+</ul></li>
+<li>: 你可以手动输入日期，也可以
+在每次文档编译时使用命令排版当前的日期。</li>
+</ul>
+<p>添加后你的 <span
+class="math inline"><em>p</em><em>r</em><em>e</em><em>a</em><em>m</em><em>b</em><em>l</em><em>e</em></span>
+大体是这样的：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>[12pt, letterpaper]&#123;article&#125;</span><br><span class="line"><span class="keyword">\title</span>&#123;My first LaTeX document&#125;</span><br><span class="line"><span class="keyword">\author</span>&#123;Hubert Farnsworth<span class="keyword">\thanks</span>&#123;Funded by the Overleaf team.&#125;&#125;</span><br><span class="line"><span class="keyword">\date</span>&#123;August 2022&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\maketitle</span></span><br><span class="line">We have now added a title, author and date to our first <span class="keyword">\LaTeX</span>&#123;&#125; document!</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+用
+<p>添加或排版（官方用语为 <span
+class="math inline"><em>t</em><em>y</em><em>p</em><em>e</em><em>s</em><em>e</em><em>t</em></span>
+）标题，作者和日期。</p>
+<p>效果如下：</p>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507230801560.png"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h2 id="添加注释">6. 添加注释</h2>
+<p>LaTeX
+是一种代码，专注于文档排版。因此，与其他任何编程语言写的代码一样，在文档中添加注释非常有用。</p>
+<p>要在 LaTeX 中添加注释，只需 % 起手（行首写一个%）：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>[12pt, letterpaper]&#123;article&#125;</span><br><span class="line"><span class="keyword">\title</span>&#123;My first LaTeX document&#125;</span><br><span class="line"><span class="keyword">\author</span>&#123;Hubert Farnsworth<span class="keyword">\thanks</span>&#123;Funded by the Overleaf team.&#125;&#125;</span><br><span class="line"><span class="keyword">\date</span>&#123;August 2022&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\maketitle</span></span><br><span class="line">We have now added a title, author and date to our first <span class="keyword">\LaTeX</span>&#123;&#125; document!</span><br><span class="line"></span><br><span class="line"><span class="comment">% This line here is a comment. It will not be typeset in the document.</span></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="粗体斜体和下换线">7. 粗体、斜体和下换线</h2>
+<ul>
+<li><span
+class="math inline"><strong>粗体</strong></span>：<code>\textbf&#123;&#125;</code></li>
+<li><span
+class="math inline"><em>斜体</em></span>：<code>\textit&#123;&#125;</code></li>
+<li><span
+class="math inline">$\underline{下划线}$</span>：<code>\underline&#123;&#125;</code></li>
+</ul>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Some of the <span class="keyword">\textbf</span>&#123;greatest&#125;</span><br><span class="line">discoveries in <span class="keyword">\underline</span>&#123;science&#125; </span><br><span class="line">were made by <span class="keyword">\textbf</span>&#123;<span class="keyword">\textit</span>&#123;accident&#125;&#125;.</span><br></pre></td></tr></table></figure>
+<h2 id="添加图像">8. 添加图像</h2>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125; <span class="comment">%LaTeX package to import graphics</span></span><br><span class="line"><span class="keyword">\graphicspath</span>&#123;&#123;images/&#125;&#125; <span class="comment">%configuring the graphicx package</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line">The universe is immense and it seems to be homogeneous, </span><br><span class="line">on a large scale, everywhere we look.</span><br><span class="line"></span><br><span class="line"><span class="comment">% The \includegraphics command is </span></span><br><span class="line"><span class="comment">% provided (implemented) by the </span></span><br><span class="line"><span class="comment">% graphicx package</span></span><br><span class="line"><span class="keyword">\includegraphics</span>&#123;universe&#125;  </span><br><span class="line"> </span><br><span class="line">There&#x27;s a picture of a galaxy above.</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507230809454.png"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>要是用该 graphics 包，在 preamble 中包含下行：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span> &#123; graphicx &#125;</span><br></pre></td></tr></table></figure>
+<p>若用 OverLeaf，使用<code>\graphicspath&#123;&#123;images/&#125;&#125;</code>
+告知 LaTeX 图像保存路径。</p>
+<p><img data-src="https://sharelatex-wiki-cdn-671420.c.cdn77.org/learn-scripts/images/1/17/ImagesInAFolder.png" /></p>
+<blockquote>
+<p>注意文件名，最佳做法是省略扩展名。一般来说，图片的文件名不应该包含空格或多个点；若上传到
+Overleaf 建议使用小写字母作为文件扩展名。</p>
+</blockquote>
+<h2 id="标题标签和参考">9. 标题、标签和参考</h2>
+<p>可以通过 <span
+class="math inline"><em>f</em><em>i</em><em>g</em><em>u</em><em>r</em><em>e</em></span>
+来引用图像。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125;</span><br><span class="line"><span class="keyword">\graphicspath</span>&#123;&#123;images/&#125;&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[h]</span><br><span class="line">    <span class="keyword">\centering</span></span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=0.75<span class="keyword">\textwidth</span>]&#123;mesh&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;A nice plot.&#125;</span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:mesh1&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br><span class="line"> </span><br><span class="line">As you can see in figure <span class="keyword">\ref</span>&#123;fig:mesh1&#125;, the function grows near the origin. This example is on page <span class="keyword">\pageref</span>&#123;fig:mesh1&#125;.</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<p>将产生的效果：</p>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507230814015.png"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>示例中几个值得注意的命令： -
+<strong><code>\includegraphics[width=0.75\textwidth]&#123;mesh&#125;</code></strong>：这种形式<code>\includegraphics</code>指示LaTeX将图形的宽度设置为文本宽度的
+75%——其值存储在<code>\textwidth</code>命令中。 -
+<strong><code>\caption&#123;A nice plot.&#125;</code></strong>：顾名思义，此命令用于设置图形标题，可以放置在图形上方或下方。如果您创建了图形列表，则此标题将在该列表中使用。
+-
+<strong><code>\label&#123;fig:mesh1&#125;</code></strong>：要在文档中引用此图像，请使用该命令为其添加标签<code>\label</code>。该标签用于为图像生成编号，并与下一个命令结合使用，即可引用该图像。
+-
+<strong><code>\ref&#123;fig:mesh1&#125;</code></strong>：此代码将被对应于参考图的数字替换。</p>
+<h2 id="在latex中创建列表">10. 在LaTeX中创建列表</h2>
+<p>无序列表：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;itemize&#125;</span><br><span class="line">  <span class="keyword">\item</span> The individual entries are indicated with a black dot, a so-called bullet.</span><br><span class="line">  <span class="keyword">\item</span> The text in the entries may be of any length.</span><br><span class="line"><span class="keyword">\end</span>&#123;itemize&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<p>其效果：</p>
+<figure>
+<img data-src="https://images.ctfassets.net/nrgyaltdicpt/1lDj29Mg9ZuLNHXwZrTJew/cd7d950c65fd05b251c4aa55746f4eb7/LL30Fig7-plain.svg"
+alt="An example of bulleted lists in LaTeX" />
+<figcaption aria-hidden="true">An example of bulleted lists in
+LaTeX</figcaption>
+</figure>
+<p>有序列表：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;</span><br><span class="line">  <span class="keyword">\item</span> This is the first entry in our list.</span><br><span class="line">  <span class="keyword">\item</span> The list numbers increase with each entry we add.</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<figure>
+<img data-src="https://images.ctfassets.net/nrgyaltdicpt/2vkfa7RiAIJxv5wIZbg9UK/530c384f159d091a587de279d13fefec/LL30Fig8-plain.svg"
+alt="An example numbered list produced in LaTeX" />
+<figcaption aria-hidden="true">An example numbered list produced in
+LaTeX</figcaption>
+</figure>
+<h2 id="adding-math-to-latex">11. Adding math to LaTeX</h2>
+<h3 id="inline-math-mode">11.1 inline math mode</h3>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>[12pt, letterpaper]&#123;article&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line">In physics, the mass-energy equivalence is stated </span><br><span class="line">by the equation <span class="built_in">$</span>E=mc<span class="built_in">^</span>2<span class="built_in">$</span>, discovered in 1905 by Albert Einstein.</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure>
+<img data-src="https://images.ctfassets.net/nrgyaltdicpt/77oK8pfew1B1VvxiBtALag/15714f2da4e469bbb8cf70a0d3733e5d/LL30Fig9-plain.svg"
+alt="Image showing math typeset in inline math mode" />
+<figcaption aria-hidden="true">Image showing math typeset in inline math
+mode</figcaption>
+</figure>
+<p>排版 inline-mode math
+你可以用：<code>\( ... \)</code>, <code>$ ... $</code> 亦或是 <code>\begin&#123;math&#125; ...\end&#123;math&#125;</code>。</p>
+<h3 id="display-math-mode">11.2 Display math mode</h3>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>[12pt, letterpaper]&#123;article&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line">The mass-energy equivalence is described by the famous equation</span><br><span class="line"><span class="keyword">\[</span> E=mc<span class="built_in">^</span>2 <span class="keyword">\]</span> discovered in 1905 by Albert Einstein. </span><br><span class="line"></span><br><span class="line">In natural units (<span class="built_in">$</span>c = 1<span class="built_in">$</span>), the formula expresses the identity</span><br><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line">E=m</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img data-src="https://images.ctfassets.net/nrgyaltdicpt/6n1FPYFzmzCHPpWoEoYQZM/79b33f1096be06326bff7d2e1976c67c/LL30Fig11-plain.svg"
+alt="Image showing display mode math in LaTeX" />
+<figcaption aria-hidden="true">Image showing display mode math in
+LaTeX</figcaption>
+</figure>
+<p>使用
+<code>\[ ... \]</code>or<code>\begin&#123;displaymath&#125;...\end&#123;displaymath&#125;</code>or<code>\begin&#123;equation&#125;...\end&#123;equation&#125;</code>or<code>$$...$$</code></p>
+<p>更加完整的例子：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line">Subscripts in math mode are written as <span class="built_in">$</span>a<span class="built_in">_</span>b<span class="built_in">$</span> and superscripts are written as <span class="built_in">$</span>a<span class="built_in">^</span>b<span class="built_in">$</span>. These can be combined and nested to write expressions such as</span><br><span class="line"></span><br><span class="line"><span class="keyword">\[</span> T<span class="built_in">^</span>&#123;i<span class="built_in">_</span>1 i<span class="built_in">_</span>2 <span class="keyword">\dots</span> i<span class="built_in">_</span>p&#125;<span class="built_in">_</span>&#123;j<span class="built_in">_</span>1 j<span class="built_in">_</span>2 <span class="keyword">\dots</span> j<span class="built_in">_</span>q&#125; = T(x<span class="built_in">^</span>&#123;i<span class="built_in">_</span>1&#125;,<span class="keyword">\dots</span>,x<span class="built_in">^</span>&#123;i<span class="built_in">_</span>p&#125;,e<span class="built_in">_</span>&#123;j<span class="built_in">_</span>1&#125;,<span class="keyword">\dots</span>,e<span class="built_in">_</span>&#123;j<span class="built_in">_</span>q&#125;) <span class="keyword">\]</span></span><br><span class="line"> </span><br><span class="line">We write integrals using <span class="built_in">$</span><span class="keyword">\int</span><span class="built_in">$</span> and fractions using <span class="built_in">$</span><span class="keyword">\frac</span>&#123;a&#125;&#123;b&#125;<span class="built_in">$</span>. Limits are placed on integrals using superscripts and subscripts:</span><br><span class="line"></span><br><span class="line"><span class="keyword">\[</span> <span class="keyword">\int</span><span class="built_in">_</span>0<span class="built_in">^</span>1 <span class="keyword">\frac</span>&#123;dx&#125;&#123;e<span class="built_in">^</span>x&#125; =  <span class="keyword">\frac</span>&#123;e-1&#125;&#123;e&#125; <span class="keyword">\]</span></span><br><span class="line"></span><br><span class="line">Lower case Greek letters are written as <span class="built_in">$</span><span class="keyword">\omega</span><span class="built_in">$</span> <span class="built_in">$</span><span class="keyword">\delta</span><span class="built_in">$</span> etc. while upper case Greek letters are written as <span class="built_in">$</span><span class="keyword">\Omega</span><span class="built_in">$</span> <span class="built_in">$</span><span class="keyword">\Delta</span><span class="built_in">$</span>.</span><br><span class="line"></span><br><span class="line">Mathematical operators are prefixed with a backslash as <span class="built_in">$</span><span class="keyword">\sin</span>(<span class="keyword">\beta</span>)<span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\cos</span>(<span class="keyword">\alpha</span>)<span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\log</span>(x)<span class="built_in">$</span> etc.</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img data-src="https://images.ctfassets.net/nrgyaltdicpt/5xfm4NybWckHL5ndpdnBRq/bc0b5e27044820ea5cdd11648a68f543/LL30Fig12r-plain.svg"
+alt="Image showing a range of math typeset in LaTeX" />
+<figcaption aria-hidden="true">Image showing a range of math typeset in
+LaTeX</figcaption>
+</figure>
+<p>更多例子：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;amsmath&#125;<span class="comment">% For the equation* environment</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\section</span>&#123;First example&#125;</span><br><span class="line"></span><br><span class="line">The well-known Pythagorean theorem <span class="keyword">\(</span>x<span class="built_in">^</span>2 + y<span class="built_in">^</span>2 = z<span class="built_in">^</span>2<span class="keyword">\)</span> was proved to be invalid for other exponents, meaning the next equation has no integer solutions for <span class="keyword">\(</span>n&gt;2<span class="keyword">\)</span>:</span><br><span class="line"></span><br><span class="line"><span class="keyword">\[</span> x<span class="built_in">^</span>n + y<span class="built_in">^</span>n = z<span class="built_in">^</span>n <span class="keyword">\]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;Second example&#125;</span><br><span class="line"></span><br><span class="line">This is a simple math expression <span class="keyword">\(</span><span class="keyword">\sqrt</span>&#123;x<span class="built_in">^</span>2+1&#125;<span class="keyword">\)</span> inside text. </span><br><span class="line">And this is also the same: </span><br><span class="line"><span class="keyword">\begin</span>&#123;math&#125;</span><br><span class="line"><span class="keyword">\sqrt</span>&#123;x<span class="built_in">^</span>2+1&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;math&#125;</span><br><span class="line">but by using another command.</span><br><span class="line"></span><br><span class="line">This is a simple math expression without numbering</span><br><span class="line"><span class="keyword">\[</span><span class="keyword">\sqrt</span>&#123;x<span class="built_in">^</span>2+1&#125;<span class="keyword">\]</span> </span><br><span class="line">separated from text.</span><br><span class="line"></span><br><span class="line">This is also the same:</span><br><span class="line"><span class="keyword">\begin</span>&#123;displaymath&#125;</span><br><span class="line"><span class="keyword">\sqrt</span>&#123;x<span class="built_in">^</span>2+1&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;displaymath&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\ldots</span> and this:</span><br><span class="line"><span class="keyword">\begin</span>&#123;equation*&#125;</span><br><span class="line"><span class="keyword">\sqrt</span>&#123;x<span class="built_in">^</span>2+1&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;equation*&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img data-src="https://images.ctfassets.net/nrgyaltdicpt/hT85gkewCDlxCHeNU5slE/9256c129b25bec7a93dcfe9e44b0654a/LL30Fig13r-plain.svg"
+alt="Image showing a range of math typeset in LaTeX" />
+<figcaption aria-hidden="true">Image showing a range of math typeset in
+LaTeX</figcaption>
+</figure>
+<h2 id="基本文档结构">12. 基本文档结构</h2>
+<h3 id="摘要">12.1 摘要</h3>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;abstract&#125;</span><br><span class="line">This is a simple paragraph at the beginning of the </span><br><span class="line">document. A brief introduction about the main subject.</span><br><span class="line"><span class="keyword">\end</span>&#123;abstract&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img data-src="https://images.ctfassets.net/nrgyaltdicpt/4cPu8x8ZxuDVF6efcZ03yi/91aa6aa84719613b0e25c725b70aa0b8/LL30Fig14-plain.svg"
+alt="Image showing an abstract typeset in LaTeX" />
+<figcaption aria-hidden="true">Image showing an abstract typeset in
+LaTeX</figcaption>
+</figure>
+<h3 id="段落与换行">12.2 段落与换行</h3>
+<p>写好摘要后，我们可以开始书写第一个段落。用 <code>\\</code> 手动换行
+or <code>\newline</code> 命令。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;abstract&#125;</span><br><span class="line">This is a simple paragraph at the beginning of the </span><br><span class="line">document. A brief introduction about the main subject.</span><br><span class="line"><span class="keyword">\end</span>&#123;abstract&#125;</span><br><span class="line"></span><br><span class="line">After our abstract we can begin the first paragraph, then press ``enter&#x27;&#x27; twice to start the second one.</span><br><span class="line"></span><br><span class="line">This line will start a second paragraph.</span><br><span class="line"></span><br><span class="line">I will start the third paragraph and then add <span class="keyword">\\</span> a manual line break which causes this text to start on a new line but remains part of the same paragraph. Alternatively, I can use the <span class="keyword">\verb</span>|<span class="string">\newline</span>|<span class="keyword">\newline</span> command to start a new line, which is also part of the same paragraph.</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img data-src="https://images.ctfassets.net/nrgyaltdicpt/5DdSH06hFli8k4lR0dxw4m/a55cddf9aa10b64302ae7b72ba0c6447/LL30Fig15r-plain.svg"
+alt="Image showing the creation of paragraphs in LaTeX" />
+<figcaption aria-hidden="true">Image showing the creation of paragraphs
+in LaTeX</figcaption>
+</figure>
+<h3 id="章节---chapter">12.3 章节 - chapter</h3>
+<p>较长的文档通常被分为若干部分，章节、小节等。LaTeX中提供了文档结构化命令，但可用的命令和功能取决于文档类<code>\documentclass</code>。例如，<code>\documentclass &#123; book &#125;</code>
+支持将文档划分为部分，但 <code>\documentclass &#123; letter &#125;</code>
+不支持。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span> &#123; book &#125; </span><br><span class="line"><span class="keyword">\begin</span> &#123; document &#125; </span><br><span class="line"></span><br><span class="line"><span class="keyword">\chapter</span> &#123;第一章&#125; </span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span> &#123;简介&#125;</span><br><span class="line">这是第一部分。</span><br><span class="line">Lorem ipsum dolor 坐在 amet，consectetuer adipiscing   elit。 Etiam lobortisfacilisis sem。 Nullam nec mi et </span><br><span class="line">neque pharetra sollicidin。 Praesent imperdietmi nec ante。</span><br><span class="line">Donec ullamcorper，felis non sodales... <span class="keyword">\section</span> &#123;第二节&#125; </span><br><span class="line">Lorem ipsum dolor sat amet，consectetuer adipiscing elit。   Etiam lobortis facilisissem。 Nullam nec mi et neque pharetra sollicidin。 Praesent imperdiet mi necante... <span class="keyword">\subsection</span> &#123;第一小节&#125; </span><br><span class="line">Praesent imperdietmi necante。 Donec ullamcorper，felis non sodales... <span class="keyword">\section</span>* &#123;未编号部分&#125; </span><br><span class="line">Lorem ipsum dolor sat amet，consectetuer adipiscing elit。   Etiam lobortis facilisissem... <span class="keyword">\end</span> &#123;文档&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img data-src="https://images.ctfassets.net/nrgyaltdicpt/1A1T7YsurQdM058OwmLqd8/7f6e962c31356bafa702bab9062f6061/LL30Fig16-plain.svg"
+alt="该图显示了 LaTeX 书籍文档中的章节" />
+<figcaption aria-hidden="true">该图显示了 LaTeX
+书籍文档中的章节</figcaption>
+</figure>
+<p>章节令文章结构一目了然，对人脑的信息处理是极其好的。例如，<code>\chapter&#123;First Chapter&#125;</code>
+会创建一个名为 First Chapter 的章节，<code>\section&#123;Introduction&#125;</code>
+生成一个名为 Introduction 的章节，等等。章节可以进一步划分为
+<code>\subsection&#123;&#125;</code> 甚至
+<code>\subsubsection&#123;&#125;</code>。但可以使用末尾带星号的版本来禁用，例如<code>\section*&#123;...&#125;和\subsection*&#123;...&#125;</code>。</p>
+总的来说，LaTeX 文档类提供了下面这些分段命令，每个类都支持相关的子集： -
+<ul>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<p>特别说明，\part 和 \chapter 命令只能在 report 和 book
+文档类中使用。</p>
+<p>更多信息关于 <a
+target="_blank" rel="noopener" href="https://www.overleaf.com/learn/latex/Sections_and_chapters"
+title="篇章">Chapter</a>。</p>
+<h2 id="创建表">13. 创建表</h2>
+<h3 id="基本">13.1 基本</h3>
+<p>示例：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;center&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;tabular&#125;&#123;c c c&#125;</span><br><span class="line"> cell1 <span class="built_in">&amp;</span> cell2 <span class="built_in">&amp;</span> cell3 <span class="keyword">\\</span> </span><br><span class="line"> cell4 <span class="built_in">&amp;</span> cell5 <span class="built_in">&amp;</span> cell6 <span class="keyword">\\</span>  </span><br><span class="line"> cell7 <span class="built_in">&amp;</span> cell8 <span class="built_in">&amp;</span> cell9    </span><br><span class="line"><span class="keyword">\end</span>&#123;tabular&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;center&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img data-src="https://images.ctfassets.net/nrgyaltdicpt/5K46QavbKv9vF4RI1GbUf2/f22d4f8a06d00251166f86d2c891321e/LL30Fig17-plain.svg"
+alt="Graphic displaying a table typeset in LaTeX" />
+<figcaption aria-hidden="true">Graphic displaying a table typeset in
+LaTeX</figcaption>
+</figure>
+<p>添加边框。，此示例中 {|c|c|c|}
+声明了三个列，每个列由一条垂直线分隔。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;center&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;tabular&#125;&#123;|c|c|c|&#125; </span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line"> cell1 <span class="built_in">&amp;</span> cell2 <span class="built_in">&amp;</span> cell3 <span class="keyword">\\</span> </span><br><span class="line"> cell4 <span class="built_in">&amp;</span> cell5 <span class="built_in">&amp;</span> cell6 <span class="keyword">\\</span> </span><br><span class="line"> cell7 <span class="built_in">&amp;</span> cell8 <span class="built_in">&amp;</span> cell9 <span class="keyword">\\</span> </span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line"><span class="keyword">\end</span>&#123;tabular&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;center&#125;</span><br></pre></td></tr></table></figure>
+<p>产生的输出：</p>
+<figure>
+<img data-src="https://images.ctfassets.net/nrgyaltdicpt/5uWYGUhK1XJJJaWz5R1EmX/3ee88bf6b2eaf8d0644b57fa8064800b/LL30Fig18-plain.svg"
+alt="Graphic displaying a table typeset in LaTeX containing horizontal and vertical rules" />
+<figcaption aria-hidden="true">Graphic displaying a table typeset in
+LaTeX containing horizontal and vertical rules</figcaption>
+</figure>
+<p>额外的例子：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;center&#125;</span><br><span class="line"> <span class="keyword">\begin</span>&#123;tabular&#125;&#123;||c c c c||&#125; </span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line"> Col1 <span class="built_in">&amp;</span> Col2 <span class="built_in">&amp;</span> Col2 <span class="built_in">&amp;</span> Col3 <span class="keyword">\\</span> [0.5ex] </span><br><span class="line"> <span class="keyword">\hline</span><span class="keyword">\hline</span></span><br><span class="line"> 1 <span class="built_in">&amp;</span> 6 <span class="built_in">&amp;</span> 87837 <span class="built_in">&amp;</span> 787 <span class="keyword">\\</span> </span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line"> 2 <span class="built_in">&amp;</span> 7 <span class="built_in">&amp;</span> 78 <span class="built_in">&amp;</span> 5415 <span class="keyword">\\</span></span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line"> 3 <span class="built_in">&amp;</span> 545 <span class="built_in">&amp;</span> 778 <span class="built_in">&amp;</span> 7507 <span class="keyword">\\</span></span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line"> 4 <span class="built_in">&amp;</span> 545 <span class="built_in">&amp;</span> 18744 <span class="built_in">&amp;</span> 7560 <span class="keyword">\\</span></span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line"> 5 <span class="built_in">&amp;</span> 88 <span class="built_in">&amp;</span> 788 <span class="built_in">&amp;</span> 6344 <span class="keyword">\\</span> [1ex] </span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line"><span class="keyword">\end</span>&#123;tabular&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;center&#125;****</span><br></pre></td></tr></table></figure>
+<figure>
+<img data-src="https://images.ctfassets.net/nrgyaltdicpt/1Cy9FcRnDVDRUPQdCgaKq6/c21e5f7d9a53514756c6e1f2996e51e0/LL30Fig19-plain.svg"
+alt="Graphic displaying a table typeset in LaTeX containing horizontal and vertical rules" />
+<figcaption aria-hidden="true">Graphic displaying a table typeset in
+LaTeX containing horizontal and vertical rules</figcaption>
+</figure>
+<h3 id="captiontitlereference">13.2 Caption、Title、Reference</h3>
+<p>类似于图片的 Caption、Title。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Table <span class="keyword">\ref</span>&#123;table:data&#125; shows how to add a table caption and reference a table.</span><br><span class="line"><span class="keyword">\begin</span>&#123;table&#125;[h!]</span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;tabular&#125;&#123;||c c c c||&#125; </span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line"> Col1 <span class="built_in">&amp;</span> Col2 <span class="built_in">&amp;</span> Col2 <span class="built_in">&amp;</span> Col3 <span class="keyword">\\</span> [0.5ex] </span><br><span class="line"> <span class="keyword">\hline</span><span class="keyword">\hline</span></span><br><span class="line"> 1 <span class="built_in">&amp;</span> 6 <span class="built_in">&amp;</span> 87837 <span class="built_in">&amp;</span> 787 <span class="keyword">\\</span> </span><br><span class="line"> 2 <span class="built_in">&amp;</span> 7 <span class="built_in">&amp;</span> 78 <span class="built_in">&amp;</span> 5415 <span class="keyword">\\</span></span><br><span class="line"> 3 <span class="built_in">&amp;</span> 545 <span class="built_in">&amp;</span> 778 <span class="built_in">&amp;</span> 7507 <span class="keyword">\\</span></span><br><span class="line"> 4 <span class="built_in">&amp;</span> 545 <span class="built_in">&amp;</span> 18744 <span class="built_in">&amp;</span> 7560 <span class="keyword">\\</span></span><br><span class="line"> 5 <span class="built_in">&amp;</span> 88 <span class="built_in">&amp;</span> 788 <span class="built_in">&amp;</span> 6344 <span class="keyword">\\</span> [1ex] </span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line"><span class="keyword">\end</span>&#123;tabular&#125;</span><br><span class="line"><span class="keyword">\caption</span>&#123;Table to test captions and labels.&#125;</span><br><span class="line"><span class="keyword">\label</span>&#123;table:data&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;table&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img data-src="https://images.ctfassets.net/nrgyaltdicpt/1f5w74UIaTCkpApaPdVeWf/580a87c2413ddc9d6bdef3bf462689fc/LL30Fig20-plain.svg"
+alt="A LaTeX table with a caption" />
+<figcaption aria-hidden="true">A LaTeX table with a caption</figcaption>
+</figure>
+<h3 id="添加目录">14. 添加目录</h3>
+<p>极其简单，因为 几乎为你完成了所有工作：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\title</span>&#123;Sections and Chapters&#125;</span><br><span class="line"><span class="keyword">\author</span>&#123;Gubert Farnsworth&#125;</span><br><span class="line"><span class="keyword">\date</span>&#123;August 2022&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">\maketitle</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">\tableofcontents</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;Introduction&#125;</span><br><span class="line">   </span><br><span class="line">This is the first section.</span><br><span class="line">      </span><br><span class="line">Lorem  ipsum  dolor  sit  amet,  consectetuer  adipiscing  </span><br><span class="line">elit.   Etiam  lobortisfacilisis sem.  Nullam nec mi et </span><br><span class="line">neque pharetra sollicitudin.  Praesent imperdietmi nec ante. </span><br><span class="line">Donec ullamcorper, felis non sodales...</span><br><span class="line">       </span><br><span class="line"><span class="keyword">\section</span>*&#123;Unnumbered Section&#125;</span><br><span class="line"><span class="keyword">\addcontentsline</span>&#123;toc&#125;&#123;section&#125;&#123;Unnumbered Section&#125;</span><br><span class="line"></span><br><span class="line">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  </span><br><span class="line">Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra </span><br><span class="line">sollicitudin.  Praesent imperdiet mi necante...</span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;Second Section&#125;</span><br><span class="line">       </span><br><span class="line">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  </span><br><span class="line">Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra </span><br><span class="line">sollicitudin.  Praesent imperdiet mi necante...</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img data-src="https://images.ctfassets.net/nrgyaltdicpt/MxY592Q6EGsDKMA2mZw0t/fffa41a0a0d30770526f73aff72a7be1/LL30Fig21r-plain.svg"
+alt="Graphic showing a table of contents produced by LaTeX" />
+<figcaption aria-hidden="true">Graphic showing a table of contents
+produced by LaTeX</figcaption>
+</figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/latex/" rel="tag"><i class="fa fa-tag"></i> latex</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/07/17/%E8%8B%B1%E8%AF%AD/%E3%80%90Guardian%E3%80%91Israel-strikes-Syria%E2%80%99s-defence-ministry-in-third-day-of-attacks/" rel="prev" title="【Guardian】Israel strikes Syria’s defence ministry in third day of attacks">
+                  <i class="fa fa-angle-left"></i> 【Guardian】Israel strikes Syria’s defence ministry in third day of attacks
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/07/23/Math/ElegantBook-%E9%A3%9F%E7%94%A8%E6%95%99%E7%A8%8B/" rel="next" title="ElegantBook 食用教程">
+                  ElegantBook 食用教程 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/CCCCOOH" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagesimg/icon.png">
+  <link rel="mask-icon" href="/images/icon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.0.5/fancybox/fancybox.css" integrity="sha256-uTcjoMD6rPt4OyV3Rs02Slxl0BJGMNVKAm/1eYPt2go=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ccccooh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.23.2","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":"flat","style":null},"fold":{"enable":true,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":100,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="ECharts是一个底层依赖于ZRender矢量图形库的JavaScript，可以用于快速构建矢量图形库。 ## 什么是 ECharts 在没有 ECharts 的年代，公司的图表业务都是用 flash 去实现的，当时的前端工程师并不负责这一块，而是由专门的图标工程师来完成。这就造成了大量的沟通成本，因为在数据接口设计上，前端工程师需要和做图表的同事进行沟通。 在这样的背景下，百度团队在 2012">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ECharts】1.认识ECharts">
+<meta property="og:url" content="https://ccccooh.github.io/demo/enaku3vs/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="ECharts是一个底层依赖于ZRender矢量图形库的JavaScript，可以用于快速构建矢量图形库。 ## 什么是 ECharts 在没有 ECharts 的年代，公司的图表业务都是用 flash 去实现的，当时的前端工程师并不负责这一块，而是由专门的图标工程师来完成。这就造成了大量的沟通成本，因为在数据接口设计上，前端工程师需要和做图表的同事进行沟通。 在这样的背景下，百度团队在 2012">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303204659.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303205211.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303205344.png">
+<meta property="article:published_time" content="2025-03-03T12:35:29.000Z">
+<meta property="article:modified_time" content="2025-08-04T06:46:40.526Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303204659.png">
+
+
+<link rel="canonical" href="https://ccccooh.github.io/demo/enaku3vs/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ccccooh.github.io/demo/enaku3vs/","path":"/demo/enaku3vs/","title":"【ECharts】1.认识ECharts"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【ECharts】1.认识ECharts | SHEN YING</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.0.5/fancybox/fancybox.umd.js" integrity="sha256-UiSieVaV/DXce2LW7QH+o77w+AIoAvSCPBkezriZ2DQ=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/6.1.3/pangu.umd.js" integrity="sha256-erngBMP3zzoIM6eqQ8dmrReh2vqCRgWmORroIfVoDlE=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/3.0.1/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://ccccooh.github.io/demo/enaku3vs/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SHEN YING</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Syの小窝</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-echarts-%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">获取 ECharts 的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E-cdn-%E8%8E%B7%E5%8F%96"><span class="nav-number">2.</span> <span class="nav-text">从 CDN 获取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">使用方法</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Sy"
+      src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif">
+  <p class="site-author-name" itemprop="name">Sy</p>
+  <div class="site-description" itemprop="description">Sy with web,game and other.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ccccooh.github.io/demo/enaku3vs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif">
+      <meta itemprop="name" content="Sy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SHEN YING">
+      <meta itemprop="description" content="Sy with web,game and other.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【ECharts】1.认识ECharts | SHEN YING">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【ECharts】1.认识ECharts
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-03 20:35:29" itemprop="dateCreated datePublished" datetime="2025-03-03T20:35:29+08:00">2025-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-04 14:46:40" itemprop="dateModified" datetime="2025-08-04T14:46:40+08:00">2025-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/ECharts/" itemprop="url" rel="index"><span itemprop="name">ECharts</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><code>ECharts</code>是一个底层依赖于<code>ZRender</code>矢量图形库的<code>JavaScript</code>，可以用于快速构建矢量图形库。
+## 什么是 ECharts</p>
+<p>在没有 ECharts 的年代，公司的图表业务都是用 flash
+去实现的，当时的前端工程师并不负责这一块，而是由专门的图标工程师来完成。这就造成了大量的沟通成本，因为在数据接口设计上，前端工程师需要和做图表的同事进行沟通。</p>
+<p>在这样的背景下，百度团队在
+2012年8月立项，开发了一款数据可视化工具，所以 ECharts
+最初诞生是为了满足公司的各种业务报表需求。</p>
+<p>在 2013 年 6 月，ECharts 发布了 1.0
+版本随着不断地迭代更新，截止本实验发布（2021 年 12 月）为止，ECharts
+的最新版本是 5.2.0。</p>
+<p>:::: demo-wrapper no-padding <img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303204659.png"
+alt="20250303204659" /> ::::</p>
+<p>ECharts
+提供了常规的==折线图、柱状图、散点图、饼图==等，用于统计的盒形图，用于地理数据可视化的地图、热力图、线图，用于关系数据可视化的关系图、treemap、旭日图，多维数据可视化的平行坐标，还有用于
+BI 的漏斗图，仪表盘，并且支持图与图之间的混搭。</p>
+<p>除了已经内置的包含了丰富功能的图表，ECharts
+还提供了自定义系列，只需要传入一个 renderItem
+函数，就可以从数据映射到任何你想要的图形，更棒的是这些都还能和已有的交互组件结合使用而不需要操心其它事情。</p>
+<p>在官网上还为大家提供了许多不同类型的可视化图表以及炫酷的数据可视化示例。</p>
+<p>最有益于大家的地方是它提供了简单的操作、直观的结构、内置的数据源。你能够轻松的找到你想要的图表然后修改它，以此做出一个成品。</p>
+<p>::: demo-wrapper no-padding <img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303205211.png"
+alt="20250303205211" /> :::</p>
+<blockquote>
+<p>简直是==炫酷==有没有。</p>
+</blockquote>
+<p>总之，ECharts 好处多多，主要有以下六种特性：</p>
+<p>丰富的图表类型。 专业的数据分析。 健康的开源社区。 强劲的渲染引擎。
+优雅的可视化设计。 友好的无障碍访问。</p>
+<h2 id="获取-echarts-的方式">获取 ECharts 的方式</h2>
+<p>学到这个阶段了，想要回答这个问题我是这个表情： ::: center <img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303205344.png"
+alt="20250303205344" /> :::</p>
+<p>官方文档提供了<a
+target="_blank" rel="noopener" href="https://echarts.apache.org/handbook/zh/basics/download">多种方式</a>。</p>
+<ul>
+<li>从 GitHub 获取</li>
+<li>从 npm 获取</li>
+<li>从 CDN 获取</li>
+<li>在线定制</li>
+</ul>
+<p>本笔记主要贴合蓝桥杯比赛方式，使用CDN来讲解。</p>
+<h2 id="从-cdn-获取">从 CDN 获取</h2>
+<p>可以从以下免费 CDN 中获取和引用 ECharts。</p>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://www.jsdelivr.com/package/npm/echarts">jsDelivr</a></li>
+<li><a target="_blank" rel="noopener" href="https://unpkg.com/browse/echarts/">unpkg</a></li>
+<li><a target="_blank" rel="noopener" href="https://cdnjs.com/libraries/echarts">cdnjs</a></li>
+</ul>
+<h2 id="使用方法">使用方法</h2>
+<p>::::steps 1.
+完成后创建一个<code>index.html</code>文件，在文件中写入： ::: code-tabs
+<span class="citation" data-cites="tab">@tab</span> index.html
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 为 ECharts 准备一个宽为 600px，高为 400px 的 DOM --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 600px;height:400px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure> :::</p>
+<p>这一步为图表准备了容器。 2. 在<code>index.html</code>文件中： :::
+code-tabs <span class="citation" data-cites="tab">@tab</span> index.html
+<figure class="highlight html"><figcaption><span>:collapsed-lines</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;echarts.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>ECharts 快速上手<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    * &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#main</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">margin</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">background-color</span>: <span class="built_in">rgb</span>(<span class="number">228</span>, <span class="number">255</span>, <span class="number">192</span>);</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 为 ECharts 准备一个宽为 600px，高为 400px 的 DOM --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:600px;height:400px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> chartDom = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;main&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 初始化实例对象 echarts.init(dom) 容器;</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> myChart = echarts.<span class="title function_">init</span>(chartDom);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 指定配置项和数据</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> option = &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">xAxis</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">type</span>: <span class="string">&quot;category&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">data</span>: [<span class="string">&quot;Mon&quot;</span>, <span class="string">&quot;Tue&quot;</span>, <span class="string">&quot;Wed&quot;</span>, <span class="string">&quot;Thu&quot;</span>, <span class="string">&quot;Fri&quot;</span>, <span class="string">&quot;Sat&quot;</span>, <span class="string">&quot;Sun&quot;</span>],</span></span><br><span class="line"><span class="language-javascript">      &#125;,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">yAxis</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">type</span>: <span class="string">&quot;value&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">      &#125;,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">series</span>: [</span></span><br><span class="line"><span class="language-javascript">        &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">data</span>: [<span class="number">150</span>, <span class="number">230</span>, <span class="number">224</span>, <span class="number">218</span>, <span class="number">135</span>, <span class="number">147</span>, <span class="number">260</span>],</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">type</span>: <span class="string">&quot;line&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">      ],</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 将配置项设置给 echarts 实例对象。</span></span></span><br><span class="line"><span class="language-javascript">    myChart.<span class="title function_">setOption</span>(option);</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure> ::: ::::</p>
+<p>打开<code>LiveServer</code>可以看到效果。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/demo/xmld3lww/" rel="prev" title="【Pinia】购物车项目">
+                  <i class="fa fa-angle-left"></i> 【Pinia】购物车项目
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/demo/n3g4dbp4/" rel="next" title="【ECharts】2.ECharts基础知识">
+                  【ECharts】2.ECharts基础知识 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/CCCCOOH" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

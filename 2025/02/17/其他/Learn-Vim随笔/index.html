@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagesimg/icon.png">
+  <link rel="mask-icon" href="/images/icon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.0.5/fancybox/fancybox.css" integrity="sha256-uTcjoMD6rPt4OyV3Rs02Slxl0BJGMNVKAm/1eYPt2go=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ccccooh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.23.2","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":"flat","style":null},"fold":{"enable":true,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":100,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Vim学习随笔，记录关键知识点📝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learn-Vim随笔">
+<meta property="og:url" content="https://ccccooh.github.io/2025/02/17/%E5%85%B6%E4%BB%96/Learn-Vim%E9%9A%8F%E7%AC%94/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="Vim学习随笔，记录关键知识点📝">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-17T04:10:11.000Z">
+<meta property="article:modified_time" content="2025-08-04T06:46:40.525Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="其他">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ccccooh.github.io/2025/02/17/%E5%85%B6%E4%BB%96/Learn-Vim%E9%9A%8F%E7%AC%94/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ccccooh.github.io/2025/02/17/%E5%85%B6%E4%BB%96/Learn-Vim%E9%9A%8F%E7%AC%94/","path":"2025/02/17/其他/Learn-Vim随笔/","title":"Learn-Vim随笔"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Learn-Vim随笔 | SHEN YING</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.0.5/fancybox/fancybox.umd.js" integrity="sha256-UiSieVaV/DXce2LW7QH+o77w+AIoAvSCPBkezriZ2DQ=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/6.1.3/pangu.umd.js" integrity="sha256-erngBMP3zzoIM6eqQ8dmrReh2vqCRgWmORroIfVoDlE=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/3.0.1/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://ccccooh.github.io/2025/02/17/%E5%85%B6%E4%BB%96/Learn-Vim%E9%9A%8F%E7%AC%94/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SHEN YING</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Syの小窝</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8Cvim%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">二、vim语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E8%AF%8D"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 动词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8D%E8%AF%8D"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 名词</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E7%9A%84%E5%90%8D%E8%AF%8D"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.2.2 补充的名词</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E7%A7%BB%E5%8A%A8"><span class="nav-number">3.</span> <span class="nav-text">三、移动</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E5%AF%BC%E8%88%AA"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 字符导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E7%BC%96%E5%8F%B7"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 计算编号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%8D%E8%AF%AD%E5%AF%BC%E8%88%AA"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 词语导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%8C%E5%AF%BC%E8%88%AA"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 行导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E5%8A%A8%E8%AF%8D"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 搜索动词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%A5%E5%AD%90%E5%AF%BC%E8%88%AA%E5%92%8C%E6%AE%B5%E8%90%BD%E5%AF%BC%E8%88%AA"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 句子导航和段落导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%B9%E9%85%8D%E5%AF%BC%E8%88%AA"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 匹配导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%8C%E5%8F%B7%E5%AF%BC%E8%88%AA"><span class="nav-number">3.8.</span> <span class="nav-text">3.8 行号导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3%E5%AF%BC%E8%88%AA"><span class="nav-number">3.9.</span> <span class="nav-text">3.9 窗口导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8"><span class="nav-number">3.10.</span> <span class="nav-text">3.10 滚动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E5%AF%BC%E8%88%AA"><span class="nav-number">3.11.</span> <span class="nav-text">3.11 搜索导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0%E4%BD%8D%E7%BD%AE"><span class="nav-number">3.12.</span> <span class="nav-text">3.12 标记位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%80%E6%9C%89%E7%9A%84%E8%B7%B3%E8%BD%AC"><span class="nav-number">3.13.</span> <span class="nav-text">3.13 所有的跳转</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Sy"
+      src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif">
+  <p class="site-author-name" itemprop="name">Sy</p>
+  <div class="site-description" itemprop="description">Sy with web,game and other.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ccccooh.github.io/2025/02/17/%E5%85%B6%E4%BB%96/Learn-Vim%E9%9A%8F%E7%AC%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif">
+      <meta itemprop="name" content="Sy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SHEN YING">
+      <meta itemprop="description" content="Sy with web,game and other.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Learn-Vim随笔 | SHEN YING">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Learn-Vim随笔
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-17 12:10:11" itemprop="dateCreated datePublished" datetime="2025-02-17T12:10:11+08:00">2025-02-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-04 14:46:40" itemprop="dateModified" datetime="2025-08-04T14:46:40+08:00">2025-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="一前言">一、前言</h1>
+<p>学习vim的过程中发现了很多很好的资源，其中不乏bilibili上up主的精品教程。也在YouTube上看过很多教程。但Learn-Vim这个Github仓库实在让我受益良多。</p>
+<p>本笔记便是出于此仓库： &gt; <a
+target="_blank" rel="noopener" href="https://github.com/iggredible/Learn-Vim/blob/master/">仓库地址</a></p>
+<p>附上个人.vimrc配置文件: <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span>	<span class="comment">&quot; 开启语法高亮</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">number</span>	<span class="comment">&quot; 设置行号</span></span><br><span class="line"><span class="keyword">set</span> relativenumber	<span class="comment">&quot; 设置相对行号</span></span><br><span class="line"><span class="keyword">set</span> wrap		<span class="comment">&quot; 开启代码包裹，防止溢出屏幕	</span></span><br><span class="line"><span class="keyword">set</span> showcmd		<span class="comment">&quot; 显示命令</span></span><br><span class="line"><span class="keyword">set</span> wildmenu		<span class="comment">&quot; 开启补全菜单</span></span><br><span class="line"><span class="keyword">set</span> hlsearch		<span class="comment">&quot; 开启搜索高亮</span></span><br><span class="line"><span class="keyword">set</span> incsearch		<span class="comment">&quot; 开启实时搜索高亮</span></span><br><span class="line"><span class="keyword">set</span> ignorecase		<span class="comment">&quot; 搜索忽略大小写</span></span><br><span class="line"><span class="keyword">set</span> cursorline		<span class="comment">&quot; 开启鼠标地平线</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; 按下冒号重制高亮</span></span><br><span class="line">exec <span class="string">&quot;nohlsearch&quot;</span>	</span><br><span class="line"><span class="comment">&quot; 将大写JK映射为5倍jk</span></span><br><span class="line"><span class="keyword">noremap</span> J <span class="number">5</span><span class="keyword">j</span></span><br><span class="line"><span class="keyword">noremap</span> K <span class="number">5</span><span class="keyword">k</span></span><br><span class="line"><span class="keyword">nnoremap</span> <span class="symbol">&lt;esc&gt;</span><span class="symbol">&lt;esc&gt;</span> :<span class="keyword">noh</span><span class="symbol">&lt;return&gt;</span><span class="symbol">&lt;esc&gt;</span></span><br><span class="line"><span class="comment">&quot; 映射自动保存</span></span><br><span class="line"><span class="keyword">map</span> S :<span class="keyword">w</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> Q :q<span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> s :<span class="symbol">&lt;nop&gt;</span></span><br><span class="line"><span class="keyword">map</span> R  :<span class="keyword">source</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> plug#begin()</span><br><span class="line"></span><br><span class="line">Plug <span class="string">&#x27;vim-airline/vim-airline&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;iamcco/markdown-preview.nvim&#x27;</span>, &#123; <span class="string">&#x27;do&#x27;</span>: &#123; -&gt; mkdp#util#install() &#125;, <span class="string">&#x27;for&#x27;</span>: [<span class="string">&#x27;markdown&#x27;</span>, <span class="string">&#x27;vim-plug&#x27;</span>]&#125;</span><br><span class="line">Plug <span class="string">&#x27;iamcco/markdown-preview.nvim&#x27;</span>, &#123; <span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;cd app &amp;&amp; npx --yes yarn install&#x27;</span> &#125;</span><br><span class="line">Plug <span class="string">&#x27;preservim/nerdtree&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;jiangmiao/auto-pairs&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;preservim/nerdcommenter&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;connorholyday/vim-snazzy&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> plug#end()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">color molokai</span><br><span class="line"></span><br><span class="line"><span class="keyword">map</span> sr :<span class="keyword">set</span> splitright<span class="symbol">&lt;CR&gt;</span>:<span class="keyword">vsplit</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> <span class="keyword">sl</span> :<span class="keyword">set</span> nosplitright<span class="symbol">&lt;CR&gt;</span>:<span class="keyword">vsplit</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> <span class="keyword">st</span> :<span class="keyword">set</span> nosplitbelow<span class="symbol">&lt;CR&gt;</span>:<span class="keyword">split</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> <span class="keyword">sb</span> :<span class="keyword">set</span> splitbelow<span class="symbol">&lt;CR&gt;</span>:<span class="keyword">split</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">noremap</span> <span class="symbol">&lt;Up&gt;</span> <span class="symbol">&lt;NOP&gt;</span></span><br><span class="line"><span class="keyword">noremap</span> <span class="symbol">&lt;Down&gt;</span> <span class="symbol">&lt;NOP&gt;</span></span><br><span class="line"><span class="keyword">noremap</span> <span class="symbol">&lt;Left&gt;</span> <span class="symbol">&lt;NOP&gt;</span></span><br><span class="line"><span class="keyword">noremap</span> <span class="symbol">&lt;Right&gt;</span> <span class="symbol">&lt;NOP&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="二vim语法">二、vim语法</h1>
+<p>vim的语法只有一句，<code>verb+noun</code>！</p>
+<h2 id="动词">2.1 动词</h2>
+<p>这里简要罗列出vim的动词列表： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">y    复制</span><br><span class="line">d    删除</span><br><span class="line">c    修改(删除并开始编辑) </span><br></pre></td></tr></table></figure></p>
+<h2 id="名词">2.2 名词</h2>
+<p>以下皆是名词，但分为了两种。 ### 2.2.1 简单名词</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">h    左</span><br><span class="line">j    下</span><br><span class="line">k    上</span><br><span class="line">l    右</span><br><span class="line">w    单词</span><br><span class="line">&#125;    跳到下一段落</span><br><span class="line">$    行末尾</span><br></pre></td></tr></table></figure>
+<h3 id="补充的名词">2.2.2 补充的名词</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">w         一个单词</span><br><span class="line">p         一个段落</span><br><span class="line">s         一个句子</span><br><span class="line">( or )    一对 ( ) 括号</span><br><span class="line">&#123; or &#125;    一对 &#123; &#125; 括号</span><br><span class="line">[ or ]    一对 [ ] 括号</span><br><span class="line">&lt; or &gt;    一对 &lt; &gt; 括号</span><br><span class="line">t         一对XML标签,例如&lt;html&gt;&lt;/html&gt;</span><br><span class="line">&quot;         一对 &quot; &quot; 引号</span><br><span class="line">&#x27;         一对 &#x27; &#x27; 引号</span><br><span class="line">`         一对 ` ` 引号</span><br></pre></td></tr></table></figure>
+<h1 id="三移动">三、移动</h1>
+<h2 id="字符导航">3.1 字符导航</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">h   向左</span><br><span class="line">j   向下</span><br><span class="line">k   向上</span><br><span class="line">l   向右</span><br><span class="line">gj  Down in a soft-wrapped line</span><br><span class="line">gk  Up in a soft-wrapped line</span><br></pre></td></tr></table></figure>
+<p>禁用箭头的设置: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">noremap &lt;Up&gt; &lt;NOP&gt;</span><br><span class="line">noremap &lt;Down&gt; &lt;NOP&gt;</span><br><span class="line">noremap &lt;Left&gt; &lt;NOP&gt;</span><br><span class="line">noremap &lt;Right&gt; &lt;NOP&gt;</span><br></pre></td></tr></table></figure></p>
+<p>相对行号: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set relative number</span><br></pre></td></tr></table></figure></p>
+<h2 id="计算编号">3.2 计算编号</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[count] + motion</span><br></pre></td></tr></table></figure>
+<h2 id="词语导航">3.3 词语导航</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">w     移动到下一个word的开头</span><br><span class="line">W     移动到下一个WORD的开头</span><br><span class="line">e     移动到下一个word的结尾</span><br><span class="line">E     移动到下一个WORD的结尾</span><br><span class="line">b     移动到上一个word的开头</span><br><span class="line">B     移动到上一个WORD的开头</span><br><span class="line">ge    移动到上一个word的结尾</span><br><span class="line">gE    移动到上一个WORD的结尾</span><br></pre></td></tr></table></figure>
+<h2 id="行导航">3.4 行导航</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0     跳转到当前行的第一个字符</span><br><span class="line">^     跳转到当前行的第一个非空白字符</span><br><span class="line">g_    跳转到当前行的最后一个非空白字符</span><br><span class="line">$     跳转到当前行的最后一个字符</span><br><span class="line">n|    跳转到当前行的第n列</span><br></pre></td></tr></table></figure>
+<h2 id="搜索动词">3.5 搜索动词</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f    在同一行搜索下一个匹配</span><br><span class="line">F    在同一行搜索前一个匹配</span><br><span class="line">t    在同一行搜索下一个匹配，但是光标落在目标前</span><br><span class="line">T    在同一行搜索下一个匹配，但是光标落在目标后</span><br><span class="line">;    在同一行使用上一次搜索，方向相同</span><br><span class="line">,    在同一行使用上一次搜索，方向相反</span><br></pre></td></tr></table></figure>
+<h2 id="句子导航和段落导航">3.6 句子导航和段落导航</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(    跳到上一个句子</span><br><span class="line">)    跳到下一个句子</span><br></pre></td></tr></table></figure>
+<p>下面是一个有两个段落的句子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">I am a sentence. I am another sentence because I end with a period. I am still a sentence when ending with an exclamation point! What about question mark? I am not quite a sentence because of the hyphen - and neither semicolon ; nor colon :</span><br><span class="line"></span><br><span class="line">There is an empty line above me.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>个人感觉句子、段落在代码里可能就不是那么实用。但用于写文章博客还是很屌的。</p>
+</blockquote>
+<h2 id="匹配导航">3.7 匹配导航</h2>
+<blockquote>
+<p>程序员专用</p>
+</blockquote>
+<p>光标在成对的括号中其中一对上时按下<code>%</code>来跳到对应的括号上。</p>
+<p>使用场景： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(define (fib n)</span><br><span class="line">  (cond ((= n 0) 0)</span><br><span class="line">        ((= n 1) 1)</span><br><span class="line">        (else</span><br><span class="line">          (+ (fib (- n 1)) (fib (- n 2)))</span><br><span class="line">        )))</span><br></pre></td></tr></table></figure>
+光标在其中一个括号上可以快速跳转到对应的括号。</p>
+<h2 id="行号导航">3.8 行号导航</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gg    去到第一行</span><br><span class="line">G     去到最后一行</span><br><span class="line">nG    去到第n行</span><br><span class="line">n%    去到第百分之n行</span><br></pre></td></tr></table></figure>
+<p>使用<code>ctrl+g</code>来显示行数。</p>
+<p>gg和GG绝对是实用中的实用。</p>
+<h2 id="窗口导航">3.9 窗口导航</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">H     去到屏幕的最上方</span><br><span class="line">M     去到屏幕的最中间</span><br><span class="line">L     去到屏幕的最底部  </span><br><span class="line">nH    去到离屏幕顶部n行的位置</span><br><span class="line">nL    去到离屏幕底部n行的位置</span><br></pre></td></tr></table></figure>
+<h2 id="滚动">3.10 滚动</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Ctrl-E    向下滚动一行</span><br><span class="line">Ctrl-D    向下滚动半个屏幕</span><br><span class="line">Ctrl-F    向下滚动</span><br><span class="line">Ctrl-Y    向上滚动一行</span><br><span class="line">Ctrl-U    向上滚动半个屏幕</span><br><span class="line">Ctrl-B    向上滚动整个屏幕</span><br></pre></td></tr></table></figure>
+<h2 id="搜索导航">3.11 搜索导航</h2>
+<blockquote>
+<p>这里的搜索是整个文档的。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/    向后搜索一个匹配</span><br><span class="line">?    向前搜索一个匹配</span><br><span class="line">n    重复上一个匹配，方向相同</span><br><span class="line">N    重复上一个匹配，方向相反</span><br></pre></td></tr></table></figure>
+<p>搜索结束后关闭高亮(在~/.vimrc中添加配置)： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nnoremap &lt;esc&gt;&lt;esc&gt; :noh&lt;return&gt;&lt;esc&gt;</span><br></pre></td></tr></table></figure> 额外的补充:
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*     向后搜索光标位置的单词</span><br><span class="line">#     向前搜索光标位置的单词</span><br><span class="line">g*    在*的基础上增加了模糊匹配</span><br><span class="line">g#    在#的基础上增加了模糊匹配</span><br></pre></td></tr></table></figure></p>
+<h2 id="标记位置">3.12 标记位置</h2>
+<p>标记当前位置，类似书签。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ma    标记a的位置</span><br><span class="line">`a    精确跳转到标记的a的位置</span><br><span class="line">&#x27;a    跳转到标记a的行首</span><br></pre></td></tr></table></figure>
+其中小写表示局部标记，大些表示全局标记。</p>
+<p>局部标记每个文件(缓冲区)只有一个，全局标记所有文件共享。</p>
+<p>使用marks来查看所有的标记。</p>
+<p>更多的标记用的不多，这里直接饮用(不是错别字❌)原文:
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;</span>    Jump back <span class="keyword">to</span> the <span class="keyword">last</span> <span class="built_in">line</span> in current <span class="keyword">buffer</span> before jump</span><br><span class="line">``    Jump back <span class="keyword">to</span> the <span class="keyword">last</span> position in current <span class="keyword">buffer</span> before jump</span><br><span class="line">`[    Jump <span class="keyword">to</span> beginning of previously changed / yanked text</span><br><span class="line">`]    Jump <span class="keyword">to</span> the ending of previously changed / yanked text</span><br><span class="line">`&lt;    Jump <span class="keyword">to</span> the beginning of <span class="keyword">last</span> <span class="keyword">visual</span> selection</span><br><span class="line">`&gt;    Jump <span class="keyword">to</span> the ending of <span class="keyword">last</span> <span class="keyword">visual</span> selection</span><br><span class="line">`<span class="number">0</span>    Jump back <span class="keyword">to</span> the <span class="keyword">last</span> edited <span class="keyword">file</span> when exiting <span class="keyword">vim</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="所有的跳转">3.13 所有的跳转</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x27;a       去到标记的a行</span><br><span class="line">`a       去到标记的a位置</span><br><span class="line">G       Go to the line(这个没懂，shift+G不是跳转到文档底部吗？)</span><br><span class="line">/       向后搜索</span><br><span class="line">?       向前搜索</span><br><span class="line">n       重复最后一次搜索，方向一致</span><br><span class="line">N       重复最后一次搜索，方向相反</span><br><span class="line">%       找到匹配项</span><br><span class="line">(       跳到上一句</span><br><span class="line">)       跳到下一句</span><br><span class="line">&#123;       跳到上一段</span><br><span class="line">&#125;       跳到下一段</span><br><span class="line">L       去到显示窗口的最后一行</span><br><span class="line">M       去到窗口的中间</span><br><span class="line">H       去到显示窗口的顶部</span><br><span class="line">[[      去到上一次会话</span><br><span class="line">]]      去到下一次会话</span><br><span class="line">:s      Substitute</span><br><span class="line">:tag    去到定义的标签</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>具体说明见Lear-Vim作者文档✍️。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%85%B6%E4%BB%96/" rel="tag"><i class="fa fa-tag"></i> 其他</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/02/16/%E5%85%B6%E4%BB%96/mac%E7%BB%88%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81%E4%BC%98%E5%8C%96%E8%AE%A1%E5%88%92/" rel="prev" title="mac终端工作流优化">
+                  <i class="fa fa-angle-left"></i> mac终端工作流优化
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/demo/nxyiresv/" rel="next" title="ES6函数、对象和面向对象扩展">
+                  ES6函数、对象和面向对象扩展 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/CCCCOOH" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

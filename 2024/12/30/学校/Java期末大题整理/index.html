@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagesimg/icon.png">
+  <link rel="mask-icon" href="/images/icon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.0.5/fancybox/fancybox.css" integrity="sha256-uTcjoMD6rPt4OyV3Rs02Slxl0BJGMNVKAm/1eYPt2go=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ccccooh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.23.2","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":"flat","style":null},"fold":{"enable":true,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":100,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="期末关于Java中的部分重点整理...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java大题期末整理">
+<meta property="og:url" content="https://ccccooh.github.io/2024/12/30/%E5%AD%A6%E6%A0%A1/Java%E6%9C%9F%E6%9C%AB%E5%A4%A7%E9%A2%98%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="期末关于Java中的部分重点整理...">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1700947096243-image.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1734774479127-%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-12-21%20174751.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1700939563404-image.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1700940472575-image.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1700943366224-image.png">
+<meta property="article:published_time" content="2024-12-30T14:00:43.000Z">
+<meta property="article:modified_time" content="2025-08-04T06:46:40.529Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="学校">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1700947096243-image.png">
+
+
+<link rel="canonical" href="https://ccccooh.github.io/2024/12/30/%E5%AD%A6%E6%A0%A1/Java%E6%9C%9F%E6%9C%AB%E5%A4%A7%E9%A2%98%E6%95%B4%E7%90%86/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ccccooh.github.io/2024/12/30/%E5%AD%A6%E6%A0%A1/Java%E6%9C%9F%E6%9C%AB%E5%A4%A7%E9%A2%98%E6%95%B4%E7%90%86/","path":"2024/12/30/学校/Java期末大题整理/","title":"Java大题期末整理"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java大题期末整理 | SHEN YING</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.0.5/fancybox/fancybox.umd.js" integrity="sha256-UiSieVaV/DXce2LW7QH+o77w+AIoAvSCPBkezriZ2DQ=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/6.1.3/pangu.umd.js" integrity="sha256-erngBMP3zzoIM6eqQ8dmrReh2vqCRgWmORroIfVoDlE=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/3.0.1/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://ccccooh.github.io/2024/12/30/%E5%AD%A6%E6%A0%A1/Java%E6%9C%9F%E6%9C%AB%E5%A4%A7%E9%A2%98%E6%95%B4%E7%90%86/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SHEN YING</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Syの小窝</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E9%A2%98%E7%BC%96%E7%A8%8B%E9%A2%98%E6%95%B4%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">（大题）编程题整理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A2.1"><span class="nav-number">2.1.</span> <span class="nav-text">作业2.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A2.2%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">作业2.2（基本语法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A3%E5%BE%AA%E7%8E%AF%E4%B8%8E%E6%96%B9%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">作业3（循环与方法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A4.1%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">2.4.</span> <span class="nav-text">作业4.1（面向对象的概念）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A5.1thisstatic%E7%AD%89"><span class="nav-number">2.5.</span> <span class="nav-text">作业5.1（this,static等）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A6.1%E7%BB%A7%E6%89%BFfinal"><span class="nav-number">2.6.</span> <span class="nav-text">作业6.1（继承、final）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A8%E6%A1%86%E6%9E%B6%E5%8A%A8%E4%BD%9C%E4%BA%8B%E4%BB%B6"><span class="nav-number">2.7.</span> <span class="nav-text">作业8（框架，动作事件）</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Sy"
+      src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif">
+  <p class="site-author-name" itemprop="name">Sy</p>
+  <div class="site-description" itemprop="description">Sy with web,game and other.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ccccooh.github.io/2024/12/30/%E5%AD%A6%E6%A0%A1/Java%E6%9C%9F%E6%9C%AB%E5%A4%A7%E9%A2%98%E6%95%B4%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif">
+      <meta itemprop="name" content="Sy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SHEN YING">
+      <meta itemprop="description" content="Sy with web,game and other.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java大题期末整理 | SHEN YING">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java大题期末整理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-30 22:00:43" itemprop="dateCreated datePublished" datetime="2024-12-30T22:00:43+08:00">2024-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-04 14:46:40" itemprop="dateModified" datetime="2025-08-04T14:46:40+08:00">2025-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E6%A0%A1/" itemprop="url" rel="index"><span itemprop="name">学校</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="写在前面">写在前面</h2>
+<p>对于一些可能考的，这里提前列出来：</p>
+<ul>
+<li>ActionListener接口的使用方法（JFrame中事件处理）</li>
+<li>在JLabel中使用<code>new ImageIcon("绝对路径")</code>来创建一个图像</li>
+<li>下拉菜单</li>
+<li>多选框</li>
+<li>按钮组<code>ButtonGroup</code></li>
+<li><code>ItemActionListener</code>事件</li>
+</ul>
+<h2 id="大题编程题整理">（大题）编程题整理</h2>
+<blockquote>
+<p>不一定考，但是知识点差不多。</p>
+<p>注意JFrame考察比较抽象，可能会考雨课堂上没有的，比如<code>ImageIcon</code>。</p>
+</blockquote>
+<h3 id="作业2.1">作业2.1</h3>
+<blockquote>
+<p>箱子里有n个苹果，还混进了一条虫子。虫子每x小时能吃掉一个苹果，假设
+虫子在吃完一个苹果之前不会吃另一个，那么经过y小时，还有多少个完整的苹果？（假设x,y为整数，n,x,y从键盘输入）</p>
+</blockquote>
+<blockquote>
+<p>编写程序将磅转换为千克。程序提示用户输入磅数，转换为千克并显示结果。一磅约等于
+0.454千克。</p>
+</blockquote>
+<blockquote>
+<p>编写一个程序，读入费用与提成率，计算提成与总费用。例如，如果输入10
+作为费用，12%作为提成率，则显示提成费为 1.2，总费用为 11.2。</p>
+</blockquote>
+<blockquote>
+<p>输入一个三位正整数，输出个、十、百位数字的立方和。
+参考：计算幂数函数： Math.pow(底数,几次方)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意：考试中参考可能不会给你。</span><br></pre></td></tr></table></figure>
+<h3 id="作业2.2基本语法">作业2.2（基本语法）</h3>
+<blockquote>
+<p>用户输入一个成绩（整数，小于
+100），根据分数给出该成绩是优秀（大于等于90）、良好（大于等于 75 小于
+90）、合格（大于等于60 小于 75）还是不及格（小于60）。（使用 if 和
+switch两种方式编写程序）。</p>
+</blockquote>
+<blockquote>
+<p>读入三角形的三条边，如果输入有效，计算它的周长；否则，显示输入无效。如果任意两边的和大于第三边输入有效。</p>
+</blockquote>
+<h3 id="作业3循环与方法">作业3（循环与方法）</h3>
+<blockquote>
+<p>定义一个方法add，计算两个小数之和，并在main方法中调用该add方法。</p>
+</blockquote>
+<blockquote>
+<p>计算 0~10 之间各个整数的平方值和立方值，以如下格式显示：</p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">整数</th>
+<th style="text-align: center;">平方</th>
+<th style="text-align: center;">立方</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">…</td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;">…</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">1000</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>一个数如果恰好等于它的因子之和，这个数就称为完数，例如6=1+2+3。定义方法，编程找出
+1000 以内的所有完数。</p>
+</blockquote>
+<blockquote>
+<p>计算公式的值：1/1+2/(1+2)+3/(1+2+3)+…..+10/(1+2+3+……+10)。</p>
+</blockquote>
+<blockquote>
+<p>定义一个方法evsum，方法的功能为求出1到50之间所有偶数之和，并在main方法中调用该evsum方法。</p>
+</blockquote>
+<blockquote>
+<p>编写程序，采用适当的循环和控制语句实现下述功能：打印输出0~200 能被 7
+整除但不能被 4 整除的所有；要求每行显示 6 个数据。</p>
+</blockquote>
+<h3 id="作业4.1面向对象的概念">作业4.1（面向对象的概念）</h3>
+<blockquote>
+<p>设计一个立方体类Box，定义三个属性，分别是长，宽，高。定义两个个方法，分别计算并输出立方体的体积和表面积。创建该类的一个对象，计算其体积和表面积并输出。</p>
+</blockquote>
+<blockquote>
+<p>设计一个名为 Car 的类，具体要求如下: int 类型的成员变量 speed
+表示汽车的速度(默认为 0) ; Boolean 型的成员变量 on
+表示汽车是否启动〔默认为false )； double 类型的成员变量 weight
+表示汽重量（吨，默认为1. 2)； String 类型的成员变量 color
+表示汽车的颜色(默认为 blue)。</p>
+</blockquote>
+<blockquote>
+<p>设计并实现一个员工（Employee）类，其成员变量有：姓名、性别、工龄、基础工资、岗位津贴、
+效益工资；成员方法有：(1)计算应付工资（基础工资+岗位工资+效益工资）；(2)计算个人所得税(3500
+以下免税，超出 3500 以上部分
+3%缴纳)；(3)实发工资（应付工资-个人所得税）。在
+main()方法中生成一个员工对象，并显示该员工的姓名、性别、工龄、应付工资和实发工资。</p>
+</blockquote>
+<blockquote>
+<p>设计程序，定义三个重载方法 mol 并调用。三个方法分别为：接收一个 int
+参数，执行平方运算并输出结果；接收两个 int
+参数，执行相乘运算并输出结果。要求在main(
+)方法中分别用参数区别调用这2个方法。如调用格式为： mol(128); mol(12,8);
+则可输出：128 的平方等于 16384 12*8=96</p>
+</blockquote>
+<blockquote>
+<p>构造一个类来描述屏幕上的一个点，该类的构成包括点的 x和
+两个坐标，以及一些对点进行的操作，包括:取得点的坐标值，对点的坐标进行赋值，求两个点的距离，编写应用程序生成该类的对象并对其进行操作。</p>
+</blockquote>
+<blockquote>
+<p>定义一个三角形类 Triangle。该类包含三个int 类型的变量
+a,bc,分别表示三角形的三个边长。类中需要定义如下的方法: public
+Triangle(int a1,int b1,int c1) public boolean
+judge();//判断三角形是否合法 public double getArea(); //
+求三角形面积，可以使用海伦公式 public int getPerimeter();//求三角形周长
+创建该类的两个对象，a、b、c分别为（5，10，15），（7，9，11），判断这两个类对象能否构成三角形，如果可以，计算其面积和周长</p>
+</blockquote>
+<h3 id="作业5.1thisstatic等">作业5.1（this,static等）</h3>
+<blockquote>
+<p>设计一个圆形类，属性半径，静态变量Pi=3.14； 构造方法能对半径初始化
+普通方法1：返回周长 普通方法2：返回面积 方法3：输出面积和周长
+创建类的对象，调用并验证以上几个方法</p>
+</blockquote>
+<blockquote>
+<p>写一个MyPoint类，其中含有私有（private）的int类型的x和y属性，分别用公有的getX和setX、getY和setY方法访问，定义一个toString方法用来显示这个对象的x、y的值。最后用main
+方法测试。</p>
+</blockquote>
+<blockquote>
+<p>定义一个People类,要求如下：
+(1)成员变量：name、height、weight,分别表示姓名、身高(cm)和体重(kg)；
+(2)构造方法通过参数实现对成员变量的赋初值操作； (3)成员方法int
+check(),该方法返回0、1、-1
+(分别表示标准、过胖或过瘦)。判断方法是，用身高减去110作为参考体重，超过参考体重5kg以上的，为“过胖”；低于参考体重5kg以上的，为“过瘦”；在(参考体重-5kg)和(参考体重+5kg)之间的，为“标准”。
+(4)在main()方法中，输入1名学生的信息(姓名、身高和体重)，分别判断这些学生属于标准、过胖或过瘦。
+(必须通过调用check()方法实现)。</p>
+</blockquote>
+<blockquote>
+<p>编写程序，用于计算一元二次方程的实根。要求定义Equation类来表示一元二次方程，包括:方程系数、求解方法、实根的个数与类型、每个实根的值、输出方法。再定义
+EquationDemo类演示求根过程。
+(1)Equation类有成员变量a、b、c，代表一元二次方程的3个系数。rootType代表实根的个数与类型:0表示无实，1表示有两个相等实根，2表示有两个实根。rootl，root2代表两个可能的实根。
+(2)Eauation类有构造方法Equation(float a，float b，float
+c)，形参a、b、c为给定一元二次方程的系数。
+(3)Equation类有成员方法voidSolving()，用于求解一元二次方程，并将结果置于相应的属性之中。</p>
+</blockquote>
+<h3 id="作业6.1继承final">作业6.1（继承、final）</h3>
+<blockquote>
+<p>定义一个商品类及食品子类（food）和服装子类。任何商品都有编号、名称、出厂日期、厂家等信息。食品还有保质期信息，服装则还有面料信息。</p>
+</blockquote>
+<blockquote>
+<p>请编码实现动物世界的继承关系：
+动物（Animal）具有行为：吃（eat）、睡觉（sleep）
+动物包括：兔子（Rabbit），老虎（Tiger）
+这些动物吃的行为各不相同（兔子吃草，老虎吃肉）；但睡觉的行为是一致的。
+请通过继承实现以上需求，并编写测试类
+AnimalTest进行测试，要求用动态方法调用实现运行时多态。</p>
+</blockquote>
+<blockquote>
+<p>定义一个Document类，包含成员属性name。从Document派生出Book子类，增加pageCount属性，编写一个应用程序，测试定义的类。</p>
+</blockquote>
+<h3 id="作业8框架动作事件">作业8（框架，动作事件）</h3>
+<blockquote>
+<p>（注意：提交eclipse里写的代码和运行结果的截图，在代码注释里写明自己姓名和学号，不写明姓名学号扣分）
+编写java程序，求解二元一次方程的根。（1）界面尺寸为350<em>350，关闭界面时退出，界面设置可见，界面标题为“求根公式”。(2)根据下图添加组件和适当的布局管理器。（3）界面中a,b,c为二元一次方程的系数，x1,x2为方程的根。根据输入的系数，进行判断。如果a=0或(b</em>b-4<em>a</em>c)&lt;0，则点击“求解”按钮时，x1,x2文本框显示为“###”，若不是，则计算出二元一次方程的根，并显示在相应位置。（4）点击“清空”按钮，清空所有的文本框。</p>
+</blockquote>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1700947096243-image.png"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p><img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1734774479127-%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-12-21%20174751.png" alt="新的图片" style="zoom:50%;" /></p>
+<blockquote>
+<p>（注意：提交eclipse里写的代码和运行结果的截图，在代码注释里写明自己姓名，不写明姓名扣分）
+实现简易计算器。
+仿照Windows的计算器，编写一个简易的计算器程序，实现加、减、乘、除等运算。界
+面布局采用边界布局器和网格布局器结合的方式：窗体釆用边界布局器，添加文本框和面板。面板釆用4*4的网格布局器，添加数字按钮和运算按钮。</p>
+</blockquote>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1700939563404-image.png"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<blockquote>
+<p>（注意：代码直接输入在答题区或写上姓名手写在纸上拍照上传，提交eclipse截图的代码不给分）编写一个程序，把六个按钮分别标识为’A’至’F’,并排列成一行显示出来。</p>
+</blockquote>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1700940472575-image.png"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<blockquote>
+<p>（注意：提交eclipse里写的代码和运行结果的截图，在代码注释里写明自己姓名，不写明姓名扣分）
+编写java程序，制作如下密码验证界面。界面宽为350、高120，界面标题为“密码验证”，设置界面可见性和关闭时退出，界面有标签、文本框、按钮等组件，实现如下功能：当点击“确定”按钮后，如果输入密码等于123456，那么在控制台输出“密码正确”，否则输出“密码错误”。（提示：Java中可以使用Integer.parseInt()方法将字符串转换成整数）</p>
+</blockquote>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1700943366224-image.png"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E6%A0%A1/" rel="tag"><i class="fa fa-tag"></i> 学校</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/12/26/%E5%85%B6%E4%BB%96/MacOS%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C+vim%E7%BC%96%E8%BE%91%E5%99%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" rel="prev" title="MacOS文件操作+vim编辑器使用方法">
+                  <i class="fa fa-angle-left"></i> MacOS文件操作+vim编辑器使用方法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/12/31/%E5%AD%A6%E6%A0%A1/JFrame%E6%9C%9F%E6%9C%AB%E6%94%BB%E7%95%A5/" rel="next" title="JFrame期末攻略">
+                  JFrame期末攻略 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/CCCCOOH" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

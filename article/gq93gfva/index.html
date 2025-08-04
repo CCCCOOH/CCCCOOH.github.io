@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/imagesimg/icon.png">
+  <link rel="mask-icon" href="/images/icon.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.0.5/fancybox/fancybox.css" integrity="sha256-uTcjoMD6rPt4OyV3Rs02Slxl0BJGMNVKAm/1eYPt2go=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ccccooh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.23.2","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":"flat","style":null},"fold":{"enable":true,"height":500},"language":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":100,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="设计一个数据库...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计一个实际可用的数据库">
+<meta property="og:url" content="https://ccccooh.github.io/article/gq93gfva/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="设计一个数据库...">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250331011304.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250331013108.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/pk.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250331015205.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250331020311.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250331021319.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250331022917.png">
+<meta property="article:published_time" content="2025-03-30T18:40:00.000Z">
+<meta property="article:modified_time" content="2025-08-04T06:46:40.525Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250331011304.png">
+
+
+<link rel="canonical" href="https://ccccooh.github.io/article/gq93gfva/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ccccooh.github.io/article/gq93gfva/","path":"/article/gq93gfva/","title":"设计一个实际可用的数据库"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>设计一个实际可用的数据库 | SHEN YING</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.0.5/fancybox/fancybox.umd.js" integrity="sha256-UiSieVaV/DXce2LW7QH+o77w+AIoAvSCPBkezriZ2DQ=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/6.1.3/pangu.umd.js" integrity="sha256-erngBMP3zzoIM6eqQ8dmrReh2vqCRgWmORroIfVoDlE=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/3.0.1/quicklink.umd.js" integrity="sha256-44BednzIpUeQJcY8qtLyarFu0UCCTbgmWOvaoehiFQQ=" crossorigin="anonymous" defer></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://ccccooh.github.io/article/gq93gfva/"}</script>
+  <script src="/js/third-party/quicklink.js" defer></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SHEN YING</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Syの小窝</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">1. 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E5%AE%9E%E4%BD%93"><span class="nav-number">2.</span> <span class="nav-text">2. 构建实体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">3. 构建关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%AF%B9%E5%A4%9A"><span class="nav-number">4.</span> <span class="nav-text">4. 多对多</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">5. 总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Sy"
+      src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif">
+  <p class="site-author-name" itemprop="name">Sy</p>
+  <div class="site-description" itemprop="description">Sy with web,game and other.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ccccooh.github.io/article/gq93gfva/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif">
+      <meta itemprop="name" content="Sy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SHEN YING">
+      <meta itemprop="description" content="Sy with web,game and other.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="设计一个实际可用的数据库 | SHEN YING">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          设计一个实际可用的数据库
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-31 02:40:00" itemprop="dateCreated datePublished" datetime="2025-03-31T02:40:00+08:00">2025-03-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-04 14:46:40" itemprop="dateModified" datetime="2025-08-04T14:46:40+08:00">2025-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前言">1. 前言</h2>
+<p>在自己独立开发一个项目的过程中，我发现了一些以往写小 Demo
+从来没有遇到过的问题。</p>
+<p>最近在独立制作一个全栈的通知管理平台。一开始我没有考虑太多，直接根据头脑中零星的想法就开撸后端数据库
+model 和 API，用的是学了半成品的 MongoDb。</p>
+<p>结果就是写到后面在遇到复杂的数据库依赖关系时，我感到崩溃。这才想起指导老师给我发了一篇计算机的论文，我便开始虚心研究。</p>
+<p>做一个项目要经过这些过程：</p>
+<ul>
+<li>系统分析
+<ul>
+<li>可行性分析</li>
+<li>用户需求分析</li>
+<li>整体功能模块分析</li>
+<li>技术分析</li>
+<li>系统流程分析</li>
+</ul></li>
+<li>系统设计
+<ul>
+<li>系统功能模块设计</li>
+<li>系统结构设计</li>
+<li>数据库概念设计
+<ul>
+<li>数据库设计</li>
+<li>数据库表设计</li>
+</ul></li>
+</ul></li>
+<li>系统实现
+<ul>
+<li>功能模块的实现</li>
+<li>API 接口功能的实现</li>
+</ul></li>
+<li>系统测试
+<ul>
+<li>黑盒和白盒测试</li>
+<li>测试环境与条件</li>
+<li>功能测试</li>
+</ul></li>
+</ul>
+<p>敲代码的时候思维很局限，总觉得完成了某一个单个功能就算成功。真到让我独立设计一个项目，我还真就难住了。这里就来讲讲我第一个遇到的问题，数据库怎么设计？</p>
+<p>本文用到的工具：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://eraser.io/">eraser.io</a></p>
+</blockquote>
+<h2 id="构建实体">2. 构建实体</h2>
+<p>打开一额<code>eraser.io</code>文件，在左侧写入所有的实体<code>Entity</code>，例如：</p>
+<ul>
+<li>用户</li>
+<li>班级</li>
+<li>通知</li>
+</ul>
+<p>然后在<code>canvas</code>中添加一个<code>Diagram as Code &gt; Entity Relationship</code>也就是<code>E-R</code>图。</p>
+<blockquote>
+<p>✨ 一个最佳实践：总是从用户表<code>User-Table</code>开始着手你的 E-R
+图设计。 这是因为，一切都是为了用户用户就是上帝。</p>
+</blockquote>
+<p>从用户表开始，并从用户的注册开始。</p>
+<p>我们的用户表可以是这样：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">User</span> &#123;</span><br><span class="line">  id string pk</span><br><span class="line">  username string <span class="keyword">unique</span></span><br><span class="line">  email string</span><br><span class="line">  bio string</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250331011304.png"
+alt="20250331011304" />
+<figcaption aria-hidden="true">20250331011304</figcaption>
+</figure>
+<blockquote>
+<p>强调一点：业务逻辑永远不要成为主键，例如这里除了<code>id</code>外所有的属性皆是如此。</p>
+</blockquote>
+<p>也许你不需要一个<code>createdAt</code>键，但一个很中肯的建议是添加它，总有一天你会需要它的，当你需要它的时候可不能后悔。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">User</span> &#123;</span><br><span class="line">  id string pk</span><br><span class="line">  username string <span class="keyword">unique</span></span><br><span class="line">  email string</span><br><span class="line">  bio string</span><br><span class="line">  createdAt <span class="type">timestamp</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同样的方法，添加班级、通知，完成后如下图所示：</p>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250331013108.png"
+alt="20250331013108" />
+<figcaption aria-hidden="true">20250331013108</figcaption>
+</figure>
+<h2 id="构建关系">3. 构建关系</h2>
+<p>关系分为多种：</p>
+<ul>
+<li>一对一</li>
+<li>一对多</li>
+<li>多对多</li>
+</ul>
+<p>这里用户和班级之间存在多对多的关系，构建关系时我们也总遵循从<code>User</code>表开始的原则，正如之前提到的，用户是整个产品的核心。</p>
+<p>为了加深对关系的了解，这里举个用户发推文的例子：一个用户能发多个推文，每一条推文只有一个用户作为作者。这是一对多的关系，一个用户对应多个推文，但每一条推文只能对应一个用户。</p>
+<p>在这里，假如我希望一个班级对应多条通知，在<code>eraser.io</code>中可以使用这样的语法来表示：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 一对多</span><br><span class="line">Classes.id <span class="operator">&lt;</span> Notifies.classId</span><br></pre></td></tr></table></figure>
+<p>这里用到的关系符号是<code>&lt;</code>，同样的还有一对一和多对多，分别用<code>-</code>和<code>&lt;&gt;</code>符号表示数量关系。</p>
+<p>观察上面的代码你会发现一个问题：通知实体并没有<code>classId</code>这个键。</p>
+<p>这就是我们需要创建的，这里<code>classId</code>是一个外键，表示引用了一个其他表的主键。</p>
+<p>我们修改通知<code>Entity</code>的结构：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Notify &#123;</span><br><span class="line">  id string pk</span><br><span class="line">  title string</span><br><span class="line">  content string</span><br><span class="line">  createdAt <span class="type">timestamp</span></span><br><span class="line">  classId string pk</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Class.id <span class="operator">&lt;</span> Notify.classId</span><br></pre></td></tr></table></figure>
+<p>修改后大概是这样：</p>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/pk.png"
+alt="pk" />
+<figcaption aria-hidden="true">pk</figcaption>
+</figure>
+<p>这里我们再添加一个<code>Media</code>实体：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Media &#123;</span><br><span class="line">  id string pk</span><br><span class="line">  fileUrl string</span><br><span class="line">  type enum</span><br><span class="line">  createdAt <span class="type">timestamp</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>很显然，一个班级对应多条通知，一条通知可能对应了多个媒体，所以媒体也需要一个类似的外键来唯一的引用一个它所对应的通知。</p>
+<blockquote>
+<p>你有没有想过为什么反过来不行，为什么不是通知的外键引用到媒体呢？
+很显然，通知对应多个媒体，一条外键是不够的，而媒体只对应一个通知，一个外键就刚好。</p>
+</blockquote>
+<p>添加完成后我们再来加上颜色和图标就是这个效果：</p>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250331015205.png"
+alt="20250331015205" />
+<figcaption aria-hidden="true">20250331015205</figcaption>
+</figure>
+<p>关键其实还有语义化的功能，在看到这个外键后就知道通知与某个班级有关，媒体与某条通知相关。</p>
+<p>在这种情况下外键是很有意义的。</p>
+<p>如果我们的用户能够在每一条通知下进行评论，就需要一个<code>Comments</code>实体。很明显他用外键和唯一的用户关联表示该用户的评论。</p>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250331020311.png"
+alt="20250331020311" />
+<figcaption aria-hidden="true">20250331020311</figcaption>
+</figure>
+<p>在这里，用户和评论是一对多的关系，通知和评论也是一对多的关系，所以你能看到在评论的身上有两条外键分别拉到了用户和通知身上。</p>
+<p>根据同样的一对多的原理，我们来制造一个<code>like</code>，也就是用户对评论的点赞：</p>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250331021319.png"
+alt="20250331021319" />
+<figcaption aria-hidden="true">20250331021319</figcaption>
+</figure>
+<h2 id="多对多">4. 多对多</h2>
+<p>根据上面的例子我们不难发现，要处理一对一、一对多的关系都能直接使用外键来处理。</p>
+<p>但是多对多呢？</p>
+<p>用户的好友是一个多对多的关系，用户可以有多个好友，很多人也可以加这个用户作为好友。</p>
+<p>我们的班级和用户之间也是这样的关系，班级可以有很多成员而成员也能加入很多班级。</p>
+<blockquote>
+<p>对于多对多的关系我们一般新建一个表，例如，用户好友的关系。</p>
+</blockquote>
+<figure>
+<img data-src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250331022917.png"
+alt="20250331022917" />
+<figcaption aria-hidden="true">20250331022917</figcaption>
+</figure>
+<p>这里比较令人困惑，要仔细看看。</p>
+<p>这张表实际上就是单独跟踪了谁关注了谁，有两个字段：关注<code>follow</code>，粉丝<code>follower</code>。</p>
+<p>如果要查询用户的粉丝可以用<code>select * from Friends where follow = user_id</code>就能查询到用户的所有粉丝。</p>
+<p>如果要查询用户的关注列表就是：<code>select * from Friends where follower = user_id</code>。</p>
+<h2 id="总结">5. 总结</h2>
+<p>关于数据库的设计关键是将所有实体抽象出来，并理清楚实体之间的关系。</p>
+<p>本次实验🧪的链接：https://app.eraser.io/workspace/1GT4Nb82OR4LTYIuOmkT</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/demo/vqh5zjut/" rel="prev" title="【mongoose】3.阅读官方文档">
+                  <i class="fa fa-angle-left"></i> 【mongoose】3.阅读官方文档
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/06/14/%E5%8D%9A%E5%AE%A2/%E5%8D%9A%E5%AE%A2%E5%85%AC%E5%91%8A/" rel="next" title="博客公告">
+                  博客公告 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/CCCCOOH" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
