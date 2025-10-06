@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【ElementPlus】5.Affix 骨钉 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="实际上，官方的叫法是Affix固钉。 这是一个新增的导航组件，用来将元素固定到页面上。 :::: demo-wrapper no-padding ::: center  ::: :::: 我们可以按照在之前的views中继续加入一个Affix.vue组件，并修改App.vue中的代码: ::: code-tabs @tab App.vue 12345678910111213141516&lt;te">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ElementPlus】5.Affix 骨钉">
+<meta property="og:url" content="https://ccccooh.github.io/demo/faa6sr0g/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="实际上，官方的叫法是Affix固钉。 这是一个新增的导航组件，用来将元素固定到页面上。 :::: demo-wrapper no-padding ::: center  ::: :::: 我们可以按照在之前的views中继续加入一个Affix.vue组件，并修改App.vue中的代码: ::: code-tabs @tab App.vue 12345678910111213141516&lt;te">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-26T09:55:26.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.752Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/ElementPlus/">ElementPlus</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-02-26T09:55:26+00:00">
+      February 26, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【ElementPlus】5.Affix 骨钉</h1>
+  </div>
+
+  <div class="content">
+    <p>实际上，官方的叫法是<a
+target="_blank" rel="noopener" href="https://element-plus.gitee.io/zh-CN/component/affix.html#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95">Affix固钉</a>。</p>
+<p>这是一个新增的导航组件，用来将元素固定到页面上。</p>
+<p>:::: demo-wrapper no-padding ::: center <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250226175816.png"
+alt="20250226175816" /> ::: ::::</p>
+<p>我们可以按照在之前的<code>views</code>中继续加入一个<code>Affix.vue</code>组件，并修改<code>App.vue</code>中的代码:
+::: code-tabs</p>
+<p><span class="citation" data-cites="tab">@tab</span> App.vue
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;Affix /&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import Affix from &quot;./views/Affix.vue&quot;;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    name: &quot;App&quot;,</span><br><span class="line">    components: &#123;</span><br><span class="line">      Affix,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p><span class="citation" data-cites="tab">@tab</span> Affix.vue
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;el-affix :offset=&quot;200&quot;&gt;</span><br><span class="line">    &lt;el-button type=&quot;primary&quot;&gt;距离顶部 200 个像素&lt;/el-button&gt;</span><br><span class="line">  &lt;/el-affix&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></p>
+<p>:::</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/1gpxctp3/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">【VueRouter】1.vueRouter 路由管理器</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/tag6e3yo/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【ElementPlus】4.Virtualized Tree 虚拟化树形控件</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

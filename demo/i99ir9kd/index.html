@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【VueRouter】2.安装和使用 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="Tips: VueRouter 是Vue官方为单应用专门打造的。  接下来看看如何安装VueRouter。 分别有使用CDN引入和使用NPM安装两种方式。  @tab CDN 1https:&#x2F;&#x2F;unpkg.com&#x2F;vue-router@2.0.0&#x2F;dist&#x2F;vue-router.js @tab NPM 1npm install vue-router@4  这里采用CDN的方式。 其基本的使用方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【VueRouter】2.安装和使用">
+<meta property="og:url" content="https://ccccooh.github.io/demo/i99ir9kd/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="Tips: VueRouter 是Vue官方为单应用专门打造的。  接下来看看如何安装VueRouter。 分别有使用CDN引入和使用NPM安装两种方式。  @tab CDN 1https:&#x2F;&#x2F;unpkg.com&#x2F;vue-router@2.0.0&#x2F;dist&#x2F;vue-router.js @tab NPM 1npm install vue-router@4  这里采用CDN的方式。 其基本的使用方法">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-26T10:19:12.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.754Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/VueRouter/">VueRouter</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-02-26T10:19:12+00:00">
+      February 26, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【VueRouter】2.安装和使用</h1>
+  </div>
+
+  <div class="content">
+    <blockquote>
+<p><strong>Tips</strong>: VueRouter 是Vue官方为单应用专门打造的。</p>
+</blockquote>
+<p>接下来看看如何安装<code>VueRouter</code>。</p>
+<p>分别有使用<code>CDN</code>引入和使用<code>NPM</code>安装两种方式。</p>
+<div class="code-tabs">
+<p><span class="citation" data-cites="tab">@tab</span> CDN
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://unpkg.com/vue-router@2.0.0/dist/vue-router.js</span><br></pre></td></tr></table></figure></p>
+<p><span class="citation" data-cites="tab">@tab</span> NPM
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-router@4</span><br></pre></td></tr></table></figure></p>
+</div>
+<p>这里采用CDN的方式。</p>
+<p>其基本的使用方法是： -
+使用<code>router-link</code>组件来导航，通过<code>to</code>来跳转指定链接（相当于<code>&lt;a&gt; &lt;/a&gt;</code>标签）。
+-
+使用<code>router-view</code>组件定义路由出口，路由匹配到组件将会渲染到此处。
+-
+使用<code>const routes = [&#123; path, component &#125;]</code>来定义路由（路径和组件名）。
+- 创建和挂载根实例，在 <strong>new Vue</strong>
+中挂载上一步创建的路由实例 <code>router</code>。</p>
+<p>首先用命令获取库文件： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://labfile.oss.aliyuncs.com/courses/1262/vue.min.js</span><br><span class="line">wget https://labfile.oss.aliyuncs.com/courses/10532/vue-router.js</span><br></pre></td></tr></table></figure></p>
+<p>在<code>index.html</code>中写入： <figure class="highlight html"><figcaption><span>:collapsed-lines</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;vue.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;vue-router.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>路由的使用<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 使用 router-link 组件来导航 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/home&quot;</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/hot&quot;</span>&gt;</span>热门<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/class&quot;</span>&gt;</span>分类<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 路由出口 --&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 路由匹配到的组件将渲染在这里 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> <span class="title class_">Home</span> = &#123; <span class="attr">template</span>: <span class="string">&quot;&lt;div&gt;首页&lt;/div&gt;&quot;</span> &#125;;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> <span class="title class_">Hot</span> = &#123; <span class="attr">template</span>: <span class="string">&quot;&lt;div&gt;热门&lt;/div&gt;&quot;</span> &#125;;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> <span class="title class_">Class</span> = &#123; <span class="attr">template</span>: <span class="string">&quot;&lt;div&gt;分类&lt;/div&gt;&quot;</span> &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 定义路由</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> routes = [</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">path</span>: <span class="string">&quot;/home&quot;</span>, <span class="attr">component</span>: <span class="title class_">Home</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">path</span>: <span class="string">&quot;/hot&quot;</span>, <span class="attr">component</span>: <span class="title class_">Hot</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123; <span class="attr">path</span>: <span class="string">&quot;/class&quot;</span>, <span class="attr">component</span>: <span class="title class_">Class</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">      ];</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 创建 router 实例，然后传 routes 配置</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        routes,</span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 创建和挂载根实例</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        router,</span></span><br><span class="line"><span class="language-javascript">      &#125;).$mount(<span class="string">&quot;#app&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>页面效果： ::: demo-wrapper no-padding <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250226184948.png"
+alt="20250226184948" /> :::</p>
+<p>点击不同的链接后页面只会局部刷新。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/gvz1avb2/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">【Pinia】初始Pinia</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/1gpxctp3/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【VueRouter】1.vueRouter 路由管理器</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

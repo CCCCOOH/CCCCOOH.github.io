@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【ECharts】2.ECharts基础知识 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="1.ECharts 实例 一个网页可以创建多个ECharts实例，每个实例可以创建多个图表和坐标系等（且使用option来描述）。准备一个 DOM 节点作为实例的渲染容器，每个容器创建一个 ECharts 实例。每个实例独占一个 DOM 节点。    20250303211726   我们随便打开官网的一个实例代码就能发现都是类似的结构：  option相当于存放组件的容器，在option中的se">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ECharts】2.ECharts基础知识">
+<meta property="og:url" content="https://ccccooh.github.io/demo/n3g4dbp4/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="1.ECharts 实例 一个网页可以创建多个ECharts实例，每个实例可以创建多个图表和坐标系等（且使用option来描述）。准备一个 DOM 节点作为实例的渲染容器，每个容器创建一个 ECharts 实例。每个实例独占一个 DOM 节点。    20250303211726   我们随便打开官网的一个实例代码就能发现都是类似的结构：  option相当于存放组件的容器，在option中的se">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-03T13:14:07.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.752Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/ECharts/">ECharts</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-03-03T13:14:07+00:00">
+      March 3, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【ECharts】2.ECharts基础知识</h1>
+  </div>
+
+  <div class="content">
+    <h2 id="echarts-实例">1.ECharts 实例</h2>
+<p>一个网页可以创建多个ECharts实例，每个实例可以创建多个图表和坐标系等（且使用<code>option</code>来描述）。准备一个
+DOM 节点作为实例的渲染容器，每个容器创建一个 ECharts
+实例。每个实例独占一个 DOM 节点。</p>
+<div class="center">
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303211726.png"
+alt="20250303211726" />
+<figcaption aria-hidden="true">20250303211726</figcaption>
+</figure>
+</div>
+<p>我们随便打开官网的一个实例代码就能发现都是类似的结构： <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303212249.png"
+alt="20250303212249" /></p>
+<p><code>option</code>相当于存放组件的容器，在<code>option</code>中的<a
+target="_blank" rel="noopener" href="https://echarts.apache.org/zh/option.html#series">series</a>、<a
+target="_blank" rel="noopener" href="https://echarts.apache.org/zh/option.html#xAxis">xAxis</a>、<a
+target="_blank" rel="noopener" href="https://echarts.apache.org/zh/option.html#yAxis">yAxis</a>都被叫做组件。</p>
+<h2 id="组件">2.组件</h2>
+<p>==Echarts==中的内容都被抽象成了==组件==。比如，<code>series</code>是专门绘制“图”的组件。</p>
+<p>类似的组件还有 <code>xAxis</code>（直角坐标系 X
+轴）、<code>yAxis</code>（直角坐标系 Y
+轴）、<code>grid</code>（直角坐标系底板）、<code>angleAxis</code>（极坐标系角度轴）、<code>radiusAxis</code>（极坐标系半径轴）、<code>polar</code>（极坐标系底板）、<code>geo</code>（地理坐标系）、<code>dataZoom</code>（数据区缩放组件）、<code>visualMap</code>（视觉映射组件）、<code>tooltip</code>（提示框组件）、<code>toolbox</code>（工具栏组件）、<code>series</code>（系列）等。</p>
+<p>请看概念图：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303212645.png"
+alt="20250303212645" />
+<figcaption aria-hidden="true">20250303212645</figcaption>
+</figure>
+<p>在<code>option</code>中申明了各个组件。</p>
+<blockquote>
+<p>注意：因为系列是一种特殊的组件，所以有时候也会出现 “组件和系列”
+这样的描述，这种语境下的 “组件” 是指：除了 “系列 series”
+以外的其他组件。</p>
+</blockquote>
+<p>那么下面就为大家介绍一下常见的组件，包括
+<code>series</code>、<code>dataset</code>、<code>xAxis</code>、<code>yAxis</code>、<code>grid</code>、<code>tooltip</code>、<code>title</code>、<code>legend</code>。</p>
+<blockquote>
+<p>不需要把这些组件都记下来，大致有个印象，知道它们的主要作用就好了，后续在代码练习中才不会完全懵逼。</p>
+</blockquote>
+<h2 id="series">3.series</h2>
+<p>==系列==（<code>series</code>）是很常见的名词。</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303213120.png"
+alt="20250303213120" />
+<figcaption aria-hidden="true">20250303213120</figcaption>
+</figure>
+<p>它表示一组数据以及数据代表的图，所以不仅要有数据还需要用<code>series.type</code>表示图表类型。</p>
+<p>其中，系列类型（<code>series.type</code>）至少有：<code>line</code>（折线图）、<code>bar</code>（柱状图）、<code>pie</code>（饼图）、<code>scatter</code>（散点图）、<code>graph</code>（关系图）、<code>tree</code>（树图）等等。</p>
+<p>这里只讲讲最常用的四个： - 折线图 - 柱状图 - 饼形图 - 散点图</p>
+<p>比如，将代码中的<code>series.type</code>改为<code>pie</code>： ::::
+code-tabs <span class="citation" data-cites="tab">@tab</span> index.html
+<figure class="highlight html"><figcaption><span>:collapsed-lines</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;echarts.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>ECharts 快速上手<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 600px; height: 400px&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> chartDom = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;main&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> myChart = echarts.<span class="title function_">init</span>(chartDom);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> option;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      option = &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">xAxis</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">type</span>: <span class="string">&quot;category&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">data</span>: [<span class="string">&quot;Mon&quot;</span>, <span class="string">&quot;Tue&quot;</span>, <span class="string">&quot;Wed&quot;</span>, <span class="string">&quot;Thu&quot;</span>, <span class="string">&quot;Fri&quot;</span>, <span class="string">&quot;Sat&quot;</span>, <span class="string">&quot;Sun&quot;</span>],</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">yAxis</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">type</span>: <span class="string">&quot;value&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">series</span>: [</span></span><br><span class="line"><span class="language-javascript">          &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">data</span>: [<span class="number">820</span>, <span class="number">932</span>, <span class="number">901</span>, <span class="number">934</span>, <span class="number">1290</span>, <span class="number">1330</span>, <span class="number">1320</span>],</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">type</span>: <span class="string">&quot;pie&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">smooth</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">          &#125;,</span></span><br><span class="line"><span class="language-javascript">        ],</span></span><br><span class="line"><span class="language-javascript">      &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      option &amp;&amp; myChart.<span class="title function_">setOption</span>(option);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">      * &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">      <span class="selector-id">#main</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure> ::::</p>
+<p>效果： ::: demo-wrapper no-padding <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303215556.png"
+alt="20250303215556" /> :::</p>
+<p><code>series</code>中添加一个新的对象后： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">series</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">name</span>: <span class="string">&#x27;Sy_blog&#x27;</span>,</span><br><span class="line">                    <span class="attr">data</span>: [<span class="number">1210</span>, <span class="number">230</span>, <span class="number">120</span>],</span><br><span class="line">                    <span class="attr">type</span>: <span class="string">&#x27;line&#x27;</span>,</span><br><span class="line">                    <span class="attr">smooth</span>: <span class="literal">true</span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">name</span>: <span class="string">&#x27;Sy_blog&#x27;</span>,</span><br><span class="line">                    <span class="attr">data</span>: [<span class="number">152</span>, <span class="number">23</span>, <span class="number">69</span>],</span><br><span class="line">                    <span class="attr">type</span>: <span class="string">&#x27;line&#x27;</span>,</span><br><span class="line">                    <span class="attr">smooth</span>: <span class="literal">true</span></span><br><span class="line">                &#125;,</span><br><span class="line">            ]</span><br></pre></td></tr></table></figure></p>
+<p>::: demo-wrapper no-padding <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250304145220.png"
+alt="20250304145220" /> :::</p>
+<p>常用的还有： - <code>series.name</code> 是系列的名字 -
+<code>series.stack</code>
+是数据堆叠，后一个系列的值会在前一个系列的堆叠基础上增加</p>
+<p>::: demo-wrapper no-padding <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250304145644.png"
+alt="20250304145644" /> :::</p>
+<h2 id="dataset">4.dataset</h2>
+<p>虽然每个系列可以用<code>series.data</code>设置数据，将数据一条一条放在<code>series</code>中。但在
+ECharts4 之后开始支持<strong>数据集</strong>了，可以用其来管理数据。</p>
+<p>这是两者在写法上的区别： <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250304150715.png"
+alt="20250304150715" /></p>
+<h2 id="用option描述图表">5.用option描述图表</h2>
+<p>上面已经提到了<code>option</code>的概念，使用<code>option</code>能对图表做大部分的配置。</p>
+<h2 id="title">6.title</h2>
+<p>在<code>option</code>中添加<code>option.title.text</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">    <span class="attr">title</span>: &#123;  <span class="comment">// [!code focus:3]</span></span><br><span class="line">        <span class="attr">text</span>: <span class="string">&quot;Hello World&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">xAxis</span>: &#123;</span><br><span class="line">        <span class="attr">type</span>: <span class="string">&quot;category&quot;</span>,</span><br><span class="line">        <span class="attr">data</span>: [<span class="string">&quot;1&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;3&quot;</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">yAxis</span>: &#123;</span><br><span class="line">        <span class="attr">type</span>: <span class="string">&#x27;value&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">series</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">name</span>: <span class="string">&#x27;Sy_blog&#x27;</span>,</span><br><span class="line">            <span class="attr">data</span>: [<span class="number">1210</span>, <span class="number">230</span>, <span class="number">120</span>],</span><br><span class="line">            <span class="attr">type</span>: <span class="string">&#x27;line&#x27;</span>,</span><br><span class="line">            <span class="attr">smooth</span>: <span class="literal">true</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">name</span>: <span class="string">&#x27;Hello&#x27;</span>,</span><br><span class="line">            <span class="attr">data</span>: [<span class="number">152</span>, <span class="number">23</span>, <span class="number">698</span>],</span><br><span class="line">            <span class="attr">type</span>: <span class="string">&#x27;line&#x27;</span>,</span><br><span class="line">            <span class="attr">smooth</span>: <span class="literal">true</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>更多<code>option.title</code>见<a
+target="_blank" rel="noopener" href="https://echarts.apache.org/zh/option.html#title">文档</a>。</p>
+<h2 id="tooltip">7.tooltip</h2>
+<p>在<code>option</code>中添加: <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tooltip</span>: &#123;</span><br><span class="line">    <span class="attr">trigger</span>: <span class="string">&#x27;axis&#x27;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>鼠标悬浮时会产生提示信息。</p>
+<p>::: demo-wrapper no-padding <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250304204525.png"
+alt="20250304204525" /> :::</p>
+<p>这里的的<code>trigger</code>指触发类型，包括：</p>
+<ul>
+<li><code>item</code>：数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。</li>
+<li><code>axis</code>：坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。</li>
+<li><code>none</code>：什么都不触发。</li>
+</ul>
+<h2 id="legend-图例组件">8.legend 图例组件</h2>
+<p><code>legend.data</code>是图例的数据数组，也就是红框框起来的值。 :::
+demo-wrapper no-padding <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250304204743.png"
+alt="20250304204743" /> :::</p>
+<h2 id="toolbox-工具栏">9.toolbox 工具栏</h2>
+<p>toolbox
+工具栏，内置有导出图片（<code>saveAsImage</code>）、数据视图（<code>dataView</code>）、动态类型切换（<code>magicType</code>）、数据区域缩放（<code>dataZoom</code>）、重置（<code>restore</code>）等五个工具。</p>
+<p>例如： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">toolbox</span>: &#123;</span><br><span class="line">    <span class="attr">feature</span>: &#123;</span><br><span class="line">        <span class="attr">saveAsImage</span>: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p><code>toolbox.feature.saveAsImage</code> 是保存为图片，也就是这个：
+::: demo-wrapper no-padding <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250304205956.png"
+alt="20250304205956" /> :::</p>
+<p>继续增加一个<code>dataView</code>： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">toolbox</span>: &#123;</span><br><span class="line">    <span class="attr">feature</span>: &#123;</span><br><span class="line">        <span class="attr">saveAsImage</span>: &#123;&#125;,</span><br><span class="line">        <span class="attr">dataView</span>: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>右上角将产生一个可以预览数据的文档图表。</p>
+<h2 id="坐标轴">10.坐标轴</h2>
+<p>很多系列，例如
+<code>line</code>（折线图）、<code>bar</code>（柱状图）、<code>scatter</code>（散点图）、<code>heatmap</code>（热力图）等等，需要运行在
+“坐标系” 上。坐标系用于布局这些图，以及显示数据的刻度等等。例如 ECharts
+中至少支持这些坐标系：直角坐标系、极坐标系、地理坐标系（GEO）、单轴坐标系、日历坐标系等。</p>
+<p>一个坐标系，由多个组件组成，就拿最常用的直角坐标系来举个例子：</p>
+<p>在 ECharts 的直角坐标系中，有三个重要的组件，分别为：</p>
+<ul>
+<li><code>xAxis</code>：直角坐标系 X 轴。</li>
+<li><code>yAxis</code>：直角坐标系 Y 轴。</li>
+<li><code>grid</code>：直角坐标系网格。</li>
+</ul>
+<p>前两者都好理解，那么网格是干什么的呢？</p>
+<p>网格（<code>grid</code>）是定义网格布局、大小和颜色的组件，用于定义直角坐标系整体的布局。</p>
+<p>例如：</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250304211204.png"
+alt="20250304211204" /> :::steps 1.
+在绘制图表之前，我们肯定需要一个坐标区域： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">option = &#123;</span><br><span class="line">  <span class="attr">xAxis</span>: &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&quot;category&quot;</span>,</span><br><span class="line">    <span class="attr">data</span>: [<span class="string">&quot;周一&quot;</span>, <span class="string">&quot;周二&quot;</span>, <span class="string">&quot;周三&quot;</span>, <span class="string">&quot;周四&quot;</span>, <span class="string">&quot;周五&quot;</span>, <span class="string">&quot;周六&quot;</span>, <span class="string">&quot;周天&quot;</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">yAxis</span>: &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&quot;value&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">series</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">data</span>: [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&quot;line&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">grid</span>: &#123;</span><br><span class="line">    <span class="attr">show</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250304211323.png"
+alt="20250304211323" /> 2. 然后，在系列（series）中写入一些非 0
+值，这样折线就绘制出来了。 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">series</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">data</span>: [<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">5</span>],</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;line&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">],</span><br></pre></td></tr></table></figure> <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250304211644.png"
+alt="20250304211644" /> :::</p>
+<h3 id="grid">10.1 grid</h3>
+<p>网格（<code>gird</code>）有几个常用的属性： - <code>show</code>
+是否显示直角坐标系网格。 - <code>left</code> 是 <code>grid</code>
+组件离容器左侧的距离。 - <code>top</code> 是 <code>grid</code>
+组件离容器上侧的距离。 - <code>right</code> 是 <code>grid</code>
+组件离容器右侧的距离。 - <code>bottom</code> 是 <code>grid</code>
+组件离容器下侧的距离。</p>
+<p>在<code>option</code>中加入观察其变化： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="attr">grid</span>: &#123;</span><br><span class="line">    <span class="attr">show</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">left</span>: <span class="number">200</span>,</span><br><span class="line">    <span class="attr">top</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="attr">right</span>: <span class="number">200</span>,</span><br><span class="line">    <span class="attr">bottom</span>: <span class="number">100</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="xaxis-和-yaxis">10.2 xAxis 和 yAxis</h3>
+<p>我们来看看上面例子中的<code>xAxis</code>和<code>yAxis</code>属性吧。</p>
+<p><code>type</code>是坐标轴的类型，分为：</p>
+<ul>
+<li><code>value</code> 是数值轴，适用于连续数据。</li>
+<li><code>category</code> 是类目轴，适用于离散的类目数据。</li>
+<li><code>time</code>
+是时间轴，适用于连续的时序数据，与数值轴相比时间轴带有时间的格式化，在刻度计算上也有所-
+不同。</li>
+<li><code>log</code> 是对数轴。适用于对数数据。</li>
+</ul>
+<p><code>xAxis.data</code> 是类目数据。</p>
+<blockquote>
+<p>需要注意的是，它只在类目轴（<code>type: 'category'</code>）中有效。如果没有设置
+<code>type</code>，但是设置了 <code>axis.data</code>，则认为
+<code>type</code> 是 <code>'category'</code>。 如果设置了
+<code>type</code> 是 <code>'category'</code>，但没有设置 axis.data，则
+axis.data 的内容会自动从 series.data 中获取。</p>
+</blockquote>
+<p>一个思维导图来总结本文内容</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250304213014.png"
+alt="20250304213014" />：</p>
+<p>如果记不住这些配置项和属性都没关系，因为 ECharts
+的使用方法就是去查官方文档，在它给出的代码上进行修改，从而定制出我们想要的图表。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/pk9z1xu2/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">【ECharts】3.基本图表绘制</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/enaku3vs/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【ECharts】1.认识ECharts</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

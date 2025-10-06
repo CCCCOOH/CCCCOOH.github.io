@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【manim】Animations 详解 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="manim 从入门到精通">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【manim】Animations 详解">
+<meta property="og:url" content="https://ccccooh.github.io/2025/07/10/Math/manim/%E3%80%90manim%E3%80%91%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E8%BF%9B%E9%98%B6%E7%8E%A9%E6%B3%95/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="manim 从入门到精通">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-10T13:59:00.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.751Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content=" manim">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/manim/">manim</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-07-10T13:59:00+00:00">
+      July 10, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【manim】Animations 详解</h1>
+  </div>
+
+  <div class="content">
+    <h2 id="animations">Animations</h2>
+<p><code>Animations</code>很重要，用于操作<code>Manim</code>中的动画行为。比如下面的<code>self.play()</code>方法中，<code>Create()</code>就是<code>Animtions</code>类下的一个方法，下面来详细说说有哪些。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">self</span>.play(Create(circle))</span><br></pre></td></tr></table></figure>
+<h3 id="animation">animation</h3>
+<h4 id="add">Add</h4>
+<p>定义：<code>manim.animation.animation.Add</code></p>
+<p>该方法会立即在场景中添加<code>Mobject</code>。</p>
+<blockquote>
+<p>完整的例子参考官方文档，这里只写简要的使用介绍。下文如此。</p>
+</blockquote>
+<p>示例： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = Circle()</span><br><span class="line"><span class="variable language_">self</span>.play(Succession(Add(c)),Create(c))</span><br></pre></td></tr></table></figure></p>
+<p>该方法区别于<code>self.add()</code>，特点是放在<code>Succession()</code>
+中使用。</p>
+<h3 id="composition">composition</h3>
+<p>一次显示多个动画的工具，部分方法我感觉没什么用本文就不记录了，如有需要自行查阅官方文档。</p>
+<blockquote>
+<p>其实也看不太懂，以后研究明白再记录吧。</p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>方法名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.AnimationGroup.html#manim.animation.composition.AnimationGroup"
+title="manim.animation.composition.AnimationGroup"><code>AnimationGroup</code></a></td>
+<td>Plays a group or series of <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.animation.Animation.html#manim.animation.animation.Animation"
+title="manim.animation.animation.Animation"><code>Animation</code></a>.</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.LaggedStart.html#manim.animation.composition.LaggedStart"
+title="manim.animation.composition.LaggedStart"><code>LaggedStart</code></a></td>
+<td>Adjusts the timing of a series of <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.animation.Animation.html#manim.animation.animation.Animation"
+title="manim.animation.animation.Animation"><code>Animation</code></a> according
+to <code>lag_ratio</code>.</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.LaggedStartMap.html#manim.animation.composition.LaggedStartMap"
+title="manim.animation.composition.LaggedStartMap"><code>LaggedStartMap</code></a></td>
+<td>Plays a series of <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.animation.Animation.html#manim.animation.animation.Animation"
+title="manim.animation.animation.Animation"><code>Animation</code></a> while
+mapping a function to submobjects.</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.Succession.html#manim.animation.composition.Succession"
+title="manim.animation.composition.Succession"><code>Succession</code></a></td>
+<td>Plays a series of animations in succession.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="laggedstartmap">LaggedStartMap</h4>
+<p><code>LaggedStart(xxx, xxx, lage_ratio=0.25, run_time=4)</code>，<code>lage_ratio</code>为延迟因子，<code>run_time</code>为动画时间。</p>
+<p>让动画延迟执行，需要注意
+<code>LaggedStart()</code>中不能直接放入<code>Circle</code>这类<code>Mobject</code>，报错遇到了别慌。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">      dot1 = Dot(point=LEFT * <span class="number">2</span> + UP, radius=<span class="number">0.16</span>)</span><br><span class="line">      dot2 = Dot(point=LEFT * <span class="number">2</span>, radius=<span class="number">0.16</span>)</span><br><span class="line">      dot3 = Dot(point=LEFT * <span class="number">2</span> + DOWN, radius=<span class="number">0.16</span>)</span><br><span class="line">      <span class="variable language_">self</span>.play(</span><br><span class="line">         LaggedStart(</span><br><span class="line">            dot1.animate.shift(RIGHT * <span class="number">4</span>),</span><br><span class="line">            dot2.animate.shift(RIGHT * <span class="number">4</span>),</span><br><span class="line">            dot3.animate.shift(RIGHT * <span class="number">4</span>),</span><br><span class="line">            lag_ratio=<span class="number">.25</span>,</span><br><span class="line">            run_time=<span class="number">4</span></span><br><span class="line">         )</span><br><span class="line">      )</span><br></pre></td></tr></table></figure>
+<h4 id="succession">Succession</h4>
+<p>正常的<code>self.play()</code>中写入多个动画会同时执行而不分先后。为了克服这一点，使用<code>Succession()</code>可以将多个动画串在一起为一个组，每个<code>Succession</code>组内的动画串行执行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SuccessionExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        dot1 = Dot(point=LEFT * <span class="number">2</span> + UP * <span class="number">2</span>, radius=<span class="number">0.16</span>, color=BLUE)</span><br><span class="line">        dot2 = Dot(point=LEFT * <span class="number">2</span> + DOWN * <span class="number">2</span>, radius=<span class="number">0.16</span>, color=MAROON)</span><br><span class="line">        dot3 = Dot(point=RIGHT * <span class="number">2</span> + DOWN * <span class="number">2</span>, radius=<span class="number">0.16</span>, color=GREEN)</span><br><span class="line">        dot4 = Dot(point=RIGHT * <span class="number">2</span> + UP * <span class="number">2</span>, radius=<span class="number">0.16</span>, color=YELLOW)</span><br><span class="line">        <span class="variable language_">self</span>.add(dot1, dot2, dot3, dot4)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.play(Succession(</span><br><span class="line">            dot1.animate.move_to(dot2),</span><br><span class="line">            dot2.animate.move_to(dot3),</span><br><span class="line">            dot3.animate.move_to(dot4),</span><br><span class="line">            dot4.animate.move_to(dot1)</span><br><span class="line">        ))</span><br></pre></td></tr></table></figure>
+<h3 id="creation">creation</h3>
+<p><code>creation</code>下的方法用于显示或移除动画，极其实用。</p>
+<p>官网文档地址对照表：</p>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>方法名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.AddTextLetterByLetter.html#manim.animation.creation.AddTextLetterByLetter"
+title="manim.animation.creation.AddTextLetterByLetter"><code>AddTextLetterByLetter</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.text.text_mobject.Text.html#manim.mobject.text.text_mobject.Text"
+title="manim.mobject.text.text_mobject.Text"><code>Text</code></a>现场逐字逐句展示。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.AddTextWordByWord.html#manim.animation.creation.AddTextWordByWord"
+title="manim.animation.creation.AddTextWordByWord"><code>AddTextWordByWord</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.text.text_mobject.Text.html#manim.mobject.text.text_mobject.Text"
+title="manim.mobject.text.text_mobject.Text"><code>Text</code></a>现场逐字逐句展示。（已废弃）</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.Create.html#manim.animation.creation.Create"
+title="manim.animation.creation.创建"><code>Create</code></a></td>
+<td>逐步显示 VMobject。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.DrawBorderThenFill.html#manim.animation.creation.DrawBorderThenFill"
+title="manim.动画.创建.DrawBorderThenFill"><code>DrawBorderThenFill</code></a></td>
+<td>先绘制边框，然后显示填充。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.RemoveTextLetterByLetter.html#manim.animation.creation.RemoveTextLetterByLetter"
+title="manim.animation.creation.RemoveTextLetterByLetter"><code>RemoveTextLetterByLetter</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.text.text_mobject.Text.html#manim.mobject.text.text_mobject.Text"
+title="manim.mobject.text.text_mobject.Text"><code>Text</code></a>从场景中逐个字母地删除。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.ShowIncreasingSubsets.html#manim.animation.creation.ShowIncreasingSubsets"
+title="manim.animation.creation.ShowIncreasingSubsets"><code>ShowIncreasingSubsets</code></a></td>
+<td>一次显示一个子对象，所有先前的子对象仍显示在屏幕上。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.ShowPartial.html#manim.animation.creation.ShowPartial"
+title="manim.animation.creation.ShowPartial"><code>ShowPartial</code></a></td>
+<td>部分显示 VMobject 的动画的抽象类。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.ShowSubmobjectsOneByOne.html#manim.animation.creation.ShowSubmobjectsOneByOne"
+title="manim.animation.creation.ShowSubmobjectsOneByOne"><code>ShowSubmobjectsOneByOne</code></a></td>
+<td>一次显示一个子对象，从屏幕上删除所有先前显示的子对象。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.SpiralIn.html#manim.animation.creation.SpiralIn"
+title="manim.animation.creation.SpiralIn"><code>SpiralIn</code></a></td>
+<td>创建 Mobject，其中子 Mobject 以螺旋轨迹飞入。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.TypeWithCursor.html#manim.animation.creation.TypeWithCursor"
+title="manim.animation.creation.TypeWithCursor"><code>TypeWithCursor</code></a></td>
+<td>类似于<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.AddTextLetterByLetter.html#manim.animation.creation.AddTextLetterByLetter"
+title="manim.animation.creation.AddTextLetterByLetter"><code>AddTextLetterByLetter</code></a>，但在末尾有一个额外的光标
+mobject。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.Uncreate.html#manim.animation.creation.Uncreate"
+title="manim.animation.creation.取消创建"><code>Uncreate</code></a></td>
+<td>类似<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.Create.html#manim.animation.creation.Create"
+title="manim.animation.creation.创建"><code>Create</code></a>，但反过来。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.UntypeWithCursor.html#manim.animation.creation.UntypeWithCursor"
+title="manim.animation.creation.UntypeWithCursor"><code>UntypeWithCursor</code></a></td>
+<td>类似于<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.RemoveTextLetterByLetter.html#manim.animation.creation.RemoveTextLetterByLetter"
+title="manim.animation.creation.RemoveTextLetterByLetter"><code>RemoveTextLetterByLetter</code></a>，但在末尾有一个额外的光标
+mobject。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.Unwrite.html#manim.animation.creation.Unwrite"
+title="manim.animation.creation.Unwrite"><code>Unwrite</code></a></td>
+<td>模拟用手擦除 a<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.text.text_mobject.Text.html#manim.mobject.text.text_mobject.Text"
+title="manim.mobject.text.text_mobject.Text"><code>Text</code></a>或
+a <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.types.vectorized_mobject.VMobject.html#manim.mobject.types.vectorized_mobject.VMobject"
+title="manim.mobject.types.vectorized_mobject.VMobject"><code>VMobject</code></a>。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.creation.Write.html#manim.animation.creation.Write"
+title="manim.animation.creation.Write"><code>Write</code></a></td>
+<td>模拟手写<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.text.text_mobject.Text.html#manim.mobject.text.text_mobject.Text"
+title="manim.mobject.text.text_mobject.Text"><code>Text</code></a>或手画<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.types.vectorized_mobject.VMobject.html#manim.mobject.types.vectorized_mobject.VMobject"
+title="manim.mobject.types.vectorized_mobject.VMobject"><code>VMobject</code></a>。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="addtextletterbyletter">AddTextLetterByLetter</h4>
+<p>方法名：<code>manim.animation.creation.AddTextLetterByLetter</code></p>
+<p>作用：逐字显示文本。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t = Text(<span class="string">&quot;你好，世界&quot;</span>)</span><br><span class="line"><span class="variable language_">self</span>.play(AddTextLetterByLetter(t))</span><br></pre></td></tr></table></figure>
+<h4 id="create">Create</h4>
+<p>逐步显示一个<code>VMobject</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CreateScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.play(Create(Square()))</span><br></pre></td></tr></table></figure>
+<h4 id="drawborderthenfill">DrawBorderThenFill</h4>
+<blockquote>
+<p>下文省略方法名，自己去官网看吧，咱也不记这个。</p>
+</blockquote>
+<p>先画框架再填充图形。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ShowDrawBorderThenFill</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.play(DrawBorderThenFill(Square(fill_opacity=<span class="number">1</span>, fill_color=ORANGE)))</span><br></pre></td></tr></table></figure>
+<h4 id="removetextletterbyletter">RemoveTextLetterByLetter</h4>
+<p>逐字移除字符。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">      t = Text(<span class="string">&quot;你好，世界&quot;</span>)</span><br><span class="line">      <span class="variable language_">self</span>.play(RemoveTextLetterByLetter(t))</span><br></pre></td></tr></table></figure>
+<h4 id="spiralin">SpiralIn</h4>
+<p>螺旋显示对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SpiralInExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        pi = MathTex(<span class="string">r&quot;\pi&quot;</span>).scale(<span class="number">7</span>)</span><br><span class="line">        pi.shift(<span class="number">2.25</span> * LEFT + <span class="number">1.5</span> * UP)</span><br><span class="line">        circle = Circle(color=GREEN_C, fill_opacity=<span class="number">1</span>).shift(LEFT)</span><br><span class="line">        square = Square(color=BLUE_D, fill_opacity=<span class="number">1</span>).shift(UP)</span><br><span class="line">        shapes = VGroup(pi, circle, square)</span><br><span class="line">        <span class="variable language_">self</span>.play(SpiralIn(shapes))</span><br></pre></td></tr></table></figure>
+<h4 id="typewithcursor">TypeWithCursor</h4>
+<p>带有光标的输入。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">InsertingTextExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        text = Text(<span class="string">&quot;Inserting&quot;</span>, color=PURPLE).scale(<span class="number">1.5</span>).to_edge(LEFT)</span><br><span class="line">        cursor = Rectangle(</span><br><span class="line">            color = GREY_A,</span><br><span class="line">            fill_color = GREY_A,</span><br><span class="line">            fill_opacity = <span class="number">1.0</span>,</span><br><span class="line">            height = <span class="number">1.1</span>,</span><br><span class="line">            width = <span class="number">0.5</span>,</span><br><span class="line">        ).move_to(text[<span class="number">0</span>]) <span class="comment"># Position the cursor</span></span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.play(TypeWithCursor(text, cursor))</span><br><span class="line">        <span class="variable language_">self</span>.play(Blink(cursor, blinks=<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="uncreate">Uncreate</h4>
+<p>与<code>Create</code>相反。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ShowUncreate</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.play(Uncreate(Square()))</span><br></pre></td></tr></table></figure>
+<h4 id="untypewithcursor">UntypeWithCursor</h4>
+<p>和<code>TypeWithCursor</code>相反。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DeletingTextExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        text = Text(<span class="string">&quot;Deleting&quot;</span>, color=PURPLE).scale(<span class="number">1.5</span>).to_edge(LEFT)</span><br><span class="line">        cursor = Rectangle(</span><br><span class="line">            color = GREY_A,</span><br><span class="line">            fill_color = GREY_A,</span><br><span class="line">            fill_opacity = <span class="number">1.0</span>,</span><br><span class="line">            height = <span class="number">1.1</span>,</span><br><span class="line">            width = <span class="number">0.5</span>,</span><br><span class="line">        ).move_to(text[<span class="number">0</span>]) <span class="comment"># Position the cursor</span></span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.play(UntypeWithCursor(text, cursor))</span><br><span class="line">        <span class="variable language_">self</span>.play(Blink(cursor, blinks=<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="unwrite">Unwrite</h4>
+<p>与<code>Write</code>相反。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UnwriteReverseTrue</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        text = Tex(<span class="string">&quot;Alice and Bob&quot;</span>).scale(<span class="number">3</span>)</span><br><span class="line">        <span class="variable language_">self</span>.add(text)</span><br><span class="line">        <span class="variable language_">self</span>.play(Unwrite(text))</span><br></pre></td></tr></table></figure>
+<p>也可以另方向相反，只需要加上参数，<code>reverse=False</code>。</p>
+<h4 id="write">Write</h4>
+<p>网上很常见的方法，很多创作者都在用该方法显示文字。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ShowWrite</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.play(Write(Text(<span class="string">&quot;Hello&quot;</span>, font_size=<span class="number">144</span>)))</span><br></pre></td></tr></table></figure>
+<p>可选参数： - <code>reverse=True</code> -
+<code>remover=False</code></p>
+<h3 id="fading">fading</h3>
+<p>淡入和淡出，比较常用在过渡动画。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Fading</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        tex_in = Tex(<span class="string">&quot;Fade&quot;</span>, <span class="string">&quot;In&quot;</span>).scale(<span class="number">3</span>)</span><br><span class="line">        tex_out = Tex(<span class="string">&quot;Fade&quot;</span>, <span class="string">&quot;Out&quot;</span>).scale(<span class="number">3</span>)</span><br><span class="line">        <span class="variable language_">self</span>.play(FadeIn(tex_in, shift=DOWN, scale=<span class="number">0.66</span>))</span><br><span class="line">        <span class="variable language_">self</span>.play(ReplacementTransform(tex_in, tex_out))</span><br><span class="line">        <span class="variable language_">self</span>.play(FadeOut(tex_out, shift=DOWN * <span class="number">2</span>, scale=<span class="number">1.5</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="fadein">FadeIn</h4>
+<p>淡入，可选参数： - <strong>mobjects</strong> (<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a>)
+传入被作用动画的Mobject 对象 - <strong>shift</strong> – 淡入时的偏移 -
+<strong>target_position</strong> –
+淡入开始时的位置，回逐渐过渡到正常位置 - <strong>scale</strong> –
+淡入开始时的大小，会逐渐过渡到正常大小</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FadeInExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        dot = Dot(UP * <span class="number">2</span> + LEFT)</span><br><span class="line">        <span class="variable language_">self</span>.add(dot)</span><br><span class="line">        tex = Tex(</span><br><span class="line">            <span class="string">&quot;FadeIn with &quot;</span>, <span class="string">&quot;shift &quot;</span>, <span class="string">r&quot; or target\_position&quot;</span>, <span class="string">&quot; and scale&quot;</span></span><br><span class="line">        ).scale(<span class="number">1</span>)</span><br><span class="line">        animations = [</span><br><span class="line">            FadeIn(tex[<span class="number">0</span>]),</span><br><span class="line">            FadeIn(tex[<span class="number">1</span>], shift=DOWN),</span><br><span class="line">            FadeIn(tex[<span class="number">2</span>], target_position=dot),</span><br><span class="line">            FadeIn(tex[<span class="number">3</span>], scale=<span class="number">1.5</span>),</span><br><span class="line">        ]</span><br><span class="line">        <span class="variable language_">self</span>.play(AnimationGroup(*animations, lag_ratio=<span class="number">0.5</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="fadeout">FadeOut</h4>
+<p>淡出，参数同上，这里直接贴英文版，更详尽一些。 -
+<strong>mobjects</strong> (<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a>) – The
+mobjects to be faded out. - <strong>shift</strong> – The vector by which
+the mobject shifts while being faded out. -
+<strong>target_position</strong> – The position to which the mobject
+moves while being faded out. In case another mobject is given as target
+position, its center is used. - <strong>scale</strong> – The factor by
+which the mobject is scaled while being faded out.</p>
+<p>演示代码： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FadeInExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        dot = Dot(UP * <span class="number">2</span> + LEFT)</span><br><span class="line">        <span class="variable language_">self</span>.add(dot)</span><br><span class="line">        tex = Tex(</span><br><span class="line">            <span class="string">&quot;FadeOut with &quot;</span>, <span class="string">&quot;shift &quot;</span>, <span class="string">r&quot; or target\_position&quot;</span>, <span class="string">&quot; and scale&quot;</span></span><br><span class="line">        ).scale(<span class="number">1</span>)</span><br><span class="line">        animations = [</span><br><span class="line">            FadeOut(tex[<span class="number">0</span>]),</span><br><span class="line">            FadeOut(tex[<span class="number">1</span>], shift=DOWN),</span><br><span class="line">            FadeOut(tex[<span class="number">2</span>], target_position=dot),</span><br><span class="line">            FadeOut(tex[<span class="number">3</span>], scale=<span class="number">0.5</span>),</span><br><span class="line">        ]</span><br><span class="line">        <span class="variable language_">self</span>.play(AnimationGroup(*animations, lag_ratio=<span class="number">0.5</span>))</span><br></pre></td></tr></table></figure></p>
+<h3 id="growing">growing</h3>
+<p>对象从点开始生长来引入场景。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Growing</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        square = Square()</span><br><span class="line">        circle = Circle()</span><br><span class="line">        triangle = Triangle()</span><br><span class="line">        arrow = Arrow(LEFT, RIGHT)</span><br><span class="line">        star = Star()</span><br><span class="line"></span><br><span class="line">        VGroup(square, circle, triangle).set_x(<span class="number">0</span>).arrange(buff=<span class="number">1.5</span>).set_y(<span class="number">2</span>)</span><br><span class="line">        VGroup(arrow, star).move_to(DOWN).set_x(<span class="number">0</span>).arrange(buff=<span class="number">1.5</span>).set_y(-<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.play(GrowFromPoint(square, ORIGIN))</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowFromCenter(circle))</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowFromEdge(triangle, DOWN))</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowArrow(arrow))</span><br><span class="line">        <span class="variable language_">self</span>.play(SpinInFromNothing(star))</span><br></pre></td></tr></table></figure>
+<p>官方目录：</p>
+<table>
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>方法名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.growing.GrowArrow.html#manim.animation.growing.GrowArrow"
+title="manim.animation.growing.GrowArrow"><code>GrowArrow</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.geometry.line.Arrow.html#manim.mobject.geometry.line.Arrow"
+title="manim.mobject.geometry.line.Arrow"><code>Arrow</code></a>通过从其起点向其终点生长来引入。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.growing.GrowFromCenter.html#manim.animation.growing.GrowFromCenter"
+title="manim.动画.生长.从中心生长"><code>GrowFromCenter</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>通过从中心生长来引入。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.growing.GrowFromEdge.html#manim.animation.growing.GrowFromEdge"
+title="manim.animation.growing.GrowFromEdge"><code>GrowFromEdge</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>通过从其边界框边缘之一增长来引入。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.growing.GrowFromPoint.html#manim.animation.growing.GrowFromPoint"
+title="manim.animation.growing.GrowFromPoint"><code>GrowFromPoint</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>通过从一个点扩展它来引入一个。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.growing.SpinInFromNothing.html#manim.animation.growing.SpinInFromNothing"
+title="manim.animation.growing.SpinInFromNothing"><code>SpinInFromNothing</code></a></td>
+<td>引入<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>旋转并从中心开始生长。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="growarrow">GrowArrow</h4>
+<p><code>Arrow</code>通过其起点和终点来引入。</p>
+<p>参数： - <strong>arrow</strong> (<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.geometry.line.Arrow.html#manim.mobject.geometry.line.Arrow"
+title="manim.mobject.geometry.line.Arrow"><em>Arrow</em></a>) –
+要引入的箭头。 - <strong>point_color</strong> (<em>str</em>) –
+完全填充前的初始颜色，留空将自动匹配箭头颜色。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GrowArrowExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        arrows = [Arrow(<span class="number">2</span> * LEFT, <span class="number">2</span> * RIGHT), Arrow(<span class="number">2</span> * DR, <span class="number">2</span> * UL)]</span><br><span class="line">        VGroup(*arrows).set_x(<span class="number">0</span>).arrange(buff=<span class="number">2</span>)</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowArrow(arrows[<span class="number">0</span>]))</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowArrow(arrows[<span class="number">1</span>], point_color=RED))</span><br></pre></td></tr></table></figure>
+<h4 id="growfromcenter">GrowFromCenter</h4>
+<p>让<code>Mobject</code>从中心开始生长。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要引入的
+mobjects。 - <strong>point_color</strong> ( <em>str</em> ) –
+对象在增长到其实际大小之前的初始颜色。留空可匹配对象的颜色。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GrowFromCenterExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        squares = [Square() <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>)]</span><br><span class="line">        VGroup(*squares).set_x(<span class="number">0</span>).arrange(buff=<span class="number">2</span>)</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowFromCenter(squares[<span class="number">0</span>]))</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowFromCenter(squares[<span class="number">1</span>], point_color=RED))</span><br></pre></td></tr></table></figure>
+<h4 id="growfromedge">GrowFromEdge</h4>
+<p>从边界框边缘之一开始增长引入。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要引入的
+<code>mobjects</code>。 - <strong>edge</strong> ( <em>np.ndarray</em> )
+– 寻找 <code>mobject</code> 边界框边缘的方向。 -
+<strong>point_color</strong> ( <em>str</em> ) –
+对象在增长到其实际大小之前的初始颜色。留空可匹配对象的颜色。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GrowFromEdgeExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        squares = [Square() <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]</span><br><span class="line">        VGroup(*squares).set_x(<span class="number">0</span>).arrange(buff=<span class="number">1</span>)</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowFromEdge(squares[<span class="number">0</span>], DOWN))</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowFromEdge(squares[<span class="number">1</span>], RIGHT))</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowFromEdge(squares[<span class="number">2</span>], UR))</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowFromEdge(squares[<span class="number">3</span>], UP, point_color=RED))</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th>其余可选属性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>path_arc</code></td>
+</tr>
+<tr class="even">
+<td><code>path_func</code></td>
+</tr>
+<tr class="odd">
+<td><code>run_time</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="growfrompoint">GrowFromPoint</h4>
+<p>从点开始生长来引入。可以是外部的点。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要引入的
+<code>mobjects</code>。 - <strong>point</strong>（<em>np.ndarray</em>）
+– <code>mobject</code> 生长的点。 -
+<strong>point_color</strong> ( <em>str</em> ) –
+对象在增长到其实际大小之前的初始颜色。留空可匹配对象的颜色。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GrowFromPointExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        dot = Dot(<span class="number">3</span> * UR, color=GREEN)</span><br><span class="line">        squares = [Square() <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)]</span><br><span class="line">        VGroup(*squares).set_x(<span class="number">0</span>).arrange(buff=<span class="number">1</span>)</span><br><span class="line">        <span class="variable language_">self</span>.add(dot)</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowFromPoint(squares[<span class="number">0</span>], ORIGIN))</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowFromPoint(squares[<span class="number">1</span>], [-<span class="number">2</span>, <span class="number">2</span>, <span class="number">0</span>]))</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowFromPoint(squares[<span class="number">2</span>], [<span class="number">3</span>, -<span class="number">2</span>, <span class="number">0</span>], RED))</span><br><span class="line">        <span class="variable language_">self</span>.play(GrowFromPoint(squares[<span class="number">3</span>], dot, dot.get_color()))</span><br></pre></td></tr></table></figure>
+<p>说明：<code>ORIGIN</code>是屏幕中心点，是<code>manim</code>中的原点。</p>
+<h4 id="spininfromnothing">SpinInFromNothing</h4>
+<p>从中心开始旋转生长。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要引入的
+mobjects。 - <strong>angle</strong>（<em>浮点数</em>） –
+物体达到其最大尺寸前的旋转角度。例如，<span
+class="math inline">2 * <em>P</em><em>I</em></span>
+表示物体在完全进入物体之前会旋转一圈。 -
+<strong>point_color</strong> ( <em>str</em> ) –
+对象在增长到其实际大小之前的初始颜色。留空可匹配对象的颜色。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SpinInFromNothingExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        squares = [Square() <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>)]</span><br><span class="line">        VGroup(*squares).set_x(<span class="number">0</span>).arrange(buff=<span class="number">2</span>)</span><br><span class="line">        <span class="variable language_">self</span>.play(SpinInFromNothing(squares[<span class="number">0</span>]))</span><br><span class="line">        <span class="variable language_">self</span>.play(SpinInFromNothing(squares[<span class="number">1</span>], angle=<span class="number">2</span> * PI))</span><br><span class="line">        <span class="variable language_">self</span>.play(SpinInFromNothing(squares[<span class="number">2</span>], point_color=RED))</span><br></pre></td></tr></table></figure>
+<h3 id="indication">indication</h3>
+<p>吸引人注意的动画。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Indications</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        indications = [ApplyWave,Circumscribe,Flash,FocusOn,Indicate,ShowPassingFlash,Wiggle]</span><br><span class="line">        names = [Tex(i.__name__).scale(<span class="number">3</span>) <span class="keyword">for</span> i <span class="keyword">in</span> indications]</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.add(names[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(names)):</span><br><span class="line">            <span class="keyword">if</span> indications[i] <span class="keyword">is</span> Flash:</span><br><span class="line">                <span class="variable language_">self</span>.play(Flash(UP))</span><br><span class="line">            <span class="keyword">elif</span> indications[i] <span class="keyword">is</span> ShowPassingFlash:</span><br><span class="line">                <span class="variable language_">self</span>.play(ShowPassingFlash(Underline(names[i])))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="variable language_">self</span>.play(indications[i](names[i]))</span><br><span class="line">            <span class="variable language_">self</span>.play(AnimationGroup(</span><br><span class="line">                FadeOut(names[i], shift=UP*<span class="number">1.5</span>),</span><br><span class="line">                FadeIn(names[(i+<span class="number">1</span>)%<span class="built_in">len</span>(names)], shift=UP*<span class="number">1.5</span>),</span><br><span class="line">            ))</span><br></pre></td></tr></table></figure>
+<p>上述代码遍历所有的<code>indications</code>方法，通过<code>__name__</code>拿到其命名存入<code>names</code>数组。遍历<code>indications</code>通过<code>is</code>判断其类型播放对应动画。</p>
+<p>官方目录：</p>
+<table>
+<colgroup>
+<col style="width: 92%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>方法名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.ApplyWave.html#manim.animation.indication.ApplyWave"
+title="manim.动画.指示.ApplyWave"><code>ApplyWave</code></a></td>
+<td>通过 Mobject 发送波并暂时扭曲它。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.Blink.html#manim.animation.indication.Blink"
+title="manim.animation.indication.闪烁"><code>Blink</code></a></td>
+<td>使物体闪烁。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.Circumscribe.html#manim.animation.indication.Circumscribe"
+title="manim.animation.indication.外切"><code>Circumscribe</code></a></td>
+<td>在对象周围画一条临时线。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.Flash.html#manim.animation.indication.Flash"
+title="manim.动画.指示.Flash"><code>Flash</code></a></td>
+<td>向各个方向发出线路。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.FocusOn.html#manim.animation.indication.FocusOn"
+title="manim.动画.指示.FocusOn"><code>FocusOn</code></a></td>
+<td>将聚光灯缩小到一个位置。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.Indicate.html#manim.animation.indication.Indicate"
+title="manim.animation.indication.指示"><code>Indicate</code></a></td>
+<td>通过临时调整大小和重新着色来指示 Mobject。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.ShowPassingFlash.html#manim.animation.indication.ShowPassingFlash"
+title="manim.animation.indication.ShowPassingFlash"><code>ShowPassingFlash</code></a></td>
+<td>每帧仅显示 VMobject 的一小部分。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.ShowPassingFlashWithThinningStrokeWidth.html#manim.animation.indication.ShowPassingFlashWithThinningStrokeWidth"
+title="manim.animation.indication.ShowPassingFlashWithThinningStrokeWidth"><code>ShowPassingFlashWithThinningStrokeWidth</code></a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.indication.Wiggle.html#manim.animation.indication.Wiggle"
+title="manim.动画.指示.摆动"><code>Wiggle</code></a></td>
+<td>摆动 Mobject。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="applywave">ApplyWave</h4>
+<p>波浪一般扭曲一个<code>Mobject</code>。</p>
+<p>参数: - <strong>mobject</strong> (<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a>) –
+需要被扭曲的<code>Mobject</code>对象 -
+<strong>direction</strong> (<em>np.ndarray</em>) – 波浪推动形状点的方向
+- <strong>amplitude</strong> (<em>float</em>) – 形状的距离点发生偏移 -
+<strong>wave_func</strong> (Callable[[float], float]) –
+定义一个波侧形状的函数 - <strong>time_width</strong> (<em>float</em>) –
+相对于 mobject 宽度的波的长度 - <strong>ripples</strong> (<em>int</em>)
+– 波浪的涟漪数量 - <strong>run_time</strong> (<em>float</em>) –
+动画的持续时间</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ApplyingWaves</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        tex = Tex(<span class="string">&quot;WaveWaveWaveWaveWave&quot;</span>).scale(<span class="number">2</span>)</span><br><span class="line">        <span class="variable language_">self</span>.play(ApplyWave(tex))</span><br><span class="line">        <span class="variable language_">self</span>.play(ApplyWave(</span><br><span class="line">            tex,</span><br><span class="line">            direction=RIGHT,</span><br><span class="line">            time_width=<span class="number">0.5</span>,</span><br><span class="line">            amplitude=<span class="number">0.3</span></span><br><span class="line">        ))</span><br><span class="line">        <span class="variable language_">self</span>.play(ApplyWave(</span><br><span class="line">            tex,</span><br><span class="line">            rate_func=linear,</span><br><span class="line">            ripples=<span class="number">4</span></span><br><span class="line">        ))</span><br></pre></td></tr></table></figure>
+<h4 id="blink">Blink</h4>
+<p>闪烁，一闪一闪什么来着…</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要闪烁的
+<code>mobject</code>。 - <strong>time_on</strong> ( <em>float</em> ) –
+mobject 闪烁一次的持续时间。 -
+<strong>time_off</strong> ( <em>float</em> ) – mobject
+隐藏一次闪烁的持续时间。 - <strong>闪烁</strong>（<em>int</em>）-
+闪烁次数 - <strong>hide_at_end</strong> ( <em>bool</em> ) –
+是否在动画结束时隐藏 mobject。 - <strong>kwargs</strong> – 要传递给<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.Succession.html#manim.animation.composition.Succession"
+title="manim.动画.组合.继承"><code>Succession</code></a>构造函数的附加参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BlinkingExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        text = Text(<span class="string">&quot;Blinking&quot;</span>).scale(<span class="number">1.5</span>)</span><br><span class="line">        <span class="variable language_">self</span>.add(text)</span><br><span class="line">        <span class="variable language_">self</span>.play(Blink(text, blinks=<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="circumscribe">Circumscribe</h4>
+<p>在对象周围画一条临时的线。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要外接的
+<code>mobject</code>。 - <strong>shape</strong>（<em>类型</em>） –
+包围给定对象的形状。可以 <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.geometry.polygram.Rectangle.html#manim.mobject.geometry.polygram.Rectangle"
+title="manim.mobject.geometry.polygram.Rectangle"><code>Rectangle</code></a>或<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.geometry.arc.Circle.html#manim.mobject.geometry.arc.Circle"
+title="manim.mobject.geometry.arc.Circle"><code>Circle</code></a> -
+<strong>fade_in</strong> – 是否使周围的形状淡入。否则将被绘制。 -
+<strong>fade_out</strong> – 是否使周围的形状淡出。否则将不绘制。 -
+<strong>time_width</strong> – 绘制和取消绘制的
+<code>time_width</code>。如果 <code>fade_in</code> 或
+<code>fade_out</code> 为 <code>True</code>  ，则忽略该值。 -
+<strong>buff</strong>（<em>float</em>） – 周围形状和给定​​
+<code>mobject</code> 之间的距离。 - <strong>color</strong>（<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.utils.color.core.html#manim.utils.color.core.ParsableManimColor"
+title="manim.utils.color.core.ParsableManimColor"><em>ParsableManimColor</em></a>）
+– 周围形状的颜色。 - <strong>run_time</strong> – 整个动画的持续时间。 -
+<strong>kwargs</strong> – 传递给<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.Succession.html#manim.animation.composition.Succession"
+title="manim.动画.组合.继承"><code>Succession</code></a>构造函数的附加参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UsingCircumscribe</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        lbl = Tex(<span class="string">r&quot;Circum-\\scribe&quot;</span>).scale(<span class="number">2</span>)</span><br><span class="line">        <span class="variable language_">self</span>.add(lbl)</span><br><span class="line">        <span class="variable language_">self</span>.play(Circumscribe(lbl))</span><br><span class="line">        <span class="variable language_">self</span>.play(Circumscribe(lbl, Circle))</span><br><span class="line">        <span class="variable language_">self</span>.play(Circumscribe(lbl, fade_out=<span class="literal">True</span>))</span><br><span class="line">        <span class="variable language_">self</span>.play(Circumscribe(lbl, time_width=<span class="number">2</span>))</span><br><span class="line">        <span class="variable language_">self</span>.play(Circumscribe(lbl, Circle, <span class="literal">True</span>))</span><br></pre></td></tr></table></figure>
+<p>一个更加简单的例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">      t = Text(<span class="string">&quot;Hello&quot;</span>)</span><br><span class="line">      <span class="variable language_">self</span>.add(t)</span><br><span class="line">      <span class="variable language_">self</span>.play(Circumscribe(t, Circle))</span><br></pre></td></tr></table></figure>
+<h4 id="flash">Flash</h4>
+<p>向各个方向发出线路。</p>
+<p>参数： - <strong>point</strong> ( <em>np.ndarray</em> <em>|</em> <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) –
+闪光线的中心。如果是，<code>Mobject</code>则使用其中心。 -
+<strong>line_length</strong> ( <em>float</em> ) – 闪光线的长度。 -
+<strong>num_lines</strong> ( <em>int</em> ) – 闪光线的数量。 -
+<strong>flash_radius</strong> ( <em>float</em> ) –闪光线起始点的距离。 -
+<strong>line_stroke_width</strong> ( <em>int</em> ) - 闪光线的笔触宽度。
+- <strong>color</strong>（<em>str</em>） – 闪光线的颜色。 -
+<strong>time_width</strong> ( <em>float</em> ) –
+闪光线的时间宽度。<code>ShowPassingFlash</code>更多详情，请参阅。 -
+<strong>run_time</strong>（<em>float</em>） – 动画的持续时间。 -
+<strong>kwargs</strong> – 传递给<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.Succession.html#manim.animation.composition.Succession"
+title="manim.动画.组合.继承"><code>Succession</code></a>构造函数的附加参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UsingFlash</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        dot = Dot(color=YELLOW).shift(DOWN)</span><br><span class="line">        <span class="variable language_">self</span>.add(Tex(<span class="string">&quot;Flash the dot below:&quot;</span>), dot)</span><br><span class="line">        <span class="variable language_">self</span>.play(Flash(dot))</span><br><span class="line">        <span class="variable language_">self</span>.wait()</span><br></pre></td></tr></table></figure>
+<p>高级例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FlashOnCircle</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        radius = <span class="number">2</span></span><br><span class="line">        circle = Circle(radius)</span><br><span class="line">        <span class="variable language_">self</span>.add(circle)</span><br><span class="line">        <span class="variable language_">self</span>.play(Flash(</span><br><span class="line">            circle, line_length=<span class="number">1</span>,</span><br><span class="line">            num_lines=<span class="number">30</span>, color=RED,</span><br><span class="line">            flash_radius=radius+SMALL_BUFF,</span><br><span class="line">            time_width=<span class="number">0.3</span>, run_time=<span class="number">2</span>,</span><br><span class="line">            rate_func = rush_from</span><br><span class="line">        ))</span><br></pre></td></tr></table></figure>
+<h4 id="focuson">FocusOn</h4>
+<p>将灯光缩小到一个位置，类似于聚光灯。</p>
+<p>参数：</p>
+<ul>
+<li><strong>focus_point</strong> ( <em>np.ndarray</em> <em>|</em> <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) –
+聚光灯收缩的点。如果是<code>Mobject</code>则使用其中心。</li>
+<li><strong>opacity</strong>（<em>浮点数</em>） –
+聚光灯的不透明度。</li>
+<li><strong>color</strong>（<em>str</em>） – 聚光灯的颜色。</li>
+<li><strong>run_time</strong>（<em>float</em>） – 动画的持续时间。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UsingFocusOn</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        dot = Dot(color=YELLOW).shift(DOWN)</span><br><span class="line">        <span class="variable language_">self</span>.add(Tex(<span class="string">&quot;Focusing on the dot below:&quot;</span>), dot)</span><br><span class="line">        <span class="variable language_">self</span>.play(FocusOn(dot))</span><br><span class="line">        <span class="variable language_">self</span>.wait()</span><br></pre></td></tr></table></figure>
+<h4 id="indicate">Indicate</h4>
+<p>临时调整大小和重新着色来强调 <code>Mobject</code>。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要指示的
+mobject。 - <strong>scale_factor</strong> ( <em>float</em> ) –
+对象时间缩放的因子 - <strong>color</strong>（<em>str</em>） – mobject
+暂时呈现的颜色。 -
+<strong>rate_func</strong> ( <em>Callable</em> [/[float,float|None],np.ndarray])
+– 定义每个时间点的动画进度的函数。 - <strong>kwargs</strong> – 传递给<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.Succession.html#manim.animation.composition.Succession"
+title="manim.动画.组合.继承"><code>Succession</code></a>构造函数的附加参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UsingIndicate</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        tex = Tex(<span class="string">&quot;Indicate&quot;</span>).scale(<span class="number">3</span>)</span><br><span class="line">        <span class="variable language_">self</span>.play(Indicate(tex))</span><br><span class="line">        <span class="variable language_">self</span>.wait()</span><br></pre></td></tr></table></figure>
+<h4 id="showpassingflash">ShowPassingFlash</h4>
+<p>类似于笔触动画，每一帧只显示<code>Mobj</code> 第一部分。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.types.vectorized_mobject.VMobject.html#manim.mobject.types.vectorized_mobject.VMobject"
+title="manim.mobject.types.vectorized_mobject.VMobject"><em>VMobject</em></a> )
+– 笔触具有动画效果的 <code>mobject</code>。 -
+<strong>time_width</strong> ( <em>float</em> ) –
+相对于笔划长度的碎片长度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TimeWidthValues</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        p = RegularPolygon(<span class="number">5</span>, color=DARK_GRAY, stroke_width=<span class="number">6</span>).scale(<span class="number">3</span>)</span><br><span class="line">        lbl = VMobject()</span><br><span class="line">        <span class="variable language_">self</span>.add(p, lbl)</span><br><span class="line">        p = p.copy().set_color(BLUE)</span><br><span class="line">        <span class="keyword">for</span> time_width <span class="keyword">in</span> [<span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">1</span>, <span class="number">2</span>]:</span><br><span class="line">            lbl.become(Tex(<span class="string">r&quot;\texttt&#123;time\_width=&#123;&#123;%.1f&#125;&#125;&#125;&quot;</span>%time_width))</span><br><span class="line">            <span class="variable language_">self</span>.play(ShowPassingFlash(</span><br><span class="line">                p.copy().set_color(BLUE),</span><br><span class="line">                run_time=<span class="number">2</span>,</span><br><span class="line">                time_width=time_width</span><br><span class="line">            ))</span><br></pre></td></tr></table></figure>
+<h4 id="wiggle">Wiggle</h4>
+<p>摆动<code>Mobj</code>。</p>
+<p>参数： - <strong>mobject</strong>（<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a>） – 要摆动的
+<code>mobject</code>。 - <strong>scale_value</strong> ( <em>float</em> )
+– <code>mobject</code> 临时缩放的因子。 -
+<strong>rotation_angle</strong> ( <em>float</em> ) – 摆动角度。 -
+<strong>n_wiggles</strong> ( <em>int</em> ) – 摆动的次数。 -
+<strong>scale_about_point</strong> ( <em>np.ndarray</em> <em>|</em> <em>None</em> )
+– <code>mobject</code> 缩放的点。 -
+<strong>rotate_about_point</strong> ( <em>np.ndarray</em> <em>|</em> <em>None</em> )
+– <code>mobject</code> 围绕其旋转的点。 -
+<strong>run_time</strong> ( <em>float</em> ) – 动画的持续时间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ApplyingWaves</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        tex = Tex(<span class="string">&quot;Wiggle&quot;</span>).scale(<span class="number">3</span>)</span><br><span class="line">        <span class="variable language_">self</span>.play(Wiggle(tex))</span><br><span class="line">        <span class="variable language_">self</span>.wait()</span><br></pre></td></tr></table></figure>
+<h3 id="movement">movement</h3>
+<p>与运动相关的动画。</p>
+<p>目录：</p>
+<blockquote>
+<p>为避免歧义这里不翻译。</p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 81%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.movement.ComplexHomotopy.html#manim.animation.movement.ComplexHomotopy"
+title="manim.animation.movement.ComplexHomotopy"><code>ComplexHomotopy</code></a></td>
+<td>Complex Homotopy a function Cx[0, 1] to C</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.movement.Homotopy.html#manim.animation.movement.Homotopy"
+title="manim.animation.movement.Homotopy"><code>Homotopy</code></a></td>
+<td>A Homotopy.</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.movement.MoveAlongPath.html#manim.animation.movement.MoveAlongPath"
+title="manim.animation.movement.MoveAlongPath"><code>MoveAlongPath</code></a></td>
+<td>Make one mobject move along the path of another mobject.</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.movement.PhaseFlow.html#manim.animation.movement.PhaseFlow"
+title="manim.animation.movement.PhaseFlow"><code>PhaseFlow</code></a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.movement.SmoothedVectorizedHomotopy.html#manim.animation.movement.SmoothedVectorizedHomotopy"
+title="manim.animation.movement.SmoothedVectorizedHomotopy"><code>SmoothedVectorizedHomotopy</code></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="homotopy">Homotopy</h4>
+<p><code>Latex</code>不便于粘贴，只好用<code>Google</code>翻译截图之：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-10%2021.17.14.png"
+alt="官方描述" />
+<figcaption aria-hidden="true">官方描述</figcaption>
+</figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HomotopyExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        square = Square()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">homotopy</span>(<span class="params">x, y, z, t</span>):</span><br><span class="line">            <span class="keyword">if</span> t &lt;= <span class="number">0.25</span>:</span><br><span class="line">                progress = t / <span class="number">0.25</span></span><br><span class="line">                <span class="keyword">return</span> (x, y + progress * <span class="number">0.2</span> * np.sin(x), z)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                wave_progress = (t - <span class="number">0.25</span>) / <span class="number">0.75</span></span><br><span class="line">                <span class="keyword">return</span> (x, y + <span class="number">0.2</span> * np.sin(x + <span class="number">10</span> * wave_progress), z)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.play(Homotopy(homotopy, square, rate_func= linear, run_time=<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="movealongpath">MoveAlongPath</h4>
+<p>使一个 <code>mobject</code> 沿着另一个 <code>mobject</code>
+的路径移动。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MoveAlongPathExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        d1 = Dot().set_color(ORANGE)</span><br><span class="line">        l1 = Line(LEFT, RIGHT)</span><br><span class="line">        l2 = VMobject()</span><br><span class="line">        <span class="variable language_">self</span>.add(d1, l1, l2)</span><br><span class="line">        l2.add_updater(<span class="keyword">lambda</span> x: x.become(Line(LEFT, d1.get_center()).set_color(ORANGE)))</span><br><span class="line">        <span class="variable language_">self</span>.play(MoveAlongPath(d1, l1), rate_func=linear)</span><br></pre></td></tr></table></figure>
+<h3 id="numbers">numbers</h3>
+<p>改变数字的动画。</p>
+<blockquote>
+<p>官方给出的说明较为简略，以文档为准。</p>
+</blockquote>
+<p>目录：</p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>方法名</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.numbers.ChangeDecimalToValue.html#manim.animation.numbers.ChangeDecimalToValue"
+title="manim.animation.numbers.ChangeDecimalToValue"><code>ChangeDecimalToValue</code></a></td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.numbers.ChangingDecimal.html#manim.animation.numbers.ChangingDecimal"
+title="manim.animation.numbers.ChangingDecimal"><code>ChangingDecimal</code></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="rotation">rotation</h3>
+<p>与旋转相关的动画。</p>
+<table>
+<colgroup>
+<col style="width: 93%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.rotation.Rotate.html#manim.animation.rotation.Rotate"
+title="manim.animation.rotation.Rotate"><code>Rotate</code></a></td>
+<td>旋转一个 Mobject</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.rotation.Rotating.html#manim.animation.rotation.Rotating"
+title="manim.animation.rotation.Rotating"><code>Rotating</code></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="rotate">Rotate</h4>
+<p>旋转一个<code>Mobj</code>。</p>
+<p>参数： - <strong>mobject</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要旋转的
+<code>mobject</code>。 - <strong>angle</strong>（<em>浮点数</em>） –
+旋转角度。 - <strong>axis</strong>（<em>np.ndarray</em>）– 作为
+<code>numpy</code> 向量的旋转轴。 -
+<strong>about_point</strong> ( <em>Sequence</em> [float]|<em>None</em>)
+– 旋转中心。 -
+<strong>about_edge</strong> ( <em>Sequence</em> [float]<em>None</em> ) –
+如果<code>about_point</code>为<code>None</code>，则此参数指定要作为旋转中心的边界框点的方向。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UsingRotate</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.play(</span><br><span class="line">            Rotate(</span><br><span class="line">                Square(side_length=<span class="number">0.5</span>).shift(UP * <span class="number">2</span>),</span><br><span class="line">                angle=<span class="number">2</span>*PI,</span><br><span class="line">                about_point=ORIGIN,</span><br><span class="line">                rate_func=linear,</span><br><span class="line">            ),</span><br><span class="line">            Rotate(Square(side_length=<span class="number">0.5</span>), angle=<span class="number">2</span>*PI, rate_func=linear),</span><br><span class="line">            )</span><br></pre></td></tr></table></figure>
+<h3 id="specialized">specialized</h3>
+<p>比较特殊的方法，特殊到只有一个。</p>
+<table>
+<colgroup>
+<col style="width: 77%" />
+<col style="width: 22%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.specialized.Broadcast.html#manim.animation.specialized.Broadcast"
+title="manim.animation.specialized.Broadcast"><code>Broadcast</code></a></td>
+<td>从 开始广播一个 mobject <code>initial_width</code>，直到达到
+<code>mobject</code> 的实际大小。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="broadcast">Broadcast</h4>
+<p>从 开始广播一个 mobject <code>initial_width</code>，直到达到 mobject
+的实际大小。</p>
+<p>参数： - <strong>mobject</strong> – 要广播的 <code>mobject</code>。 -
+<strong>focal_point</strong> ( <em>Sequence</em> <em>[float]</em> ) –
+广播的中心，默认为 <code>ORIGIN</code>。 -
+<strong>n_mobs</strong> ( <em>int</em> ) – 从焦点出现的
+<code>mobject</code> 的数量，默认为 <code>5</code>。 -
+<strong>initial_opacity</strong> ( <em>float</em> ) – 从广播发出的
+<code>mobjects</code> 的起始笔触不透明度，默认为 <code>1</code>。 -
+<strong>final_opacity</strong> ( <em>float</em> ) – 广播发出的
+<code>mobjects</code> 的最终笔触不透明度，默认为 <code>0</code>。 -
+<strong>initial_width</strong> ( <em>float</em> ) –
+<code>mobjects</code> 的初始宽度，默认为 <code>0.0</code>。 -
+<strong>remover</strong>（<em>bool</em>）-动画结束后是否应从场景中移除
+<code>mobjects</code>，默认为 <code>True</code>。 -
+<strong>lag_ratio</strong> ( <em>float</em> ) – <code>mobject</code>
+每次迭代之间的时间，默认为 <code>0.2</code>。 -
+<strong>run_time</strong> ( <em>float</em> ) – 动画的总持续时间，默认为
+<code>3</code>。 - <strong>kwargs</strong>（<em>任意</em>） –
+要传递给的附加参数<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.composition.LaggedStart.html#manim.animation.composition.LaggedStart"
+title="manim.animation.composition.LaggedStart"><code>LaggedStart</code></a>。</p>
+<p>参数很多，代码倒是简单（<del>纸老虎bushi</del>）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BroadcastExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        mob = Circle(radius=<span class="number">4</span>, color=TEAL_A)</span><br><span class="line">        <span class="variable language_">self</span>.play(Broadcast(mob))</span><br></pre></td></tr></table></figure>
+<h3 id="speedmodifier">speedmodifier</h3>
+<p>用于修改动画播放速度的实用程序。</p>
+<table>
+<colgroup>
+<col style="width: 94%" />
+<col style="width: 5%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.speedmodifier.ChangeSpeed.html#manim.animation.speedmodifier.ChangeSpeed"
+title="manim.animation.speedmodifier.ChangeSpeed"><code>ChangeSpeed</code></a></td>
+<td>修改已传递动画的速度。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>个人觉得比较麻烦，暂时不想学，请看官方文档。</p>
+</blockquote>
+<h3 id="transform">transform</h3>
+<p>动画将一个对象转换为另一个对象。</p>
+<p>请看下方超级目录：</p>
+<table>
+<colgroup>
+<col style="width: 86%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>方法名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ApplyComplexFunction.html#manim.animation.transform.ApplyComplexFunction"
+title="manim.animation.transform.ApplyComplexFunction"><code>ApplyComplexFunction</code></a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ApplyFunction.html#manim.animation.transform.ApplyFunction"
+title="manim.animation.transform.ApplyFunction"><code>ApplyFunction</code></a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ApplyMatrix.html#manim.animation.transform.ApplyMatrix"
+title="manim.animation.transform.ApplyMatrix"><code>ApplyMatrix</code></a></td>
+<td>将矩阵变换应用于 <code>mobject</code>。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ApplyMethod.html#manim.animation.transform.ApplyMethod"
+title="manim.animation.transform.ApplyMethod"><code>ApplyMethod</code></a></td>
+<td>通过应用一种方法来为 <code>mobject</code> 制作动画。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ApplyPointwiseFunction.html#manim.animation.transform.ApplyPointwiseFunction"
+title="manim.animation.transform.ApplyPointwiseFunction"><code>ApplyPointwiseFunction</code></a></td>
+<td>将逐点函数应用于 <code>mobject</code> 的动画。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ApplyPointwiseFunctionToCenter.html#manim.animation.transform.ApplyPointwiseFunctionToCenter"
+title="manim.animation.transform.ApplyPointwiseFunctionToCenter"><code>ApplyPointwiseFunctionToCenter</code></a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ClockwiseTransform.html#manim.animation.transform.ClockwiseTransform"
+title="manim.animation.transform.ClockwiseTransform"><code>ClockwiseTransform</code></a></td>
+<td>沿顺时针方向的圆弧变换 <code>mobject</code> 的点。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.CounterclockwiseTransform.html#manim.animation.transform.CounterclockwiseTransform"
+title="manim.animation.transform.CounterclockTransform"><code>CounterclockwiseTransform</code></a></td>
+<td>沿逆时针方向的圆弧变换物体的点。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.CyclicReplace.html#manim.animation.transform.CyclicReplace"
+title="manim.animation.transform.CyclicReplace"><code>CyclicReplace</code></a></td>
+<td>循环移动物体的动画。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.FadeToColor.html#manim.animation.transform.FadeToColor"
+title="manim.animation.transform.FadeToColor"><code>FadeToColor</code></a></td>
+<td>改变对象颜色的动画。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.FadeTransform.html#manim.animation.transform.FadeTransform"
+title="manim.animation.transform.FadeTransform"><code>FadeTransform</code></a></td>
+<td>将一个对象淡入另一个对象。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.FadeTransformPieces.html#manim.animation.transform.FadeTransformPieces"
+title="manim.animation.transform.FadeTransformPieces"><code>FadeTransformPieces</code></a></td>
+<td>将一个对象的子对象淡入另一个对象的子对象。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.MoveToTarget.html#manim.animation.transform.MoveToTarget"
+title="manim.animation.transform.MoveToTarget"><code>MoveToTarget</code></a></td>
+<td>将 <code>mobject</code> 转换为存储在其<code>target</code>属性中的
+<code>mobject</code>。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ReplacementTransform.html#manim.animation.transform.ReplacementTransform"
+title="manim.animation.transform.ReplacementTransform"><code>ReplacementTransform</code></a></td>
+<td>将 <code>mobject</code> 替换并变形为目标 <code>mobject</code>。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.Restore.html#manim.animation.transform.Restore"
+title="manim.animation.transform.恢复"><code>Restore</code></a></td>
+<td>将对象转换为其最后保存的状态。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ScaleInPlace.html#manim.animation.transform.ScaleInPlace"
+title="manim.animation.transform.ScaleInPlace"><code>ScaleInPlace</code></a></td>
+<td>按特定比例缩放物体的动画。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ShrinkToCenter.html#manim.animation.transform.ShrinkToCenter"
+title="manim.animation.transform.ShrinkToCenter"><code>ShrinkToCenter</code></a></td>
+<td>使物体缩小到中心的动画。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.Swap.html#manim.animation.transform.Swap"
+title="manim.animation.transform.Swap"><code>Swap</code></a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.Transform.html#manim.animation.transform.Transform"
+title="manim.animation.transform.变换"><code>Transform</code></a></td>
+<td><code>Transform</code> 将 <code>Mobject</code> 转换为目标
+<code>Mobject</code>。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.TransformAnimations.html#manim.animation.transform.TransformAnimations"
+title="manim.animation.transform.TransformAnimations"><code>TransformAnimations</code></a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.TransformFromCopy.html#manim.animation.transform.TransformFromCopy"
+title="manim.animation.transform.TransformFromCopy"><code>TransformFromCopy</code></a></td>
+<td>执行反向变换</td>
+</tr>
+</tbody>
+</table>
+<h4 id="applymatrix">ApplyMatrix</h4>
+<p>对<code>Mobject</code>应用矩阵变换。</p>
+<p>参数： - <strong>matrix</strong>（<em>np.ndarray</em>）– 转换矩阵。 -
+<strong>mobject</strong>（<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a>）– <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>。 -
+<strong>about_point</strong> ( <em>np.ndarray</em> ) –
+变换的原点。默认为<code>ORIGIN</code>。 - <strong>kwargs</strong> –
+传递给的进一步关键字参数<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.ApplyPointwiseFunction.html#manim.animation.transform.ApplyPointwiseFunction"
+title="manim.animation.transform.ApplyPointwiseFunction"><code>ApplyPointwiseFunction</code></a>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ApplyMatrixExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        matrix = [[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">2</span>/<span class="number">3</span>]]</span><br><span class="line">        <span class="variable language_">self</span>.play(ApplyMatrix(matrix, Text(<span class="string">&quot;Hello World!&quot;</span>)), ApplyMatrix(matrix, NumberPlane()))</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>由于不懂矩阵变化是啥东东，这里博主看不懂哟。 如果有大佬明白欢迎在
+Comments 指出原理。</p>
+</blockquote>
+<h4 id="applypointwisefunction">ApplyPointwiseFunction</h4>
+<p>将逐点函数应用于 <code>mobject</code> 的动画。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WarpSquare</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        square = Square()</span><br><span class="line">        <span class="variable language_">self</span>.play(</span><br><span class="line">            ApplyPointwiseFunction(</span><br><span class="line">                <span class="keyword">lambda</span> point: complex_to_R3(np.exp(R3_to_complex(point))), square</span><br><span class="line">            )</span><br><span class="line">        )</span><br><span class="line">        <span class="variable language_">self</span>.wait()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>看不懂（<del>弱</del>）。</p>
+</blockquote>
+<h4 id="clockwisetransform">ClockwiseTransform</h4>
+<p>沿顺时针方向的圆弧变换 <code>mobject</code> 的点。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ClockwiseExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        dl, dr = Dot(), Dot()</span><br><span class="line">        sl, sr = Square(), Square()</span><br><span class="line"></span><br><span class="line">        VGroup(dl, sl).arrange(DOWN).shift(<span class="number">2</span>*LEFT)</span><br><span class="line">        VGroup(dr, sr).arrange(DOWN).shift(<span class="number">2</span>*RIGHT)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.add(dl, dr)</span><br><span class="line">        <span class="variable language_">self</span>.wait()</span><br><span class="line">        <span class="variable language_">self</span>.play(</span><br><span class="line">            ClockwiseTransform(dl, sl),</span><br><span class="line">            Transform(dr, sr)</span><br><span class="line">        )</span><br><span class="line">        <span class="variable language_">self</span>.wait()</span><br></pre></td></tr></table></figure>
+<h4 id="counterclockwisetransform">CounterclockwiseTransform</h4>
+<p>沿逆时针方向的圆弧变换物体的点。</p>
+<blockquote>
+<p>你问我参数呢？不知道，文档没写啊～</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CounterclockwiseTransform_vs_Transform</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># set up the numbers</span></span><br><span class="line">        c_transform = VGroup(DecimalNumber(number=<span class="number">3.141</span>, num_decimal_places=<span class="number">3</span>), DecimalNumber(number=<span class="number">1.618</span>, num_decimal_places=<span class="number">3</span>))</span><br><span class="line">        text_1 = Text(<span class="string">&quot;CounterclockwiseTransform&quot;</span>, color=RED)</span><br><span class="line">        c_transform.add(text_1)</span><br><span class="line"></span><br><span class="line">        transform = VGroup(DecimalNumber(number=<span class="number">1.618</span>, num_decimal_places=<span class="number">3</span>), DecimalNumber(number=<span class="number">3.141</span>, num_decimal_places=<span class="number">3</span>))</span><br><span class="line">        text_2 = Text(<span class="string">&quot;Transform&quot;</span>, color=BLUE)</span><br><span class="line">        transform.add(text_2)</span><br><span class="line"></span><br><span class="line">        ints = VGroup(c_transform, transform)</span><br><span class="line">        texts = VGroup(text_1, text_2).scale(<span class="number">0.75</span>)</span><br><span class="line">        c_transform.arrange(direction=UP, buff=<span class="number">1</span>)</span><br><span class="line">        transform.arrange(direction=UP, buff=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        ints.arrange(buff=<span class="number">2</span>)</span><br><span class="line">        <span class="variable language_">self</span>.add(ints, texts)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># The mobs move in clockwise direction for ClockwiseTransform()</span></span><br><span class="line">        <span class="variable language_">self</span>.play(CounterclockwiseTransform(c_transform[<span class="number">0</span>], c_transform[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># The mobs move straight up for Transform()</span></span><br><span class="line">        <span class="variable language_">self</span>.play(Transform(transform[<span class="number">0</span>], transform[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+<p>为什么这么长，问就是官网复制的。</p>
+<h4 id="cyclicreplace">CyclicReplace</h4>
+<p>循环移动物体的动画，看起来像是扑克牌洗牌感觉适合用于制作排序算法的动画。</p>
+<p>参数： - <strong>mobjects</strong> ( <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><em>Mobject</em></a> ) – 要转换的
+<code>mobject</code> 列表。 -
+<strong>path_arc</strong> ( <em>float</em> ) –
+物体到达目标所遵循的弧度角度（以弧度为单位）。 -
+<strong>kwargs</strong> – 传递给的进一步关键字参数<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.animation.transform.Transform.html#manim.animation.transform.Transform"
+title="manim.animation.transform.变换"><code>Transform</code></a>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CyclicReplaceExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        group = VGroup(Square(), Circle(), Triangle(), Star())</span><br><span class="line">        group.arrange(RIGHT)</span><br><span class="line">        <span class="variable language_">self</span>.add(group)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">            <span class="variable language_">self</span>.play(CyclicReplace(*group))</span><br></pre></td></tr></table></figure>
+<h4 id="fadetocolor">FadeToColor</h4>
+<p>改变对象颜色的动画。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FadeToColorExample</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.play(FadeToColor(Text(<span class="string">&quot;Hello World!&quot;</span>), color=RED))</span><br></pre></td></tr></table></figure>
+<h4 id="fadetransform">FadeTransform</h4>
+<p>将一个对象淡入另一个对象。</p>
+<p>参数： - <strong>mobject</strong> – 起始<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>。 -
+<strong>target_mobject</strong> – 目标<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>。 -
+<strong>stretch</strong><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a> –
+控制动画过程中目标是否拉伸。默认值： <code>True</code>。 -
+<strong>dim_to_match</strong> – 如果目标对象未自动拉伸，则允许在目标<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>移入时调整其初始比例。将其分别设置为
+<code>0</code>、<code>1</code> 和 <code>2</code>， <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.mobject.Mobject.html#manim.mobject.mobject.Mobject"
+title="manim.mobject.mobject.Mobject"><code>Mobject</code></a>分别将目标的长度与
+<span class="math inline"><em>x</em></span>、<span
+class="math inline"><em>y</em></span> 和 <span
+class="math inline"><em>z</em></span> 方向的起始长度相匹配。 -
+<strong>kwargs</strong> – 进一步的关键字参数被传递给父类。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DifferentFadeTransforms</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        starts = [Rectangle(width=<span class="number">4</span>, height=<span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>)]</span><br><span class="line">        VGroup(*starts).arrange(DOWN, buff=<span class="number">1</span>).shift(<span class="number">3</span>*LEFT)</span><br><span class="line">        targets = [Circle(fill_opacity=<span class="number">1</span>).scale(<span class="number">0.25</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>)]</span><br><span class="line">        VGroup(*targets).arrange(DOWN, buff=<span class="number">1</span>).shift(<span class="number">3</span>*RIGHT)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.play(*[FadeIn(s) <span class="keyword">for</span> s <span class="keyword">in</span> starts])</span><br><span class="line">        <span class="variable language_">self</span>.play(</span><br><span class="line">            FadeTransform(starts[<span class="number">0</span>], targets[<span class="number">0</span>], stretch=<span class="literal">True</span>),</span><br><span class="line">            FadeTransform(starts[<span class="number">1</span>], targets[<span class="number">1</span>], stretch=<span class="literal">False</span>, dim_to_match=<span class="number">0</span>),</span><br><span class="line">            FadeTransform(starts[<span class="number">2</span>], targets[<span class="number">2</span>], stretch=<span class="literal">False</span>, dim_to_match=<span class="number">1</span>)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.play(*[FadeOut(mobj) <span class="keyword">for</span> mobj <span class="keyword">in</span> <span class="variable language_">self</span>.mobjects])</span><br></pre></td></tr></table></figure>
+<h4 id="fadetransformpieces">FadeTransformPieces</h4>
+<p>将一个对象的子对象淡入另一个对象的子对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FadeTransformSubmobjects</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        src = VGroup(Square(), Circle().shift(LEFT + UP))</span><br><span class="line">        src.shift(<span class="number">3</span>*LEFT + <span class="number">2</span>*UP)</span><br><span class="line">        src_copy = src.copy().shift(<span class="number">4</span>*DOWN)</span><br><span class="line"></span><br><span class="line">        target = VGroup(Circle(), Triangle().shift(RIGHT + DOWN))</span><br><span class="line">        target.shift(<span class="number">3</span>*RIGHT + <span class="number">2</span>*UP)</span><br><span class="line">        target_copy = target.copy().shift(<span class="number">4</span>*DOWN)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.play(FadeIn(src), FadeIn(src_copy))</span><br><span class="line">        <span class="variable language_">self</span>.play(</span><br><span class="line">            FadeTransform(src, target),</span><br><span class="line">            FadeTransformPieces(src_copy, target_copy)</span><br><span class="line">        )</span><br><span class="line">        <span class="variable language_">self</span>.play(*[FadeOut(mobj) <span class="keyword">for</span> mobj <span class="keyword">in</span> <span class="variable language_">self</span>.mobjects])</span><br></pre></td></tr></table></figure>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/manim/" class="tag"># manim</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/2025/07/11/Math/manim/%E3%80%90manim%E3%80%91Axes-%E5%9D%90%E6%A0%87%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%9F%BA%E7%B1%BB%E8%AF%A6%E8%A7%A3/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">【manim】Axes 坐标系及其基类详解</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/2025/07/10/Math/manim/%E3%80%90manim%E3%80%91%E5%88%9D%E5%85%A5%E4%BB%A3%E7%A0%81%E5%8A%A8%E7%94%BB%E7%9A%84%E7%8E%8B%E5%9B%BD/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【manim】初入代码动画的王国</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

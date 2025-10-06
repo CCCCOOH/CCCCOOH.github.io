@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>最难部署的数据库非Mongodb莫属 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="一、前言  本文将讲述Mongodb的部署过程，以MacOS为例。  由于最近node项目一直装不上sqlite，让我发现了Mongodb这个宝藏。 二、下载文件 进入Mongodb的官网，最上方导航栏选择产品》社区版：   mongo  点击这个绿色的下载按钮：  下拉到这个部分下载对应的文件：   完成后跟着这个博客来部署：CSDN博客链接  这里说一下，如果因为某些特殊原因在启动时报了这样的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最难部署的数据库非Mongodb莫属">
+<meta property="og:url" content="https://ccccooh.github.io/article/0yvjvflq/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="一、前言  本文将讲述Mongodb的部署过程，以MacOS为例。  由于最近node项目一直装不上sqlite，让我发现了Mongodb这个宝藏。 二、下载文件 进入Mongodb的官网，最上方导航栏选择产品》社区版：   mongo  点击这个绿色的下载按钮：  下拉到这个部分下载对应的文件：   完成后跟着这个博客来部署：CSDN博客链接  这里说一下，如果因为某些特殊原因在启动时报了这样的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/mongo.png">
+<meta property="article:published_time" content="2025-03-24T18:34:31.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.751Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/mongo.png">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/其他/">其他</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-03-24T18:34:31+00:00">
+      March 24, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">最难部署的数据库非Mongodb莫属</h1>
+  </div>
+
+  <div class="content">
+    <h2 id="一前言">一、前言</h2>
+<blockquote>
+<p>本文将讲述Mongodb的部署过程，以MacOS为例。</p>
+</blockquote>
+<p>由于最近node项目一直装不上sqlite，让我发现了Mongodb这个宝藏。</p>
+<h2 id="二下载文件">二、下载文件</h2>
+<p>进入Mongodb的官网，最上方导航栏选择<code>产品》社区版</code>：</p>
+<figure>
+<img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/mongo.png"
+alt="mongo" />
+<figcaption aria-hidden="true">mongo</figcaption>
+</figure>
+<p>点击这个绿色的下载按钮： <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/mongo2.png"
+alt="mongo2" /></p>
+<p>下拉到这个部分下载对应的文件： <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250325024051.png"
+alt="20250325024051" /></p>
+<blockquote>
+<p>完成后跟着这个博客来部署：<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/m0_53401968/article/details/127060323">CSDN博客链接</a></p>
+</blockquote>
+<p>这里说一下，如果因为某些特殊原因在启动时报了这样的错误：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250325024240.png"
+alt="20250325024240" />
+<figcaption aria-hidden="true">20250325024240</figcaption>
+</figure>
+<p>不要害怕，重启电脑或用mac的活动监视器强制关闭上一次的mongod进程即可。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/0vwlcvyr/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">【Mongodb】1.快速开始</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/ah01upt6/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【Node.js】文件操作</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

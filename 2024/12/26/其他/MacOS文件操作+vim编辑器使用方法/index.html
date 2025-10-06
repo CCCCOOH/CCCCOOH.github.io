@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>MacOS文件操作+vim编辑器使用方法 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="记录mac中终端的部分操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MacOS文件操作+vim编辑器使用方法">
+<meta property="og:url" content="https://ccccooh.github.io/2024/12/26/%E5%85%B6%E4%BB%96/MacOS%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C+vim%E7%BC%96%E8%BE%91%E5%99%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="记录mac中终端的部分操作">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/3da018910ed5e566e02243d97de59f5e.png">
+<meta property="article:published_time" content="2024-12-26T16:43:03.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.751Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Vim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/3da018910ed5e566e02243d97de59f5e.png">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/其他/">其他</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2024-12-26T16:43:03+00:00">
+      December 26, 2024
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">MacOS文件操作+vim编辑器使用方法</h1>
+  </div>
+
+  <div class="content">
+    <h1 id="mac-命令篇">Mac 命令篇</h1>
+<p>为了方便在终端中练习<code>Vim</code>，在这里记录常用的<code>Mac</code>命令：</p>
+<h2 id="目录操作">目录操作</h2>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 22%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>命令</th>
+<th>功能描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mkdir</code></td>
+<td>创建一个目录</td>
+<td><code>mkdir dirname</code></td>
+</tr>
+<tr class="even">
+<td><code>rmdir</code></td>
+<td>删除一个目录</td>
+<td><code>rmdir dirname</code></td>
+</tr>
+<tr class="odd">
+<td><code>mvdir</code></td>
+<td>移动或重命名一个目录</td>
+<td><code>mvdir dir1 dir2</code></td>
+</tr>
+<tr class="even">
+<td><code>cd</code></td>
+<td>改变当前目录</td>
+<td><code>cd dirname</code></td>
+</tr>
+<tr class="odd">
+<td><code>pwd</code></td>
+<td>显示当前目录的路径名</td>
+<td><code>pwd</code></td>
+</tr>
+<tr class="even">
+<td><code>ls</code></td>
+<td>显示当前目录的内容</td>
+<td><code>ls -la</code></td>
+</tr>
+<tr class="odd">
+<td><code>dircmp</code></td>
+<td>比较两个目录的内容</td>
+<td><a
+target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=163569794&amp;content_type=Article&amp;match_order=1&amp;q=dircmp+dir1+dir2&amp;zhida_source=entity"><code>dircmp dir1 dir2</code></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="文件操作">文件操作</h2>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 32%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>命令</th>
+<th>功能描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>touch</code></td>
+<td>创建和更新文件</td>
+<td><code>touch index.html</code></td>
+</tr>
+<tr class="even">
+<td><code>cat</code></td>
+<td>显示或连接文件</td>
+<td><code>cat filename</code></td>
+</tr>
+<tr class="odd">
+<td><code>pg</code></td>
+<td>分页格式化显示文件内容</td>
+<td><code>pg filename</code></td>
+</tr>
+<tr class="even">
+<td><code>more</code></td>
+<td>分屏显示文件内容</td>
+<td><code>more filename</code></td>
+</tr>
+<tr class="odd">
+<td><code>od</code></td>
+<td>显示非文本文件的内容</td>
+<td><code>od -c filename</code></td>
+</tr>
+<tr class="even">
+<td><code>cp</code></td>
+<td>复制文件或目录</td>
+<td><code>cp file1 file2</code></td>
+</tr>
+<tr class="odd">
+<td><code>rm</code></td>
+<td>删除文件或目录</td>
+<td><code>rm filename</code></td>
+</tr>
+<tr class="even">
+<td><code>mv</code></td>
+<td>改变文件名或所在目录</td>
+<td><code>mv file1 file2</code></td>
+</tr>
+<tr class="odd">
+<td><code>ln</code></td>
+<td>联接文件</td>
+<td><code>ln -s file1 file2</code></td>
+</tr>
+<tr class="even">
+<td><code>find</code></td>
+<td>使用匹配表达式查找文件</td>
+<td><code>find . -name “*.c” -print</code></td>
+</tr>
+<tr class="odd">
+<td><code>file</code></td>
+<td>显示文件类型</td>
+<td><code>file filename</code></td>
+</tr>
+<tr class="even">
+<td><code>open</code></td>
+<td>使用默认的程序打开文件</td>
+<td><code>open filename</code> （open . 打开当前目录）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="vim-篇">Vim 篇</h1>
+<h2 id="前言">前言</h2>
+<p><code>Vim</code>，开发岗必学编辑器。集成于终端中，常出现在各种服务器编辑代码的场景。服务器一般不使用图形化界面，编辑代码就会用到<code>Vim</code>。家用计算机一般集成图形化界面，常使用<code>VScode</code>。</p>
+<h2 id="工作模式">工作模式</h2>
+<p><img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/3da018910ed5e566e02243d97de59f5e.png" alt="img" style="zoom: 50%;" /></p>
+<h3 id="命令模式">1.命令模式</h3>
+<p>当你启动<code>Vim</code>的时即进入命令模式状态。新手很需要注意，此时敲下的<strong>按键将被识别为命令</strong>！</p>
+<blockquote>
+<p>不建议一开始就用重要的文件练习<code>Vim</code>，很容易在这一步进入惯性思维把按下的键认为是直接输入，一下执行好几个命令，从而使得文档被破坏。</p>
+</blockquote>
+<p><strong>常用命令</strong>:</p>
+<table>
+<thead>
+<tr class="header">
+<th>命令</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:</code></td>
+<td>切换到底线命令模式，以在最底一行输入命令</td>
+</tr>
+<tr class="even">
+<td><code>i</code></td>
+<td><strong>切换到输入模式，在光标当前位置开始输入文本</strong>（常用）</td>
+</tr>
+<tr class="odd">
+<td><code>a</code></td>
+<td>进入插入模式，在光标下一个位置开始输入文本</td>
+</tr>
+<tr class="even">
+<td><code>o</code></td>
+<td>在当前行的下方插入一个新行，并进入插入模式</td>
+</tr>
+<tr class="odd">
+<td><code>O</code></td>
+<td>在当前行的上方插入一个新行，并进入插入模式</td>
+</tr>
+<tr class="even">
+<td><code>x</code></td>
+<td>删除当前光标所在处的字符</td>
+</tr>
+<tr class="odd">
+<td><code>dd</code></td>
+<td><strong>剪切当前行（</strong>常用）</td>
+</tr>
+<tr class="even">
+<td><code>yy</code></td>
+<td><strong>复制当前行</strong>（常用）</td>
+</tr>
+<tr class="odd">
+<td><code>p</code>（小写）</td>
+<td><strong>粘贴剪贴板内容到光标下方</strong>（常用）</td>
+</tr>
+<tr class="even">
+<td><code>P</code>（大写）</td>
+<td>粘贴剪贴板内容到光标上方</td>
+</tr>
+<tr class="odd">
+<td><code>u</code></td>
+<td><strong>撤销上一次操作</strong>（常用）</td>
+</tr>
+<tr class="even">
+<td><code>Ctrl + r</code></td>
+<td>重做上一次撤销的操作</td>
+</tr>
+</tbody>
+</table>
+<h3 id="输入模式">2.输入模式</h3>
+<p>和正常文本输入的快捷键基本一样。</p>
+<h3 id="命令行模式">3.命令行模式</h3>
+<p>在命令模式下输入<code>:</code>就进入该模式，也就是<code>Shift</code>+<code>;</code>。进入底线命令行模式后，命令从单个字符变成了多个字符，可以用的命令就很多了。</p>
+<table>
+<thead>
+<tr class="header">
+<th>命令</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:w</code></td>
+<td>保存文件</td>
+</tr>
+<tr class="even">
+<td><code>:q</code></td>
+<td>退出 Vim 编辑器</td>
+</tr>
+<tr class="odd">
+<td><code>:q!</code></td>
+<td>强制退出 Vim 编辑器，不保存修改</td>
+</tr>
+<tr class="even">
+<td><code>:wq</code></td>
+<td><strong>保存并退出文件</strong>（常用）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>按下<code>Esc</code>键可以随时退出底线命令模式并进入命令模式。</p>
+</blockquote>
+<h2 id="一般模式下快捷键">一般模式下快捷键</h2>
+<h3 id="移动光标">移动光标</h3>
+<blockquote>
+<p>一定要区分大小写，同一个按键在不同大小写模式下功能不同！</p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">移动光标的方法</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>h</code></td>
+<td>光标向<strong>左</strong>移动一个字符</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>j</code></td>
+<td>光标向<strong>下</strong>移动一个字符</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>k</code></td>
+<td>光标向<strong>上</strong>移动一个字符</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>i</code></td>
+<td>光标向<strong>右</strong>移动一个字符</td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><code>数字</code>+<code>h/j/k/i</code></td>
+<td>实现多行移动，如<code>30J</code>表示向下<strong>30</strong>行</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>+</code></td>
+<td>光标移动到非空格符的<strong>下一行</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>-</code></td>
+<td>光标移动到非空格符的<strong>上一行</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>数字</code>+<code>空格</code></td>
+<td>在本行向右移动指定数量字符距离</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>0</code>
+或功能键<code>[Home]</code></td>
+<td><strong>移动到这一行最前面</strong>字符处（常用）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>$</code>
+或功能键<code>[End]</code></td>
+<td><strong>移动到这一行的最后面</strong>字符处(常用)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>H</code></td>
+<td>光标移动到这个屏幕的最上方那一行的第一个字符</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>M</code></td>
+<td>光标移动到这个屏幕的中央那一行的第一个字符</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>L</code></td>
+<td>光标移动到这个屏幕的最下方那一行的第一个字符</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>G</code></td>
+<td><strong>移动到这个档案的最后一行</strong>(常用)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>数字G</code></td>
+<td>移动到这个档案的该数字行</td>
+</tr>
+</tbody>
+</table>
+<h3 id="搜索">搜索</h3>
+<table>
+<thead>
+<tr class="header">
+<th>命令</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>/word</code></td>
+<td>在光标下方查找<code>word</code></td>
+</tr>
+<tr class="even">
+<td><code>?word</code></td>
+<td>在光标上方查找<code>word</code></td>
+</tr>
+<tr class="odd">
+<td><code>n</code></td>
+<td>这个<code>n</code>是按键上的<code>n</code>，表示重复上一个搜索操作，即搜索下一个</td>
+</tr>
+<tr class="even">
+<td><code>N</code></td>
+<td>与<code>n</code>相反，反向搜索</td>
+</tr>
+</tbody>
+</table>
+<h3 id="替换">替换</h3>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>命令</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>:n1,n2s/word1/word2/g</td>
+<td>n1 与 n2 为数字。在第 n1 与 n2 行之间寻找 word1
+这个字符串，并将该字符串取代为 word2 ！举例来说，在 100 到200 行之间搜寻
+vbird 并取代为 VBIRD 则：『:100,200s/vbird/VBIRD/g』。(常用)</td>
+</tr>
+<tr class="even">
+<td><strong>:1,<span
+class="math inline"><em>s</em>/<em>w</em><em>o</em><em>r</em><em>d</em>1/<em>w</em><em>o</em><em>r</em><em>d</em>2/<em>g</em> *  * <em>或</em> *  * :</span>s/word1/word2/gc</strong>
+或 <strong>:%s/word1/word2/gc</strong></td>
+<td>从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2
+！且在取代前显示提示字符给用户确认</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考">参考</h2>
+<ol type="1">
+<li><p>Linux中常用的快捷指令（超详细vi/vim篇）：https://blog.csdn.net/dearzhangxp/article/details/139024715</p></li>
+<li><p>macOS终端常用命令大集合-mac系统：https://zhuanlan.zhihu.com/p/339479334</p></li>
+</ol>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/Vim/" class="tag">#Vim</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/2024/12/30/%E5%AD%A6%E6%A0%A1/Java%E6%9C%9F%E6%9C%AB%E5%A4%A7%E9%A2%98%E6%95%B4%E7%90%86/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">Java大题期末整理</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/2024/12/24/%E5%AD%A6%E6%A0%A1/12%E6%9C%8824%E6%97%A5Java%E4%BD%9C%E4%B8%9A/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">12月24日Java作业</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

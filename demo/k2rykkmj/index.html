@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>ES6异步编程中Promise与Proxy对象 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="Promise 对象 Promise对象用于解决Javascript中的地狱回调问题，有效的减少了程序回调的嵌套调用。 创建 如果要创建一个Promise对象，最简单的方法就是直接new一个。但是，如果深入学习，会发现使用Promise下的静态方法Promise.resolve()也能创建一个Promise对象： 1234567&#x2F;&#x2F; 创建方法一new Promise((resolve, rejec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6异步编程中Promise与Proxy对象">
+<meta property="og:url" content="https://ccccooh.github.io/demo/k2rykkmj/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="Promise 对象 Promise对象用于解决Javascript中的地狱回调问题，有效的减少了程序回调的嵌套调用。 创建 如果要创建一个Promise对象，最简单的方法就是直接new一个。但是，如果深入学习，会发现使用Promise下的静态方法Promise.resolve()也能创建一个Promise对象： 1234567&#x2F;&#x2F; 创建方法一new Promise((resolve, rejec">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/009de586cdb402a903360609bfd998b3-0.png">
+<meta property="article:published_time" content="2025-02-23T13:35:47.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.752Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/009de586cdb402a903360609bfd998b3-0.png">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/JavaScript/">JavaScript</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-02-23T13:35:47+00:00">
+      February 23, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">ES6异步编程中Promise与Proxy对象</h1>
+  </div>
+
+  <div class="content">
+    <h1 id="promise-对象">Promise 对象</h1>
+<p><code>Promise</code>对象用于解决<code>Javascript</code>中的地狱回调问题，有效的减少了程序回调的嵌套调用。</p>
+<h1 id="创建">创建</h1>
+<p>如果要创建一个<code>Promise</code>对象，最简单的方法就是直接<code>new</code>一个。但是，如果深入学习，会发现使用<code>Promise</code>下的静态方法<code>Promise.resolve()</code>也能创建一个<code>Promise</code>对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建方法一</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 此处做一个异步的事情</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建方法二</span></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>(p)	<span class="comment">// p 可以是一个Promise，也可以是一个普通的数值。</span></span><br></pre></td></tr></table></figure>
+<p>使用方法二创建<code>Promise</code>时，可以传入一个普通的值，或一个<code>Promise</code>对象。最后都会作为一个<code>Promise</code>返回出来。如果传入的是一个普通的值，产生的<code>Promise</code>的值就会将这个值传入<code>resolve</code>方法发送给下一个<code>then</code>。</p>
+<h2 id="使用">使用</h2>
+<p>对于<code>Promise</code>对象的使用，参考下方的案例，对于<code>Promise</code>的使用，理解返回值、参数、两个回调之间的关系后会有一定的帮助。</p>
+<blockquote>
+<p>第二种写法的区别主要在于直接在第一次定义<code>Promise</code>的同时把下一次<code>then</code>中的回调也顺便地写好了。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 案例一</span></span><br><span class="line"><span class="keyword">const</span> n = <span class="number">6</span></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (n &gt; <span class="number">5</span>) &#123;</span><br><span class="line">      <span class="title function_">resolve</span>(n)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="title function_">reject</span>(<span class="string">&#x27;必须大于 5！&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;)</span><br><span class="line">p.<span class="title function_">then</span>(</span><br><span class="line">  <span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(v)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"><span class="comment">// 案例二</span></span><br><span class="line"><span class="keyword">const</span> pFn = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">resolve</span>(<span class="string">&#x27;解决!&#x27;</span>).<span class="title function_">then</span>(</span><br><span class="line">        <span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;接收到&#x27;</span>, v);</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> p = <span class="title function_">pFn</span>()</span><br></pre></td></tr></table></figure>
+<h2 id="promise.all-方法">Promise.all() 方法</h2>
+<p>该方法用于一次性执行全部传入的<code>[p1, p2, p3]</code>对象，当全部执行成功后才会进入到第一个执行成功的<code>then</code>方法中。其中，任何一个失败了则会进入到<code>then</code>的失败回调中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 语法演示的伪代码</span></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>([p1, p2, p3]).<span class="title function_">then</span>(</span><br><span class="line">  <span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 所有请求成功后的操作步骤</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 某一个请求失败后的操作步骤</span></span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 演示案例</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">p</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (n &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="title function_">resolve</span>(n)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="title function_">reject</span>(<span class="string">&#x27;不能小于 0！&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>([<span class="title function_">p</span>(<span class="number">5</span>), <span class="title function_">p</span>(<span class="number">6</span>), <span class="title function_">p</span>(<span class="number">7</span>)]).<span class="title function_">then</span>(</span><br><span class="line">  <span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(v)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="promise.race-方法">Promise.race() 方法</h2>
+<p>如果<code>race</code>的字面意思<code>竞赛</code>，该方法也是传入一个<code>Promise</code>对象的数组，不同点在于：先成功的<code>Promise</code>将直接进入到<code>then</code>的成功回调中。如果失败了，也直接进入到失败的<code>then</code>回调。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">loadData</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">resolve</span>(<span class="string">&#x27;请求成功&#x27;</span>)</span><br><span class="line">    &#125;, <span class="number">3000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">timeOut</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">reject</span>(<span class="string">&#x27;请求超时&#x27;</span>)</span><br><span class="line">    &#125;, <span class="number">5000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">race</span>([<span class="title function_">loadData</span>(), <span class="title function_">timeOut</span>()]).<span class="title function_">then</span>(</span><br><span class="line">  <span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(v)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="async-和-await-关键字">async 和 await 关键字</h2>
+<p>这两个关键字是<code>Promise</code>方法的语法糖，底层的实现还是<code>Promise</code>对象的那一套。优点在于能使异步编程的可读性进一步加强，使其更接近于同步执行的语法。</p>
+<ul>
+<li><strong>async</strong> 关键字</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// async 语法糖的写法</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;12345&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn</span>().<span class="title function_">then</span>(<span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(v)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 等同于下方的写法</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">resolve</span>(<span class="string">&#x27;12345&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">fn</span>().<span class="title function_">then</span>(<span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(v)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>await</strong> 关键字</li>
+</ul>
+<p>这个关键字必须在<code>async</code>函数中使用。用于“等待”
+<code>await</code>后的表达式执行，并接受该表达式的返回值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数 p() 返回的是一个 Promise 对象，</span></span><br><span class="line"><span class="comment">// 延时 1 秒后执行成功回调函数，相当于模拟一次异步请求</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">p</span>(<span class="params">msg</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 将函数 p() 的实参值 msg 作为执行成功回调函数的返回值</span></span><br><span class="line">      <span class="title function_">resolve</span>(msg)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一个用于正常输出内容的函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">log</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;2. 正在操作&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;1. 开始&#x27;</span>)</span><br><span class="line">  <span class="keyword">await</span> <span class="title function_">log</span>()</span><br><span class="line">  <span class="keyword">let</span> p1 = <span class="keyword">await</span> <span class="title function_">p</span>(<span class="string">&#x27;3. 异步请求&#x27;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(p1)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;4. 结束&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn</span>()</span><br></pre></td></tr></table></figure>
+<p>最后的执行顺序参考下图：</p>
+<p><img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/009de586cdb402a903360609bfd998b3-0.png" alt="图片描述" style="zoom:50%;" /></p>
+<h1 id="proxy-代理">Proxy 代理</h1>
+<p>通过<code>Proxy</code>代理可以为对象拦截一些特定的操作，<code>proxy</code>对象对于原对象的操作最终会转发给原对象，并且<code>proxy</code>对于原对象的值都只是引用的。</p>
+<h2 id="创建-1">创建</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(target, handler)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实际例子</span></span><br><span class="line"><span class="keyword">const</span> target = &#123;&#125;</span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(target, &#123;&#125;)</span><br><span class="line"></span><br><span class="line">proxy.<span class="property">name</span> = <span class="string">&#x27;闷墩儿&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">name</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target.<span class="property">name</span>)</span><br><span class="line"></span><br><span class="line">target.<span class="property">name</span> = <span class="string">&#x27;憨憨&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">name</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target.<span class="property">name</span>)</span><br></pre></td></tr></table></figure>
+<p>其中最常用的拦截方法：</p>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>拦截方法</th>
+<th>方法说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>get(target, propKey, receiver)</code></td>
+<td>拦截对象属性的读取。</td>
+</tr>
+<tr class="even">
+<td><code>set(target, propKey, value, receiver)</code></td>
+<td>拦截对象属性的设置。</td>
+</tr>
+<tr class="odd">
+<td><code>has(target, propKey)</code></td>
+<td>拦截 <code>propKey in proxy</code> 的操作。</td>
+</tr>
+<tr class="even">
+<td><code>ownKeys(target)</code></td>
+<td>拦截
+<code>Object.getOwnPropertyNames(proxy)</code>、<code>Object.getOwnPropertySymbols(proxy)</code>、<code>Object.keys(proxy)</code>、<code>for...in</code>
+循环，返回一个数组。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="get-方法">get 方法</h2>
+<p>通过在<code>handler</code>对象中
+加入<code>get</code>方法来使用，该方法会在请求原对象（<strong>target</strong>）的某一键（<strong>propKey</strong>）的值时调用，并且原对象和键都会作为<code>get</code>的回调参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dog = &#123; <span class="attr">name</span>: <span class="string">&#x27;闷墩儿&#x27;</span> &#125;</span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(dog, &#123;</span><br><span class="line">  <span class="title function_">get</span>(<span class="params">target, propKey</span>) &#123;</span><br><span class="line">    <span class="comment">// 遍历目标对象的属性键值</span></span><br><span class="line">    <span class="keyword">if</span> (propKey <span class="keyword">in</span> target) &#123;</span><br><span class="line">      <span class="keyword">return</span> target[propKey] <span class="comment">// 返回相应的属性值</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ReferenceError</span>(propKey + <span class="string">&#x27; 属性不存在&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;访问 dog 对象中的 name 属性值为：&#x27;</span> + proxy.<span class="property">name</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;访问不存在的 age 属性：&#x27;</span> + proxy.<span class="property">age</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="set-方法">set 方法</h2>
+<p><code>set</code>会在你想设置原对象（<strong>target</strong>）的某一键（<strong>propKey</strong>），并将该键对应的值设置成你传入的值（<strong>value</strong>）时调用。额外需要知道的是返回值为设置成功与否的<code>boolean</code>值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> validator = &#123;</span><br><span class="line">  <span class="title function_">set</span>(<span class="params">target, propKey, value</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (propKey === <span class="string">&#x27;age&#x27;</span>) &#123;</span><br><span class="line">      <span class="comment">// 判断 age 属性值是否时数字</span></span><br><span class="line">      <span class="keyword">if</span> (!<span class="title class_">Number</span>.<span class="title function_">isInteger</span>(value)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">TypeError</span>(<span class="string">&#x27;狗狗的年龄只能是整型哦！&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    target[propKey] = value</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dog = <span class="keyword">new</span> <span class="title class_">Proxy</span>(&#123;&#125;, validator)</span><br><span class="line">dog.<span class="property">age</span> = <span class="string">&#x27;22&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="has-方法">has 方法</h2>
+<p>该方法在使用<code>in</code>查询属性时调用，该方法可以解决继承时属性继承出现的问题：</p>
+<blockquote>
+<p>场景一中：<code>valueOf</code>实际上是<code>Object</code>的属性，因为<code>dog</code>默认继承自<code>Object</code>所以该属性默认也是<code>dog</code>的属性。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 场景一：解决的问题</span></span><br><span class="line"><span class="keyword">const</span> dog = &#123; <span class="attr">name</span>: <span class="string">&#x27;闷墩儿&#x27;</span> &#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;name&#x27;</span> <span class="keyword">in</span> dog)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;valueOf&#x27;</span> <span class="keyword">in</span> dog)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 场景二：使用实例</span></span><br><span class="line"><span class="keyword">const</span> dog = &#123; <span class="attr">name</span>: <span class="string">&#x27;闷墩儿&#x27;</span>, <span class="attr">age</span>: <span class="number">2</span> &#125;</span><br><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  <span class="title function_">has</span>(<span class="params">target, propKey</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (propKey == <span class="string">&#x27;age&#x27;</span> &amp;&amp; target[propKey] &lt; <span class="number">5</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;target.name&#125;</span>的年龄小于 5 岁哦！`</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(dog, handler)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;age&#x27;</span> <span class="keyword">in</span> proxy)</span><br></pre></td></tr></table></figure>
+<h2 id="ownkeys">ownKeys</h2>
+<p>在使用迭代方法例如<code>for...in</code>迭代对象的键时可以使用<code>ownKeys</code>拦截该迭代，并返回你想给的迭代数组。</p>
+<blockquote>
+<p>注意，你给的数组中的元素如果不是原对象的属性，将不会被迭代。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> dog = &#123; <span class="attr">name</span>: <span class="string">&#x27;闷墩儿&#x27;</span>, <span class="attr">age</span>: <span class="number">2</span>, <span class="attr">food</span>: <span class="string">&#x27;狗罐头&#x27;</span> &#125;</span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(dog, &#123;</span><br><span class="line">  <span class="title function_">ownKeys</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;color&#x27;</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> proxy) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(key) <span class="comment">// 输出 name</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/d0p0ehmg/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">Javascript-ES6扩展写法</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/ab006aq5/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">ES6-Set-Map对象小记</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

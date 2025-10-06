@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>Java大题期末整理 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="期末关于Java中的部分重点整理...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java大题期末整理">
+<meta property="og:url" content="https://ccccooh.github.io/2024/12/30/%E5%AD%A6%E6%A0%A1/Java%E6%9C%9F%E6%9C%AB%E5%A4%A7%E9%A2%98%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="期末关于Java中的部分重点整理...">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1734774479127-%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-12-21%20174751.png">
+<meta property="article:published_time" content="2024-12-30T14:00:43.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.755Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="学校">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1734774479127-%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-12-21%20174751.png">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/学校/">学校</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2024-12-30T14:00:43+00:00">
+      December 30, 2024
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">Java大题期末整理</h1>
+  </div>
+
+  <div class="content">
+    <h2 id="写在前面">写在前面</h2>
+<p>对于一些可能考的，这里提前列出来：</p>
+<ul>
+<li>ActionListener接口的使用方法（JFrame中事件处理）</li>
+<li>在JLabel中使用<code>new ImageIcon("绝对路径")</code>来创建一个图像</li>
+<li>下拉菜单</li>
+<li>多选框</li>
+<li>按钮组<code>ButtonGroup</code></li>
+<li><code>ItemActionListener</code>事件</li>
+</ul>
+<h2 id="大题编程题整理">（大题）编程题整理</h2>
+<blockquote>
+<p>不一定考，但是知识点差不多。</p>
+<p>注意JFrame考察比较抽象，可能会考雨课堂上没有的，比如<code>ImageIcon</code>。</p>
+</blockquote>
+<h3 id="作业2.1">作业2.1</h3>
+<blockquote>
+<p>箱子里有n个苹果，还混进了一条虫子。虫子每x小时能吃掉一个苹果，假设
+虫子在吃完一个苹果之前不会吃另一个，那么经过y小时，还有多少个完整的苹果？（假设x,y为整数，n,x,y从键盘输入）</p>
+</blockquote>
+<blockquote>
+<p>编写程序将磅转换为千克。程序提示用户输入磅数，转换为千克并显示结果。一磅约等于
+0.454千克。</p>
+</blockquote>
+<blockquote>
+<p>编写一个程序，读入费用与提成率，计算提成与总费用。例如，如果输入10
+作为费用，12%作为提成率，则显示提成费为 1.2，总费用为 11.2。</p>
+</blockquote>
+<blockquote>
+<p>输入一个三位正整数，输出个、十、百位数字的立方和。
+参考：计算幂数函数： Math.pow(底数,几次方)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意：考试中参考可能不会给你。</span><br></pre></td></tr></table></figure>
+<h3 id="作业2.2基本语法">作业2.2（基本语法）</h3>
+<blockquote>
+<p>用户输入一个成绩（整数，小于
+100），根据分数给出该成绩是优秀（大于等于90）、良好（大于等于 75 小于
+90）、合格（大于等于60 小于 75）还是不及格（小于60）。（使用 if 和
+switch两种方式编写程序）。</p>
+</blockquote>
+<blockquote>
+<p>读入三角形的三条边，如果输入有效，计算它的周长；否则，显示输入无效。如果任意两边的和大于第三边输入有效。</p>
+</blockquote>
+<h3 id="作业3循环与方法">作业3（循环与方法）</h3>
+<blockquote>
+<p>定义一个方法add，计算两个小数之和，并在main方法中调用该add方法。</p>
+</blockquote>
+<blockquote>
+<p>计算 0~10 之间各个整数的平方值和立方值，以如下格式显示：</p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">整数</th>
+<th style="text-align: center;">平方</th>
+<th style="text-align: center;">立方</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">…</td>
+<td style="text-align: center;">…</td>
+<td style="text-align: center;">…</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">1000</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>一个数如果恰好等于它的因子之和，这个数就称为完数，例如6=1+2+3。定义方法，编程找出
+1000 以内的所有完数。</p>
+</blockquote>
+<blockquote>
+<p>计算公式的值：1/1+2/(1+2)+3/(1+2+3)+…..+10/(1+2+3+……+10)。</p>
+</blockquote>
+<blockquote>
+<p>定义一个方法evsum，方法的功能为求出1到50之间所有偶数之和，并在main方法中调用该evsum方法。</p>
+</blockquote>
+<blockquote>
+<p>编写程序，采用适当的循环和控制语句实现下述功能：打印输出0~200 能被 7
+整除但不能被 4 整除的所有；要求每行显示 6 个数据。</p>
+</blockquote>
+<h3 id="作业4.1面向对象的概念">作业4.1（面向对象的概念）</h3>
+<blockquote>
+<p>设计一个立方体类Box，定义三个属性，分别是长，宽，高。定义两个个方法，分别计算并输出立方体的体积和表面积。创建该类的一个对象，计算其体积和表面积并输出。</p>
+</blockquote>
+<blockquote>
+<p>设计一个名为 Car 的类，具体要求如下: int 类型的成员变量 speed
+表示汽车的速度(默认为 0) ; Boolean 型的成员变量 on
+表示汽车是否启动〔默认为false )； double 类型的成员变量 weight
+表示汽重量（吨，默认为1. 2)； String 类型的成员变量 color
+表示汽车的颜色(默认为 blue)。</p>
+</blockquote>
+<blockquote>
+<p>设计并实现一个员工（Employee）类，其成员变量有：姓名、性别、工龄、基础工资、岗位津贴、
+效益工资；成员方法有：(1)计算应付工资（基础工资+岗位工资+效益工资）；(2)计算个人所得税(3500
+以下免税，超出 3500 以上部分
+3%缴纳)；(3)实发工资（应付工资-个人所得税）。在
+main()方法中生成一个员工对象，并显示该员工的姓名、性别、工龄、应付工资和实发工资。</p>
+</blockquote>
+<blockquote>
+<p>设计程序，定义三个重载方法 mol 并调用。三个方法分别为：接收一个 int
+参数，执行平方运算并输出结果；接收两个 int
+参数，执行相乘运算并输出结果。要求在main(
+)方法中分别用参数区别调用这2个方法。如调用格式为： mol(128); mol(12,8);
+则可输出：128 的平方等于 16384 12*8=96</p>
+</blockquote>
+<blockquote>
+<p>构造一个类来描述屏幕上的一个点，该类的构成包括点的 x和
+两个坐标，以及一些对点进行的操作，包括:取得点的坐标值，对点的坐标进行赋值，求两个点的距离，编写应用程序生成该类的对象并对其进行操作。</p>
+</blockquote>
+<blockquote>
+<p>定义一个三角形类 Triangle。该类包含三个int 类型的变量
+a,bc,分别表示三角形的三个边长。类中需要定义如下的方法: public
+Triangle(int a1,int b1,int c1) public boolean
+judge();//判断三角形是否合法 public double getArea(); //
+求三角形面积，可以使用海伦公式 public int getPerimeter();//求三角形周长
+创建该类的两个对象，a、b、c分别为（5，10，15），（7，9，11），判断这两个类对象能否构成三角形，如果可以，计算其面积和周长</p>
+</blockquote>
+<h3 id="作业5.1thisstatic等">作业5.1（this,static等）</h3>
+<blockquote>
+<p>设计一个圆形类，属性半径，静态变量Pi=3.14； 构造方法能对半径初始化
+普通方法1：返回周长 普通方法2：返回面积 方法3：输出面积和周长
+创建类的对象，调用并验证以上几个方法</p>
+</blockquote>
+<blockquote>
+<p>写一个MyPoint类，其中含有私有（private）的int类型的x和y属性，分别用公有的getX和setX、getY和setY方法访问，定义一个toString方法用来显示这个对象的x、y的值。最后用main
+方法测试。</p>
+</blockquote>
+<blockquote>
+<p>定义一个People类,要求如下：
+(1)成员变量：name、height、weight,分别表示姓名、身高(cm)和体重(kg)；
+(2)构造方法通过参数实现对成员变量的赋初值操作； (3)成员方法int
+check(),该方法返回0、1、-1
+(分别表示标准、过胖或过瘦)。判断方法是，用身高减去110作为参考体重，超过参考体重5kg以上的，为“过胖”；低于参考体重5kg以上的，为“过瘦”；在(参考体重-5kg)和(参考体重+5kg)之间的，为“标准”。
+(4)在main()方法中，输入1名学生的信息(姓名、身高和体重)，分别判断这些学生属于标准、过胖或过瘦。
+(必须通过调用check()方法实现)。</p>
+</blockquote>
+<blockquote>
+<p>编写程序，用于计算一元二次方程的实根。要求定义Equation类来表示一元二次方程，包括:方程系数、求解方法、实根的个数与类型、每个实根的值、输出方法。再定义
+EquationDemo类演示求根过程。
+(1)Equation类有成员变量a、b、c，代表一元二次方程的3个系数。rootType代表实根的个数与类型:0表示无实，1表示有两个相等实根，2表示有两个实根。rootl，root2代表两个可能的实根。
+(2)Eauation类有构造方法Equation(float a，float b，float
+c)，形参a、b、c为给定一元二次方程的系数。
+(3)Equation类有成员方法voidSolving()，用于求解一元二次方程，并将结果置于相应的属性之中。</p>
+</blockquote>
+<h3 id="作业6.1继承final">作业6.1（继承、final）</h3>
+<blockquote>
+<p>定义一个商品类及食品子类（food）和服装子类。任何商品都有编号、名称、出厂日期、厂家等信息。食品还有保质期信息，服装则还有面料信息。</p>
+</blockquote>
+<blockquote>
+<p>请编码实现动物世界的继承关系：
+动物（Animal）具有行为：吃（eat）、睡觉（sleep）
+动物包括：兔子（Rabbit），老虎（Tiger）
+这些动物吃的行为各不相同（兔子吃草，老虎吃肉）；但睡觉的行为是一致的。
+请通过继承实现以上需求，并编写测试类
+AnimalTest进行测试，要求用动态方法调用实现运行时多态。</p>
+</blockquote>
+<blockquote>
+<p>定义一个Document类，包含成员属性name。从Document派生出Book子类，增加pageCount属性，编写一个应用程序，测试定义的类。</p>
+</blockquote>
+<h3 id="作业8框架动作事件">作业8（框架，动作事件）</h3>
+<blockquote>
+<p>（注意：提交eclipse里写的代码和运行结果的截图，在代码注释里写明自己姓名和学号，不写明姓名学号扣分）
+编写java程序，求解二元一次方程的根。（1）界面尺寸为350<em>350，关闭界面时退出，界面设置可见，界面标题为“求根公式”。(2)根据下图添加组件和适当的布局管理器。（3）界面中a,b,c为二元一次方程的系数，x1,x2为方程的根。根据输入的系数，进行判断。如果a=0或(b</em>b-4<em>a</em>c)&lt;0，则点击“求解”按钮时，x1,x2文本框显示为“###”，若不是，则计算出二元一次方程的根，并显示在相应位置。（4）点击“清空”按钮，清空所有的文本框。</p>
+</blockquote>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1700947096243-image.png"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p><img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1734774479127-%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-12-21%20174751.png" alt="新的图片" style="zoom:50%;" /></p>
+<blockquote>
+<p>（注意：提交eclipse里写的代码和运行结果的截图，在代码注释里写明自己姓名，不写明姓名扣分）
+实现简易计算器。
+仿照Windows的计算器，编写一个简易的计算器程序，实现加、减、乘、除等运算。界
+面布局采用边界布局器和网格布局器结合的方式：窗体釆用边界布局器，添加文本框和面板。面板釆用4*4的网格布局器，添加数字按钮和运算按钮。</p>
+</blockquote>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1700939563404-image.png"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<blockquote>
+<p>（注意：代码直接输入在答题区或写上姓名手写在纸上拍照上传，提交eclipse截图的代码不给分）编写一个程序，把六个按钮分别标识为’A’至’F’,并排列成一行显示出来。</p>
+</blockquote>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1700940472575-image.png"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<blockquote>
+<p>（注意：提交eclipse里写的代码和运行结果的截图，在代码注释里写明自己姓名，不写明姓名扣分）
+编写java程序，制作如下密码验证界面。界面宽为350、高120，界面标题为“密码验证”，设置界面可见性和关闭时退出，界面有标签、文本框、按钮等组件，实现如下功能：当点击“确定”按钮后，如果输入密码等于123456，那么在控制台输出“密码正确”，否则输出“密码错误”。（提示：Java中可以使用Integer.parseInt()方法将字符串转换成整数）</p>
+</blockquote>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/1700943366224-image.png"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/%E5%AD%A6%E6%A0%A1/" class="tag">#学校</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/2024/12/31/%E5%AD%A6%E6%A0%A1/JFrame%E6%9C%9F%E6%9C%AB%E6%94%BB%E7%95%A5/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">JFrame期末攻略</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/2024/12/26/%E5%85%B6%E4%BB%96/MacOS%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C+vim%E7%BC%96%E8%BE%91%E5%99%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">MacOS文件操作+vim编辑器使用方法</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

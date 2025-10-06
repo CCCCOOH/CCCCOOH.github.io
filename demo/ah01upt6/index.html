@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【Node.js】文件操作 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="对于所有的文件操作，首先要引入模块： 1const fs &#x3D; require(&quot;fs&quot;); 1.读取操作 语法如下： 1fs.readFile(path[, options], callback) 第一个参数是路径，通常为相对路径。第二个参数为可选项，可以设置编码格式和文件打开行为。        flag 名称 描述     a 打开文件进行追加。 如果文件不存在，则创建该文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Node.js】文件操作">
+<meta property="og:url" content="https://ccccooh.github.io/demo/ah01upt6/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="对于所有的文件操作，首先要引入模块： 1const fs &#x3D; require(&quot;fs&quot;); 1.读取操作 语法如下： 1fs.readFile(path[, options], callback) 第一个参数是路径，通常为相对路径。第二个参数为可选项，可以设置编码格式和文件打开行为。        flag 名称 描述     a 打开文件进行追加。 如果文件不存在，则创建该文">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-09T08:36:40.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.753Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/Node-js/">Node.js</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-03-09T08:36:40+00:00">
+      March 9, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【Node.js】文件操作</h1>
+  </div>
+
+  <div class="content">
+    <p>对于所有的文件操作，首先要引入模块：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="读取操作">1.读取操作</h2>
+<p>语法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">readFile</span>(path[, options], callback)</span><br></pre></td></tr></table></figure>
+<p>第一个参数是路径，通常为相对路径。第二个参数为可选项，可以设置编码格式和文件打开行为。</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>flag 名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a</td>
+<td>打开文件进行追加。 如果文件不存在，则创建该文件。</td>
+</tr>
+<tr class="even">
+<td>ax</td>
+<td>类似于 a 但如果路径存在则失败。</td>
+</tr>
+<tr class="odd">
+<td>a+</td>
+<td>打开文件进行读取和追加。 如果文件不存在，则创建该文件。</td>
+</tr>
+<tr class="even">
+<td>ax+</td>
+<td>类似于 a+ 但如果路径存在则失败。</td>
+</tr>
+<tr class="odd">
+<td>as</td>
+<td>以同步模式打开文件进行追加。 如果文件不存在，则创建该文件。</td>
+</tr>
+<tr class="even">
+<td>as+</td>
+<td>以同步模式打开文件进行读取和追加。
+如果文件不存在，则创建该文件。</td>
+</tr>
+<tr class="odd">
+<td>r</td>
+<td>打开文件进行读取。 如果文件不存在，则会发生异常。</td>
+</tr>
+<tr class="even">
+<td>r+</td>
+<td>打开文件进行读写。 如果文件不存在，则会发生异常。</td>
+</tr>
+<tr class="odd">
+<td>rs+</td>
+<td>以同步模式打开文件进行读写。 指示操作系统绕过本地文件系统缓存。</td>
+</tr>
+<tr class="even">
+<td>w</td>
+<td>打开文件进行写入。 如果它不存在则创建，如果它存在则截断该文件。</td>
+</tr>
+<tr class="odd">
+<td>wx</td>
+<td>类似于 w 但如果路径存在则失败。</td>
+</tr>
+<tr class="even">
+<td>w+</td>
+<td>打开文件进行读写。 如果它不存在则创建，如果它存在则截断该文件。</td>
+</tr>
+<tr class="odd">
+<td>wx+</td>
+<td>类似于 w+ 但如果路径存在则失败。</td>
+</tr>
+</tbody>
+</table>
+<p>第三个参数是一个回调函数，传入两个参数，<code>error</code>表示读取失败时的错误信息，<code>data</code>表示正确读取时文件的内容。</p>
+<p>代码示例： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入 fs 模块</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用模块中异步读取文件的方法</span></span><br><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&quot;./public/msg.txt&quot;</span>, <span class="string">&quot;utf-8&quot;</span>, <span class="function">(<span class="params">error, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="文件写入操作">2.文件写入操作</h2>
+<p>语法： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">writeFile</span>(file, data[, options], callback)</span><br></pre></td></tr></table></figure></p>
+<p>第一个参数为文件路径，第二个参数表示写入的内容和可选的配置项，第三个参数为一个回调，传入参数为<code>error</code>。</p>
+<p>基本的用法： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入 fs 模块</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用模块中异步写入文件的方法</span></span><br><span class="line">fs.<span class="title function_">writeFile</span>(<span class="string">&quot;./public/msg.txt&quot;</span>, <span class="string">&quot;今天是一个好日子&quot;</span>, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;写入成功！&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>可选的参数用法： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入 fs 模块</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用模块中异步写入文件的方法</span></span><br><span class="line">fs.<span class="title function_">writeFile</span>(</span><br><span class="line">  <span class="string">&quot;./public/msg.txt&quot;</span>,</span><br><span class="line">  <span class="string">&quot;，明天又是一个大晴天。&quot;</span>,</span><br><span class="line">  &#123; <span class="attr">flag</span>: <span class="string">&quot;a&quot;</span>, <span class="attr">encoding</span>: <span class="string">&quot;utf-8&quot;</span> &#125;,</span><br><span class="line">  <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;写入成功！&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h2 id="删除文件操作">3.删除文件操作</h2>
+<p>语法： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">unlink</span>(path, callback);</span><br></pre></td></tr></table></figure></p>
+<p>基本的用法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入 fs 模块</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用模块中异步删除文件的方法</span></span><br><span class="line">fs.<span class="title function_">unlink</span>(<span class="string">&quot;./public/temp.txt&quot;</span>, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;删除成功！&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/article/0yvjvflq/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">最难部署的数据库非Mongodb莫属</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/d4py24wo/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【Node.js】初始化路由</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

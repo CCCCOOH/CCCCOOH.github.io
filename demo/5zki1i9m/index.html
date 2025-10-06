@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>JavaScript如何实现类型判断？ - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="判断一个数据的类型，常用的方法有以下几种：  typeof instanceof Object.prototype.toString.call(xxx)   下面来分别分析一下这三种方法各自的优缺点  typeof typeof的本意是用来判断一个数据的数据类型，所以返回的也是一个数据类型。但是会遇到下面这些问题：  无法判断 null。 无法判断除了 function 之外的引用类型。  123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript如何实现类型判断？">
+<meta property="og:url" content="https://ccccooh.github.io/demo/5zki1i9m/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="判断一个数据的类型，常用的方法有以下几种：  typeof instanceof Object.prototype.toString.call(xxx)   下面来分别分析一下这三种方法各自的优缺点  typeof typeof的本意是用来判断一个数据的数据类型，所以返回的也是一个数据类型。但是会遇到下面这些问题：  无法判断 null。 无法判断除了 function 之外的引用类型。  123">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-23T13:35:59.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.752Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/JavaScript/">JavaScript</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-02-23T13:35:59+00:00">
+      February 23, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">JavaScript如何实现类型判断？</h1>
+  </div>
+
+  <div class="content">
+    <p>判断一个数据的类型，常用的方法有以下几种：</p>
+<ul>
+<li><code>typeof</code></li>
+<li><code>instanceof</code></li>
+<li><code>Object.prototype.toString.call(xxx)</code></li>
+</ul>
+<blockquote>
+<p>下面来分别分析一下这三种方法各自的优缺点</p>
+</blockquote>
+<h2 id="typeof">typeof</h2>
+<p><code>typeof</code>的本意是用来判断一个数据的数据类型，所以返回的也是一个数据类型。但是会遇到下面这些问题：</p>
+<ul>
+<li>无法判断 <code>null</code>。</li>
+<li>无法判断除了 <code>function</code> 之外的引用类型。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无法判断 null。</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="literal">null</span>); <span class="comment">// 输出 &#x27;object&#x27;，原因在文章末尾解释。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 无法判断除了 function 之外的引用类型。</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> []); <span class="comment">// &#x27;object&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> &#123;&#125;); <span class="comment">// &#x27;object&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="incetance-of">incetance of</h2>
+<p>可以看到，<code>type of</code>无法精确判断对象的引用类型。所以在判断一个对象的引用类型时一般使用<code>incetance of</code>关键字。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([] <span class="keyword">instanceof</span> <span class="title class_">Array</span>); <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str1 <span class="keyword">instanceof</span> <span class="title class_">String</span>); <span class="comment">// false，无法判断原始类型。</span></span><br></pre></td></tr></table></figure>
+<p>但是<code>incetance of</code>无法准确判断原始数据类型，只能用来判断数据是否是某个类的引用。到这里就能发现，如果把<code>incetance of</code>和<code>type of</code>结合起来基本就能判断所有的数据类型了。</p>
+<p>但是，别忘记还有一个<code>null</code>，对于<code>null</code>还需要进行特殊的处理。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>;	<span class="comment">// object</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (target === <span class="literal">null</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;null&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结合这两种方法基本已经掌握了判断数据类型的手段了，但是如果去写一下你还是会发现很麻烦，你必须枚举每一种类型利用<code>true</code>or<code>false</code>判断数据类型。</p>
+<p>这里的<code>null</code>必须单独判断，因为这是第一版<code>JavaScript</code>留下来的一个bug。</p>
+<p>JavaScript 中不同对象在底层都表示为二进制，而 JavaScript
+中会把二进制前三位都为 0 的判断为 <code>object</code> 类型，而
+<code>null</code> 的二进制表示全都是 0，自然前三位也是 0，所以执行
+<code>typeof</code> 时会返回 <code>'object'</code>。</p>
+<p>这个 bug 牵扯了太多的 Web 系统，一旦改了，会产生更多的
+bug，令很多系统无法工作，也许这个 bug 永远都不会修复了。</p>
+<h2
+id="object.prototype.tostring.callxxx">Object.prototype.toString.call(xxx)</h2>
+<p>这个时候就不得不提到下面这种方法了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>([])	<span class="comment">// [object Array]</span></span><br></pre></td></tr></table></figure>
+<p>这个方法会返回统一格式的字符串：<code>[object Xxx]</code>。然后再取出后面的<code>xxx</code>即可得到准确的数据类型。对于取出后面的<code>xxx</code>可以使用多种方法，包括但不限于字符切片、正则表达式。</p>
+<blockquote>
+<p>这里调用<code>call()</code>方法是为了让<code>this</code>指向数组对象自身。</p>
+</blockquote>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/49xtp2iv/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">Js扩展DOM、BOM、AJAX、事件、定时器</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/d0p0ehmg/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">Javascript-ES6扩展写法</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

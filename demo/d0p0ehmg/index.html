@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>Javascript-ES6扩展写法 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="String 对象扩展 模版字符串 类似字符串的写法，用 &#96; 来包裹字符串，优点是可以不用反斜杠就能在代码中多行编辑。对于模版字符串来说，反引号内任何空格、换行符都不会被省略。并且可以使用占位变量的写法： 123456789const value &#x3D; 114514&#x2F;&#x2F; 传统派写法const str &#x3D; &quot;第一行\n\第二行:&quot;&#x2F;&#x2F; 模版字符串写法明显简洁const str2 &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript-ES6扩展写法">
+<meta property="og:url" content="https://ccccooh.github.io/demo/d0p0ehmg/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="String 对象扩展 模版字符串 类似字符串的写法，用 &#96; 来包裹字符串，优点是可以不用反斜杠就能在代码中多行编辑。对于模版字符串来说，反引号内任何空格、换行符都不会被省略。并且可以使用占位变量的写法： 123456789const value &#x3D; 114514&#x2F;&#x2F; 传统派写法const str &#x3D; &quot;第一行\n\第二行:&quot;&#x2F;&#x2F; 模版字符串写法明显简洁const str2 &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/JavascriptES61.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/r6gn3x.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/lqojas.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/8ko39p.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/es7lau.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-01-17%2003.03.13.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/x5s0fj.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/rrlppr.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/18yk6f.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/fmqy79.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/oypgft.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/dejd5y.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/7ftkpl.png">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/ecww34.png">
+<meta property="article:published_time" content="2025-02-23T13:35:52.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.753Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/JavascriptES61.png">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/JavaScript/">JavaScript</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-02-23T13:35:52+00:00">
+      February 23, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">Javascript-ES6扩展写法</h1>
+  </div>
+
+  <div class="content">
+    <h2 id="string-对象扩展">String 对象扩展</h2>
+<h3 id="模版字符串">模版字符串</h3>
+<p>类似字符串的写法，用 `
+来包裹字符串，优点是可以不用反斜杠就能在代码中多行编辑。对于模版字符串来说，反引号内任何空格、换行符都不会被省略。并且可以使用占位变量的写法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> value = <span class="number">114514</span></span><br><span class="line"><span class="comment">// 传统派写法</span></span><br><span class="line"><span class="keyword">const</span> str = <span class="string">&quot;第一行\n\</span></span><br><span class="line"><span class="string">第二行:&quot;</span></span><br><span class="line"><span class="comment">// 模版字符串写法明显简洁</span></span><br><span class="line"><span class="keyword">const</span> str2 = <span class="string">`第一行</span></span><br><span class="line"><span class="string">第二行:<span class="subst">$&#123;value&#125;</span>`</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str, value, <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str2)</span><br></pre></td></tr></table></figure>
+<p><strong>输出</strong>：</p>
+<p><img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/JavascriptES61.png" alt="截屏2024-12-23 00.19.17" style="zoom: 67%;" /></p>
+<h3 id="indexof-与-lastindexof">indexOf() 与 lastIndexOf()</h3>
+<h4 id="indexof">indexOf()</h4>
+<p>使用格式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.<span class="title function_">indexOf</span>(searchString, position)</span><br></pre></td></tr></table></figure>
+<p>该方法用于返回搜索字符串的索引位置，<code>positoin</code>为可选参数（起始位置），也就是从头开始寻找。下面是代码实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;HelloJavaScript&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;a 首次出现的位置：&#x27;</span>, str.<span class="title function_">indexOf</span>(<span class="string">&#x27;a&#x27;</span>))</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;a 第二次出现的位置：&#x27;</span>, str.<span class="title function_">indexOf</span>(<span class="string">&#x27;a&#x27;</span>, <span class="number">7</span>))</span><br></pre></td></tr></table></figure>
+<p><strong>输出</strong>：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/JavaScriptES62.png"
+alt="输出结果" />
+<figcaption aria-hidden="true">输出结果</figcaption>
+</figure>
+<h4 id="lastindexof">lastIndexOf()</h4>
+<p>如果说<code>indexOf()</code>是从左往右在字符串中寻找目标，那么<code>lastIndexOf()</code>就是从右往左，也就是从后面往前找。使用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.<span class="title function_">lastIndexOf</span>(searchString, position)</span><br></pre></td></tr></table></figure>
+<p>与之对应的，<code>position</code>是可选参数（起始位置），默认从最后开始寻找。</p>
+<h3 id="includes">includes()</h3>
+<p>该方法用于判断某字符串是否“包含”在内，如果存在则返回<code>true</code>否则<code>false</code>。功能和正则表达式的<code>test()</code>方法一致，区别在于可以指定查找开始的索引位置。<code>test()</code>方法做不到这一点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.<span class="title function_">includes</span>(searchString, position)</span><br></pre></td></tr></table></figure>
+<p>演示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;HelloJavaScript&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;str 字符串中是否存在 Java：&#x27;</span>, str.<span class="title function_">includes</span>(<span class="string">&#x27;Java&#x27;</span>))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure>
+<img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/r6gn3x.png"
+alt="输出" />
+<figcaption aria-hidden="true">输出</figcaption>
+</figure>
+<h3 id="startswith-与-endswith">startsWith() 与 endsWith()</h3>
+<p><code>startsWith()</code>用于判读字符串的开头是否是某个字符串，<code>endsWith()</code>方法用于判断末尾是否是某个字符结尾，返回<code>true</code>或者<code>false</code>。</p>
+<p>实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;LanQiao Courses&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;str 字符串中是否存在 Java：&#x27;</span>, str.<span class="title function_">includes</span>(<span class="string">&#x27;Java&#x27;</span>))</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;str 字符串的开头是否存在字符 Lan：&#x27;</span>, str.<span class="title function_">startsWith</span>(<span class="string">&#x27;Lan&#x27;</span>))</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;str 字符串的结尾是否存在字符 Course：&#x27;</span>, str.<span class="title function_">endsWith</span>(<span class="string">&#x27;Course&#x27;</span>))</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/lqojas.png"
+alt="输出" />
+<figcaption aria-hidden="true">输出</figcaption>
+</figure>
+<h3 id="总结">总结</h3>
+<p><code>String</code>类在<code>ES6</code>中有如下扩展方法：</p>
+<ul>
+<li><code>indexOf()</code> &amp;
+<code>lastIndexOf()</code>：从某个位置左往右或从右往左查找字串索引。</li>
+<li><code>startsWith()</code> &amp;
+<code>endsWith()</code>：查找是否以某个字符串开头或结尾。</li>
+<li><code>Includes()</code>：从某个位置开始，判断字符串是否为子串。</li>
+</ul>
+<h2 id="array-对象扩展">Array 对象扩展</h2>
+<h3 id="扩展运算符">扩展运算符</h3>
+<p>使用<code>...</code>在一个数组对象的前面，可以将这个数组的拆开后均摊出来，使用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> variableName = [...value]</span><br></pre></td></tr></table></figure>
+<p><code>value</code>是一个数组，使用<code>...</code>可以将它拆开后摊到数组中，于是乎<code>variableName</code>变成了数组。</p>
+<p>使用实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> animals = [<span class="string">&#x27;兔子🐰&#x27;</span>, <span class="string">&#x27;猫咪🐱&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> zoo = [...animals, <span class="string">&#x27;老虎🐯&#x27;</span>, <span class="string">&#x27;乌龟🐢&#x27;</span>, <span class="string">&#x27;鱼🐟&#x27;</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(zoo)</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure>
+<img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/8ko39p.png"
+alt="图片描述" />
+<figcaption aria-hidden="true">图片描述</figcaption>
+</figure>
+<h3 id="array.of">Array.of()</h3>
+<p>该方法用于创建一个数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Array</span>.<span class="title function_">of</span>(元素<span class="number">0</span>, 元素<span class="number">1</span>, <span class="comment">/* ... */</span>, 元素N)</span><br></pre></td></tr></table></figure>
+<p>返回一个数组，和正常创建的数组一样。</p>
+<h3 id="array.from">Array.from()</h3>
+<p>该方法可以将一个特定格式的对象(甚至是更多数据结构的可迭代器)转换成数组作为返回值，第二个可选参数是类似<code>Array.prototype.map()</code>方法的函数，可以对数组迭代一遍进行改造：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cosnt arr = <span class="title class_">Array</span>.<span class="title function_">from</span>(待转换的对象, <span class="title function_">mapFn</span>());</span><br></pre></td></tr></table></figure>
+<p>被转换的对象需要如下格式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arrLike = &#123; <span class="number">0</span>: <span class="string">&#x27;🍎&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;🍐&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;🍊&#x27;</span>, <span class="number">3</span>: <span class="string">&#x27;🍇&#x27;</span>, <span class="attr">length</span>: <span class="number">4</span> &#125;</span><br><span class="line"><span class="keyword">const</span> arr = <span class="title class_">Array</span>.<span class="title function_">from</span>(arrLike)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure>
+<img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/es7lau.png"
+alt="图片描述" />
+<figcaption aria-hidden="true">图片描述</figcaption>
+</figure>
+<blockquote>
+<p>关于<code>Arrray.from()</code>更加详细的使用建议参考MDN:</p>
+<ul>
+<li>https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from</li>
+</ul>
+</blockquote>
+<p>熟练掌握后就能写出下方图片中两种很高效的数组创建写法：</p>
+<p><img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-01-17%2003.03.13.png" alt="截屏2025-01-17 03.03.13" style="zoom:50%;" /></p>
+<h3 id="indexof-和-lastindexof">indexOf() 和 lastIndexOf()</h3>
+<p>使用方法和字符串的查找字串返回索引一样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="title function_">indexOf</span>(searchElement, fromIndex)</span><br><span class="line">arr.<span class="title function_">lastIndexOf</span>(searchElement, fromIndex)</span><br></pre></td></tr></table></figure>
+<p>需要说明的是，前者是从前往后，后者是从后往前查找返回找到的索引，如果没有返回<code>-1</code>。</p>
+<h3 id="find-和-findlast">find() 和 findLast()</h3>
+<p>该方法不同于<code>indexOf()</code>的地方在于，可以寻找第一个满足构造方法中条件的值。如果查找失败返回<code>undefined</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="title function_">find</span>(callbackFn, thisArg)</span><br><span class="line">arr.<span class="title function_">findLast</span>(callbackFn, thisArg)</span><br></pre></td></tr></table></figure>
+<p>使用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">const</span> result = arr.<span class="title function_">find</span>(<span class="keyword">function</span> (<span class="params">value</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> value &gt; <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;find() 的结果：&#x27;</span>, result)</span><br></pre></td></tr></table></figure>
+<p><code>findLast</code>方法是从后往前找。</p>
+<h3 id="findindex-和-findlastindex">findIndex() 和 findLastIndex()</h3>
+<p>这两个方法用于查找满足构造函数的值在数组中的索引。匹配失败返回-1。</p>
+<p>使用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="title function_">findIndex</span>(callbackFn, thisArg)</span><br><span class="line">arr.<span class="title function_">findLastIndex</span>(callbackFn, thisArg)</span><br></pre></td></tr></table></figure>
+<p>对于<code>callbackFn</code>可以按顺序传入下面的参数：</p>
+<ul>
+<li><code>element</code>，数组中元素迭代的值。</li>
+<li><code>index</code>，迭代值的数组下标。</li>
+<li><code>array</code>，被操作数组。</li>
+</ul>
+<p>实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;小猫&#x27;</span>, <span class="string">&#x27;兔子&#x27;</span>, <span class="string">&#x27;小狗&#x27;</span>, <span class="string">&#x27;兔子&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> result = arr.<span class="title function_">findIndex</span>(<span class="keyword">function</span> (<span class="params">value</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> value == <span class="string">&#x27;兔子&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;findIndex() 的结果：&#x27;</span>, result)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure>
+<img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/x5s0fj.png"
+alt="图片描述" />
+<figcaption aria-hidden="true">图片描述</figcaption>
+</figure>
+<h3 id="includes-1">includes()</h3>
+<p>该方法判断数组中是否有某个元素，返回布尔值。和字符串中的<code>includes()</code>方法一样。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="title function_">includes</span>(searchElement, fromIndex)</span><br></pre></td></tr></table></figure>
+<h3 id="some">some()</h3>
+<p>该方法用于判断数组中是否有满足某个条件的值，返回布尔值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="title function_">some</span>(callbackFn, thisArg)</span><br></pre></td></tr></table></figure>
+<p>回调函数的参数也是按照<code>element</code>、<code>index</code>、<code>array</code>的顺序可选传入的。</p>
+<p>实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">const</span> result = arr.<span class="title function_">some</span>(<span class="keyword">function</span> (<span class="params">value</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> value &gt; <span class="number">3</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;存在大于 3 的元素？&#x27;</span>, result)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure>
+<img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/rrlppr.png"
+alt="图片描述" />
+<figcaption aria-hidden="true">图片描述</figcaption>
+</figure>
+<h3 id="every">every()</h3>
+<p>判断数组中所有的元素是否满足某个条件。参数中<code>callbackFn</code>的使用方法和之前一致，不多赘述。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="title function_">every</span>(callbackFn, thisArg)</span><br></pre></td></tr></table></figure>
+<p>参考实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">const</span> result = arr.<span class="title function_">every</span>(<span class="keyword">function</span> (<span class="params">value</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> value &gt; <span class="number">3</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;所有元素均大于 3 ？&#x27;</span>, result)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure>
+<img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/18yk6f.png"
+alt="图片描述" />
+<figcaption aria-hidden="true">图片描述</figcaption>
+</figure>
+<h3 id="sort">sort()</h3>
+<p>对数组进行排序：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="title function_">sort</span>(compareFn)</span><br></pre></td></tr></table></figure>
+<p>实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">1</span>]</span><br><span class="line"><span class="keyword">const</span> result = arr.<span class="title function_">sort</span>(<span class="keyword">function</span> (<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> a - b</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result)</span><br></pre></td></tr></table></figure>
+<p>对于迭代器中传入的<code>a</code>和<code>b</code>有如下解释，如果返回值为负值表示<code>a</code>在<code>b</code>前，正值表示<code>a</code>在<code>b</code>后，0位置不变。</p>
+<h3 id="reserve">reserve()</h3>
+<p>该方法可以反转数组。使用格式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="title function_">reverse</span>();</span><br></pre></td></tr></table></figure>
+<p>实例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const arr = [&#x27;一&#x27;, &#x27;二&#x27;, &#x27;三&#x27;, &#x27;四&#x27;]</span><br><span class="line">arr.reverse()</span><br><span class="line">console.log(arr)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure>
+<img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/fmqy79.png"
+alt="图片描述" />
+<figcaption aria-hidden="true">图片描述</figcaption>
+</figure>
+<h3 id="fill">fill()</h3>
+<p>该方法用于指定一个值对数组进行切片填充。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.<span class="title function_">fill</span>(value, start, end);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果不指定<code>start</code>和<code>end</code>，默认填充整个数组。</p>
+</blockquote>
+<p>参考：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;🐱&#x27;</span>, <span class="string">&#x27;🐶&#x27;</span>, <span class="string">&#x27;🐰&#x27;</span>]</span><br><span class="line">arr.<span class="title function_">fill</span>(<span class="string">&#x27;🐷&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure>
+<img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/oypgft.png"
+alt="图片描述" />
+<figcaption aria-hidden="true">图片描述</figcaption>
+</figure>
+<h3 id="map">map()</h3>
+<p>该方法可以对数组中的所有元素进行操作后返回成一个新的数组。回调函数的参数表和上方一致。</p>
+<p>使用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="title function_">map</span>(callbackFn, thisArg)</span><br></pre></td></tr></table></figure>
+<p>参考：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>]</span><br><span class="line"><span class="keyword">const</span> result = arr.<span class="title function_">map</span>(<span class="keyword">function</span> (<span class="params">x</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> x * <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure>
+<img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/dejd5y.png"
+alt="图片描述" />
+<figcaption aria-hidden="true">图片描述</figcaption>
+</figure>
+<h3 id="reduce-和-reduceright">reduce() 和 reduceRight()</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="title function_">reduce</span>(callbackFn, initialValue)</span><br><span class="line">arr.<span class="title function_">reduceRight</span>(callbackFn, initialValue)</span><br></pre></td></tr></table></figure>
+<p>该方法可以指定一个初始值，迭代数组后返回计算出来的最终值。</p>
+<p>实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">const</span> sum = arr.<span class="title function_">reduce</span>(<span class="keyword">function</span> (<span class="params">acc, cur</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> acc + cur</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sum) <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+<p>比如这段代码，指定了初始值为0，每次迭代将这个值加上迭代的元素，最终得到求和的值返回赋给<code>sum</code>。</p>
+<p>输出:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10</span><br></pre></td></tr></table></figure>
+<h3 id="splice">splice()</h3>
+<p>首先来看一下<a
+target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">MDN官方的接口文档</a>是怎么写的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">splice</span>(start)</span><br><span class="line"><span class="title function_">splice</span>(start, deleteCount)</span><br><span class="line"><span class="title function_">splice</span>(start, deleteCount, item1)</span><br><span class="line"><span class="title function_">splice</span>(start, deleteCount, item1, item2)</span><br><span class="line"><span class="title function_">splice</span>(start, deleteCount, item1, item2, <span class="comment">/* …, */</span> itemN)</span><br></pre></td></tr></table></figure>
+<p>可见第一个参数是开始的位置，第二个参数是删除的数量，第三个参数开始全是删除后在该位置插入的元素，并且需要注意<strong>该方法会将删除的元素作为返回值返回，且直接操作于原数组</strong>。</p>
+<p>由此可见，<code>Array.prototype.splice()</code>接口可以胜任数组中子元素的删除、增加、替换等操作。具体实现方法请看官方文档，这里演示几个简单的操作：</p>
+<ul>
+<li><p>在索引<code>2</code>处移除<code>0</code>个元素，并插入<code>drum</code>：</p>
+<blockquote>
+<p>可以看到，最终在原来数组索引<code>2</code>元素<code>'mandarin</code>的前面插入了一个元素，使得新插入的元素索引为<code>2</code>，这个操作等价于<code>replace()</code></p>
+</blockquote></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const myFish = [&quot;angel&quot;, &quot;clown&quot;, &quot;mandarin&quot;, &quot;sturgeon&quot;];</span><br><span class="line">const removed = myFish.splice(2, 0, &quot;drum&quot;);</span><br><span class="line"></span><br><span class="line">// myFish 是 [&quot;angel&quot;, &quot;clown&quot;, &quot;drum&quot;, &quot;mandarin&quot;, &quot;sturgeon&quot;]</span><br><span class="line">// removed 是 []，没有移除的元素</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在索引<code>2</code>处移除一个元素：</li>
+</ul>
+<blockquote>
+<p>如果需要更强大的移除操作，使用<code>Array.prototype.filter()</code>才是上上策。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myFish = [<span class="string">&quot;angel&quot;</span>, <span class="string">&quot;clown&quot;</span>, <span class="string">&quot;mandarin&quot;</span>, <span class="string">&quot;sturgeon&quot;</span>];</span><br><span class="line"><span class="keyword">const</span> removed = myFish.<span class="title function_">splice</span>(<span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// myFish 是 [&quot;angel&quot;, &quot;clown&quot;, &quot;sturgeon&quot;];</span></span><br><span class="line"><span class="comment">// removed 是 [&quot;mandarin&quot;]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在索引<code>2</code>处移除<code>0</code>个元素，并插入”parrot”，“anemone”和”blue”：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myFish = [<span class="string">&quot;angel&quot;</span>, <span class="string">&quot;clown&quot;</span>, <span class="string">&quot;trumpet&quot;</span>, <span class="string">&quot;sturgeon&quot;</span>];</span><br><span class="line"><span class="keyword">const</span> removed = myFish.<span class="title function_">splice</span>(<span class="number">0</span>, <span class="number">2</span>, <span class="string">&quot;parrot&quot;</span>, <span class="string">&quot;anemone&quot;</span>, <span class="string">&quot;blue&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// myFish 是 [&quot;parrot&quot;, &quot;anemone&quot;, &quot;blue&quot;, &quot;trumpet&quot;, &quot;sturgeon&quot;]</span></span><br><span class="line"><span class="comment">// removed 是 [&quot;angel&quot;, &quot;clown&quot;]</span></span><br></pre></td></tr></table></figure>
+<h3 id="entrieskeysvalues">entries()、keys()、values()</h3>
+<p>使用<code>arr.entries()</code>可以得到包含<code>arr</code>键值对的二维数组。使用<code>keys()</code>可以得到一个包含键的数组，<code>values()</code>得到一个包含所有值的数组。利用这三个数组可以进行针对性的迭代。</p>
+<p>特别的，直接输出<code>entries()</code>得到的是一个迭代器，不过你可以直接将它使用扩展运算符均摊到数组中查看。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;🐱&#x27;</span>, <span class="string">&#x27;🐶&#x27;</span>, <span class="string">&#x27;🐰&#x27;</span>, <span class="string">&#x27;🐍&#x27;</span>, <span class="string">&#x27;🐦&#x27;</span>, <span class="string">&#x27;🐟&#x27;</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">entries</span>())</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Array Iterator &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>使用扩展运算符：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;🐱&#x27;</span>, <span class="string">&#x27;🐶&#x27;</span>, <span class="string">&#x27;🐰&#x27;</span>, <span class="string">&#x27;🐍&#x27;</span>, <span class="string">&#x27;🐦&#x27;</span>, <span class="string">&#x27;🐟&#x27;</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([...arr.<span class="title function_">entries</span>()])</span><br></pre></td></tr></table></figure>
+<p>得到结果：</p>
+<figure>
+<img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/7ftkpl.png"
+alt="图片描述" />
+<figcaption aria-hidden="true">图片描述</figcaption>
+</figure>
+<p>还可以使用<code>for ... of</code>进行迭代：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;🐱&#x27;</span>, <span class="string">&#x27;🐶&#x27;</span>, <span class="string">&#x27;🐰&#x27;</span>, <span class="string">&#x27;🐍&#x27;</span>, <span class="string">&#x27;🐦&#x27;</span>, <span class="string">&#x27;🐟&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> arr.<span class="title function_">entries</span>()) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(item)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/ecww34.png"
+alt="图片描述" />
+<figcaption aria-hidden="true">图片描述</figcaption>
+</figure>
+<h3 id="总结-1">总结</h3>
+<ul>
+<li>扩展运算符</li>
+<li>两种创建数组的方法：
+<ul>
+<li><code>Array.of()</code> 方法：将一组指定的值转换为数组。</li>
+<li><code>Array.from()</code>
+方法：将类数组对象或者可迭代对象转换为数组。</li>
+</ul></li>
+<li>六种数组查找方法：
+<ul>
+<li><code>indexOf()</code>、<code>lastIndexOf()</code>
+方法：查找指定元素的下标值。</li>
+<li><code>find()</code>、<code>findLast()</code>
+方法：返回数组中满足指定条件的元素的值，未找到则返回
+<code>undefined</code>。</li>
+<li><code>findIndex()</code>、<code>findLastIndex()</code>
+方法：返回数组中满足指定条件的元素的索引，未找到则返回
+<code>-1</code>。</li>
+</ul></li>
+<li>三种数组测试方法：
+<ul>
+<li><code>includes()</code> 方法：判断数组中是否包含某个元素。</li>
+<li><code>some()</code>
+方法：测试数组中是否存在至少一个元素满足特定要求。</li>
+<li><code>every()</code>
+方法：测试数组中是否所有的元素均满足特定要求。</li>
+</ul></li>
+<li>数组实例的其他方法：
+<ul>
+<li><code>sort()</code> 方法：给数组中的元素进行排序。</li>
+<li><code>reverse()</code> 方法：将数组中的元素进行逆序排列。</li>
+<li><code>fill()</code>
+方法：用一个固定值去填充数组中指定索引位置的数组值。</li>
+<li><code>map()</code>
+方法：对数组中的每个元素执行一次回调函数，返回由执行结果构成的新数组。</li>
+<li><code>reduce()</code>、<code>reduceRight()</code>
+方法：依次对数组的每个元素执行回调函数，并传入前一次执行的返回值。</li>
+<li><code>entries()</code>、<code>keys()</code>、<code>values()</code>
+方法：返回一个数组迭代器对象。</li>
+</ul></li>
+</ul>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/5zki1i9m/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">JavaScript如何实现类型判断？</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/k2rykkmj/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">ES6异步编程中Promise与Proxy对象</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

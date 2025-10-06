@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>ES6-Set-Map对象小记 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="Set 对象 添加元素 1set.add(value) 常用方法    方法 描述     has() 判断 Set 对象中特定元素是否存在   delete() 从 Set 对象中删除指定元素   clear() 清空 Set 对象    遍历方法 很容易想到使用set.forEach(callBackFn, thisArg)方法来进行遍历，其中callBackFn回调的形式如下： 123456">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6-Set-Map对象小记">
+<meta property="og:url" content="https://ccccooh.github.io/demo/ab006aq5/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="Set 对象 添加元素 1set.add(value) 常用方法    方法 描述     has() 判断 Set 对象中特定元素是否存在   delete() 从 Set 对象中删除指定元素   clear() 清空 Set 对象    遍历方法 很容易想到使用set.forEach(callBackFn, thisArg)方法来进行遍历，其中callBackFn回调的形式如下： 123456">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-23T13:35:39.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.752Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/JavaScript/">JavaScript</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-02-23T13:35:39+00:00">
+      February 23, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">ES6-Set-Map对象小记</h1>
+  </div>
+
+  <div class="content">
+    <h1 id="set-对象">Set 对象</h1>
+<h2 id="添加元素">添加元素</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set.<span class="title function_">add</span>(value)</span><br></pre></td></tr></table></figure>
+<h2 id="常用方法">常用方法</h2>
+<table>
+<thead>
+<tr class="header">
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>has()</code></td>
+<td>判断 <code>Set</code> 对象中特定元素是否存在</td>
+</tr>
+<tr class="even">
+<td><code>delete()</code></td>
+<td>从 <code>Set</code> 对象中删除指定元素</td>
+</tr>
+<tr class="odd">
+<td><code>clear()</code></td>
+<td>清空 <code>Set</code> 对象</td>
+</tr>
+</tbody>
+</table>
+<h2 id="遍历方法">遍历方法</h2>
+<p>很容易想到使用<code>set.forEach(callBackFn, thisArg)</code>方法来进行遍历，其中<code>callBackFn</code>回调的形式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">set.<span class="title function_">forEach</span>(<span class="keyword">function</span> (<span class="params">value, key, set</span>) &#123;</span><br><span class="line">  <span class="comment">// value为set中的元素值</span></span><br><span class="line">  <span class="comment">// key与value相同</span></span><br><span class="line">  <span class="comment">// set对象本身</span></span><br><span class="line">&#125;, thisArg)</span><br><span class="line"><span class="comment">//  thisArg 为this对象，为可选参数</span></span><br></pre></td></tr></table></figure>
+<p>回调的参数依次为:</p>
+<ul>
+<li><strong>value</strong></li>
+<li><strong>key</strong></li>
+<li><strong>set</strong></li>
+</ul>
+<blockquote>
+<p>其中，为了和其他有<code>key</code>的对象保持一致，这里使用的<code>value</code>占位了第二个参数，所以<code>key</code>就是<code>value</code>的值。</p>
+</blockquote>
+<h1 id="map-对象">Map 对象</h1>
+<h2 id="创建方法">创建方法</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码：</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Map</span>()</span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Map</span>(可迭代对象)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实际代码的演示：</span></span><br><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="title class_">Map</span>([[<span class="string">&#x27;book&#x27;</span>, <span class="number">3</span>], [<span class="string">&#x27;pen&#x27;</span>, <span class="number">5</span>]])</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(map)</span><br></pre></td></tr></table></figure>
+<p>通常会传入一个二维数组作为可迭代对象，每个一位数组都是一个两元素的小数组，作为可迭代对象的键值对。</p>
+<h2 id="添加元素-1">添加元素</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line">map.<span class="title function_">set</span>(键, 值);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实际代码的演示：</span></span><br><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="title class_">Map</span>()</span><br><span class="line">map.<span class="title function_">set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="string">&#x27;书籍&#x27;</span>)</span><br><span class="line">map.<span class="title function_">set</span>(<span class="literal">false</span>, <span class="string">&#x27;日用品&#x27;</span>)</span><br><span class="line">map.<span class="title function_">set</span>(<span class="number">3</span>, <span class="string">&#x27;化妆品&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(map)</span><br></pre></td></tr></table></figure>
+<h2 id="获取元素">获取元素</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码：</span></span><br><span class="line">map.<span class="title function_">get</span>(key)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实际演示：</span></span><br><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="title class_">Map</span>()</span><br><span class="line">map.<span class="title function_">set</span>(<span class="literal">false</span>, <span class="string">&#x27;日用品&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(map)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> item = map.<span class="title function_">get</span>(<span class="literal">false</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(item)</span><br></pre></td></tr></table></figure>
+<h2 id="常用方法-1">常用方法</h2>
+<table>
+<thead>
+<tr class="header">
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>has()</code></td>
+<td>判断 <code>Map</code> 对象中指定键对应的条目是否存在</td>
+</tr>
+<tr class="even">
+<td><code>delete()</code></td>
+<td>从 <code>Map</code> 对象中删除指定键对应的条目</td>
+</tr>
+<tr class="odd">
+<td><code>clear()</code></td>
+<td>清空 <code>Map</code> 对象</td>
+</tr>
+</tbody>
+</table>
+<p>对应的实例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> bookstore = <span class="keyword">new</span> <span class="title class_">Map</span>()</span><br><span class="line">bookstore.<span class="title function_">set</span>(<span class="string">&#x27;《活着》&#x27;</span>, <span class="string">&#x27;余华&#x27;</span>)</span><br><span class="line">bookstore.<span class="title function_">set</span>(<span class="string">&#x27;《平凡的世界》&#x27;</span>, <span class="string">&#x27;路遥&#x27;</span>)</span><br><span class="line">bookstore.<span class="title function_">set</span>(<span class="string">&#x27;《三体》&#x27;</span>, <span class="string">&#x27;刘欣慈&#x27;</span>)</span><br><span class="line">bookstore.<span class="title function_">set</span>(<span class="string">&#x27;《猫和老鼠》&#x27;</span>, <span class="string">&#x27;电影&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;《活着》是否存在：&#x27;</span>, bookstore.<span class="title function_">has</span>(<span class="string">&#x27;《活着》&#x27;</span>))</span><br><span class="line"></span><br><span class="line">bookstore.<span class="title function_">delete</span>(<span class="string">&#x27;《猫和老鼠》&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;《猫和老鼠》是否存在：&#x27;</span>, bookstore.<span class="title function_">has</span>(<span class="string">&#x27;《猫和老鼠》&#x27;</span>))</span><br><span class="line"></span><br><span class="line">bookstore.<span class="title function_">clear</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(bookstore)</span><br></pre></td></tr></table></figure>
+<h2 id="遍历方法-1">遍历方法</h2>
+<p>其中<code>callBackFn</code>回调中的参数依次为<code>value</code>,<code>key</code>,<code>map自身</code>，可以看得出来，<code>ES6</code>在<code>forEach</code>方法参数上的统一性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码：</span></span><br><span class="line">map.<span class="title function_">forEach</span>(callbackFn, thisArg)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参考示例：</span></span><br><span class="line"><span class="keyword">const</span> userName = <span class="keyword">new</span> <span class="title class_">Map</span>([[<span class="number">1</span>, <span class="string">&#x27;小红&#x27;</span>], [<span class="number">2</span>, <span class="string">&#x27;小蓝&#x27;</span>], [<span class="number">3</span>, <span class="string">&#x27;小白&#x27;</span>]])</span><br><span class="line">userName.<span class="title function_">forEach</span>(<span class="keyword">function</span> (<span class="params">value, key</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;当前条目的键为：&#x27;</span>, key)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;当前条目的值为：&#x27;</span>, value)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="结语">结语</h1>
+<p>实际上，还有<code>weakSet</code>和<code>weakMap</code>这两种垃圾回收机制更强的弱引用<code>Set</code>和<code>Map</code>，本文不再展开。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/k2rykkmj/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">ES6异步编程中Promise与Proxy对象</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/nxyiresv/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">ES6函数、对象和面向对象扩展</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

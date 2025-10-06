@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>Hexo多端部署终极方案 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="在经历了半个寒假后，我再次折腾并最部署明白了Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo多端部署终极方案">
+<meta property="og:url" content="https://ccccooh.github.io/2025/02/12/%E5%8D%9A%E5%AE%A2/Hexo%E5%A4%9A%E7%AB%AF%E9%83%A8%E7%BD%B2%E7%BB%88%E6%9E%81%E6%96%B9%E6%A1%88%EF%BC%81/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="在经历了半个寒假后，我再次折腾并最部署明白了Hexo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-12T04:16:40.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.754Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="其他">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+
+    
+    <time class="date" datetime="2025-02-12T04:16:40+00:00">
+      February 12, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">Hexo多端部署终极方案</h1>
+  </div>
+
+  <div class="content">
+    <h2 id="一故事背景">一、故事背景</h2>
+<p>故事发生在大学上学期间（而不是寒假）。上学期间，宿舍条件极其恶劣，半夜断电、空间狭小。我们大学垃圾条件使用游戏本的种种弊端被无限放大：游戏本电源适配器极其臃肿，不插电的情况续航堪忧（难以超过两个小时），并且由于其结构上的臃肿，在狭小的宿舍空间每次移动、打开犹如小平房开拖拉机。</p>
+<p>将游戏本带去图书馆学习就更是天方夜谭，在此之前我也买了一个MatePad的平板，但是平板的使用场景对一个计科学生来说也实在有限。</p>
+<p>于是，我用在学校做临时监考工作挣的钱入了一台MacBookAir（二手只要3k左右）。与此同时，我也预知了我即将支付不起博客网站巨额服务器费用的未来，未雨绸缪将博客迁移到了Hexo框架上，从此再无数据担忧。</p>
+<p>我在我的MacBook上第一次部署了Hexo框架，并且由于在学校的主力机是Mac，从来没有想过在我的游戏本（也就是Windows系统）上部署Hexo框架会怎样。或者说，我从来没有考虑过移植的问题。</p>
+<p>事情的转机从我的寒假生活开始。寒假回到家中，我的ROG魔霸新锐2023游戏本再次启动（没错我就是故意写全了得瑟的😁）。之前的缺点（笨重、移动续航堪忧）瞬间不再是缺点！在家里我的游戏本也是直接化身游戏主机站桩输出，不再需要频繁移动使用。于是我将可怜的MacBook抛到一边，低刷低配的低能MacOS一边去，Windows万岁。</p>
+<p>直到一段时间后我又开始写Hexo博客，习惯了Wordpress网页端后台直接书写博客的我一时间竟不知道如何在我的Windows上写博客。我看了几篇博客：<a
+target="_blank" rel="noopener" href="https://blog.trotyl.xyz/post/61834/">Hexo从Mac到Windows</a>。我本来以为这样就能解决了，抄作业嘛多简单~</p>
+<p>结果就是，我看了好几篇类似的Mac迁移Hexo到Windows的博客，在我的电脑上按照相同的步骤最终都会在同一个步骤报错。报错！报错！还是报错。</p>
+<p>尝试过和人机ChatGPT老师交流，无果ed。</p>
+<p>谁知这事儿就这样撂下了，我也懒得研究了，几乎有半个寒假，我每次想在我的<code>shenying.online</code>上发布博客都是将阵地转移到Mac上操作。就这么麻烦的事儿我干了一个寒假，就因为跟着上面说的博客做爆了错没有成功移植（要知道我寒假主力机一直是Windows的ROG，你可以想象我正在用windows写Markdown格式的博客，但是到了发布到Gitpage的时候却不得不打开Mac再复制过去发布一遍）。</p>
+<p>直到2月12日事情才迎来了转机，我实在无法忍受这种写博客的割裂感了！我要像Hexo(骇客)一样写博客！我不能忘记老祖宗传下来的编程教养：优雅。这么粗鲁的事情不能再干下去了，一点儿也不Hexo。</p>
+<p>接下来就是我自己弄懂的Heox博客部署原理以及多端部署的核心思路。</p>
+<h2 id="二hexo-文件结构解读">二、Hexo 文件结构解读</h2>
+<p>想知道Hexo如何多端部署，先要知道Hexo是怎么工作的。首先我们来看看Hexo框架的文件结构：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202502121242478.png"
+alt="image-20250212124219664" />
+<figcaption aria-hidden="true">image-20250212124219664</figcaption>
+</figure>
+<p>看好了，别眨眼。这里的<code>node_modules</code>是node的用到的库，系统会根据你安装的主题啊之类的自定义自动生成，不用太关注他（意思是弄丢了也没事儿，毕竟不是核心数据）。</p>
+<p><code>public</code>是你用<code>hexo g</code>后生成的静态文件。相应的<code>hexo clean</code>会删除他。</p>
+<p><code>scaffolds</code>也是Hexo初始化会自动生成的默认文件，你写文章不会影响里面的文件所以不用管他。</p>
+<p><code>source</code>就非常重要了，我们重点来看一下。可以看到，里面存放的是最核心的文件，也就是博客网站的生命，博客文章的.md格式文件，草稿，还有一些主题生成的文件，这里以我常用的主题redefine为例，个别文件可能不一样。</p>
+<p><code>themes</code>文件夹里没什么重要的文件，不用管。</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202502121248329.png"
+alt="image-20250212124812396" />
+<figcaption aria-hidden="true">image-20250212124812396</figcaption>
+</figure>
+<p>这里就要谈一下Hexo的工作机制了，Hexo本质上还是类似Vue脚手架那一套的前端框架。你可以理解为你在本地编写了source中的文件，这时候你想要发布到网页上去，Hexo就会帮你项目打包到public文件夹中并成为一个静态的前端项目，然后将public文件夹中的文件部署到Gitpage。</p>
+<p>发现没有，这里的<code>public</code>的功能很像你写一个程序，编译成了exe。你把exe发送给别人让别人直接执行。</p>
+<p>并且这里的<code>source</code>相当于是你的元数据，类似于数据库一样至关重要的存在。</p>
+<p>接着说说这里的<code>_config.yml</code>，这是你的网站的一些配置，也就是个性化的自定义文件。如果你使用的主题，就会有主题对应的<code>_config.yml</code>来配置你的主题的一些个性化设置，例如这里有两个主题：<code>config.landscape.yml</code>和<code>config.redefine.ym</code>。</p>
+<p><code>package.json</code>中存放着你用npm下载的包的信息，你可以理解为npm是一个应用商店，这就是应用商店的应用列表。我看的教程中就是告诉我把原来电脑的<code>package.json</code>拷贝过来然后在根目录<code>npm install</code>。结果我按着操作，每次安装都会抱一堆警告和错误。</p>
+<p>所以，这个文件我们也不需要。</p>
+<h3 id="需要的文件">2.1 需要的文件</h3>
+<p>综上所述，我们其实只需要关注我们博客网站的核心文件即可，我建议将他们专门备份到一个代码仓库：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202502121257523.png"
+alt="image-20250212125723148" />
+<figcaption aria-hidden="true">image-20250212125723148</figcaption>
+</figure>
+<p>没错，就是他们。你看我多谨慎。想想如果我还在使用Wordpress博客来备份还需要备份什么数据库，如果用Hexo静态博客框架就只需要把你的文章的<code>.md</code>文件和站点配置文件<code>_config.yml</code>全塞进一个仓库就行了，多方便。</p>
+<blockquote>
+<p>当然还有一种更加优雅的方案：创建一个名为Hexo的分支，存放你的Heox本地配置文件。网上都能找到教程，<a
+target="_blank" rel="noopener" href="https://www.jianshu.com/p/7d8df0de1fc7">点我跳转到其中一篇</a>。</p>
+</blockquote>
+<p>由于Hexo会将source经过框架内部的处理和美化最终生成一个public部署到Gitpage，而public又是有别于source的。比如，<code>你好世界.md</code>这篇文章在<code>public</code>中找到后已经变成了<code>你好世界.html</code>了。所以Github的博客托管仓库中是没有我们的source的，也找不到那些文章的<code>.md</code>的markdown文件。它都变成<code>html</code>格式了，你还怎么玩？</p>
+<p>这些重要文件只会在你的本地计算机上，所以一定要自己及时备份起来以防后患（说不定哪天你的电脑就自己偷偷喝咖啡了呢~🔪）。</p>
+<p>完成这些文件的备份，工作就很机械了。我的终极完美适配的思路是：按照原来你部署的方式，老老实实地从零开始部署。冷静地打开你的主题的官方文档，老老实实地把主题包括每一个插件自己安装上。</p>
+<p>没错，你没有听错，终极的方案就是这么朴实无华。</p>
+<p>然后的然后，把<code>source</code>和<code>config</code>相关的文件一五一十的替换。在Gitpage或者说Github的博客托管仓库中创建一个新的Branch，BranchName（分支名）就见仁见智了，比如我在Windows写博客的时候，用windows这个branch。</p>
+<p>然后就是很是很重要的一点（我已经不知道说了多少个然后了，果然连接词还是得多学啊，Then，After
+that什么的，哈哈）。你最后总要<code>hexo d</code>然后把你的静态文件托管上去的吧，所以别傻傻的把<code>_config.yml</code>完全替换过去。你总得把里面的branch名字改成你新创建的branchName吧。</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202502121309870.png"
+alt="image-20250212130931767" />
+<figcaption aria-hidden="true">image-20250212130931767</figcaption>
+</figure>
+<h2 id="三协同方案分析">三、协同方案分析</h2>
+<p>完成了上述，你已经有一个专门分支了吧？我的建议是每个电脑一个分支。我来举个例子，比如你最新的进度是在Mac上写的，并且分支名是main（github由于种族问题已经将默认分支master改成了main了），这个时候你想在windows电脑上写一篇文章，然后你就写，写完之后<code>hexo clean</code>、<code>hexo g</code>、<code>hexo d</code>一步没落下，最终静态文件被托管到了branch
+<code>windows</code>下。</p>
+<p>这个时候你可能又回到了mac电脑上了，就需要同步一下博客的进度。所以你需要将<code>main</code>分支和<code>windows</code>分支同步即可。</p>
+<p>具体的，如果长期在windows上写博客，并且懒得更新原来的分支了，你可以在Gitpage将默认分支改为windows（非必需），将Gitpage的渲染的分支改为windows（必须）。</p>
+<p>这里可以使用本方案：</p>
+<blockquote>
+<p>语言很人机因为是问的ChatGPT，DeepSeek服务器太垃圾了。</p>
+</blockquote>
+<p>1.<strong>切换到 <code>main</code> 分支</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout main</span><br></pre></td></tr></table></figure>
+<p>2.<strong>拉取 <code>main</code> 分支的最新更新</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main</span><br></pre></td></tr></table></figure>
+<p>3.<strong>切换到 <code>wind</code> 分支</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout wind</span><br></pre></td></tr></table></figure>
+<p>4.<strong>将 <code>main</code> 的更新合并到
+<code>wind</code></strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge main</span><br></pre></td></tr></table></figure>
+<p>这样，<code>wind</code> 分支就会包含 <code>main</code>
+分支的最新内容。如果有冲突，你需要手动解决冲突。</p>
+<p>5.<strong>推送合并后的 <code>wind</code> 分支</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin wind</span><br></pre></td></tr></table></figure>
+<h2 id="四更新gitactions大法">四、【更新】GitActions大法</h2>
+<p>在评论区看到同学说<code>GitActions</code>大法，当时认为是Hugo的方法，并不以为意。直到最近在了解了Gitactions的工作原理后我才恍然大悟并将其奉为圭臬。误会这位同学了～</p>
+<p>具体的部署方法参考这位博主：</p>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://xulianjun.github.io/2024/09/08/Hexo%20+%20GitHub%20Action%EF%BC%8C%E9%9B%B6%E6%88%90%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">参考链接</a></p>
+</blockquote>
+<p>因为该博主的博客存在实效的可能，这里将关键信息copy过来以防万一。</p>
+<p>原理是利用Github提供的自动化服务（收费，每月2000分钟免费额度）。亲测每次部署30s左右，大概能使用400次。也就是满打满算能发布400次文章。这是最理想的情况，实际中可能因为文章修改等多种原因大打折扣。不过也是够用了。</p>
+<p>实际上该方法在每次更新的效率上来说和原本没有什么区别，甚至稍慢于<code>hexo</code>提供的推送方法。但由于其直接维护博客的源码，然后交给Github自动更新博客。</p>
+<p>真正做到了每次更新每次备份。否则你至少也需要一段时间进行手动备份，手动备份相对较为繁琐：拉去源码仓库，切换分支，推送。。。</p>
+<p>关键步骤：</p>
+<ul>
+<li><p>创建一个<code>Tokens</code>，将权限拉满。</p></li>
+<li><p>在<code>.github/workspace</code>下添加一个yml文件，编辑：</p></li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">Hexo</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">main</span>  <span class="comment"># 当推送到 main 分支时触发</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="string">repository</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">submodules:</span> <span class="literal">false</span>  <span class="comment"># 禁用子模块检查</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">Node.js</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;v20.17.0&#x27;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Hexo</span> <span class="string">Git</span> <span class="string">Deployer</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          npm install hexo-deployer-git --save</span></span><br><span class="line"><span class="string">          npm install hexo-cli -g</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Clean</span> <span class="string">and</span> <span class="string">Generate</span> <span class="string">Static</span> <span class="string">Files</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          hexo clean</span></span><br><span class="line"><span class="string">          hexo generate</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Configure</span> <span class="string">Git</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          git config --global user.name &#x27;github-actions[bot]&#x27;</span></span><br><span class="line"><span class="string">          git config --global user.email &#x27;github-actions[bot]@users.noreply.github.com&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          cd public/</span></span><br><span class="line"><span class="string">          git init</span></span><br><span class="line"><span class="string">          git add -A</span></span><br><span class="line"><span class="string">          git commit -m &quot;Create by workflows&quot;</span></span><br><span class="line"><span class="string">          git branch -M main</span></span><br><span class="line"><span class="string">          git remote add origin https://&#123;Token&#125;@github.com/&#123;user&#125;/&#123;repo&#125;.git    # 保存静态网页文件的公开仓</span></span><br><span class="line"><span class="string">          git push origin HEAD:main -f</span></span><br></pre></td></tr></table></figure>
+<p>注意将<code>&#123;Token&#125;</code>和<code>&#123;user&#125;</code>,<code>&#123;repo&#125;</code>替换成你的信息：</p>
+<ul>
+<li><strong>token</strong>为鉴权密钥</li>
+<li><strong>user</strong>为Github账户名</li>
+<li><strong>repo</strong>为仓库名</li>
+</ul>
+<h2 id="五更新vscode同步管理">五、【更新】VScode同步管理</h2>
+<h3 id="前言">5.1 前言</h3>
+<p>最近发现其实可以完全抛弃Typora，拥抱VScode。
+在VScode中我们可以安装一个<code>MarkdownAllInOne</code>插件： <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/Screenshot%202025-02-19%20094137.png" />
+使用该插件后基本实现了和Typora相同的效果，甚至还要更加高效。
+主要体现在两点，首先是Typora性能泰拉跨了，Typora的底层实现居然是前端三件套你敢信。离谱的是，只要随便改写一下<code>license</code>的js文件的<code>hasActived</code>代码就能直接破解。基本没有任何用户防御性可言。</p>
+<blockquote>
+<p>感慨这一一点也是因为最近在写我的Vue3笔记时，由于字数来到了1万以上，导致Typora输入中文时经常产生滞后我才发现这么明显的。</p>
+</blockquote>
+<p>之前一直觉得Typora是个付费软件很香，真正用了之后发现其实也就那么回事。他最大的优点可能就是开发主题文件非常简单吧，毕竟写个CSS就好了。</p>
+<p>回归正题，我们可以在Vscode中直接管理Git，并通过安装插件的方式扩展Vscode将其打造为最强Hexo+Markdown博客工作流软件！</p>
+<h3 id="安装插件">5.2 安装插件</h3>
+<ol type="1">
+<li>安装<code>Picgo</code>插件 <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250219095517.png"
+alt="20250219095517" /></li>
+</ol>
+<p>安装完成后需要配置Picgo的配置文件，你可以选择跟着我来做也可以去阅读<a
+target="_blank" rel="noopener" href="https://github.com/PicGo/vs-picgo">官方文档</a>。</p>
+<blockquote>
+<p>本博客的文章可能有时效性，具体以官方文档为准。</p>
+</blockquote>
+<p>打开C盘找到你的用户<code>AppData</code>文件夹，往下找到<code>AppData\Roaming\picgo</code>，在理面有一个<code>data.json</code>。里面存放你的图床配置。
+打开Vscode的设置，搜索<code>Picgo</code>并将目录粘贴上去： <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250219095918.png"
+alt="20250219095918" /></p>
+<p><code>Picgo</code>官方文档中对于快捷键的介绍： -
+从剪切板上传图像：<code>ctrl</code>+<code>alt</code>+<code>u</code> -
+从资源管理器上传图像： <code>ctrl</code>+<code>alt</code>+<code>e</code>
+-
+在输入框中上传图像：<code>ctrl</code>+<code>alt</code>+<code>o</code></p>
+<p>类似的插件还有很多，推荐阅读一下<a
+target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/languages/markdown#_editing-markdown">官方对于Markdown的介绍</a>。</p>
+<h3 id="对比typora">5.3 对比Typora</h3>
+<p>现在再来对比一下Typora，基本上可以说Typora是被干的渣都不剩了。我用过很长一段时间Typor，发现Typora有很多毛病：</p>
+<ul>
+<li>标题大纲显示不明确</li>
+<li>无法自定义 <code>Snippets</code></li>
+</ul>
+<p>这是VScode提供的markdown文件大纲： <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250219111709.png"
+alt="20250219111709" /></p>
+<p>可以看到层级明确，不用在去寻找到底要写几个<code>#</code>了。</p>
+<p>如果你的博客框架提供一些特殊的语法，你就需要使用自定义代码块。而Vscode可以轻松实现。比如，我希望定义一个按钮模块，Redefine主题采用的是EJS模板语法，所以我需要在Markdown中写这样的代码来添加：
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% btn [可选大小]::[名称]::[url]::[可选图标] %&#125;</span><br></pre></td></tr></table></figure>
+如果你用Typora来写，那就太痛苦了。而使用Vscode你可以定义这样一个用户代码块：
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="comment">// Place your snippets for markdown here. Each snippet is defined under a snippet name and has a prefix, body and </span></span><br><span class="line">	<span class="comment">// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:</span></span><br><span class="line">	<span class="comment">// $1, $2 for tab stops, $0 for the final cursor position, and $&#123;1:label&#125;, $&#123;2:another&#125; for placeholders. Placeholders with the </span></span><br><span class="line">	<span class="comment">// same ids are connected.</span></span><br><span class="line">	<span class="comment">// Example:</span></span><br><span class="line">	<span class="attr">&quot;Redefine-Button: &quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;button&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;&#123;% btn $&#123;1:center large regular&#125;::$&#123;2:name&#125;::$&#123;3:url&#125;::$&#123;4:icon&#125; %&#125;&quot;</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Redefine-button&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;Redefine-Note: &quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;note&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;&#123;% notel $&#123;1:blue red cyan purple orange yellow green&#125; $&#123;2:icon&#125; $&#123;3:title&#125; %&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;  $4&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&#123;% endnotel %&#125;&quot;</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Redefine-note&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;Redefine-Collapse: &quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;collapse&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;&#123;% folding $&#123;1:yellow blue green red orange pink cyan white black gray&#125;::$&#123;2:title&#125; %&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;  $3&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&#123;% endfolding %&#125;&quot;</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;redefine-collapse&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;Redefine-Tabs: &quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tabs&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;&#123;% tabs $&#123;1:tabs_id&#125; %&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;  &lt;!-- tab $&#123;2:tab_first_name&#125; --&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;    $3&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;  &lt;!-- endtab --&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&#123;% endtabs %&#125;&quot;</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;redefine-tabs&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;Redefine-tab: &quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tab&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;&lt;!-- tab $&#123;1:tab_first_name&#125; --&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;  $2&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;&lt;!-- endtab --&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;redefine-tab&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+然后只需要输入<code>button</code>并按下<code>Ctrl</code>+<code>Space</code>就会自动创建一个按钮的EJS模板。</p>
+<p>最后来说一下Typora仅剩的一个优点吧。
+Typora其实相比于VScode，最大的特点就是一体化编写Markdown，在这一点上，Typora还是有优势的。实时编写，实时查看编写的结果。</p>
+<h3 id="git管理">5.4 Git管理</h3>
+<p>我们可以利用VScode的Git管理工具来管理Hexo博客源码的仓库，效果如下：
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250219115544.png"
+alt="20250219115544" />
+同时，如果你登录了Github，你的所有插件信息都可以继承。</p>
+<h2 id="六更新">六、更新</h2>
+<p>时隔将近四个月，我又来更新了！</p>
+<p>在此之前经历了一个博客主题更换到 Vuepress
+的过程，但事实证明，Vuepress 虽然功能很多但过于重了。以至于config
+中出现了 bug 就很难以修复。</p>
+<p>时间来到大二下，迫于学业生活的繁忙，我没有时间去慢慢折腾了，只能重新使用
+Hexo 来撰写我的博客和笔记。在重新研究 Hexo
+部署的时候发现了一些本文中写的不够全面的地方。</p>
+<p>关于上述中工作流的 token
+创建这部分，在我重新阅读这篇博客后我还是陷入了迷茫。原因在于，Github
+现在的 token
+有好种创建的方法，而上文中并没有写清楚创建哪一种，这里就来详细说明一下：</p>
+<ol type="1">
+<li>首先进入 Github 个人的 setting 界面：</li>
+</ol>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-06-14%2021.55.01.png"
+alt="截屏2025-06-14 21.55.01" />
+<figcaption aria-hidden="true">截屏2025-06-14 21.55.01</figcaption>
+</figure>
+<blockquote>
+<p>选择并点击<code>Developer settings</code></p>
+</blockquote>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-06-14%2021.55.50.png"
+alt="截屏2025-06-14 21.55.50" />
+<figcaption aria-hidden="true">截屏2025-06-14 21.55.50</figcaption>
+</figure>
+<blockquote>
+<p>进入<code>Developer settings</code>后选择<code>Tokens(classic)</code>，并在右侧选择<code>Generate new token (classic)</code>。</p>
+</blockquote>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-06-14%2021.58.02.png"
+alt="截屏2025-06-14 21.58.02" />
+<figcaption aria-hidden="true">截屏2025-06-14 21.58.02</figcaption>
+</figure>
+<blockquote>
+<p>如果不了解这些权限就无脑将所有权限勾选上，当然如果你有时间研究也可以只选择用到的那几个。</p>
+</blockquote>
+<p>完成 Token 的创建后放到上文中的特定位置替换即可。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/%E5%85%B6%E4%BB%96/" class="tag">#其他</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/2025/02/16/%E5%85%B6%E4%BB%96/mac%E7%BB%88%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81%E4%BC%98%E5%8C%96%E8%AE%A1%E5%88%92/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">mac终端工作流优化</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/2025/02/09/%E5%89%8D%E7%AB%AF/Vue/%E3%80%90Vue%E3%80%91Vue3%E9%87%8D%E4%BF%AE%E7%AC%94%E8%AE%B0/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【Vue】Vue3重修笔记</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

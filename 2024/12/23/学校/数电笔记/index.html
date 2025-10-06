@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>数字逻辑电路笔记 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="数字逻辑电路笔记...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字逻辑电路笔记">
+<meta property="og:url" content="https://ccccooh.github.io/2024/12/23/%E5%AD%A6%E6%A0%A1/%E6%95%B0%E7%94%B5%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="数字逻辑电路笔记...">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p.ipic.vip/c7b9m9.png">
+<meta property="og:image" content="https://p.ipic.vip/rf3hhy.jpg">
+<meta property="og:image" content="https://p.ipic.vip/23955m.jpg">
+<meta property="og:image" content="https://p.ipic.vip/dzzy0k.png">
+<meta property="og:image" content="https://p.ipic.vip/i24ayj.jpg">
+<meta property="og:image" content="https://p.ipic.vip/65635o.jpg">
+<meta property="og:image" content="https://p.ipic.vip/4bah3d.jpg">
+<meta property="og:image" content="https://p.ipic.vip/ylbhxm.png">
+<meta property="og:image" content="https://p.ipic.vip/1bvp9y.jpg">
+<meta property="og:image" content="https://p.ipic.vip/it36os.jpg">
+<meta property="og:image" content="https://p.ipic.vip/9izvrz.jpg">
+<meta property="og:image" content="https://p.ipic.vip/mgi9nr.png">
+<meta property="og:image" content="https://p.ipic.vip/u3fnaz.png">
+<meta property="og:image" content="https://p.ipic.vip/dzgdja.png">
+<meta property="og:image" content="https://p.ipic.vip/49re3c.jpg">
+<meta property="og:image" content="https://p.ipic.vip/z5cc7b.jpg">
+<meta property="og:image" content="https://p.ipic.vip/5fj5dx.jpg">
+<meta property="og:image" content="https://p.ipic.vip/kiorfh.png">
+<meta property="og:image" content="https://p.ipic.vip/huz6w9.png">
+<meta property="og:image" content="https://p.ipic.vip/3p4y7o.png">
+<meta property="og:image" content="https://p.ipic.vip/ly5g52.jpg">
+<meta property="og:image" content="https://p.ipic.vip/iavsnt.jpg">
+<meta property="og:image" content="https://p.ipic.vip/h6h97w.png">
+<meta property="og:image" content="https://p.ipic.vip/wxs14u.jpg">
+<meta property="og:image" content="https://p.ipic.vip/v0wwy7.png">
+<meta property="og:image" content="https://p.ipic.vip/sjmxoy.png">
+<meta property="og:image" content="https://p.ipic.vip/plymng.jpg">
+<meta property="og:image" content="https://p.ipic.vip/lhw8wn.png">
+<meta property="og:image" content="https://p.ipic.vip/vfzo4l.jpg">
+<meta property="og:image" content="https://p.ipic.vip/ox16xs.jpg">
+<meta property="og:image" content="https://p.ipic.vip/mg1m67.png">
+<meta property="og:image" content="https://p.ipic.vip/lgqlfu.png">
+<meta property="og:image" content="https://p.ipic.vip/8pzg4u.png">
+<meta property="og:image" content="https://p.ipic.vip/wobgeq.png">
+<meta property="og:image" content="https://p.ipic.vip/um6pz0.png">
+<meta property="og:image" content="https://p.ipic.vip/v7j0kv.png">
+<meta property="og:image" content="https://p.ipic.vip/c22r6r.png">
+<meta property="og:image" content="https://p.ipic.vip/woduj7.png">
+<meta property="og:image" content="https://p.ipic.vip/tqn0a5.png">
+<meta property="og:image" content="https://p.ipic.vip/rw3l0y.png">
+<meta property="og:image" content="https://p.ipic.vip/nb8mb5.png">
+<meta property="og:image" content="https://p.ipic.vip/k2o6jn.png">
+<meta property="og:image" content="https://p.ipic.vip/a55sex.png">
+<meta property="og:image" content="https://p.ipic.vip/0r8sp0.png">
+<meta property="og:image" content="https://p.ipic.vip/mov7oy.png">
+<meta property="og:image" content="https://p.ipic.vip/go1c81.png">
+<meta property="og:image" content="https://p.ipic.vip/ukgoea.png">
+<meta property="og:image" content="https://p.ipic.vip/qgppjk.png">
+<meta property="og:image" content="https://p.ipic.vip/17e0lr.png">
+<meta property="og:image" content="https://p.ipic.vip/mfxlf5.png">
+<meta property="og:image" content="https://p.ipic.vip/rpma2u.png">
+<meta property="og:image" content="https://p.ipic.vip/wqdlgt.png">
+<meta property="og:image" content="https://p.ipic.vip/t0vwfh.png">
+<meta property="og:image" content="https://p.ipic.vip/1zacr7.png">
+<meta property="og:image" content="https://p.ipic.vip/666rcv.png">
+<meta property="og:image" content="https://p.ipic.vip/qhn43f.png">
+<meta property="og:image" content="https://p.ipic.vip/bl6n24.png">
+<meta property="og:image" content="https://p.ipic.vip/4gzmqx.png">
+<meta property="og:image" content="https://p.ipic.vip/0bltdg.png">
+<meta property="og:image" content="https://p.ipic.vip/7gmjus.png">
+<meta property="og:image" content="https://p.ipic.vip/evk73z.png">
+<meta property="og:image" content="https://p.ipic.vip/6q9p3a.png">
+<meta property="og:image" content="https://p.ipic.vip/uxo474.png">
+<meta property="og:image" content="https://p.ipic.vip/d537qp.png">
+<meta property="og:image" content="https://p.ipic.vip/0rwwx6.png">
+<meta property="og:image" content="https://p.ipic.vip/lr57u9.png">
+<meta property="og:image" content="https://p.ipic.vip/49ber9.png">
+<meta property="og:image" content="https://p.ipic.vip/5gp6nl.png">
+<meta property="og:image" content="https://p.ipic.vip/utdq3o.png">
+<meta property="og:image" content="https://p.ipic.vip/jvf18t.png">
+<meta property="og:image" content="https://p.ipic.vip/00uoto.png">
+<meta property="og:image" content="https://p.ipic.vip/y19m97.png">
+<meta property="og:image" content="https://p.ipic.vip/xw7mks.png">
+<meta property="og:image" content="https://p.ipic.vip/61mdhf.png">
+<meta property="og:image" content="https://p.ipic.vip/e6b1rk.png">
+<meta property="og:image" content="https://p.ipic.vip/6064y6.png">
+<meta property="og:image" content="https://p.ipic.vip/z2ui4o.png">
+<meta property="og:image" content="https://p.ipic.vip/aok8ja.png">
+<meta property="og:image" content="https://p.ipic.vip/bvvma9.png">
+<meta property="og:image" content="https://p.ipic.vip/m1ue1y.png">
+<meta property="og:image" content="https://p.ipic.vip/45pwfs.png">
+<meta property="og:image" content="https://p.ipic.vip/9nq8z5.png">
+<meta property="og:image" content="https://p.ipic.vip/the68x.png">
+<meta property="og:image" content="https://p.ipic.vip/vv27os.png">
+<meta property="og:image" content="https://p.ipic.vip/l14oyz.png">
+<meta property="og:image" content="https://p.ipic.vip/ltfzu5.png">
+<meta property="article:published_time" content="2024-12-23T16:41:54.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.755Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="数电">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p.ipic.vip/c7b9m9.png">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/学校/">学校</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2024-12-23T16:41:54+00:00">
+      December 23, 2024
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">数字逻辑电路笔记</h1>
+  </div>
+
+  <div class="content">
+    <h1 id="数字逻辑电路笔记">数字逻辑电路笔记📒</h1>
+<blockquote>
+<p>✨<strong><em>目录</em></strong></p>
+</blockquote>
+<p>[TOC]</p>
+<blockquote>
+<p>作者的废话：关于数字逻辑电路笔记，我决定全部塞在一片文章。✍️</p>
+<p>阅读本文注意事项：</p>
+<p>❌<strong>错误查看方式</strong>：直接在<strong>Gitee</strong>上阅读</p>
+<p>🙆<strong>正确查看方式</strong>：复制到<strong>Typora</strong>或者其他支持<strong>Markdown</strong>查看/编辑软件上阅读，如：<strong><em>VisualStudio</em></strong>、<strong><em>SublimeText</em></strong>等</p>
+</blockquote>
+<h2 id="半加器">半加器</h2>
+<p>输入：两个1位的二进制数</p>
+<p>输出：进位+本位</p>
+<p>特点：不考虑低位的进位。</p>
+<p>规定符号：</p>
+<ul>
+<li>本位和 - <code>S</code></li>
+<li>半加进位 - <code>C</code></li>
+</ul>
+<p>因为是<code>1</code>位，所以输入只有<code>1</code>或<code>0</code>两种可能。那么总共就只有三种可能性：<code>0+0=0</code>,<code>0+1=1</code>,<code>1+1=2</code>，其中<code>1+1=2</code>产生了进位，本位就是<code>0</code>进位是<code>1</code>。</p>
+<hr />
+<p>可以列出真值表(A、B为输入，S、C为输出)：</p>
+<table>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>S</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>也可以写出逻辑表达式：</p>
+<p><span
+class="math inline"><em>S</em> = <em>A</em> ⊕ <em>B</em></span></p>
+<p><span
+class="math inline"><em>C</em> = <em>A</em><em>B</em></span></p>
+<p>对应的逻辑图：</p>
+<p><img src="https://p.ipic.vip/c7b9m9.png" alt="img" width="400" style="zoom:50%;" /></p>
+<p>平常主要是用的是半加器的逻辑符号：</p>
+<p><img src="https://p.ipic.vip/rf3hhy.jpg" alt="截屏2024-11-16 21.36.47" width="400" style="zoom:50%;" /></p>
+<h2 id="全加器">全加器</h2>
+<p>全加器与半加器唯一的区别就是考虑了低位的进位，所以输入也增加了一个：低位的进位。</p>
+<p>规定的符号：</p>
+<ul>
+<li><p>低位的进位：<span
+class="math inline"><em>C</em><sub><em>i</em> − 1</sub></span></p></li>
+<li><p>向高位的进位：<span
+class="math inline"><em>C</em><sub><em>i</em></sub></span></p></li>
+<li><p>本位：<span
+class="math inline"><em>S</em><sub><em>i</em></sub></span></p></li>
+</ul>
+<hr />
+<p>对应的真值表如下：</p>
+<p><img src="https://p.ipic.vip/23955m.jpg" alt="截屏2024-11-16 21.42.16" width="300" style="zoom:50%;" /></p>
+<p>逻辑表达式：</p>
+<p><span
+class="math inline"><em>S</em><sub><em>i</em></sub> = <em>A</em><sub><em>i</em></sub> ⊕ <em>B</em><sub><em>i</em></sub> ⊕ <em>C</em><sub><em>i</em> − 1</sub></span></p>
+<p><span
+class="math inline"><em>C</em><sub><em>i</em></sub> = (<em>A</em><sub><em>i</em></sub>⊕<em>B</em><sub><em>i</em></sub>)<em>C</em><sub><em>i</em> − 1</sub> + <em>A</em><sub><em>i</em></sub><em>B</em><sub><em>i</em></sub></span></p>
+<p>全加器对应的逻辑符号：</p>
+<p><img src="https://p.ipic.vip/dzzy0k.png" alt="截屏2024-11-16 21.44.20" width="400" style="zoom:50%;" /></p>
+<h2 id="集成全加器">集成全加器</h2>
+<p>集成全加器有两种，TTL的全加器和CMOS的C661全加器</p>
+<ul>
+<li>TTl：74LS183</li>
+<li>CMOS：C661</li>
+</ul>
+<p><img src="https://p.ipic.vip/i24ayj.jpg" alt="截屏2024-11-16 21.54.09" style="zoom: 33%;" /></p>
+<blockquote>
+<p>需要说明的是，这里的两个集成全加器各自都有两个管角是空的，这代表这几个管角<strong>没有任何功能</strong>，不用管它。</p>
+<p>至于原因，是为了匹配插座特意设计出来的，常用的管角数量为<strong>14</strong>、<strong>16</strong>，偏偏就是没有<strong>12</strong>管角的，所以如果设计成<strong>12</strong>个管角，很可能找不到对应的插座，于是便多出来了两个管角。</p>
+</blockquote>
+<hr />
+<p>集成全加器的仿真：</p>
+<p>可以在Multism中搭建如图所示的电路来仿真全加器，在你拖拽出<code>74LS183</code>集成电路的时候，你会发现系统会让你选择<code>A|B</code>，这里的A和B就是<code>74LS183</code>上的两个全加器，你可以选择其中的一个进行放置。</p>
+<p><img src="https://p.ipic.vip/65635o.jpg" alt="截屏2024-11-16 21.57.54" style="zoom: 33%;" /></p>
+<h2 id="乘法器">乘法器</h2>
+<p>二进制的所有运算皆基于二进制的加法器，以两位二进制相加为例。</p>
+<blockquote>
+<p>形式如：<code>01*11</code>、<code>11*11</code>这种。</p>
+</blockquote>
+<p>所以就可以写出表达式(这里的<span
+class="math inline"><em>A</em></span>就是<span
+class="math inline">10</span>这种两位二进制数，里面的每一位就是<span
+class="math inline"><em>A</em><sub>1</sub></span>和<span
+class="math inline"><em>A</em><sub>2</sub></span>：</p>
+<p><span
+class="math inline"><em>A</em> = <em>A</em><sub>1</sub><em>A</em><sub>0</sub></span></p>
+<p><span
+class="math inline"><em>B</em> = <em>B</em><sub>1</sub><em>B</em><sub>0</sub></span></p>
+<p>我们假设，<span
+class="math inline"><em>A</em> * <em>B</em> = <em>P</em></span></p>
+<p>那么<span
+class="math inline"><em>P</em> = <em>A</em><sub>1</sub><em>A</em><sub>0</sub> * <em>B</em><sub>1</sub><em>B</em><sub>0</sub></span></p>
+<p>类比十进制中两位数的加法可以写出这样的式子：</p>
+<p><img src="https://p.ipic.vip/4bah3d.jpg" alt="截屏2024-11-16 22.07.08" width="400" style="zoom:50%;" /></p>
+<p><span
+class="math inline"><em>P</em><sub>0</sub> = <em>A</em><sub>0</sub><em>B</em><sub>0</sub></span></p>
+<p><span
+class="math inline"><em>P</em><sub>1</sub> = <em>A</em><sub>1</sub><em>B</em><sub>0</sub> + <em>A</em><sub>0</sub><em>B</em><sub>1</sub></span></p>
+<p>因为<span
+class="math inline"><em>P</em><sub>1</sub></span>中可能携带进位，所以<span
+class="math inline"><em>P</em><sub>2</sub> = <em>A</em><sub>1</sub><em>B</em><sub>1</sub> + <em>C</em><sub>1</sub></span>这里的<span
+class="math inline"><em>C</em><sub>1</sub></span>就是<span
+class="math inline"><em>P</em><sub>1</sub> = <em>A</em><sub>1</sub><em>B</em><sub>0</sub> + <em>A</em><sub>0</sub><em>B</em><sub>1</sub></span>中可能的进位。</p>
+<p><span
+class="math inline"><em>P</em><sub>3</sub> = <em>C</em><sub>2</sub></span>这里的<span
+class="math inline"><em>C</em><sub>2</sub></span>是<span
+class="math inline"><em>P</em><sub>2</sub> = <em>A</em><sub>1</sub><em>B</em><sub>1</sub> + <em>C</em><sub>1</sub></span>中可能的进位。</p>
+<hr />
+<p>通过这样的式字，我们可以发现两位二进制的乘法就被转化成了加法和与运算，也就是说使用全加器和与门就可以实现一个乘法器☝️🤓。</p>
+<p>这样我们就可以写出对应的逻辑电路图（只用到了与门和加法器）。</p>
+<p><img src="https://p.ipic.vip/ylbhxm.png" alt="截屏2024-11-16 22.14.49" width="500" style="zoom: 50%;" /></p>
+<p>可以在Multism中设计仿真电路图：</p>
+<p><img src="https://p.ipic.vip/1bvp9y.jpg" alt="截屏2024-11-16 22.15.43" style="zoom: 33%;" /></p>
+<h2 id="多位二进制的加法器">多位二进制的加法器</h2>
+<p>前面说到的加法器都仅限于一位的二进制之间的加法，然而对于多位二进制的加法有两种。</p>
+<ul>
+<li>串行进位加法器</li>
+<li>超前进位加法器（并行进位加法器）</li>
+</ul>
+<ol type="1">
+<li>串行进位加法器：</li>
+</ol>
+<p><img src="https://p.ipic.vip/it36os.jpg" alt="截屏2024-11-16 22.18.47" style="zoom: 25%;" /></p>
+<p>可以看出这种加法器就是把全加器串在了一起，每个全加器都要等待上一个全加器的高位进位输出作为自己的输入，所以会导致一个结果☝️：不能做到同时执行加法器，运行速度缓慢。</p>
+<p>总结一下串行进位加法器的特点：</p>
+<ul>
+<li>电路简单，容易连接</li>
+<li>速度低</li>
+</ul>
+<ol start="2" type="1">
+<li>并行进位加法器</li>
+</ol>
+<p><img src="https://p.ipic.vip/9izvrz.jpg" alt="截屏2024-11-16 22.22.57" width="600" style="zoom:67%;" /></p>
+<p>同样的，有下面的特点：</p>
+<ul>
+<li>内部电路复杂</li>
+<li>运行速度快(同时执行)</li>
+</ul>
+<h2 id="编码器的概念">编码器的概念</h2>
+<p><strong>编码的概念</strong>：将二进制转成十进制称之为解码，将十进制转换成二进制称之为编码。</p>
+<p><strong>编码器</strong>：将十进制转换成二进制的电路称之为编码器，简单来说就是将我们熟悉的十进制编译成计算机认识的二进制代码，所以叫做编码。</p>
+<p><strong>编码器的分类</strong>：</p>
+<ul>
+<li>二进制编码器</li>
+<li>二-十进制编码器</li>
+<li>优先编码器</li>
+</ul>
+<p>我们知道，一位二进制可以表示两种信息，两位二进制可以表示四种信息，三位则可以表示八种信息。也就是说，<span
+class="math inline"><em>n</em></span>位二进制可以表示<span
+class="math inline">2<sup><em>n</em></sup></span>种信息。那么我们如果想要表示一个十进制，就需要二进制能表示的信息数量大于等于这个十进制的值。</p>
+<p>也就是，<span
+class="math inline">2<sup><em>n</em></sup> &gt;  = <em>N</em></span>，这里的<span
+class="math inline"><em>N</em></span>表示十进制的值，<span
+class="math inline"><em>n</em></span>则是二进制的位数。如果我们的二进制位数刚好用完了，就叫做全编码；反之，没有利用完，就叫做部分编码。</p>
+<ul>
+<li><span class="math inline">2<sup><em>n</em></sup> = <em>N</em></span>
+- 全编码</li>
+<li><span
+class="math inline">2<sup><em>n</em></sup> &gt; <em>N</em></span> -
+部分编码</li>
+</ul>
+<h2 id="二进制编码器">二进制编码器</h2>
+<p>例如：设计一个能将<span
+class="math inline"><em>I</em><sub>0</sub>, <em>I</em><sub>1</sub>, <em>I</em><sub>2</sub>, ..., <em>I</em><sub>7</sub></span>八个输入信号编成二进制代码输出的编码器，用与非门实现。</p>
+<p>设计如下真值表：</p>
+<p><img src="https://p.ipic.vip/mgi9nr.png" alt="截屏2024-11-17 23.06.45" width="400" style="zoom:67%;" /></p>
+<p>然后写出对应的表达式：</p>
+<p>例：<span class="math inline">$Y_2=\overline{I_7}·\overline{I_6} ·
+\overline{I_5} ·
+I_4+\overline{I_7}·\overline{I_6}·I_5+\overline{I_7}·I_6+I_7$</span>，然后利用<span
+class="math inline">$A+\overline{A}·B=A+B$</span>进行化简得到全部的逻辑表达式：</p>
+<p><img src="https://p.ipic.vip/u3fnaz.png" alt="截屏2024-11-17 23.14.36" width="300" style="zoom:67%;" /></p>
+<p>得到逻辑图：</p>
+<p><img src="https://p.ipic.vip/dzgdja.png" alt="截屏2024-11-17 23.15.09" width="300" style="zoom: 67%;" /></p>
+<p>这里<span
+class="math inline"><em>I</em><sub>0</sub></span>被省略不画了，只要除了<span
+class="math inline"><em>I</em><sub>0</sub></span>以外的输入都为0，就相当于输入了<span
+class="math inline"><em>I</em><sub>0</sub></span>。</p>
+<h2 id="优先编码器">优先编码器</h2>
+<p>功能：输入多个十进制数，根据优先级高低，优先取优先级最高的数字其余不看。</p>
+<p>例如：给定优先级规则为数字越大优先级越高，那么输入多个十进制优先取数字大的作为输入，其余不看，也就是输入8、7、3这三个数，直接取8作为输入其余不看。所以下方的真值表中有八叉<code>X</code>，代表输入什么都无所谓，因为比他大的树字会被优先取。</p>
+<p>真值表：</p>
+<p><img src="https://p.ipic.vip/49re3c.jpg" alt="截屏2024-11-17 23.18.55" width="500" style="zoom:50%;" /></p>
+<p>可以写出对应的逻辑表达式：</p>
+<blockquote>
+<p>注意这里也是根据<span
+class="math inline">$A+\overline{A}·B=A+B$</span>规则来华化简后的结果。</p>
+</blockquote>
+<p><img src="https://p.ipic.vip/z5cc7b.jpg" alt="截屏2024-11-17 23.24.10" width="400" style="zoom:50%;" /></p>
+<p><strong>8线 - 3线优先编码器 74LS48</strong>:</p>
+<p><img src="https://p.ipic.vip/5fj5dx.jpg" alt="74LS48" width="400"/></p>
+<ul>
+<li><span class="math inline">$\overline{I_0} -
+\overline{I_7}$</span>：信号输入端</li>
+<li><span
+class="math inline">$\overline{Y_2}、\overline{Y_1}、\overline{Y_0}$</span>：编码输出端</li>
+<li><span class="math inline">$\overline{ST}$</span>：选通输入端</li>
+<li><span
+class="math inline"><em>Y</em><sub><em>s</em></sub></span>：选通输出端</li>
+<li><span
+class="math inline">$\overline{Y_{ES}}$</span>：优先扩展输出端</li>
+</ul>
+<p>这里加了非号，表示将所有输入和输出取非，也就是说输入从之前的1有效变成了
+0 才有效。</p>
+<p>对应的真值表：</p>
+<p><img src="https://p.ipic.vip/kiorfh.png" alt="截屏2024-11-17 23.33.40" style="zoom: 33%;" /></p>
+<p>这里的<span
+class="math inline">$\overline{ST}$</span>这个整体是0的时候表示，<span
+class="math inline"><em>S</em><em>T</em></span>的值是1，也就是芯片正常工作，而<span
+class="math inline">$\overline{ST}$</span>这个整体为1的时候，也就是<span
+class="math inline"><em>S</em><em>T</em></span>为0，就表示芯片不工作。</p>
+<ul>
+<li><span
+class="math inline"><em>Y</em><sub><em>s</em></sub></span>：编码器工作，但是无编码请求为低电平，对应第二行。</li>
+<li><span
+class="math inline">$\overline{Y_{ES}}$</span>编码器工作，并且有编码请求时为低电平，和<span
+class="math inline"><em>Y</em><sub><em>s</em></sub></span>是互斥的。</li>
+<li>在上面所有的输入中，<span
+class="math inline">$\overline{Y_7}$</span>的优先级最高；<span
+class="math inline">$\overline{Y_0}$</span>最低。</li>
+</ul>
+<p>Multism仿真电路设计：</p>
+<p><img src="https://p.ipic.vip/huz6w9.png" alt="截屏2024-11-17 23.28.33" style="zoom: 33%;" /></p>
+<h2 id="与非门rs触发器">与非门RS触发器</h2>
+<p>一、电路组成：</p>
+<p><img src="https://p.ipic.vip/3p4y7o.png" alt="截屏2024-11-20 20.10.16" height="300" style="zoom:67%;" /></p>
+<p>这里的<span
+class="math inline">$\overline{S_D}$</span>为置1端，称为Set；<span
+class="math inline">$\overline{R_D}$</span>称为置零端，称为Reset。并且需要注意，<span
+class="math inline">$\overline{Q}、Q$</span>是两个相反的输出。</p>
+<blockquote>
+<p>只要看到输入输出为取非的符号，就需要知道这里是低电平有效。</p>
+</blockquote>
+<ul>
+<li><span class="math inline"><em>Q</em> = 1</span>，<span
+class="math inline">$\overline{Q}=0$</span>时称为触发器的1状态，即为<span
+class="math inline"><em>Q</em> = 1</span>.</li>
+<li><span class="math inline"><em>Q</em> = 0</span>，<span
+class="math inline">$\overline{Q}=1$</span>时称为触发器的0状态，即为<span
+class="math inline"><em>Q</em> = 0</span>.</li>
+</ul>
+<p>二、逻辑功能(不考虑现态和次态)</p>
+<p><img src="https://p.ipic.vip/ly5g52.jpg" alt="截屏2024-11-18 14.05.39" style="zoom:67%;" /></p>
+<p>这张图告诉我们，Set有效（置0）的时候，将Q设置为有效（置1）；Reset有效时将Q设置为无效。当Set和Reset都无效就相当于输入没有更新状态不做改变，当Reset和Set都有效是一种不合理的情况，需要避免并且在逻辑上是不被允许的。</p>
+<blockquote>
+<p>对于RS触发器，不需要死记真值表，理解Reset和Set的概念就算学会了。</p>
+</blockquote>
+<p>三、特性表</p>
+<p>在上述RS触发器的基础上增加了下一次的状态<span
+class="math inline"><em>Q</em><sub><em>n</em> + 1</sub></span>的真值表。</p>
+<ul>
+<li>现态<span
+class="math inline"><em>Q</em><sub><em>n</em></sub></span>：触发器接收输入信号之前的状态。</li>
+<li>次态<span
+class="math inline"><em>Q</em><sub><em>n</em> + 1</sub></span>：触发器接收到输入信号之后的状态。</li>
+</ul>
+<blockquote>
+<p>现态和次态是两个相邻时间里触发器输出端的状态。</p>
+</blockquote>
+<p><strong>真值表</strong>：</p>
+<p><img src="https://p.ipic.vip/iavsnt.jpg" alt="截屏2024-11-18 14.18.49" width="500" style="zoom:67%;" /></p>
+<blockquote>
+<p><strong>注意</strong>⚠️：低电平（置零）有效。</p>
+</blockquote>
+<p><strong>约束条件</strong>：<span
+class="math inline">$\overline{R_D}+\overline{R_S}=1$</span>，因为当两者都是零的时候触发器不允许，满足约束条件意味着有效输入。</p>
+<p>四、特性方程</p>
+<p>由于上面这张真值表有重复信息(<span
+class="math inline"><em>Q</em><sub><em>n</em></sub></span>和<span
+class="math inline"><em>Q</em><sub><em>n</em> + 1</sub></span>重复，没必要都写)，我们可以将其化简后得到特性方程。</p>
+<p><img src="https://p.ipic.vip/h6h97w.png" alt="截屏2024-11-18 14.22.57" style="zoom:67%;" /></p>
+<p>用<strong>卡诺图</strong>表示出来：</p>
+<p><img src="https://p.ipic.vip/wxs14u.jpg" alt="截屏2024-11-18 14.23.53" style="zoom:67%;" /></p>
+<p>得到<strong>特性方程</strong>：</p>
+<ul>
+<li><span
+class="math inline">$Q^{n+1}=S_D+\overline{R_D}·Q^n$</span></li>
+<li><strong>约束条件</strong>：<span
+class="math inline">$\overline{R_{D}}+\overline{S_D}=1$</span></li>
+</ul>
+<p>五、状态转换图</p>
+<p><img src="https://p.ipic.vip/v0wwy7.png" alt="截屏2024-11-18 14.41.08" style="zoom:67%;" /></p>
+<blockquote>
+<p><code>X</code>表示0或者1两种情况。</p>
+</blockquote>
+<p>六、驱动表</p>
+<p><img src="https://p.ipic.vip/sjmxoy.png" alt="截屏2024-11-18 14.42.11" style="zoom:67%;" /></p>
+<p>根据输出来判定输入的情况的真值表叫做驱动表。</p>
+<p>[<strong>例1</strong>]：设触发器初始状态为0，试对应输入波形画出<span
+class="math inline"><em>Q</em></span>和<span
+class="math inline">$\overline{Q}$</span>的波形。</p>
+<p><img src="https://p.ipic.vip/plymng.jpg" alt="截屏2024-11-18 14.45.20" style="zoom:67%;" /></p>
+<blockquote>
+<p>这里<span class="math inline">$\overline{Q}$</span>省略，将<span
+class="math inline"><em>Q</em></span>取反即可。</p>
+</blockquote>
+<p>[<strong>例2</strong>]：信号的分时撤销和同时撤销。</p>
+<p>上面提到，当Reset和Set同时有效也就是违反约束条件的情况，这时需要将信号调整成正常的情况，那么就会出现信号的分时撤销和延时撤销。</p>
+<p>我们知道0为有效电平，当<span
+class="math inline">$\overline{S_D}$</span>和<span
+class="math inline">$\overline{R_D}$</span>都为0时同时有效，信号撤销就是：(<strong>0
+-&gt; 1</strong>)。</p>
+<p><strong>分时撤销</strong>：</p>
+<p><img src="https://p.ipic.vip/lhw8wn.png" alt="截屏2024-11-18 14.53.00" style="zoom:67%;" /></p>
+<blockquote>
+<p>分时撤销取决于后撤销的信号，跟正常状态相同的分析。</p>
+</blockquote>
+<p>例如，上图中<span
+class="math inline">$\overline{S_D}$</span>最先变成了1，就是先撤信号，那么<span
+class="math inline">$\overline{R_D}$</span>就是后撤信号，由后撤信号决定波形，所以属于正常情况中的Reset有效的情况，结果是<span
+class="math inline"><em>Q</em> = 0</span>；见下图。</p>
+<p><img src="https://p.ipic.vip/vfzo4l.jpg" alt="截屏2024-11-18 14.58.40" width="300" style="zoom: 67%;" /></p>
+<p><strong>同时撤销</strong>：</p>
+<p><img src="https://p.ipic.vip/ox16xs.jpg" alt="截屏2024-11-18 14.59.48" style="zoom: 50%;" /></p>
+<blockquote>
+<p>同时撤销根据电路内部的延时状态等复杂情况决定谁先起作用，状态不定(竞态)。</p>
+</blockquote>
+<h2 id="或非门rs触发器">或非门RS触发器</h2>
+<p>一、电路组成：</p>
+<p><img src="https://p.ipic.vip/mg1m67.png" alt="截屏2024-11-20 20.48.23" height="300" /></p>
+<p>二、逻辑功能</p>
+<p><img src="https://p.ipic.vip/lgqlfu.png" alt="截屏2024-11-20 20.39.33" height="200" /></p>
+<p>三、特性表</p>
+<p><img src="https://p.ipic.vip/8pzg4u.png" alt="截屏2024-11-20 20.40.46" height="300" /></p>
+<blockquote>
+<p>注意：与与非门RS触发器不同，高电平有效。</p>
+</blockquote>
+<p><strong>约束条件：</strong><span
+class="math inline"><em>R</em><sub><em>D</em></sub> · <em>S</em><sub><em>D</em></sub> = 0</span></p>
+<p>可以得到简化的特性表：</p>
+<p><img src="https://p.ipic.vip/wobgeq.png" alt="截屏2024-11-20 20.42.57" height="200" /></p>
+<p>画出<strong>卡诺图</strong>如下：</p>
+<p><img src="https://p.ipic.vip/um6pz0.png" alt="截屏2024-11-20 20.43.43" height="200" /></p>
+<p>得到最终的特性方程：</p>
+<p><img src="https://p.ipic.vip/v7j0kv.png" alt="截屏2024-11-20 20.44.43" height="100" /></p>
+<h2 id="两种rs触发器的对比">两种RS触发器的对比</h2>
+<p>逻辑符号对比：</p>
+<p><img src="https://p.ipic.vip/c22r6r.png" alt="截屏2024-11-20 20.46.12" height="200"/></p>
+<p>可以发现，</p>
+<ul>
+<li><strong>与非门RS触发器</strong>低电平有效，<strong>或非门RS触发器</strong>高电平有效。</li>
+<li><strong>与非门RS触发器</strong>左边为Set端口，右边为Reset端口；<strong>或非门RS触发器</strong>左边为Reset端口，右边为Set端口。</li>
+</ul>
+<p>基本RS触发器的优缺点如下：</p>
+<ul>
+<li>优点：电路简单，是构成各种触发器的基础🎉。</li>
+<li>缺点：输入有约束条件；抗干扰能力差👎。</li>
+</ul>
+<h2 id="同步rs触发器">同步RS触发器</h2>
+<p>一、电路组成</p>
+<p><img src="https://p.ipic.vip/woduj7.png" alt="截屏2024-11-20 22.03.14" height="300"/></p>
+<p>与原来的<strong>与非门RS触发器</strong>相比增加了两个与非门，由<strong>时钟CP</strong>控制的门<span
+class="math inline"><em>G</em><sub>3</sub>, <em>G</em><sub>4</sub></span>。并且可以看出，在CP置0️⃣的时候，上方的与非门<span
+class="math inline"><em>R</em><em>S</em></span>触发器一定是两个<span
+class="math inline">1</span>的输入，此时一定为保持状态。只有当<span
+class="math inline"><em>C</em><em>P</em></span>置1️⃣的时候才会工作。</p>
+<p>二、逻辑功能</p>
+<p>特性表如图所示：</p>
+<blockquote>
+<p>高电平为有效信号📶。</p>
+</blockquote>
+<p><img src="https://p.ipic.vip/tqn0a5.png" alt="截屏2024-11-20 22.07.21" height="300" /></p>
+<p>对应的逻辑符号：</p>
+<p><img src="https://p.ipic.vip/rw3l0y.png" alt="截屏2024-11-20 22.08.34" height="300" /></p>
+<p>包含<strong>异步端的同步RS触发器</strong>的逻辑符号如下：</p>
+<p><img src="https://p.ipic.vip/nb8mb5.png" alt="截屏2024-11-20 22.10.08" height="300" /></p>
+<ul>
+<li><span
+class="math inline"><em>R</em>、<em>S</em></span>被称为<strong>同步输入端</strong>的原因：<span
+class="math inline"><em>R</em>、<em>S</em></span>输入会收到<span
+class="math inline"><em>C</em><em>P</em></span>端的影响，一旦<span
+class="math inline"><em>C</em><em>P</em></span>置<span
+class="math inline">0</span>，<span
+class="math inline"><em>R</em>、<em>S</em></span>端就被封锁了。</li>
+<li><span
+class="math inline">$\overline{S_D}、\overline{R_D}$</span>被称为<strong>异步输入端</strong>的原因：只要有一个起作用，输出就可以起作用不受CP端的影响。</li>
+</ul>
+<blockquote>
+<p><span
+class="math inline"><em>S</em><sub><em>D</em></sub>、<em>R</em><sub><em>D</em></sub></span>可以起到预置触发器初始状态的作用，平时不工作时需要将<span
+class="math inline">$\overline{R_S}、\overline{S_d}$</span>置为<span
+class="math inline">1</span>。其实所谓的同步输入端与异步输入端就是看受不受到<span
+class="math inline"><em>C</em><em>P</em></span>端的控制，收到控制就得等到一起作用，不受到控制就异步了。</p>
+</blockquote>
+<p>三、特性表 =&gt; 特性方程</p>
+<p><img src="https://p.ipic.vip/k2o6jn.png" alt="截屏2024-11-20 22.18.58" style="zoom: 50%;" /></p>
+<blockquote>
+<p>这个特性方程有效的前提一定是<span
+class="math inline"><em>C</em><em>P</em></span>等于<span
+class="math inline">1</span>。</p>
+</blockquote>
+<p>四、状态转换图</p>
+<p>容易得到对应的状态转换图：</p>
+<p><img src="https://p.ipic.vip/a55sex.png" alt="截屏2024-11-20 22.21.17" style="zoom: 33%;" /></p>
+<p>五、同步RS触发器的优缺点</p>
+<ul>
+<li><strong>优点</strong>：有了<span
+class="math inline"><em>C</em><em>P</em></span>之后抗干扰能力增强，因为只要<span
+class="math inline"><em>C</em><em>P</em></span>为<span
+class="math inline">0</span>的时候能起到封锁作用，这时候无论怎么干扰都是保持的状态。</li>
+<li><strong>缺点</strong>：仍然存在不定状态，<span
+class="math inline"><em>R</em>、<em>S</em></span>之间还是有约束条件。</li>
+</ul>
+<blockquote>
+<p>一个需要注意的细节⚠️：如果<span
+class="math inline"><em>R</em>、<em>S</em></span>为<span
+class="math inline">1</span>这时是处于无效状态，如果这个时候<span
+class="math inline"><em>C</em><em>P</em></span>从<span
+class="math inline">1</span>变成<span
+class="math inline">0</span>但是<span
+class="math inline"><em>R</em>、<em>S</em></span>保持不变就会出现不定状态，具体见下图。</p>
+</blockquote>
+<p><img src="https://p.ipic.vip/0r8sp0.png" alt="截屏2024-11-20 22.26.04" style="zoom: 33%;" /></p>
+<h2 id="同步d触发器">同步D触发器</h2>
+<p>一、电路组成</p>
+<p>下图中左边为内部的电路组成，右边为逻辑表示：</p>
+<p><img src="https://p.ipic.vip/mov7oy.png" alt="截屏2024-11-20 22.49.53" style="zoom: 33%;" /></p>
+<blockquote>
+<p>不难发现，同步D触发器就是把同步RS触发器
+S和R用一个非门化简成了D，这样的好处就是完美地规避了约束条件的问题。</p>
+</blockquote>
+<ul>
+<li><span class="math inline">$S=D, R=\overline{D}$</span></li>
+</ul>
+<p>其他特性和同步RS触发器保持一致，都收到CP端的控制。</p>
+<p>二、逻辑功能</p>
+<p>功能也很简单，D端是1就置1，D端是0就置0。不存在输入有问题的情况，CP端置零也和原来一样起保持的作用。</p>
+<p><img src="https://p.ipic.vip/go1c81.png" alt="截屏2024-11-20 22.53.31" style="zoom:50%;" /></p>
+<p>三、卡诺图与特性方程</p>
+<p><img src="https://p.ipic.vip/ukgoea.png" alt="截屏2024-11-20 22.55.29" style="zoom:33%;" /></p>
+<p>四、状态转移图</p>
+<p><img src="https://p.ipic.vip/qgppjk.png" alt="截屏2024-11-20 23.00.04" style="zoom: 33%;" /></p>
+<p>五、同步触发器的特点</p>
+<ul>
+<li><strong>优点</strong>：无需考虑约束条件的问题，优于同步RS触发器。</li>
+<li><strong>缺点</strong>：仍然存在空翻现象，限制了同步D触发器的应用。</li>
+</ul>
+<p>六、集成同步D触发器：<strong>74LS375</strong></p>
+<p>这块芯片拥有13块管脚，可以理解为四个同步D触发器的拼接。</p>
+<p><img src="https://p.ipic.vip/17e0lr.png" alt="截屏2024-11-20 23.03.09" style="zoom:50%;" /></p>
+<p>它的内部结构和上文提到的同步D触发器有所不同，区别在于上方的两个与非门被换成了或非门，下方的两个与非门被换成了与门，我们知道或非门的RS触发器的输入端左边是R右边是S，并且是高电平有效，所以D也在右边，为了和S端保持一致。</p>
+<p><img src="https://p.ipic.vip/mfxlf5.png" alt="截屏2024-11-20 23.06.21" style="zoom:33%;" /></p>
+<h2 id="边沿d触发器">边沿D触发器</h2>
+<p><strong>特性</strong>：只在时钟脉冲CP的上升沿或者下降沿接收输入信号，在其他的CP状态触发器不接受数据，并且保持原态。</p>
+<p><strong>上升沿与下降沿</strong>：如下图中的两个红色箭头就分别表示上升沿和下降沿。</p>
+<p><img src="https://p.ipic.vip/rpma2u.png" alt="截屏2024-11-21 20.44.40" style="zoom:33%;" /></p>
+<p>一、电路组成</p>
+<p>这是一个下降沿D触发器的电路组成图。</p>
+<p><img src="https://p.ipic.vip/wqdlgt.png" alt="截屏2024-11-21 20.46.53" style="zoom: 33%;" /></p>
+<p>可以看出，边沿D触发器就是由两个同步D触发器上下拼接在一起，并且经过了一些特殊的改进而组成。不难分析出来，主从触发器是互斥的，主触发器工作，从触发器一定不工作；从触发器工作，主触发器也不会工作。</p>
+<p><strong>下降沿触发器的工作原理图</strong>：</p>
+<p>在CP变化的时候，如果CP是从0-&gt;1，我们称为<strong>上升沿</strong>；如果CP是从1-&gt;0，我们称为<strong>下降沿</strong>。可以类比成下面这个水管图，上升沿CP变成了1，那么主触发器就工作了，左边的阀门打开。并且，这个时候从触发器不工作，所以右边的阀门关闭。这个时候就是保持。</p>
+<p>但是如果CP从1-&gt;0，也就是下降沿。那么主阀门关闭，从阀门打开，这个时候<span
+class="math inline"><em>Q</em> = <em>D</em></span>，更新状态。所以，综上所述，下降沿时<span
+class="math inline"><em>Q</em> = <em>D</em></span>，其他时候一直起到保持的作用。</p>
+<p><img src="https://p.ipic.vip/t0vwfh.png" alt="截屏2024-11-21 20.48.57" style="zoom:33%;" /></p>
+<p><strong>逻辑符号</strong>：</p>
+<p><img src="https://p.ipic.vip/1zacr7.png" alt="截屏2024-11-21 20.57.17" style="zoom:50%;" /></p>
+<p><img src="https://p.ipic.vip/666rcv.png" alt="截屏2024-11-21 20.57.53" style="zoom:50%;" /></p>
+<p>不难发现，其实他长得和同步D触发器一样，所以为了区分他们两个，给边沿D触发器的<span
+class="math inline"><em>C</em><sub>1</sub></span>下面增加了一个<strong>三角形</strong>，表示边沿触发器。这里的小圆圈⭕️表示下降沿有效，如果没有⭕️就表示上升沿有效。</p>
+<p>二、特性方程、特性表</p>
+<p><img src="https://p.ipic.vip/qhn43f.png" alt="截屏2024-11-21 21.00.05" style="zoom: 50%;" /></p>
+<p>波形图分析：</p>
+<p><img src="https://p.ipic.vip/bl6n24.png" alt="截屏2024-11-21 21.01.07" style="zoom:50%;" /></p>
+<p>可以看出来，边沿触发器有一个区别于同步D触发器的很明显的特点：稳定，不容易“空翻”。</p>
+<blockquote>
+<p>空翻现象就是指的是在CP没有变化的时候，<span
+class="math inline"><em>Q</em> = <em>D</em></span>，输出跟随D改变的现象。因为对于边沿触发器来说，只要不是位于下降或者上升的边沿情况，都是保持的，也就不容易“空翻”了。</p>
+</blockquote>
+<p>三、集成边沿D触发器：<strong>74LS74</strong></p>
+<p>对应的<strong>芯片管脚图</strong>和<strong>逻辑图</strong>：</p>
+<p><img src="https://p.ipic.vip/4gzmqx.png" alt="截屏2024-11-21 21.05.28" style="zoom:50%;" /></p>
+<p>这里的<span
+class="math inline">$\overline{S_D}和\overline{R_D}$</span>都是低电平有效的异步输入端，这里的CP没有⭕️，所以需要注意它是<strong>上升沿</strong>🔝边沿D触发器。跟上面的下降沿是相反的，它在<strong>上升沿</strong>才有效，这点不要弄错了。</p>
+<p>带有异步端边沿触发器的<strong>特性表</strong>：</p>
+<p><img src="https://p.ipic.vip/0bltdg.png" alt="截屏2024-11-21 21.09.15" style="zoom: 50%;" /></p>
+<p>异步端优先级很高，一般起到预输入的作用，如果D和CP需要工作，一般需要将异步端置为零。但也可以利用它优先级高的特性，在工作中利用异步输入端强行置1或置0🤔。</p>
+<p>带有<strong>异步输入端上升沿D触发器</strong>波形图分析：</p>
+<p><img src="https://p.ipic.vip/7gmjus.png" alt="截屏2024-11-21 21.12.44" style="zoom: 33%;" /></p>
+<p>四、边沿D触发器的特点</p>
+<p><strong>优点</strong>：</p>
+<ul>
+<li>CP的上升沿或下降沿触发。</li>
+<li>抗干扰能力强，解决了同步触发器的“空翻”现象。</li>
+</ul>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>只有置1或置0功能，功能有限不方便。</li>
+</ul>
+<h2 id="边沿jk触发器">边沿JK触发器</h2>
+<p>一、电路组成</p>
+<p><img src="https://p.ipic.vip/evk73z.png" alt="截屏2024-11-21 22.23.23" style="zoom: 50%;" /></p>
+<p>可以看出，边沿JK触发器是从边沿D触发器进行一些扩展得到的，右边这部分就是我们所学的边沿D触发器。</p>
+<p><strong>逻辑符号</strong>：</p>
+<p><img src="https://p.ipic.vip/6q9p3a.png" alt="截屏2024-11-21 22.25.03" style="zoom: 50%;" /></p>
+<p>这里的三角形表示边沿，小⭕️代表下降沿触发；如果没有这个小三角形就变成了同步触发器。</p>
+<p>二、工作原理</p>
+<p>我们知道，右边这部分是边沿D触发器，它的特性方程是这样的： <span
+class="math display"><em>Q</em><sup><em>n</em> + 1</sup> = <em>D</em></span></p>
+<p>我们加上左边新增的逻辑门电路，对他进行化简就能得到新的特性方程：</p>
+<p><img src="https://p.ipic.vip/uxo474.png" alt="截屏2024-11-21 22.32.01" style="zoom:50%;" />
+<span class="math display">$$
+S^{n+1}=J \overline{Q^n}+\overline{K}Q^n(CP⬇️)
+$$</span> 三、特性表</p>
+<p>同样的可以得到它的特性表和简化特性表，通过这个特性表可以看出JK边沿触发器非常的强大，被称之为功能最齐全的一种触发器。拥有保持、置一、置零、翻转、防空翻功能。所以它也是使用最广泛的一种触发器。</p>
+<p><img src="https://p.ipic.vip/d537qp.png" alt="截屏2024-11-21 22.33.57" style="zoom:50%;" /></p>
+<p>波形图分析：</p>
+<p><img src="https://p.ipic.vip/0rwwx6.png" alt="截屏2024-11-21 22.37.34" style="zoom: 50%;" /></p>
+<blockquote>
+<p><span class="math inline">$\overline{Q}$</span>和<span
+class="math inline"><em>Q</em></span>完全相反，这里没有写出来。</p>
+</blockquote>
+<p>四、集成边沿JK触发器：<strong>74LS112</strong></p>
+<p>对应的<strong>芯片管脚图</strong>和<strong>逻辑图</strong>如下图所示：</p>
+<p><img src="https://p.ipic.vip/lr57u9.png" alt="截屏2024-11-21 22.39.47" style="zoom:50%;" /></p>
+<blockquote>
+<p>注意⚠️：这里的异步输入端是低电平0️⃣有效，触发器是下降⬇️沿触发的。</p>
+</blockquote>
+<p><strong>异步边沿JK触发器 74LS112</strong>对应的特性表如下图所示：</p>
+<p><img src="https://p.ipic.vip/49ber9.png" alt="截屏2024-11-21 22.41.31" style="zoom:50%;" /></p>
+<p>可以看出，和之前的边沿D触发器芯片一样，带有异步输入端后，异步输入端的优先级最高。并且在工作时，异步端置1️⃣，防止干扰JK触发器正常工作。同时，两个异步输入端不能同时为0️⃣，否则无效。</p>
+<p>对应<strong>波形图</strong>的分析：</p>
+<p><img src="https://p.ipic.vip/5gp6nl.png" alt="截屏2024-11-21 22.47.41" style="zoom:50%;" /></p>
+<h2 id="t触发器和t触发器">T触发器和T’触发器</h2>
+<p>T触发器和T’触发器都是由JK触发器或D触发器构成，主要用来简化集成计数器的逻辑电路。</p>
+<p>一、T触发器</p>
+<p>T触发器拥有<strong>翻转</strong>和<strong>保持</strong>两个功能。并且，又可以分为上升沿和下降沿两种T触发器。</p>
+<p><strong>逻辑符号</strong>：</p>
+<p><img src="https://p.ipic.vip/utdq3o.png" alt="截屏2024-11-21 23.06.39" style="zoom:50%;" /></p>
+<p><strong>特性表</strong>：</p>
+<p>T触发器的功能就是，在下降沿到来的时候，T为0就保持，T为1就翻转。</p>
+<p><img src="https://p.ipic.vip/jvf18t.png" alt="截屏2024-11-21 23.08.30" style="zoom:50%;" /></p>
+<p><strong>特性方程</strong>比较简单： <span
+class="math display"><em>Q</em><sup><em>n</em> + 1</sup> = <em>T</em> ⊕ <em>Q</em><sup><em>n</em></sup></span></p>
+<blockquote>
+<p>很容易看出来是异或。</p>
+</blockquote>
+<p>用一个<strong>波形图</strong>进行分析：</p>
+<p><img src="https://p.ipic.vip/00uoto.png" alt="截屏2024-11-21 23.10.48" style="zoom:50%;" /></p>
+<p>二、T’触发器</p>
+<p>T’触发器比T触发器还要简单，它的功能是在下降或者上升沿是进行一次翻转。</p>
+<p><strong>逻辑符号与特性表</strong>：</p>
+<p><img src="https://p.ipic.vip/y19m97.png" alt="截屏2024-11-21 23.13.29" style="zoom:50%;" /></p>
+<p><strong>特性方程</strong>： <span class="math display">$$
+Q^{n+1}=\overline{Q^n}(CP⬇️)
+$$</span> 利用波形图进行分析：</p>
+<p><img src="https://p.ipic.vip/xw7mks.png" alt="截屏2024-11-21 23.14.39" style="zoom:50%;" /></p>
+<blockquote>
+<p>所以，T’触发器实际上就是一个“二分频器“，因为CP<strong>周期</strong>在T’的作用下变成Q被分成了远来的1/2。</p>
+</blockquote>
+<h2 id="主从jk触发器">主从JK触发器</h2>
+<p><img src="https://p.ipic.vip/61mdhf.png" alt="截屏2024-11-20 19.51.59" height="300"/></p>
+<ul>
+<li><strong>J端</strong>：是由原来的<strong>Set</strong>变化而来</li>
+<li><strong>K端</strong>：是由原来的<strong>Reset</strong>变化而来</li>
+</ul>
+<p>JK触发器和RS触发器基本一样，唯一的不同是当J和K都置1时由原来的不允许变成了翻转。</p>
+<p>真值表与特性方程：</p>
+<p><img src="https://p.ipic.vip/e6b1rk.png" alt="截屏2024-11-20 19.55.42" height="250" style="zoom: 67%;"/></p>
+<p>逻辑符号：</p>
+<p><img src="https://p.ipic.vip/6064y6.png" alt="截屏2024-11-20 19.56.56" height="250" style="zoom: 67%;" /></p>
+<p>CP：正脉冲触发，表示在高电平接收信号，在下降沿时刻更新输出状态。</p>
+<h2 id="同步时序电路的设计">同步时序电路的设计</h2>
+<p>一、基本步骤</p>
+<p><img src="https://p.ipic.vip/z2ui4o.png" alt="截屏2024-11-23 21.07.24" style="zoom:50%;" /></p>
+<p>[例题-1]</p>
+<blockquote>
+<p>设计一个按自然态序变化的<strong>同步七进制加法计数器</strong>，计数规则为逢七进一，产生一个进位输出。</p>
+</blockquote>
+<p>解：</p>
+<ol type="1">
+<li><p><strong>建立状态转化图</strong></p>
+<p><img src="https://p.ipic.vip/aok8ja.png" alt="截屏2024-11-23 21.10.27" style="zoom:50%;" /></p>
+<p>这里的<code>/0</code>和<code>/1</code>为是否进位的表示，也就是进位的输出，只有逢七才进一位。所以在<code>110</code>的时候加一才会进位，这时候是<code>/1</code>。</p></li>
+<li><p><strong>求方程</strong></p>
+<ul>
+<li><p><em>时钟方程</em>：<span
+class="math inline"><em>C</em><em>P</em><sub>0</sub> = <em>C</em><em>P</em><sub>1</sub> = <em>C</em><em>P</em><sub>2</sub> = <em>C</em><em>P</em></span></p></li>
+<li><p><em>输出方程</em>：</p>
+<p><img src="https://p.ipic.vip/bvvma9.png" alt="截屏2024-11-23 21.15.23" style="zoom:50%;" /></p>
+<p><span
+class="math inline"><em>Y</em> = <em>Q</em><sub>2</sub><sup><em>n</em></sup><em>Q</em><sub>1</sub><sup><em>n</em></sup></span>作为电路的进位输出</p></li>
+<li><p><em>状态方程</em>：</p>
+<blockquote>
+<p>先画出次态的卡诺图，再拆分开得各触发器的卡诺图。</p>
+</blockquote>
+<p><em>次态卡诺图</em>：</p>
+<p><img src="https://p.ipic.vip/m1ue1y.png" alt="截屏2024-11-23 21.18.14" style="zoom:50%;" /></p>
+<p>拆开后<em>各触发器的卡诺图</em>：</p>
+<p><img src="https://p.ipic.vip/45pwfs.png" alt="截屏2024-11-23 21.19.06" style="zoom:50%;" /></p></li>
+</ul></li>
+<li><p><strong>求驱动方程</strong></p>
+<blockquote>
+<p>变换状态方程，使之形式与选用触发器的特性方程一致，比较后得驱动方程。</p>
+</blockquote>
+<ul>
+<li><p><span
+class="math inline"><em>J</em><em>K</em></span>触发器的特性方程：<span
+class="math inline">$Q^{n+1}=J\overline{Q^n}+\overline{K}Q^n$</span></p></li>
+<li><p>比较并得到<strong>驱动方程</strong>：</p>
+<p><img src="https://p.ipic.vip/9nq8z5.png" alt="截屏2024-11-23 21.24.26" style="zoom:50%;" /></p></li>
+</ul></li>
+<li><p><strong>画电路图</strong></p>
+<p>结合<strong>驱动方程</strong>和<strong>输出方程</strong>画出电路图：</p>
+<p><img src="https://p.ipic.vip/the68x.png" alt="截屏2024-11-23 21.26.04" style="zoom:50%;" /></p></li>
+<li><p><strong>检查电路是否能自启动</strong></p>
+<blockquote>
+<p>能从无效的状态自己返回到正常状态称为<strong>自启动</strong>。</p>
+</blockquote>
+<ul>
+<li><p>无效状态：<span class="math inline">111</span></p></li>
+<li><p>状态方程：</p>
+<p><img src="https://p.ipic.vip/vv27os.png" alt="截屏2024-11-23 21.30.00" style="zoom:50%;" /></p></li>
+<li><p>输出方程：</p>
+<p><span
+class="math inline"><em>Y</em> = <em>Q</em><sub>2</sub><sup><em>n</em></sup><em>Q</em><sub>1</sub><sup><em>n</em></sup></span></p></li>
+</ul>
+<p>将无效状态带入到状态方程，得到次态为<code>000</code>，并且输出是<code>1</code>，所以可以自启动。</p>
+<p>检验后得到对应的状态转换图：</p>
+<p><img src="https://p.ipic.vip/l14oyz.png" alt="截屏2024-11-23 21.32.27" style="zoom:50%;" /></p></li>
+<li><p><strong>Multism 仿真电路图</strong>：</p>
+<p><img src="https://p.ipic.vip/ltfzu5.png" alt="截屏2024-11-23 21.34.14" style="zoom:50%;" /></p></li>
+</ol>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/%E6%95%B0%E7%94%B5/" class="tag">#数电</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/2024/12/23/%E5%85%B6%E4%BB%96/SQL%E6%B3%A8%E5%85%A5%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">SQL注入入门笔记</h3>
+      </div>
+    </a>
+    
+    <a class="prev"></a>
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

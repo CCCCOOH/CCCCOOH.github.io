@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【Pinia】初始Pinia - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="Pinia 是什么 Pinia最初是一个实验，用于取代vuex。Vuex主要服务于vue2，目前能使用vuex4来在vue3中使用，但仍然存在很大的缺陷，所以推出了Pinia。 为什么叫 Pinia Pinia（发音为 &#x3D;&#x3D;&#x2F;piːnjʌ&#x2F;&#x3D;&#x3D;，类似于英语中的 &#x3D;&#x3D;peenya&#x3D;&#x3D;）是最接近有效包名 piña（西班牙语中的 pineapple ）的词，即为菠萝，其 logo 也被设计成了菠萝的模样">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Pinia】初始Pinia">
+<meta property="og:url" content="https://ccccooh.github.io/demo/gvz1avb2/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="Pinia 是什么 Pinia最初是一个实验，用于取代vuex。Vuex主要服务于vue2，目前能使用vuex4来在vue3中使用，但仍然存在很大的缺陷，所以推出了Pinia。 为什么叫 Pinia Pinia（发音为 &#x3D;&#x3D;&#x2F;piːnjʌ&#x2F;&#x3D;&#x3D;，类似于英语中的 &#x3D;&#x3D;peenya&#x3D;&#x3D;）是最接近有效包名 piña（西班牙语中的 pineapple ）的词，即为菠萝，其 logo 也被设计成了菠萝的模样">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-26T10:57:10.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.753Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/Pinia/">Pinia</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-02-26T10:57:10+00:00">
+      February 26, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【Pinia】初始Pinia</h1>
+  </div>
+
+  <div class="content">
+    <h2 id="pinia-是什么">Pinia 是什么</h2>
+<p><code>Pinia</code>最初是一个实验，用于取代<code>vuex</code>。Vuex主要服务于vue2，目前能使用vuex4来在vue3中使用，但仍然存在很大的缺陷，所以推出了<code>Pinia</code>。</p>
+<h2 id="为什么叫-pinia">为什么叫 Pinia</h2>
+<p>Pinia（发音为 ==/piːnjʌ/==，类似于英语中的
+==peenya==）是最接近有效包名 piña（西班牙语中的 <em>pineapple</em>
+）的词，即为菠萝，其 logo 也被设计成了菠萝的模样。</p>
+<p>:::: demo-wrapper no-padding ::: center <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250226185944.png"
+alt="20250226185944" /> ::: ::::</p>
+<p>菠萝实际上是一组单独的花朵，它们结合在一起形成多个水果。与状态管理器中的概念
+Store 类似，每一家都是独立诞生的，但最终都是相互联系的。</p>
+<h2 id="pinia-vs-vuex">Pinia vs Vuex</h2>
+<p>Pinia 试图尽可能接近 Vuex 的理念。Pinia 的作者 I(Eduardo) 是 Vue
+核心团队的一员，并积极参与 Router 和 Vuex 等 API 的设计。</p>
+<ul>
+<li>==Vuex
+核心概念==：<code>State</code>、<code>Getter</code>、<code>Mutation</code>、<code>Action</code>、<code>Module</code>。</li>
+<li>==Pinia
+核心概念==：<code>State</code>、<code>Getters</code>、<code>Actions</code>、<code>Plugins</code>、<code>Stores outside of components</code>。</li>
+</ul>
+<p>不难看出大部分的核心概念都是相似的。</p>
+<p>不过相比于<code>Vuex</code>，<code>Pinia</code>可以更好的支持<code>TypeScript</code>并且舍弃了<code>Mutation</code>。</p>
+<h2 id="关于版本问题">关于版本问题</h2>
+<p>Pinia 既支持 Vue2 也支持 Vue3，一般情况下 Vue2 习惯性使用 Vuex，而
+Vue3 使用 Pinia。</p>
+<p>Pinia 当前的最新版本是 2.x（截止 2023 年 8 月），而 Vuex
+当前的最新版本是 4.x。==Pinia 可以认为就是 Vuex
+的第五个版本==，因为它的作者是官方的开发人员，并且==已经被官方接管了==。</p>
+<p>Pinia 是新版本的 Vuex，建议在你的项目中直接使用它，尤其是使用了
+Vue3+TypeScript 的项目。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/rrm6slri/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">【Pinia】Pinia的安装和配置</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/i99ir9kd/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【VueRouter】2.安装和使用</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

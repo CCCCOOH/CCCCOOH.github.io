@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【ECharts】1.认识ECharts - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="ECharts是一个底层依赖于ZRender矢量图形库的JavaScript，可以用于快速构建矢量图形库。 ## 什么是 ECharts 在没有 ECharts 的年代，公司的图表业务都是用 flash 去实现的，当时的前端工程师并不负责这一块，而是由专门的图标工程师来完成。这就造成了大量的沟通成本，因为在数据接口设计上，前端工程师需要和做图表的同事进行沟通。 在这样的背景下，百度团队在 2012">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ECharts】1.认识ECharts">
+<meta property="og:url" content="https://ccccooh.github.io/demo/enaku3vs/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="ECharts是一个底层依赖于ZRender矢量图形库的JavaScript，可以用于快速构建矢量图形库。 ## 什么是 ECharts 在没有 ECharts 的年代，公司的图表业务都是用 flash 去实现的，当时的前端工程师并不负责这一块，而是由专门的图标工程师来完成。这就造成了大量的沟通成本，因为在数据接口设计上，前端工程师需要和做图表的同事进行沟通。 在这样的背景下，百度团队在 2012">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-03T12:35:29.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.752Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/ECharts/">ECharts</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-03-03T12:35:29+00:00">
+      March 3, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【ECharts】1.认识ECharts</h1>
+  </div>
+
+  <div class="content">
+    <p><code>ECharts</code>是一个底层依赖于<code>ZRender</code>矢量图形库的<code>JavaScript</code>，可以用于快速构建矢量图形库。
+## 什么是 ECharts</p>
+<p>在没有 ECharts 的年代，公司的图表业务都是用 flash
+去实现的，当时的前端工程师并不负责这一块，而是由专门的图标工程师来完成。这就造成了大量的沟通成本，因为在数据接口设计上，前端工程师需要和做图表的同事进行沟通。</p>
+<p>在这样的背景下，百度团队在
+2012年8月立项，开发了一款数据可视化工具，所以 ECharts
+最初诞生是为了满足公司的各种业务报表需求。</p>
+<p>在 2013 年 6 月，ECharts 发布了 1.0
+版本随着不断地迭代更新，截止本实验发布（2021 年 12 月）为止，ECharts
+的最新版本是 5.2.0。</p>
+<p>:::: demo-wrapper no-padding <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303204659.png"
+alt="20250303204659" /> ::::</p>
+<p>ECharts
+提供了常规的==折线图、柱状图、散点图、饼图==等，用于统计的盒形图，用于地理数据可视化的地图、热力图、线图，用于关系数据可视化的关系图、treemap、旭日图，多维数据可视化的平行坐标，还有用于
+BI 的漏斗图，仪表盘，并且支持图与图之间的混搭。</p>
+<p>除了已经内置的包含了丰富功能的图表，ECharts
+还提供了自定义系列，只需要传入一个 renderItem
+函数，就可以从数据映射到任何你想要的图形，更棒的是这些都还能和已有的交互组件结合使用而不需要操心其它事情。</p>
+<p>在官网上还为大家提供了许多不同类型的可视化图表以及炫酷的数据可视化示例。</p>
+<p>最有益于大家的地方是它提供了简单的操作、直观的结构、内置的数据源。你能够轻松的找到你想要的图表然后修改它，以此做出一个成品。</p>
+<p>::: demo-wrapper no-padding <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303205211.png"
+alt="20250303205211" /> :::</p>
+<blockquote>
+<p>简直是==炫酷==有没有。</p>
+</blockquote>
+<p>总之，ECharts 好处多多，主要有以下六种特性：</p>
+<p>丰富的图表类型。 专业的数据分析。 健康的开源社区。 强劲的渲染引擎。
+优雅的可视化设计。 友好的无障碍访问。</p>
+<h2 id="获取-echarts-的方式">获取 ECharts 的方式</h2>
+<p>学到这个阶段了，想要回答这个问题我是这个表情： ::: center <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250303205344.png"
+alt="20250303205344" /> :::</p>
+<p>官方文档提供了<a
+target="_blank" rel="noopener" href="https://echarts.apache.org/handbook/zh/basics/download">多种方式</a>。</p>
+<ul>
+<li>从 GitHub 获取</li>
+<li>从 npm 获取</li>
+<li>从 CDN 获取</li>
+<li>在线定制</li>
+</ul>
+<p>本笔记主要贴合蓝桥杯比赛方式，使用CDN来讲解。</p>
+<h2 id="从-cdn-获取">从 CDN 获取</h2>
+<p>可以从以下免费 CDN 中获取和引用 ECharts。</p>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://www.jsdelivr.com/package/npm/echarts">jsDelivr</a></li>
+<li><a target="_blank" rel="noopener" href="https://unpkg.com/browse/echarts/">unpkg</a></li>
+<li><a target="_blank" rel="noopener" href="https://cdnjs.com/libraries/echarts">cdnjs</a></li>
+</ul>
+<h2 id="使用方法">使用方法</h2>
+<p>::::steps 1.
+完成后创建一个<code>index.html</code>文件，在文件中写入： ::: code-tabs
+<span class="citation" data-cites="tab">@tab</span> index.html
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 为 ECharts 准备一个宽为 600px，高为 400px 的 DOM --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 600px;height:400px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure> :::</p>
+<p>这一步为图表准备了容器。 2. 在<code>index.html</code>文件中： :::
+code-tabs <span class="citation" data-cites="tab">@tab</span> index.html
+<figure class="highlight html"><figcaption><span>:collapsed-lines</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;echarts.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>ECharts 快速上手<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    * &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#main</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">margin</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">background-color</span>: <span class="built_in">rgb</span>(<span class="number">228</span>, <span class="number">255</span>, <span class="number">192</span>);</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 为 ECharts 准备一个宽为 600px，高为 400px 的 DOM --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:600px;height:400px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> chartDom = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;main&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 初始化实例对象 echarts.init(dom) 容器;</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> myChart = echarts.<span class="title function_">init</span>(chartDom);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 指定配置项和数据</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> option = &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">xAxis</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">type</span>: <span class="string">&quot;category&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">data</span>: [<span class="string">&quot;Mon&quot;</span>, <span class="string">&quot;Tue&quot;</span>, <span class="string">&quot;Wed&quot;</span>, <span class="string">&quot;Thu&quot;</span>, <span class="string">&quot;Fri&quot;</span>, <span class="string">&quot;Sat&quot;</span>, <span class="string">&quot;Sun&quot;</span>],</span></span><br><span class="line"><span class="language-javascript">      &#125;,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">yAxis</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">type</span>: <span class="string">&quot;value&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">      &#125;,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">series</span>: [</span></span><br><span class="line"><span class="language-javascript">        &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">data</span>: [<span class="number">150</span>, <span class="number">230</span>, <span class="number">224</span>, <span class="number">218</span>, <span class="number">135</span>, <span class="number">147</span>, <span class="number">260</span>],</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">type</span>: <span class="string">&quot;line&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">      ],</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 将配置项设置给 echarts 实例对象。</span></span></span><br><span class="line"><span class="language-javascript">    myChart.<span class="title function_">setOption</span>(option);</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure> ::: ::::</p>
+<p>打开<code>LiveServer</code>可以看到效果。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/n3g4dbp4/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">【ECharts】2.ECharts基础知识</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/xmld3lww/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【Pinia】购物车项目</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

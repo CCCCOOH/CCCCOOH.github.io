@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>mac终端工作流优化 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="教你如何像Hexo（谐音梗）一样在优雅的在Hexo上写文章。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mac终端工作流优化">
+<meta property="og:url" content="https://ccccooh.github.io/2025/02/16/%E5%85%B6%E4%BB%96/mac%E7%BB%88%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81%E4%BC%98%E5%8C%96%E8%AE%A1%E5%88%92/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="教你如何像Hexo（谐音梗）一样在优雅的在Hexo上写文章。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-02-16%2011.23.41.png">
+<meta property="article:published_time" content="2025-02-16T03:05:40.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.751Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="其他">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-02-16%2011.23.41.png">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/其他/">其他</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-02-16T03:05:40+00:00">
+      February 16, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">mac终端工作流优化</h1>
+  </div>
+
+  <div class="content">
+    <h1 id="一引言">一、引言</h1>
+<p>自从使用了Hexo写博客后，加上最常用的电脑逐渐变成了Mac。两者在一起迸发出的化学反应导致我使用终端的频率不断增加，甚至于现在有了想要抛弃VsCode转向Vim的想法。</p>
+<p>今天给zsh增加了美化和插件，还发明了一个很高效的Hexo工作流，这里就来说一下。</p>
+<h1 id="二美化">二、美化</h1>
+<p>关于zsh的美化，网上已经有大量的教程了，本文不单独赘述。这里把我看到的讲的很好的教程贴出来：</p>
+<p>首先是Youtube上看到的关于Mac上终端美化的教程（包括了VSCode终端）：</p>
+<iframe align="center" width="560" height="315" src="https://www.youtube.com/embed/CF1tMjvHDRA?si=GSicTCAlmAMQNFiw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+<p>这个教程讲的非常好，包括其中的命令也单独地写了一篇文章，推荐去看一看。做完后你的Mac终端就会变得和我一样<strong>beautiful</strong>：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-02-16%2011.21.45.png"
+alt="截屏2025-02-16 11.21.45" />
+<figcaption aria-hidden="true">截屏2025-02-16 11.21.45</figcaption>
+</figure>
+<blockquote>
+<p>不知道为什么我的mac截图有时候会出现bug，不知道是M1老了还是什么原因，这张图我截了三遍右下角才出来，下面还卡出来这么个东西怎么都去不掉。</p>
+</blockquote>
+<p><img src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-02-16%2011.23.41.png" alt="截屏2025-02-16 11.23.41" style="zoom:50%;" /></p>
+<h1 id="三hexo工作流">三、Hexo工作流</h1>
+<p>个人发现了一种很高效的Hexo工作流，可以让你终端起手并且不用麻烦的cd。</p>
+<p>首先跟这上面的Youtube教程做完后安装好了<code>oh-my-zsh</code>这个zsh的插件，在你的<strong>zshrc</strong>的配置文件中要有这样一行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(z wd)</span><br></pre></td></tr></table></figure>
+<p>这是插件的列表，里面的<code>z wd</code>是两个插件，z用来进入常用目录，wd用来添加收藏目录。</p>
+<p>直接<code>z</code>可以提示常用的目录，并用<code>z menu</code>进入这个menu目录。</p>
+<p>进入你常用的目录后，<code>wd add</code>可以将其添加到你的wd收藏夹，在任何位置使用<code>wd xxx</code>就可秒进这个目录。再也不用<code>cd ll cd ll</code>疯狂循环了。<code>wd list</code>可以列出收藏目录列表，<code>wd rm</code>移除收藏目录。</p>
+<p>完成这一切后，我们进入到<code>hexo</code>的<code>_posts</code>博客目录下，进去<code>wd ad</code>。然后<code>_posts</code>就能随时用<code>wd _posts</code>进入了。</p>
+<p>这样就完成了工作流中重要的一步。然后我们<code>vim bash_profile</code>，添加一个自定义的函数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> funciton <span class="function"><span class="title">typora</span></span>() &#123;                                                                </span><br><span class="line">     open -a typora <span class="variable">$1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解读一下，这里的open -a
+typora会打开typora编辑器，如果<code>open -a typora 你好.md</code>就会用typora打开这个markdown文件。这里的<code>$1</code>是一个站位符，相当于函数的传参。</p>
+<p>完成之后我们<code>wd</code>进入到<code>_posts</code>目录，然后执行<code>typora xxx.md</code>就可以打开你的<code>xxx.md</code>这篇文章了。</p>
+<p>搭配上mac的快捷键<code>command+space</code>，我们就可以开始打连招了：</p>
+<p><code>command+space</code>切出聚焦搜索，搜索<code>ter</code>跳出终端回车，<code>wd _posts</code>进入文章目录，<code>ll -t</code>按照时间排序并列出文章，<code>typora xxx.md</code>用typora打开文章。</p>
+<p>发现没有，全程不使用鼠标一气呵成。我们甚至可以进一步包装成我们想要的函数！不过考虑到不在目录没有提示的原因就不进一步包装了。</p>
+<p>由于我才用了Gitactions来自动化Hexo文章，我们还可以在工作流中加上最后的点睛之笔，也就是自动git推送的包装。</p>
+<p>我们<code>vim ~/.gitconfig</code>，添加函数：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-02-16%2011.41.53.png"
+alt="截屏2025-02-16 11.41.53" />
+<figcaption aria-hidden="true">截屏2025-02-16 11.41.53</figcaption>
+</figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pushall = <span class="string">&quot;!f() &#123; git add . &amp;&amp; git commit -m \&quot;<span class="variable">$1</span>\&quot; &amp;&amp; git push origin main; &#125;; f&quot;</span></span><br></pre></td></tr></table></figure>
+<p>有了最这个包装，就能将平时一直用的<code>git add . &amp;&amp; git commit -m "xxx" &amp;&amp; git push origin main</code>用一句简单的语法代替。</p>
+<p>在写完文章后，我们直接<code>wd</code>到Hexo到根目录下，然后<code>git pushall "写了一篇新的✍️"</code>就能直接推送了，并且由于我们配置了Gitaciton，github会自动将源代码推送后再次构建博客的静态页面，优雅…实在是优雅。</p>
+<h1 id="四总结">四、总结</h1>
+<p>经过一段时间的体验我发现，不是终端不好用，不是vim不好用，也不是Hexo不好用。如果你觉得你现在的工作流很繁琐，有时候多在自己身上找找原因。是不是菜？如果菜，就多练。很多你认为很麻烦的操作在一些奇技淫巧后可能会突然豁然开朗。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/%E5%85%B6%E4%BB%96/" class="tag">#其他</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/2025/02/17/%E5%85%B6%E4%BB%96/Learn-Vim%E9%9A%8F%E7%AC%94/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">Learn-Vim随笔</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/2025/02/12/%E5%8D%9A%E5%AE%A2/Hexo%E5%A4%9A%E7%AB%AF%E9%83%A8%E7%BD%B2%E7%BB%88%E6%9E%81%E6%96%B9%E6%A1%88%EF%BC%81/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">Hexo多端部署终极方案</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

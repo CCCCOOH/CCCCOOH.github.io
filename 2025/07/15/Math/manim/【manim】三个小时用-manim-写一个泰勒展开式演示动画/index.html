@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【manim】写一个泰勒展开式演示动画 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="尝试三个小时用manim 速通动画制作成功">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【manim】写一个泰勒展开式演示动画">
+<meta property="og:url" content="https://ccccooh.github.io/2025/07/15/Math/manim/%E3%80%90manim%E3%80%91%E4%B8%89%E4%B8%AA%E5%B0%8F%E6%97%B6%E7%94%A8-manim-%E5%86%99%E4%B8%80%E4%B8%AA%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80%E5%BC%8F%E6%BC%94%E7%A4%BA%E5%8A%A8%E7%94%BB/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="尝试三个小时用manim 速通动画制作成功">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-15T08:29:00.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.750Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="manim">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/manim/">manim</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-07-15T08:29:00+00:00">
+      July 15, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【manim】写一个泰勒展开式演示动画</h1>
+  </div>
+
+  <div class="content">
+    <figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507151628302.png"
+alt="效果" />
+<figcaption aria-hidden="true">效果</figcaption>
+</figure>
+<h2 id="公式推导">公式推导</h2>
+<p>这是泰勒展开式： <span class="math display">$$
+f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\dots+\frac{f^{(n)}(0)}{n!}x^n+o(x^n)
+$$</span></p>
+<p>欲求对<span
+class="math inline"><em>s</em><em>i</em><em>n</em><em>x</em></span>的逼近，我们将<span
+class="math inline"><em>s</em><em>i</em><em>n</em><em>x</em></span>作为<span
+class="math inline"><em>f</em>(<em>x</em>)</span>带入公式，尝试写出几项并观察其规律：</p>
+<p><span class="math display">$$
+sin(x)=
+\boxed{sin(0)}+
+cos(0)x+
+\boxed{\frac{-sin(0)}{2!}x^2}+
+\frac{-cos(0)}{3!}x^3+
+\boxed{\frac{sin(0)}{4!}x^4}+
+\frac{cos(0)}{5!}x^5+
+\boxed{\frac{-sin(0)}{6!}x^6}
+$$</span></p>
+<p>可以发现所有<span
+class="math inline"><em>s</em><em>i</em><em>n</em>(0)</span>全为0，约去得：
+<span class="math display">$$
+sin(x)=
+cos(0)x+
+\frac{-cos(0)}{3!}x^3+
+\frac{cos(0)}{5!}x^5
+$$</span> 可知，<span
+class="math inline"><em>c</em><em>o</em><em>s</em>(0) = 1</span>： <span
+class="math display">$$
+sin(x)=
+\frac{x^1}{1!}+
+\frac{-x^3}{3!}+
+\frac{x^5}{5!}
++\dots
+$$</span></p>
+<p>以此类推得到： <span class="math display">$$
+sin(x)=\sum_{i=0}^{i}
+\frac
+{
+    (-1)^{i} \cdot x^{2i+1}}
+{(2i+1)!}
+$$</span></p>
+<p>转化为 python 为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">make_taylor_func</span>(<span class="params">n_terms</span>):</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">lambda</span> x: <span class="built_in">sum</span>(</span><br><span class="line">		(-<span class="number">1</span>)**k * x**(<span class="number">2</span>*k + <span class="number">1</span>) / factorial(<span class="number">2</span>*k + <span class="number">1</span>) <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(n_terms)</span><br><span class="line">	)</span><br></pre></td></tr></table></figure>
+<p>于是就可以写出这样的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> factorial</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">introduction</span>(<span class="params">self</span>):</span><br><span class="line">        intro = Text(<span class="string">&quot;这是野生的泰勒展开式&quot;</span>)</span><br><span class="line">        tex = Tex(<span class="string">r&quot;$$f(x)=f(0)+f&#x27;(0)x+\frac&#123;f&#x27;&#x27;(0)&#125;&#123;2!&#125;x^2+\dots+\frac&#123;f^&#123;(n)&#125;(0)&#125;&#123;n!&#125;x^n+o(x^n)$$&quot;</span>)</span><br><span class="line">        intro_sin = Text(<span class="string">&quot;将正弦函数代入其中&quot;</span>).shift(UP*<span class="number">3</span>)</span><br><span class="line">        tex_sin = Tex(<span class="string">r&#x27;&#x27;&#x27;$$</span></span><br><span class="line"><span class="string">            sin(x)=</span></span><br><span class="line"><span class="string">            \boxed&#123;sin(0)&#125;+</span></span><br><span class="line"><span class="string">            cos(0)x+</span></span><br><span class="line"><span class="string">            \boxed&#123;\frac&#123;-sin(0)&#125;&#123;2!&#125;x^2&#125;+</span></span><br><span class="line"><span class="string">            \frac&#123;-cos(0)&#125;&#123;3!&#125;x^3+</span></span><br><span class="line"><span class="string">            \boxed&#123;\frac&#123;sin(0)&#125;&#123;4!&#125;x^4&#125;+</span></span><br><span class="line"><span class="string">            \frac&#123;cos(0)&#125;&#123;5!&#125;x^5+</span></span><br><span class="line"><span class="string">            \boxed&#123;\frac&#123;-sin(0)&#125;&#123;6!&#125;x^6&#125;</span></span><br><span class="line"><span class="string">            $$</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span>).shift(DOWN).scale(<span class="number">0.6</span>)</span><br><span class="line">        tex_2 = Tex(<span class="string">r&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">            $$</span></span><br><span class="line"><span class="string">            sin(x)=</span></span><br><span class="line"><span class="string">            cos(0)x+</span></span><br><span class="line"><span class="string">            \frac&#123;-cos(0)&#125;&#123;3!&#125;x^3+</span></span><br><span class="line"><span class="string">            \frac&#123;cos(0)&#125;&#123;5!&#125;x^5</span></span><br><span class="line"><span class="string">            $$</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span>)</span><br><span class="line">        tex_3 = Tex(<span class="string">r&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">            $$</span></span><br><span class="line"><span class="string">            sin(x)=</span></span><br><span class="line"><span class="string">            \frac&#123;x^1&#125;&#123;1!&#125;+</span></span><br><span class="line"><span class="string">            \frac&#123;-x^3&#125;&#123;3!&#125;+</span></span><br><span class="line"><span class="string">            \frac&#123;x^5&#125;&#123;5!&#125;</span></span><br><span class="line"><span class="string">            $$</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span>)</span><br><span class="line">        tex_4 = Tex(<span class="string">r&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">            $$</span></span><br><span class="line"><span class="string">            sin(x)=\sum_&#123;i=0&#125;^&#123;i&#125; </span></span><br><span class="line"><span class="string">            \frac</span></span><br><span class="line"><span class="string">            &#123;</span></span><br><span class="line"><span class="string">                (-1)^&#123;i&#125; \cdot x^&#123;2i+1&#125;&#125;</span></span><br><span class="line"><span class="string">            &#123;(2i+1)!&#125;</span></span><br><span class="line"><span class="string">            $$</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.play(Write(intro)) <span class="comment"># 写下 “这是野生的展开式”</span></span><br><span class="line">        <span class="variable language_">self</span>.play(intro.animate.shift(UP * <span class="number">3</span>)) <span class="comment"># 向上移动</span></span><br><span class="line">        <span class="variable language_">self</span>.play(Write(tex)) <span class="comment"># 泰勒展开式</span></span><br><span class="line">        <span class="variable language_">self</span>.play(tex.animate.shift(UP)) <span class="comment"># 泰勒展开式向上移动</span></span><br><span class="line">        <span class="variable language_">self</span>.play(Unwrite(intro)) <span class="comment"># 擦去 “这是野生的泰勒展开式”</span></span><br><span class="line">        <span class="variable language_">self</span>.play(Write(intro_sin)) <span class="comment"># 写下 “将正弦函数代入其中”</span></span><br><span class="line">        <span class="variable language_">self</span>.play(Write(tex_sin)) <span class="comment"># 写下带入正弦后的表达式</span></span><br><span class="line">        <span class="variable language_">self</span>.play(Uncreate(tex)) <span class="comment"># 变换得到新式子</span></span><br><span class="line">        <span class="variable language_">self</span>.play(Unwrite(intro_sin)) <span class="comment"># 擦去 ”带入正弦函数“</span></span><br><span class="line">        <span class="variable language_">self</span>.play(tex_sin.animate.shift(UP)) <span class="comment"># 将带入后的式子置于中间</span></span><br><span class="line">        <span class="variable language_">self</span>.play(Transform(tex_sin, tex_2), run_time=<span class="number">2</span>)</span><br><span class="line">        <span class="variable language_">self</span>.remove(tex_sin)</span><br><span class="line">        <span class="variable language_">self</span>.play(Transform(tex_2, tex_3), run_time=<span class="number">2</span>)</span><br><span class="line">        <span class="variable language_">self</span>.remove(tex_2)</span><br><span class="line">        <span class="variable language_">self</span>.play(Transform(tex_3, tex_4), run_time=<span class="number">2</span>)</span><br><span class="line">        <span class="variable language_">self</span>.play(Unwrite(tex_3))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建泰勒近似函数（前 n 项）</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">make_taylor_func</span>(<span class="params">self, n_terms</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">lambda</span> x: <span class="built_in">sum</span>(</span><br><span class="line">            (-<span class="number">1</span>) ** k * x ** (<span class="number">2</span> * k + <span class="number">1</span>) / factorial(<span class="number">2</span> * k + <span class="number">1</span>) <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(n_terms)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建对应的 LaTeX 公式</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">make_formula_tex</span>(<span class="params">self, n_terms</span>):</span><br><span class="line">        terms = []</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(n_terms):</span><br><span class="line">            sign = <span class="string">&quot;-&quot;</span> <span class="keyword">if</span> k % <span class="number">2</span> == <span class="number">1</span> <span class="keyword">else</span> <span class="string">&quot;&quot;</span></span><br><span class="line">            exponent = <span class="number">2</span> * k + <span class="number">1</span></span><br><span class="line">            term = <span class="string">rf&quot;<span class="subst">&#123;sign&#125;</span>\frac&#123;&#123;x^&#123;&#123;<span class="subst">&#123;exponent&#125;</span>&#125;&#125;&#125;&#125; &#123;&#123;<span class="subst">&#123;exponent&#125;</span>!&#125;&#125;&quot;</span></span><br><span class="line">            terms.append(term)</span><br><span class="line">        formula = <span class="string">&quot;+&quot;</span>.join(terms).replace(<span class="string">&quot;+-&quot;</span>, <span class="string">&quot;-&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> MathTex(<span class="string">&quot;f(x) =&quot;</span>, formula).scale(<span class="number">0.8</span>).to_edge(RIGHT)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">write_image</span>(<span class="params">self</span>):</span><br><span class="line">        ax = Axes(</span><br><span class="line">            x_range=[-<span class="number">12</span>, <span class="number">12</span>, <span class="number">2</span>],</span><br><span class="line">            y_range=[-<span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">            axis_config=&#123;<span class="string">&quot;color&quot;</span>: GREEN&#125;,</span><br><span class="line">        )</span><br><span class="line">        pl = NumberPlane()</span><br><span class="line"></span><br><span class="line">        sin = ax.plot(<span class="keyword">lambda</span> x: np.sin(x), color=BLUE)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.play(Create(ax), Create(pl))</span><br><span class="line">        <span class="variable language_">self</span>.play(Write(sin))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 构建图像和公式</span></span><br><span class="line">        taylor_graphs = []</span><br><span class="line">        formula_labels = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">15</span>):  <span class="comment"># t1~t6</span></span><br><span class="line">            f = <span class="variable language_">self</span>.make_taylor_func(i)</span><br><span class="line">            graph = ax.plot(f, color=RED)</span><br><span class="line">            formula = <span class="variable language_">self</span>.make_formula_tex(i).shift(DOWN*<span class="number">2</span>)</span><br><span class="line">            <span class="keyword">if</span> (i &gt;= <span class="number">8</span>):</span><br><span class="line">                formula = formula.scale(<span class="number">0.5</span>).shift(RIGHT*<span class="number">2</span>)</span><br><span class="line">            taylor_graphs.append(graph)</span><br><span class="line">            formula_labels.append(formula)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 第一个图和公式</span></span><br><span class="line">        current_graph = taylor_graphs[<span class="number">0</span>]</span><br><span class="line">        current_formula = formula_labels[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.play(Write(current_graph), Write(current_formula))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 后续逐步替换</span></span><br><span class="line">        <span class="keyword">for</span> next_graph, next_formula <span class="keyword">in</span> <span class="built_in">zip</span>(taylor_graphs[<span class="number">1</span>:], formula_labels[<span class="number">1</span>:]):</span><br><span class="line">            <span class="variable language_">self</span>.play(Transform(current_graph, next_graph),</span><br><span class="line">                      Transform(current_formula, next_formula))</span><br><span class="line">            <span class="variable language_">self</span>.remove(current_graph, current_formula)</span><br><span class="line">            current_graph = next_graph</span><br><span class="line">            current_formula = next_formula</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 最终版本</span></span><br><span class="line">        <span class="variable language_">self</span>.play(Write(current_graph), Write(current_formula))</span><br><span class="line">        <span class="variable language_">self</span>.wait(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.introduction()</span><br><span class="line">        <span class="variable language_">self</span>.write_image()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tempconfig(&#123;<span class="string">&quot;quality&quot;</span>: <span class="string">&quot;medium_quality&quot;</span>, <span class="string">&quot;preview&quot;</span>: <span class="literal">True</span>&#125;):</span><br><span class="line">    scene = SingleScene()</span><br><span class="line">    scene.render()</span><br></pre></td></tr></table></figure>
+<p>下面进行逐段解释。</p>
+<h2 id="introduction">introduction</h2>
+<p>该函数为画图前的公式推导铺垫动画。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">introduction</span>(<span class="params">self</span>):</span><br><span class="line">	intro = Text(<span class="string">&quot;这是野生的泰勒展开式&quot;</span>)</span><br><span class="line">	tex = Tex(<span class="string">r&quot;$$f(x)=f(0)+f&#x27;(0)x+\frac&#123;f&#x27;&#x27;(0)&#125;&#123;2!&#125;x^2+\dots+\frac&#123;f^&#123;(n)&#125;(0)&#125;&#123;n!&#125;x^n+o(x^n)$$&quot;</span>)</span><br><span class="line">	intro_sin = Text(<span class="string">&quot;将正弦函数代入其中&quot;</span>).shift(UP*<span class="number">3</span>)</span><br><span class="line">	tex_sin = Tex(<span class="string">r&#x27;&#x27;&#x27;$$</span></span><br><span class="line"><span class="string">		sin(x)=</span></span><br><span class="line"><span class="string">		\boxed&#123;sin(0)&#125;+</span></span><br><span class="line"><span class="string">		cos(0)x+</span></span><br><span class="line"><span class="string">		\boxed&#123;\frac&#123;-sin(0)&#125;&#123;2!&#125;x^2&#125;+</span></span><br><span class="line"><span class="string">		\frac&#123;-cos(0)&#125;&#123;3!&#125;x^3+</span></span><br><span class="line"><span class="string">		\boxed&#123;\frac&#123;sin(0)&#125;&#123;4!&#125;x^4&#125;+</span></span><br><span class="line"><span class="string">		\frac&#123;cos(0)&#125;&#123;5!&#125;x^5+</span></span><br><span class="line"><span class="string">		\boxed&#123;\frac&#123;-sin(0)&#125;&#123;6!&#125;x^6&#125;</span></span><br><span class="line"><span class="string">		$$</span></span><br><span class="line"><span class="string">	&#x27;&#x27;&#x27;</span>).shift(DOWN).scale(<span class="number">0.6</span>)</span><br><span class="line">	tex_2 = Tex(<span class="string">r&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">		$$</span></span><br><span class="line"><span class="string">		sin(x)=</span></span><br><span class="line"><span class="string">		cos(0)x+</span></span><br><span class="line"><span class="string">		\frac&#123;-cos(0)&#125;&#123;3!&#125;x^3+</span></span><br><span class="line"><span class="string">		\frac&#123;cos(0)&#125;&#123;5!&#125;x^5</span></span><br><span class="line"><span class="string">		$$</span></span><br><span class="line"><span class="string">	&quot;&quot;&quot;</span>)</span><br><span class="line">	tex_3 = Tex(<span class="string">r&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">		$$</span></span><br><span class="line"><span class="string">		sin(x)=</span></span><br><span class="line"><span class="string">		\frac&#123;x^1&#125;&#123;1!&#125;+</span></span><br><span class="line"><span class="string">		\frac&#123;-x^3&#125;&#123;3!&#125;+</span></span><br><span class="line"><span class="string">		\frac&#123;x^5&#125;&#123;5!&#125;</span></span><br><span class="line"><span class="string">		$$</span></span><br><span class="line"><span class="string">	&quot;&quot;&quot;</span>)</span><br><span class="line">	tex_4 = Tex(<span class="string">r&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">		$$</span></span><br><span class="line"><span class="string">		sin(x)=\sum_&#123;i=0&#125;^&#123;i&#125; </span></span><br><span class="line"><span class="string">		\frac</span></span><br><span class="line"><span class="string">		&#123;</span></span><br><span class="line"><span class="string">			(-1)^&#123;i&#125; \cdot x^&#123;2i+1&#125;&#125;</span></span><br><span class="line"><span class="string">		&#123;(2i+1)!&#125;</span></span><br><span class="line"><span class="string">		$$</span></span><br><span class="line"><span class="string">	&quot;&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="variable language_">self</span>.play(Write(intro)) <span class="comment"># 写下 “这是野生的展开式”</span></span><br><span class="line">	<span class="variable language_">self</span>.play(intro.animate.shift(UP * <span class="number">3</span>)) <span class="comment"># 向上移动</span></span><br><span class="line">	<span class="variable language_">self</span>.play(Write(tex)) <span class="comment"># 泰勒展开式</span></span><br><span class="line">	<span class="variable language_">self</span>.play(tex.animate.shift(UP)) <span class="comment"># 泰勒展开式向上移动</span></span><br><span class="line">	<span class="variable language_">self</span>.play(Unwrite(intro)) <span class="comment"># 擦去 “这是野生的泰勒展开式”</span></span><br><span class="line">	<span class="variable language_">self</span>.play(Write(intro_sin)) <span class="comment"># 写下 “将正弦函数代入其中”</span></span><br><span class="line">	<span class="variable language_">self</span>.play(Write(tex_sin)) <span class="comment"># 写下带入正弦后的表达式</span></span><br><span class="line">	<span class="variable language_">self</span>.play(Uncreate(tex)) <span class="comment"># 变换得到新式子</span></span><br><span class="line">	<span class="variable language_">self</span>.play(Unwrite(intro_sin)) <span class="comment"># 擦去 ”带入正弦函数“</span></span><br><span class="line">	<span class="variable language_">self</span>.play(tex_sin.animate.shift(UP)) <span class="comment"># 将带入后的式子置于中间</span></span><br><span class="line">	<span class="variable language_">self</span>.play(Transform(tex_sin, tex_2), run_time=<span class="number">2</span>)</span><br><span class="line">	<span class="variable language_">self</span>.remove(tex_sin)</span><br><span class="line">	<span class="variable language_">self</span>.play(Transform(tex_2, tex_3), run_time=<span class="number">2</span>)</span><br><span class="line">	<span class="variable language_">self</span>.remove(tex_2)</span><br><span class="line">	<span class="variable language_">self</span>.play(Transform(tex_3, tex_4), run_time=<span class="number">2</span>)</span><br><span class="line">	<span class="variable language_">self</span>.play(Unwrite(tex_3))</span><br></pre></td></tr></table></figure>
+<p>较为简单，用到<code>Animations</code>和<code>Tex</code>。</p>
+<h2 id="write_image">write_image</h2>
+<p>此程序的难点所在。</p>
+<p>先来看两个工具函数： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建泰勒近似函数（前 n 项）</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_taylor_func</span>(<span class="params">self, n_terms</span>):</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">lambda</span> x: <span class="built_in">sum</span>(</span><br><span class="line">		(-<span class="number">1</span>) ** k * x ** (<span class="number">2</span> * k + <span class="number">1</span>) / factorial(<span class="number">2</span> * k + <span class="number">1</span>) <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(n_terms)</span><br><span class="line">	)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建对应的 LaTeX 公式</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_formula_tex</span>(<span class="params">self, n_terms</span>):</span><br><span class="line">		terms = []</span><br><span class="line">		<span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(n_terms):</span><br><span class="line">				sign = <span class="string">&quot;-&quot;</span> <span class="keyword">if</span> k % <span class="number">2</span> == <span class="number">1</span> <span class="keyword">else</span> <span class="string">&quot;&quot;</span></span><br><span class="line">				exponent = <span class="number">2</span> * k + <span class="number">1</span></span><br><span class="line">				term = <span class="string">rf&quot;<span class="subst">&#123;sign&#125;</span>\frac&#123;&#123;x^&#123;&#123;<span class="subst">&#123;exponent&#125;</span>&#125;&#125;&#125;&#125; &#123;&#123;<span class="subst">&#123;exponent&#125;</span>!&#125;&#125;&quot;</span></span><br><span class="line">				terms.append(term)</span><br><span class="line">		formula = <span class="string">&quot;+&quot;</span>.join(terms).replace(<span class="string">&quot;+-&quot;</span>, <span class="string">&quot;-&quot;</span>)</span><br><span class="line">		<span class="keyword">return</span> MathTex(<span class="string">&quot;f(x) =&quot;</span>, formula).scale(<span class="number">0.8</span>).to_edge(RIGHT)</span><br></pre></td></tr></table></figure></p>
+<p><code>make_taylor_func</code>用于求每一个子项的大小，相当于： <span
+class="math display">$$
+\sum_{i=0}^{i}
+\frac
+{
+    (-1)^{i} \cdot x^{2i+1}}
+{(2i+1)!}
+$$</span>
+通过<code>for</code>循环生成了<code>k</code>项，也就是这里的<span
+class="math inline"><em>i</em></span>。</p>
+<p><code>make_formula_tex</code>用于产生每个展开式对应的<code>Latex</code>对象。先用正则匹配生成<code>k</code>条字符串，放入数组并拼接起来得到最终的公式。需要注意部分项会产生<code>-</code>，拼接后就变成<code>+-</code>，需统一替换成<code>-</code>。</p>
+<p>最终<code>write_image(self)</code>如下，我们逐段研究。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">write_image</span>(<span class="params">self</span>):</span><br><span class="line">	ax = Axes(</span><br><span class="line">		x_range=[-<span class="number">12</span>, <span class="number">12</span>, <span class="number">2</span>],</span><br><span class="line">		y_range=[-<span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">		axis_config=&#123;<span class="string">&quot;color&quot;</span>: GREEN&#125;,</span><br><span class="line">	)</span><br><span class="line">	pl = NumberPlane()</span><br><span class="line"></span><br><span class="line">	sin = ax.plot(<span class="keyword">lambda</span> x: np.sin(x), color=BLUE)</span><br><span class="line"></span><br><span class="line">	<span class="variable language_">self</span>.play(Create(ax), Create(pl))</span><br><span class="line">	<span class="variable language_">self</span>.play(Write(sin))</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 构建图像和公式</span></span><br><span class="line">	taylor_graphs = []</span><br><span class="line">	formula_labels = []</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">15</span>):  <span class="comment"># t1~t6</span></span><br><span class="line">		f = <span class="variable language_">self</span>.make_taylor_func(i)</span><br><span class="line">		graph = ax.plot(f, color=RED)</span><br><span class="line">		formula = <span class="variable language_">self</span>.make_formula_tex(i).shift(DOWN*<span class="number">2</span>)</span><br><span class="line">		<span class="keyword">if</span> (i &gt;= <span class="number">8</span>):</span><br><span class="line">			formula = formula.scale(<span class="number">0.5</span>).shift(RIGHT*<span class="number">2</span>)</span><br><span class="line">		taylor_graphs.append(graph)</span><br><span class="line">		formula_labels.append(formula)</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 第一个图和公式</span></span><br><span class="line">	current_graph = taylor_graphs[<span class="number">0</span>]</span><br><span class="line">	current_formula = formula_labels[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">	<span class="variable language_">self</span>.play(Write(current_graph), Write(current_formula))</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 后续逐步替换</span></span><br><span class="line">	<span class="keyword">for</span> next_graph, next_formula <span class="keyword">in</span> <span class="built_in">zip</span>(taylor_graphs[<span class="number">1</span>:], formula_labels[<span class="number">1</span>:]):</span><br><span class="line">		<span class="variable language_">self</span>.play(Transform(current_graph, next_graph),</span><br><span class="line">				  Transform(current_formula, next_formula))</span><br><span class="line">		<span class="variable language_">self</span>.remove(current_graph, current_formula)</span><br><span class="line">		current_graph = next_graph</span><br><span class="line">		current_formula = next_formula</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 最终版本</span></span><br><span class="line">	<span class="variable language_">self</span>.play(Write(current_graph), Write(current_formula))</span><br><span class="line">	<span class="variable language_">self</span>.wait(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="section-1">section 1</h3>
+<p>第一部分建立坐标系，并画图，难度不大。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ax = Axes(</span><br><span class="line">		x_range=[-<span class="number">12</span>, <span class="number">12</span>, <span class="number">2</span>],</span><br><span class="line">		y_range=[-<span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">		axis_config=&#123;<span class="string">&quot;color&quot;</span>: GREEN&#125;,</span><br><span class="line">	)</span><br><span class="line">	pl = NumberPlane()</span><br><span class="line">	</span><br><span class="line">	sin = ax.plot(<span class="keyword">lambda</span> x: np.sin(x), color=BLUE)</span><br><span class="line">	</span><br><span class="line">	<span class="variable language_">self</span>.play(Create(ax), Create(pl))</span><br><span class="line">	<span class="variable language_">self</span>.play(Write(sin))</span><br></pre></td></tr></table></figure>
+<h3 id="section-2">section 2</h3>
+<p>第二部分先是建立两个数组用于存放未来要画的泰勒函数图像，公式标签在右下角展示使视频更直观。通过循环生成了
+15 个表达式，f
+为我们根据<code>make_taylor_func</code>建立的函数对象。将函数对象 f
+放入<code>ax.plot()</code>中即可得到图像对象，公式<code>formula</code>根据<code>make_formula_tex()</code>处理得到。</p>
+<blockquote>
+<p>由于公式较长时会溢出屏幕，需在 <span
+class="math inline"><em>i</em> ≥ 8</span> 时缩小其尺寸。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 构建图像和公式</span></span><br><span class="line">taylor_graphs = []</span><br><span class="line">formula_labels = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">15</span>):  <span class="comment"># t1~t6</span></span><br><span class="line">	f = <span class="variable language_">self</span>.make_taylor_func(i)</span><br><span class="line">	graph = ax.plot(f, color=RED)</span><br><span class="line">	formula = <span class="variable language_">self</span>.make_formula_tex(i).shift(DOWN*<span class="number">2</span>)</span><br><span class="line">	<span class="keyword">if</span> (i &gt;= <span class="number">8</span>):</span><br><span class="line">		formula = formula.scale(<span class="number">0.5</span>).shift(RIGHT*<span class="number">2</span>)</span><br><span class="line">	taylor_graphs.append(graph)</span><br><span class="line">	formula_labels.append(formula)</span><br></pre></td></tr></table></figure>
+<h3 id="section-3">section 3</h3>
+<p>先画出第一个展开式的图像，后续展开式则用数组和循环批量处理。后续通过切片语法从第二个展开式开始迭代。每一次更新都播放衔接的过渡动画，移除当前处理的公式、函数图像。并将<code>current_xxx</code>指针指向下一个带处理的对象。留下最后一组时，上一组对象已被循环移除，直接播放动画即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一个图和公式</span></span><br><span class="line">current_graph = taylor_graphs[<span class="number">0</span>]</span><br><span class="line">current_formula = formula_labels[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="variable language_">self</span>.play(Write(current_graph), Write(current_formula))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 后续逐步替换</span></span><br><span class="line"><span class="keyword">for</span> next_graph, next_formula <span class="keyword">in</span> <span class="built_in">zip</span>(taylor_graphs[<span class="number">1</span>:], formula_labels[<span class="number">1</span>:]):</span><br><span class="line">	<span class="variable language_">self</span>.play(Transform(current_graph, next_graph),</span><br><span class="line">			  Transform(current_formula, next_formula))</span><br><span class="line">	<span class="variable language_">self</span>.remove(current_graph, current_formula)</span><br><span class="line">	current_graph = next_graph</span><br><span class="line">	current_formula = next_formula</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最终版本</span></span><br><span class="line"><span class="variable language_">self</span>.play(Write(current_graph), Write(current_formula))</span><br><span class="line"><span class="variable language_">self</span>.wait(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里的<code>zip</code>函数用于将两个数组并排循环，本质仍在对数组进行迭代，例如：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x, y <span class="keyword">in</span> <span class="built_in">zip</span>(a, b):</span><br><span class="line">    <span class="built_in">print</span>(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出:</span></span><br><span class="line"><span class="comment"># 1 a</span></span><br><span class="line"><span class="comment"># 2 b</span></span><br><span class="line"><span class="comment"># 3 c</span></span><br></pre></td></tr></table></figure>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/manim/" class="tag">#manim</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/2025/07/15/%E6%95%B0%E5%AD%A6/%E5%BF%AB%E9%80%9F%E5%BC%80%E6%A0%B9%E6%B3%95/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">快速开根法</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/2025/07/14/Math/%E3%80%90Latex%E3%80%91Latex-%E5%A4%87%E5%BF%98%E5%BD%95/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【Latex】 LaTeX 备忘录</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

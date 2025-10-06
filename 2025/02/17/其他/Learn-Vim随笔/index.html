@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>Learn-Vim随笔 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="Vim学习随笔，记录关键知识点📝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learn-Vim随笔">
+<meta property="og:url" content="https://ccccooh.github.io/2025/02/17/%E5%85%B6%E4%BB%96/Learn-Vim%E9%9A%8F%E7%AC%94/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="Vim学习随笔，记录关键知识点📝">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-17T04:10:11.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.751Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="其他">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/其他/">其他</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-02-17T04:10:11+00:00">
+      February 17, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">Learn-Vim随笔</h1>
+  </div>
+
+  <div class="content">
+    <h1 id="一前言">一、前言</h1>
+<p>学习vim的过程中发现了很多很好的资源，其中不乏bilibili上up主的精品教程。也在YouTube上看过很多教程。但Learn-Vim这个Github仓库实在让我受益良多。</p>
+<p>本笔记便是出于此仓库： &gt; <a
+target="_blank" rel="noopener" href="https://github.com/iggredible/Learn-Vim/blob/master/">仓库地址</a></p>
+<p>附上个人.vimrc配置文件: <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span>	<span class="comment">&quot; 开启语法高亮</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">number</span>	<span class="comment">&quot; 设置行号</span></span><br><span class="line"><span class="keyword">set</span> relativenumber	<span class="comment">&quot; 设置相对行号</span></span><br><span class="line"><span class="keyword">set</span> wrap		<span class="comment">&quot; 开启代码包裹，防止溢出屏幕	</span></span><br><span class="line"><span class="keyword">set</span> showcmd		<span class="comment">&quot; 显示命令</span></span><br><span class="line"><span class="keyword">set</span> wildmenu		<span class="comment">&quot; 开启补全菜单</span></span><br><span class="line"><span class="keyword">set</span> hlsearch		<span class="comment">&quot; 开启搜索高亮</span></span><br><span class="line"><span class="keyword">set</span> incsearch		<span class="comment">&quot; 开启实时搜索高亮</span></span><br><span class="line"><span class="keyword">set</span> ignorecase		<span class="comment">&quot; 搜索忽略大小写</span></span><br><span class="line"><span class="keyword">set</span> cursorline		<span class="comment">&quot; 开启鼠标地平线</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; 按下冒号重制高亮</span></span><br><span class="line">exec <span class="string">&quot;nohlsearch&quot;</span>	</span><br><span class="line"><span class="comment">&quot; 将大写JK映射为5倍jk</span></span><br><span class="line"><span class="keyword">noremap</span> J <span class="number">5</span><span class="keyword">j</span></span><br><span class="line"><span class="keyword">noremap</span> K <span class="number">5</span><span class="keyword">k</span></span><br><span class="line"><span class="keyword">nnoremap</span> <span class="symbol">&lt;esc&gt;</span><span class="symbol">&lt;esc&gt;</span> :<span class="keyword">noh</span><span class="symbol">&lt;return&gt;</span><span class="symbol">&lt;esc&gt;</span></span><br><span class="line"><span class="comment">&quot; 映射自动保存</span></span><br><span class="line"><span class="keyword">map</span> S :<span class="keyword">w</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> Q :q<span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> s :<span class="symbol">&lt;nop&gt;</span></span><br><span class="line"><span class="keyword">map</span> R  :<span class="keyword">source</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> plug#begin()</span><br><span class="line"></span><br><span class="line">Plug <span class="string">&#x27;vim-airline/vim-airline&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;iamcco/markdown-preview.nvim&#x27;</span>, &#123; <span class="string">&#x27;do&#x27;</span>: &#123; -&gt; mkdp#util#install() &#125;, <span class="string">&#x27;for&#x27;</span>: [<span class="string">&#x27;markdown&#x27;</span>, <span class="string">&#x27;vim-plug&#x27;</span>]&#125;</span><br><span class="line">Plug <span class="string">&#x27;iamcco/markdown-preview.nvim&#x27;</span>, &#123; <span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;cd app &amp;&amp; npx --yes yarn install&#x27;</span> &#125;</span><br><span class="line">Plug <span class="string">&#x27;preservim/nerdtree&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;jiangmiao/auto-pairs&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;preservim/nerdcommenter&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;connorholyday/vim-snazzy&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> plug#end()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">color molokai</span><br><span class="line"></span><br><span class="line"><span class="keyword">map</span> sr :<span class="keyword">set</span> splitright<span class="symbol">&lt;CR&gt;</span>:<span class="keyword">vsplit</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> <span class="keyword">sl</span> :<span class="keyword">set</span> nosplitright<span class="symbol">&lt;CR&gt;</span>:<span class="keyword">vsplit</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> <span class="keyword">st</span> :<span class="keyword">set</span> nosplitbelow<span class="symbol">&lt;CR&gt;</span>:<span class="keyword">split</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">map</span> <span class="keyword">sb</span> :<span class="keyword">set</span> splitbelow<span class="symbol">&lt;CR&gt;</span>:<span class="keyword">split</span><span class="symbol">&lt;CR&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">noremap</span> <span class="symbol">&lt;Up&gt;</span> <span class="symbol">&lt;NOP&gt;</span></span><br><span class="line"><span class="keyword">noremap</span> <span class="symbol">&lt;Down&gt;</span> <span class="symbol">&lt;NOP&gt;</span></span><br><span class="line"><span class="keyword">noremap</span> <span class="symbol">&lt;Left&gt;</span> <span class="symbol">&lt;NOP&gt;</span></span><br><span class="line"><span class="keyword">noremap</span> <span class="symbol">&lt;Right&gt;</span> <span class="symbol">&lt;NOP&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="二vim语法">二、vim语法</h1>
+<p>vim的语法只有一句，<code>verb+noun</code>！</p>
+<h2 id="动词">2.1 动词</h2>
+<p>这里简要罗列出vim的动词列表： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">y    复制</span><br><span class="line">d    删除</span><br><span class="line">c    修改(删除并开始编辑) </span><br></pre></td></tr></table></figure></p>
+<h2 id="名词">2.2 名词</h2>
+<p>以下皆是名词，但分为了两种。 ### 2.2.1 简单名词</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">h    左</span><br><span class="line">j    下</span><br><span class="line">k    上</span><br><span class="line">l    右</span><br><span class="line">w    单词</span><br><span class="line">&#125;    跳到下一段落</span><br><span class="line">$    行末尾</span><br></pre></td></tr></table></figure>
+<h3 id="补充的名词">2.2.2 补充的名词</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">w         一个单词</span><br><span class="line">p         一个段落</span><br><span class="line">s         一个句子</span><br><span class="line">( or )    一对 ( ) 括号</span><br><span class="line">&#123; or &#125;    一对 &#123; &#125; 括号</span><br><span class="line">[ or ]    一对 [ ] 括号</span><br><span class="line">&lt; or &gt;    一对 &lt; &gt; 括号</span><br><span class="line">t         一对XML标签,例如&lt;html&gt;&lt;/html&gt;</span><br><span class="line">&quot;         一对 &quot; &quot; 引号</span><br><span class="line">&#x27;         一对 &#x27; &#x27; 引号</span><br><span class="line">`         一对 ` ` 引号</span><br></pre></td></tr></table></figure>
+<h1 id="三移动">三、移动</h1>
+<h2 id="字符导航">3.1 字符导航</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">h   向左</span><br><span class="line">j   向下</span><br><span class="line">k   向上</span><br><span class="line">l   向右</span><br><span class="line">gj  Down in a soft-wrapped line</span><br><span class="line">gk  Up in a soft-wrapped line</span><br></pre></td></tr></table></figure>
+<p>禁用箭头的设置: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">noremap &lt;Up&gt; &lt;NOP&gt;</span><br><span class="line">noremap &lt;Down&gt; &lt;NOP&gt;</span><br><span class="line">noremap &lt;Left&gt; &lt;NOP&gt;</span><br><span class="line">noremap &lt;Right&gt; &lt;NOP&gt;</span><br></pre></td></tr></table></figure></p>
+<p>相对行号: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set relative number</span><br></pre></td></tr></table></figure></p>
+<h2 id="计算编号">3.2 计算编号</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[count] + motion</span><br></pre></td></tr></table></figure>
+<h2 id="词语导航">3.3 词语导航</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">w     移动到下一个word的开头</span><br><span class="line">W     移动到下一个WORD的开头</span><br><span class="line">e     移动到下一个word的结尾</span><br><span class="line">E     移动到下一个WORD的结尾</span><br><span class="line">b     移动到上一个word的开头</span><br><span class="line">B     移动到上一个WORD的开头</span><br><span class="line">ge    移动到上一个word的结尾</span><br><span class="line">gE    移动到上一个WORD的结尾</span><br></pre></td></tr></table></figure>
+<h2 id="行导航">3.4 行导航</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0     跳转到当前行的第一个字符</span><br><span class="line">^     跳转到当前行的第一个非空白字符</span><br><span class="line">g_    跳转到当前行的最后一个非空白字符</span><br><span class="line">$     跳转到当前行的最后一个字符</span><br><span class="line">n|    跳转到当前行的第n列</span><br></pre></td></tr></table></figure>
+<h2 id="搜索动词">3.5 搜索动词</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f    在同一行搜索下一个匹配</span><br><span class="line">F    在同一行搜索前一个匹配</span><br><span class="line">t    在同一行搜索下一个匹配，但是光标落在目标前</span><br><span class="line">T    在同一行搜索下一个匹配，但是光标落在目标后</span><br><span class="line">;    在同一行使用上一次搜索，方向相同</span><br><span class="line">,    在同一行使用上一次搜索，方向相反</span><br></pre></td></tr></table></figure>
+<h2 id="句子导航和段落导航">3.6 句子导航和段落导航</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(    跳到上一个句子</span><br><span class="line">)    跳到下一个句子</span><br></pre></td></tr></table></figure>
+<p>下面是一个有两个段落的句子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">I am a sentence. I am another sentence because I end with a period. I am still a sentence when ending with an exclamation point! What about question mark? I am not quite a sentence because of the hyphen - and neither semicolon ; nor colon :</span><br><span class="line"></span><br><span class="line">There is an empty line above me.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>个人感觉句子、段落在代码里可能就不是那么实用。但用于写文章博客还是很屌的。</p>
+</blockquote>
+<h2 id="匹配导航">3.7 匹配导航</h2>
+<blockquote>
+<p>程序员专用</p>
+</blockquote>
+<p>光标在成对的括号中其中一对上时按下<code>%</code>来跳到对应的括号上。</p>
+<p>使用场景： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(define (fib n)</span><br><span class="line">  (cond ((= n 0) 0)</span><br><span class="line">        ((= n 1) 1)</span><br><span class="line">        (else</span><br><span class="line">          (+ (fib (- n 1)) (fib (- n 2)))</span><br><span class="line">        )))</span><br></pre></td></tr></table></figure>
+光标在其中一个括号上可以快速跳转到对应的括号。</p>
+<h2 id="行号导航">3.8 行号导航</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gg    去到第一行</span><br><span class="line">G     去到最后一行</span><br><span class="line">nG    去到第n行</span><br><span class="line">n%    去到第百分之n行</span><br></pre></td></tr></table></figure>
+<p>使用<code>ctrl+g</code>来显示行数。</p>
+<p>gg和GG绝对是实用中的实用。</p>
+<h2 id="窗口导航">3.9 窗口导航</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">H     去到屏幕的最上方</span><br><span class="line">M     去到屏幕的最中间</span><br><span class="line">L     去到屏幕的最底部  </span><br><span class="line">nH    去到离屏幕顶部n行的位置</span><br><span class="line">nL    去到离屏幕底部n行的位置</span><br></pre></td></tr></table></figure>
+<h2 id="滚动">3.10 滚动</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Ctrl-E    向下滚动一行</span><br><span class="line">Ctrl-D    向下滚动半个屏幕</span><br><span class="line">Ctrl-F    向下滚动</span><br><span class="line">Ctrl-Y    向上滚动一行</span><br><span class="line">Ctrl-U    向上滚动半个屏幕</span><br><span class="line">Ctrl-B    向上滚动整个屏幕</span><br></pre></td></tr></table></figure>
+<h2 id="搜索导航">3.11 搜索导航</h2>
+<blockquote>
+<p>这里的搜索是整个文档的。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/    向后搜索一个匹配</span><br><span class="line">?    向前搜索一个匹配</span><br><span class="line">n    重复上一个匹配，方向相同</span><br><span class="line">N    重复上一个匹配，方向相反</span><br></pre></td></tr></table></figure>
+<p>搜索结束后关闭高亮(在~/.vimrc中添加配置)： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nnoremap &lt;esc&gt;&lt;esc&gt; :noh&lt;return&gt;&lt;esc&gt;</span><br></pre></td></tr></table></figure> 额外的补充:
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*     向后搜索光标位置的单词</span><br><span class="line">#     向前搜索光标位置的单词</span><br><span class="line">g*    在*的基础上增加了模糊匹配</span><br><span class="line">g#    在#的基础上增加了模糊匹配</span><br></pre></td></tr></table></figure></p>
+<h2 id="标记位置">3.12 标记位置</h2>
+<p>标记当前位置，类似书签。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ma    标记a的位置</span><br><span class="line">`a    精确跳转到标记的a的位置</span><br><span class="line">&#x27;a    跳转到标记a的行首</span><br></pre></td></tr></table></figure>
+其中小写表示局部标记，大些表示全局标记。</p>
+<p>局部标记每个文件(缓冲区)只有一个，全局标记所有文件共享。</p>
+<p>使用marks来查看所有的标记。</p>
+<p>更多的标记用的不多，这里直接饮用(不是错别字❌)原文:
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;</span>    Jump back <span class="keyword">to</span> the <span class="keyword">last</span> <span class="built_in">line</span> in current <span class="keyword">buffer</span> before jump</span><br><span class="line">``    Jump back <span class="keyword">to</span> the <span class="keyword">last</span> position in current <span class="keyword">buffer</span> before jump</span><br><span class="line">`[    Jump <span class="keyword">to</span> beginning of previously changed / yanked text</span><br><span class="line">`]    Jump <span class="keyword">to</span> the ending of previously changed / yanked text</span><br><span class="line">`&lt;    Jump <span class="keyword">to</span> the beginning of <span class="keyword">last</span> <span class="keyword">visual</span> selection</span><br><span class="line">`&gt;    Jump <span class="keyword">to</span> the ending of <span class="keyword">last</span> <span class="keyword">visual</span> selection</span><br><span class="line">`<span class="number">0</span>    Jump back <span class="keyword">to</span> the <span class="keyword">last</span> edited <span class="keyword">file</span> when exiting <span class="keyword">vim</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="所有的跳转">3.13 所有的跳转</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x27;a       去到标记的a行</span><br><span class="line">`a       去到标记的a位置</span><br><span class="line">G       Go to the line(这个没懂，shift+G不是跳转到文档底部吗？)</span><br><span class="line">/       向后搜索</span><br><span class="line">?       向前搜索</span><br><span class="line">n       重复最后一次搜索，方向一致</span><br><span class="line">N       重复最后一次搜索，方向相反</span><br><span class="line">%       找到匹配项</span><br><span class="line">(       跳到上一句</span><br><span class="line">)       跳到下一句</span><br><span class="line">&#123;       跳到上一段</span><br><span class="line">&#125;       跳到下一段</span><br><span class="line">L       去到显示窗口的最后一行</span><br><span class="line">M       去到窗口的中间</span><br><span class="line">H       去到显示窗口的顶部</span><br><span class="line">[[      去到上一次会话</span><br><span class="line">]]      去到下一次会话</span><br><span class="line">:s      Substitute</span><br><span class="line">:tag    去到定义的标签</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>具体说明见Lear-Vim作者文档✍️。</p>
+</blockquote>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/%E5%85%B6%E4%BB%96/" class="tag">#其他</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/nxyiresv/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">ES6函数、对象和面向对象扩展</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/2025/02/16/%E5%85%B6%E4%BB%96/mac%E7%BB%88%E7%AB%AF%E5%B7%A5%E4%BD%9C%E6%B5%81%E4%BC%98%E5%8C%96%E8%AE%A1%E5%88%92/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">mac终端工作流优化</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【manim】Axes 坐标系及其基类详解 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="Axes 坐标系使用方法介绍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【manim】Axes 坐标系及其基类详解">
+<meta property="og:url" content="https://ccccooh.github.io/2025/07/11/Math/manim/%E3%80%90manim%E3%80%91Axes-%E5%9D%90%E6%A0%87%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%9F%BA%E7%B1%BB%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="Axes 坐标系使用方法介绍">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-11T08:26:15.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.750Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="manim">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/manim/">manim</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-07-11T08:26:15+00:00">
+      July 11, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【manim】Axes 坐标系及其基类详解</h1>
+  </div>
+
+  <div class="content">
+    <p>在 <code>Manim</code> 中制作与参考系相关的数学动画，首先要了解 manim
+中数学坐标系相关的 Mobject 用法，其次还牵涉到其余的个别 Mobject
+的使用。学会了 Mobject 还不够，你得让坐标系动起来吧？那就要会使用
+Animations 类，最好通读一遍文档。完成了这些还不够，Animations
+类没法制作动态跟踪的动画，如果需要让某个在坐标上移动，并且同步显示其位置还需要学会
+mainm 中 valueTracker 的使用。</p>
+<p>关于 Animations
+在我的一篇文章中有过介绍，不详细介绍了。本文主要来探讨一下坐标系（Axes）及
+ValueTracker 的搭配使用，从零开始构建一个数学参考系的函数动画演示。</p>
+<p>下文中为了方便尽量使用<code>self.add()</code>方法。本质上<code>Animations</code>类中的方法如出一辙，在学习阶段并不是说一定要用到。<code>self.add()</code>已经足够快捷方便了。</p>
+<blockquote>
+<p>本文中所有内容均完全基于 <strong>manim community</strong>
+参考手册，独立原创。</p>
+</blockquote>
+<figure>
+<img
+src="https://docs.manim.community/en/stable/_static/manim-logo-sidebar.svg"
+alt="Manim Title" />
+<figcaption aria-hidden="true">Manim Title</figcaption>
+</figure>
+<h2 id="坐标轴-axes">坐标轴 Axes</h2>
+<p>一个数学动画由哪些元素构成？首先得有平面坐标系吧，坐标系肯定有各种图例和标签符号，这些都是
+Mobject。我们先来研究研究坐标系的详细使用方法，再去探讨函数图像的绘制，最后我们讨论一些特殊的
+Mobject 怎么用（例如箭头、数字等），在文章末尾我们将他们串连在一起，用
+valueTracker 实现动态的渲染。</p>
+<p>要了解坐标系，最好的办法当然是查阅一手资料 – <a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.html">官方文档</a>。就在手册的
+<strong>Reference Manual &gt; Mobjects &gt; graphing &gt;
+coordinate_systems</strong> 下，我们主要来看 Axes 和 Coordinate System
+怎么用。</p>
+<h3 id="构造方法">构造方法</h3>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2011.58.35.png"
+alt="参考文档" />
+<figcaption aria-hidden="true">参考文档</figcaption>
+</figure>
+<p>先来看看 Axes 类的构造方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Axes</span>(x_range=<span class="literal">None</span>, y_range=<span class="literal">None</span>, x_length=<span class="number">12</span>, y_length=<span class="number">6</span>, axis_config=<span class="literal">None</span>, x_axis_config=<span class="literal">None</span>, y_axis_config=<span class="literal">None</span>, tips=<span class="literal">True</span>, **kwargs)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我们大致可以看出，Axes 在构造时可以设置 <span
+class="math inline"><em>x</em></span> 轴与 <span
+class="math inline"><em>y</em></span>
+轴的长度、取值范围、传递参数、提示等信息。</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2012.07.31.png"
+alt="官方参数说明" />
+<figcaption aria-hidden="true">官方参数说明</figcaption>
+</figure>
+<p>这是一段朴实无华的 Axes 构造生成的轴：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/SingleScene_ManimCE_v0.19.0_%E5%89%AF%E6%9C%AC.png"
+alt="朴实无华且单调，但不是递增…" />
+<figcaption aria-hidden="true">朴实无华且单调，但不是递增…</figcaption>
+</figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		axe = Axes()</span><br><span class="line">		<span class="variable language_">self</span>.add(axe)</span><br></pre></td></tr></table></figure>
+<p>我们给他加上取值范围：</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507150010753.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		axe = Axes(</span><br><span class="line">			x_range=[<span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span>],</span><br><span class="line">			y_range=[-<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>]</span><br><span class="line">		)</span><br><span class="line">		<span class="variable language_">self</span>.add(axe)</span><br></pre></td></tr></table></figure>
+<p>我们令<code>tips=False</code>，发现箭头没了：</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507150011806.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        axe = Axes(x_range=[<span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span>], y_range=[-<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>], tips=<span class="literal">False</span>)</span><br><span class="line">        <span class="variable language_">self</span>.add(axe)</span><br></pre></td></tr></table></figure>
+<p>加上配置项<code>axis_config=&#123;"include_numbers": True&#125;</code>便有了数字：</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2012.34.58.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line">  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">	axe = Axes(</span><br><span class="line">		x_range=[<span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span>],</span><br><span class="line">		y_range=[-<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>],</span><br><span class="line">		axis_config=&#123;<span class="string">&quot;include_numbers&quot;</span>: <span class="literal">True</span>&#125;,</span><br><span class="line">		tips=<span class="literal">False</span></span><br><span class="line">	)</span><br><span class="line">	<span class="variable language_">self</span>.add(axe)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>加上<code>y_axis_config=&#123;"scaling": LogBase(custom_labels=True)&#125;,</code>会发现y
+坐标有了科学计数法：</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2012.37.10.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		axe = Axes(</span><br><span class="line">			x_range=[<span class="number">1</span>, <span class="number">10</span>, <span class="number">1</span>],</span><br><span class="line">			y_range=[-<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>],</span><br><span class="line">			axis_config=&#123;<span class="string">&quot;include_numbers&quot;</span>: <span class="literal">True</span>&#125;,</span><br><span class="line">			tips=<span class="literal">False</span>,</span><br><span class="line">			y_axis_config=&#123;<span class="string">&quot;scaling&quot;</span>: LogBase(custom_labels=<span class="literal">True</span>)&#125;,</span><br><span class="line">		)</span><br><span class="line">		<span class="variable language_">self</span>.add(axe)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>需要注意的是，这里启动了 y
+轴的对数刻度显示，也就是在轴上的任何函数都是基于对数的形式绘制的。</p>
+<p>我们修改一下范围，就会得到官方文档中的样式：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2012.44.15.png"
+alt="对数图像" />
+<figcaption aria-hidden="true">对数图像</figcaption>
+</figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		axe = Axes(</span><br><span class="line">			x_range=[<span class="number">0</span>, <span class="number">10</span>, <span class="number">1</span>],</span><br><span class="line">			y_range=[-<span class="number">2</span>, <span class="number">6</span>, <span class="number">1</span>],</span><br><span class="line">			axis_config=&#123;<span class="string">&quot;include_numbers&quot;</span>: <span class="literal">True</span>&#125;,</span><br><span class="line">			y_axis_config=&#123;<span class="string">&quot;scaling&quot;</span>: LogBase(custom_labels=<span class="literal">True</span>)&#125;,</span><br><span class="line">			tips=<span class="literal">False</span>,</span><br><span class="line">		)</span><br><span class="line">		graph = axe.plot(<span class="keyword">lambda</span> x: x ** <span class="number">2</span>, x_range=[<span class="number">0.001</span>, <span class="number">10</span>], use_smoothing=<span class="literal">False</span>)</span><br><span class="line">		<span class="variable language_">self</span>.add(axe, graph)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>尽管这里的 lambda 表达式中写了
+<code>x ** 2</code>，但函数实际上绘制了<span
+class="math inline"><em>l</em><em>o</em><em>g</em><sub><em>x</em></sub><sup>2</sup></span>。</p>
+<p>我们把<code>axis_config</code>的配置项改为<code>&#123;"include_numbers": True, 'tip_shape': StealthTip&#125;,</code>会发现轴线的指示箭头改变了。</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2012.47.34.png"
+alt="箭头底部向上凹" />
+<figcaption aria-hidden="true">箭头底部向上凹</figcaption>
+</figure>
+<p>接下来我们稍微快一点。我们可以在图中加入一个<code>NumberPlane</code>对象来产生网格坐标背景，并将绘制出的函数颜色改为红色使之更加鲜明。</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2012.52.35.png"
+alt="开始大刀阔斧地改造" />
+<figcaption aria-hidden="true">开始大刀阔斧地改造</figcaption>
+</figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		plane = NumberPlane()</span><br><span class="line">		axe = Axes(</span><br><span class="line">			x_range=[<span class="number">0</span>, <span class="number">10</span>, <span class="number">1</span>],</span><br><span class="line">			y_range=[-<span class="number">2</span>, <span class="number">6</span>, <span class="number">1</span>],</span><br><span class="line">			axis_config=&#123;<span class="string">&quot;include_numbers&quot;</span>: <span class="literal">True</span>, <span class="string">&#x27;tip_shape&#x27;</span>: StealthTip&#125;,</span><br><span class="line">			y_axis_config=&#123;<span class="string">&quot;scaling&quot;</span>: LogBase(custom_labels=<span class="literal">True</span>)&#125;,</span><br><span class="line">		)</span><br><span class="line">		graph = axe.plot(<span class="keyword">lambda</span> x: x ** <span class="number">2</span>, x_range=[<span class="number">0.001</span>, <span class="number">10</span>], use_smoothing=<span class="literal">False</span>, color=RED)</span><br><span class="line">		<span class="variable language_">self</span>.add(axe, graph, plane)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="类方法">类方法</h3>
+<p>我们通过一个例子来讲解一下几个类方法的作用：</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2013.01.11.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		plane = NumberPlane()</span><br><span class="line">		axe = Axes().add_coordinates()</span><br><span class="line">		dot = Dot((<span class="number">2</span>, <span class="number">2</span>, <span class="number">0</span>), color=GREEN)</span><br><span class="line">		dot2 = Dot(axe.coords_to_point(<span class="number">2</span>, <span class="number">2</span>), color=WHITE)</span><br><span class="line">		graph = axe.plot(<span class="keyword">lambda</span> x: x ** <span class="number">2</span>, x_range=[<span class="number">0.001</span>, <span class="number">10</span>], use_smoothing=<span class="literal">False</span>, color=RED)</span><br><span class="line">		<span class="variable language_">self</span>.add(axe, graph, plane, dot, dot2)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在这段代码中，用 <code>add_coordinates()</code>
+为白色的十字数轴添加了数字的坐标轴指示，并创建了两个 <code>Dot</code>
+点对象。你会明显看到两个点的坐标都是<code>(2,2)</code>但其位置不同。</p>
+<p>直接根据点的构造方法创建的绿点，其位置的<code>(2,2)</code>是相对于<code>plane</code>而言的，也就是整个平面坐标系
+coordinates。通过<code>coords_to_point</code>就可以将默认的<code>coordinate</code>坐标转换成数轴上的<code>(2,2)</code>坐标，也就是白点实现的效果。</p>
+<p>另外，我们还删除了原有<code>Axe</code>中的配置项参数，如果自定义范围会导致数轴不在参考系的中间，或者说不在屏幕中心。</p>
+<p>我们通过<code>get_lines_to_point</code>来获得一个到达目标目标点的虚线（我们常常会画的辅助线），这里获取点的坐标并没有直接采用<code>dot</code>，而是通过<code>axe.c2p(2,2)</code>来得到一个
+“coordinate_to_point” 的点，注意这里为缩写。</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2013.09.04.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		plane = NumberPlane()</span><br><span class="line">		axe = Axes().add_coordinates()</span><br><span class="line">		dot = Dot((<span class="number">2</span>, <span class="number">2</span>, <span class="number">0</span>), color=GREEN)</span><br><span class="line">		dot2 = Dot(axe.coords_to_point(<span class="number">2</span>, <span class="number">2</span>), color=WHITE)</span><br><span class="line">		lines = axe.get_lines_to_point(axe.c2p(<span class="number">2</span>,<span class="number">2</span>))</span><br><span class="line">		graph = axe.plot(<span class="keyword">lambda</span> x: x ** <span class="number">2</span>, x_range=[<span class="number">0.001</span>, <span class="number">10</span>], use_smoothing=<span class="literal">False</span>, color=RED)</span><br><span class="line">		<span class="variable language_">self</span>.add(axe, graph, plane, dot, dot2, lines)</span><br></pre></td></tr></table></figure>
+<p>我们来为<span class="math inline"><em>x</em></span>和<span
+class="math inline"><em>y</em></span>轴加上他们的标签：</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2013.13.48.png" /></p>
+<p>利用<code>axe.get_x_axis_label()</code>我们可以直接利用<code>axe</code>得到一个确定好位置的轴线坐标，他是一个
+label 对象，避免了单独创建一个 label 并调整位置。</p>
+<blockquote>
+<p>同理，也可以使用官网中的<code>get_axis_labels()</code>方法，传入两个<code>Tex</code>对象即可。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		plane = NumberPlane()</span><br><span class="line">		axe = Axes().add_coordinates()</span><br><span class="line">		dot = Dot((<span class="number">2</span>, <span class="number">2</span>, <span class="number">0</span>), color=GREEN)</span><br><span class="line">		dot2 = Dot(axe.coords_to_point(<span class="number">2</span>, <span class="number">2</span>), color=WHITE)</span><br><span class="line">		lines = axe.get_lines_to_point(axe.c2p(<span class="number">2</span>,<span class="number">2</span>))</span><br><span class="line">		graph = axe.plot(<span class="keyword">lambda</span> x: x ** <span class="number">2</span>, x_range=[<span class="number">0.001</span>, <span class="number">10</span>], use_smoothing=<span class="literal">False</span>, color=RED)</span><br><span class="line">		x_label = axe.get_x_axis_label(Tex(<span class="string">&#x27;x&#x27;</span>))</span><br><span class="line">		y_label = axe.get_y_axis_label(Tex(<span class="string">&#x27;y&#x27;</span>).scale(<span class="number">2</span>))</span><br><span class="line">		<span class="variable language_">self</span>.add(axe, graph, plane, dot, dot2, lines, x_label, y_label)</span><br></pre></td></tr></table></figure>
+<p>我们来画一个圆，并显示其位置。圆心向上平移两个单位，白点为圆最右端点。<code>np.around</code>用于保留小数。</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2013.40.05.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		plane = NumberPlane()</span><br><span class="line">		axe = Axes(x_range=[<span class="number">0</span>,<span class="number">10</span>,<span class="number">2</span>]).add_coordinates()</span><br><span class="line">		circ = Circle().shift(UP*<span class="number">2</span>)</span><br><span class="line">		coords = np.around(axe.point_to_coords(circ.get_right()), decimals=<span class="number">2</span>) <span class="comment"># 得到 circ 右边的点并转化成 coords 坐标，保留两位小数</span></span><br><span class="line">		label = (Matrix([[coords[<span class="number">0</span>]], [coords[<span class="number">1</span>]]]).next_to(circ, RIGHT)) <span class="comment"># 在圆的右边放一个矩阵</span></span><br><span class="line">		<span class="variable language_">self</span>.add(axe, circ, Dot(circ.get_right()), plane, label)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="坐标系-coordinatesystem">坐标系 CoordinateSystem</h2>
+<p><strong>CoordinateSystem</strong> 是 <strong>Axes</strong>
+的抽象基类。</p>
+<p>文档中一上来就给出了一个相对复杂的例子，我自己也实现了一遍，实际上还是用的
+Axes 中的方法：</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2014.19.40.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		axe = Axes(</span><br><span class="line">			x_range=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0.05</span>],</span><br><span class="line">			y_range=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0.05</span>],</span><br><span class="line">			x_length=<span class="number">10</span>,</span><br><span class="line">			y_length=<span class="number">5</span>,</span><br><span class="line">			axis_config=&#123;</span><br><span class="line">			<span class="string">&quot;numbers_to_include&quot;</span>: np.arange(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0.1</span>),</span><br><span class="line">			<span class="string">&quot;font_size&quot;</span>: <span class="number">24</span></span><br><span class="line">			&#125;,</span><br><span class="line">			tips=<span class="literal">False</span></span><br><span class="line">		)</span><br><span class="line">		</span><br><span class="line">		label_x = axe.get_x_axis_label(<span class="string">&quot;x&quot;</span>)</span><br><span class="line">		label_y = axe.get_y_axis_label(<span class="string">&quot;y&quot;</span>, direction=LEFT, edge=LEFT, buff=<span class="number">0.4</span>)</span><br><span class="line">		labels = VGroup()</span><br><span class="line">		labels.add(label_x)</span><br><span class="line">		labels.add(label_y)</span><br><span class="line">		lines = VGroup()</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> np.arange(<span class="number">1</span>, <span class="number">20</span>+<span class="number">0.5</span>, <span class="number">0.5</span>):</span><br><span class="line">		labels.add(axe.plot(<span class="keyword">lambda</span> x: x**i, color=BLUE))</span><br><span class="line">		labels.add(axe.plot(<span class="keyword">lambda</span> x: x**(<span class="number">1</span>/i), color=PINK))</span><br><span class="line">		</span><br><span class="line">		dot = Dot(axe.c2p(<span class="number">1</span>, <span class="number">1</span>), color=YELLOW)</span><br><span class="line">		p_line = axe.get_lines_to_point(axe.coords_to_point(<span class="number">1</span>,<span class="number">1</span>))</span><br><span class="line">		title = Title(</span><br><span class="line">			<span class="comment"># spaces between braces to prevent SyntaxError</span></span><br><span class="line">			<span class="string">r&quot;Graphs of $y=x^&#123; &#123;1&#125;\over&#123;n&#125; &#125;$ and $y=x^n (n=1,2,3,...,20)$&quot;</span>,</span><br><span class="line">			include_underline=<span class="literal">False</span>,</span><br><span class="line">			font_size=<span class="number">40</span>,</span><br><span class="line">		)</span><br><span class="line">		<span class="variable language_">self</span>.add(axe, lines, labels, dot, p_line, title)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>仍然是使用 <code>Axes</code>
+来代表坐标系，用到了几个经常出现的方法和函数。<code>VGroup</code>用于逻辑上将几个
+Mobjects
+放在一起处理，不影响其本身的属性。用<code>c2p</code>来生成数轴的坐标点，<code>coords_to_point</code>是其全拼本质上一致。</p>
+<p>他提供的方法较多：</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>方法名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.add_coordinates"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.add_coordinates"><code>add_coordinates</code></a></td>
+<td>向轴添加标签。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.angle_of_tangent"
+title="manim.mobject.graphing.坐标系统.坐标系统.切线角"><code>angle_of_tangent</code></a></td>
+<td>返回在特定 x 值处绘制曲线的切线与 x 轴的夹角。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.c2p"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.c2p"><code>c2p</code></a></td>
+<td>缩写<code>coords_to_point()</code></td>
+</tr>
+<tr class="even">
+<td><code>coords_to_point</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_T_label"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_T_label"><code>get_T_label</code></a></td>
+<td>创建一个带标签的三角形标记，其中有一条垂直线从 x 轴到给定 x
+值的曲线。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_area"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_area"><code>get_area</code></a></td>
+<td>返回<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.geometry.polygram.Polygon.html#manim.mobject.geometry.polygram.Polygon"
+title="manim.mobject.geometry.polygram.多边形"><code>Polygon</code></a>表示所传递的图表下方的区域。</td>
+</tr>
+<tr class="odd">
+<td><code>get_axes</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>get_axis</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>get_axis_labels</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_graph_label"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_graph_label"><code>get_graph_label</code></a></td>
+<td>为传递的图形创建一个正确定位的标签，带有可选的点。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_horizontal_line"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_horizo​​ntal_line"><code>get_horizontal_line</code></a></td>
+<td>从 y 轴到场景中给定点的水平线。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_line_from_axis_to_point"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_line_from_axis_to_point"><code>get_line_from_axis_to_point</code></a></td>
+<td>返回从给定轴到场景中某个点的直线。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_lines_to_point"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_lines_to_point"><code>get_lines_to_point</code></a></td>
+<td>生成从轴到某个点的水平线和垂直线。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_origin"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_origin"><code>get_origin</code></a></td>
+<td>获取的起源<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.Axes.html#manim.mobject.graphing.coordinate_systems.Axes"
+title="manim.mobject.graphing.坐标系统.轴"><code>Axes</code></a>。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_riemann_rectangles"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_riemann_rectangles"><code>get_riemann_rectangles</code></a></td>
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.types.vectorized_mobject.VGroup.html#manim.mobject.types.vectorized_mobject.VGroup"
+title="manim.mobject.types.vectorized_mobject.VGroup"><code>VGroup</code></a>为给定曲线生成黎曼矩形。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_secant_slope_group"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_secant_slope_group"><code>get_secant_slope_group</code></a></td>
+<td>创建两条线，分别表示dx和df ，即dx和df的标签，以及</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_vertical_line"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_vertical_line"><code>get_vertical_line</code></a></td>
+<td>从 x 轴到场景中给定点的垂直线。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_vertical_lines_to_graph"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_vertical_lines_to_graph"><code>get_vertical_lines_to_graph</code></a></td>
+<td>获取从 x 轴到曲线的多条线。</td>
+</tr>
+<tr class="odd">
+<td><code>get_x_axis</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_x_axis_label"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_x_axis_label"><code>get_x_axis_label</code></a></td>
+<td>生成 x 轴标签。</td>
+</tr>
+<tr class="odd">
+<td><code>get_x_unit_size</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>get_y_axis</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_y_axis_label"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.get_y_axis_label"><code>get_y_axis_label</code></a></td>
+<td>生成 y 轴标签。</td>
+</tr>
+<tr class="even">
+<td><code>get_y_unit_size</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>get_z_axis</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.i2gc"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.i2gc"><code>i2gc</code></a></td>
+<td>的别名<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.input_to_graph_coords"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.input_to_graph_coords"><code>input_to_graph_coords()</code></a>。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.i2gp"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.i2gp"><code>i2gp</code></a></td>
+<td>的别名<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.input_to_graph_point"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.input_to_graph_point"><code>input_to_graph_point()</code></a>。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.input_to_graph_coords"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.input_to_graph_coords"><code>input_to_graph_coords</code></a></td>
+<td>根据给定的 x 值返回图表上点的轴相对坐标的元组。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.input_to_graph_point"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.input_to_graph_point"><code>input_to_graph_point</code></a></td>
+<td><code>graph</code>返回对应于某个值的点的坐标<code>x</code>。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.p2c"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.p2c"><code>p2c</code></a></td>
+<td>缩写<code>point_to_coords()</code></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.plot"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.plot"><code>plot</code></a></td>
+<td>根据函数生成曲线。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.plot_antiderivative_graph"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.plot_antiderivative_graph"><code>plot_antiderivative_graph</code></a></td>
+<td>绘制不定积分图。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.plot_derivative_graph"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.plot_derivative_graph"><code>plot_derivative_graph</code></a></td>
+<td>返回传递的图形的导数曲线。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.plot_implicit_curve"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.plot_implicit_curve"><code>plot_implicit_curve</code></a></td>
+<td>创建隐函数的曲线。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.plot_parametric_curve"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.plot_parametric_curve"><code>plot_parametric_curve</code></a></td>
+<td>参数曲线。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.plot_polar_graph"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.plot_polar_graph"><code>plot_polar_graph</code></a></td>
+<td>极坐标图。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.plot_surface"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.plot_surface"><code>plot_surface</code></a></td>
+<td>根据函数生成表面。</td>
+</tr>
+<tr class="even">
+<td><code>point_to_coords</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.point_to_polar"
+title="manim.mobject.graphing.坐标系统.坐标系统.点到极坐标"><code>point_to_polar</code></a></td>
+<td>从一个点获取极坐标。</td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.polar_to_point"
+title="manim.mobject.graphing.坐标系统.坐标系统.极地到点"><code>polar_to_point</code></a></td>
+<td>从极坐标获取一个点。</td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.pr2pt"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.pr2pt"><code>pr2pt</code></a></td>
+<td>缩写<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.polar_to_point"
+title="manim.mobject.graphing.坐标系统.坐标系统.极地到点"><code>polar_to_point()</code></a></td>
+</tr>
+<tr class="even">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.pt2pr"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.pt2pr"><code>pt2pr</code></a></td>
+<td>缩写<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.point_to_polar"
+title="manim.mobject.graphing.坐标系统.坐标系统.点到极坐标"><code>point_to_polar()</code></a></td>
+</tr>
+<tr class="odd">
+<td><a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.coordinate_systems.CoordinateSystem.html#manim.mobject.graphing.coordinate_systems.CoordinateSystem.slope_of_tangent"
+title="manim.mobject.graphing.coordinate_systems.CoordinateSystem.切线斜率"><code>slope_of_tangent</code></a></td>
+<td>返回特定 x 值处绘制曲线的切线斜率。</td>
+</tr>
+</tbody>
+</table>
+<p>我们着重挑几个比较有意思的玩玩。</p>
+<h3
+id="coordinatesystem.get_t_label">CoordinateSystem.get_T_label()</h3>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2014.33.26.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		<span class="comment"># defines the axes and linear function</span></span><br><span class="line">		axes = Axes(x_range=[-<span class="number">10</span>, <span class="number">10</span>], y_range=[-<span class="number">1</span>, <span class="number">10</span>], x_length=<span class="number">9</span>, y_length=<span class="number">6</span>).add_coordinates()</span><br><span class="line">		func = axes.plot(<span class="keyword">lambda</span> x: x*x, color=BLUE)</span><br><span class="line">		<span class="comment"># creates the T_label</span></span><br><span class="line">		t_label = axes.get_T_label(x_val=<span class="number">4</span>, graph=func, label=Tex(<span class="string">&quot;x-value&quot;</span>))</span><br><span class="line">		<span class="variable language_">self</span>.add(axes, func, t_label)</span><br></pre></td></tr></table></figure>
+<p>tLabel 就是图中黄色的线+xvalue
+的标签组合，只需要指定一个<code>x</code>坐标，并选择一条函数曲线即可。</p>
+<h3 id="coordinatesystem.get_area">CoordinateSystem.get_area()</h3>
+<p>可以获取函数和坐标中之间的面积。</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2014.38.27.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		<span class="comment"># defines the axes and linear function</span></span><br><span class="line">		axes = Axes(x_range=[-<span class="number">10</span>, <span class="number">10</span>], y_range=[-<span class="number">1</span>, <span class="number">10</span>], x_length=<span class="number">9</span>, y_length=<span class="number">6</span>).add_coordinates()</span><br><span class="line">		func = axes.plot(<span class="keyword">lambda</span> x: np.sin(x*PI/<span class="number">2</span>), color=BLUE)</span><br><span class="line">		<span class="comment"># creates the T_label</span></span><br><span class="line">		t_label = axes.get_T_label(x_val=<span class="number">5</span>, graph=func, label=Tex(<span class="string">&quot;x-value&quot;</span>))</span><br><span class="line">		area = axes.get_area(</span><br><span class="line">			func,</span><br><span class="line">		)</span><br><span class="line">		<span class="variable language_">self</span>.add(axes, func, t_label, area)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>还可以修改其颜色、透明度、范围来达到这样的效果：</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/getarea.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">area = axes.get_area(</span><br><span class="line">	func,</span><br><span class="line">	opacity=<span class="number">.4</span>,</span><br><span class="line">	color=GREEN,</span><br><span class="line">	x_range=(-<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3
+id="coordinatesystem.get_graph_label">CoordinateSystem.get_graph_label()</h3>
+<p>这个方法用于获取坐标系中的图例，比如修改前面
+<strong>get_area</strong> 中的代码，增加一个
+<strong>label</strong>。在这里我们这只为了带点的标签，通过
+<strong>label</strong> 属性设置其内容，<strong>graph</strong>
+设置其作用的函数，用 <strong>x_val</strong>
+指定了在函数上的位置，<strong>direction</strong>
+为偏移方向，以及颜色等等。</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2014.46.37.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">label = axes.get_graph_label(</span><br><span class="line">	graph=func,</span><br><span class="line">	label=MathTex(<span class="string">r&quot;1.6&quot;</span>),</span><br><span class="line">	dot=<span class="literal">True</span>,</span><br><span class="line">	x_val=<span class="number">1.6</span>,</span><br><span class="line">	direction=UP,</span><br><span class="line">	color=YELLOW</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">self</span>.add(axes, func, t_label, area, label)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3
+id="coordinatesystem.get_horizontal_line">CoordinateSystem.get_horizontal_line()</h3>
+<p>得到一条从点到<span
+class="math inline"><em>y</em></span>轴的水平线，对应的是
+<code>get_vertical_line()</code>。</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2014.56.57.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		<span class="comment"># defines the axes and linear function</span></span><br><span class="line">		axes = Axes(x_range=[-<span class="number">10</span>, <span class="number">10</span>], y_range=[-<span class="number">1</span>, <span class="number">10</span>], x_length=<span class="number">9</span>, y_length=<span class="number">6</span>).add_coordinates()</span><br><span class="line">		func = axes.plot(<span class="keyword">lambda</span> x: np.sin(x*PI/<span class="number">2</span>), color=BLUE)</span><br><span class="line">		<span class="comment"># creates the T_label</span></span><br><span class="line">		point = axes @ (<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">		dot = Dot(point)</span><br><span class="line">		line = axes.get_horizontal_line(point, line_func=Line)</span><br><span class="line">		<span class="variable language_">self</span>.add(axes, func, dot, line)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>注意这里的第一个参数是<code>point</code>不是 dot
+对象。<code>@</code>表示 python 中的矩阵运算。</p>
+<p>传入参数<code>line_config=&#123;"dashed_ratio": 0.85&#125;</code>设置虚线并调整图线比例。</p>
+<h3
+id="coordinatesystem.get_lines_to_point">CoordinateSystem.get_lines_to_point()</h3>
+<p>同时得到垂直和水平的垂线。</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2015.05.07.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		<span class="comment"># defines the axes and linear function</span></span><br><span class="line">		axes = Axes()</span><br><span class="line">		circ = Circle(color=DARK_BLUE).shift(DL*<span class="number">2</span>)</span><br><span class="line">		point = Dot(circ.get_right())</span><br><span class="line">		right_line = axes.get_lines_to_point(circ.get_right())</span><br><span class="line">		corner_line = axes.get_lines_to_point(circ.get_corner(DL))</span><br><span class="line">		<span class="variable language_">self</span>.add(axes, circ, point, right_line, corner_line)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>只需提供点的坐标即可。</p>
+<h3
+id="coordinatesystem.get_riemann_rectangles">CoordinateSystem.get_riemann_rectangles()</h3>
+<p>为曲线生成黎曼矩形。</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2015.50.30.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		<span class="comment"># defines the axes and linear function</span></span><br><span class="line">		axes = Axes().add_coordinates()</span><br><span class="line">		func = axes.plot(<span class="keyword">lambda</span> x: x**<span class="number">2</span>)</span><br><span class="line">		rects = axes.get_riemann_rectangles(</span><br><span class="line">			func,</span><br><span class="line">			dx=<span class="number">0.25</span>,</span><br><span class="line">			input_sample_type=<span class="string">&quot;right&quot;</span>,</span><br><span class="line">			x_range=[-<span class="number">3</span>, -<span class="number">1</span>]</span><br><span class="line">		)</span><br><span class="line">		<span class="variable language_">self</span>.add(axes, func, rects)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><code>input_sample_type</code>用于设置黎曼矩形和曲线接触的点为右上角端点，默认为左上角。<code>dx</code>设置矩形的宽度，<code>dx</code>越大，就越大越稀疏。</p>
+<h3
+id="coordinatesystem.get_secant_slope_group">CoordinateSystem.get_secant_slope_group()</h3>
+<p>获得切线组，也就是包括割线在内一整个三角形组。</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2015.58.35.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		ax = Axes(y_range=[-<span class="number">1</span>, <span class="number">7</span>])</span><br><span class="line">		graph = ax.plot(<span class="keyword">lambda</span> x: <span class="number">1</span> / <span class="number">4</span> * x ** <span class="number">2</span>, color=BLUE)</span><br><span class="line">		slopes = ax.get_secant_slope_group(</span><br><span class="line">			x=<span class="number">2.0</span>,</span><br><span class="line">			graph=graph,</span><br><span class="line">			dx=<span class="number">2</span>,</span><br><span class="line">			dx_label=Tex(<span class="string">&quot;dx = 1.0&quot;</span>),</span><br><span class="line">			dy_label=<span class="string">&quot;dy&quot;</span>,</span><br><span class="line">			dx_line_color=GREEN_B,</span><br><span class="line">			secant_line_length=<span class="number">4</span>,</span><br><span class="line">			secant_line_color=RED_D,</span><br><span class="line">		)</span><br><span class="line">		<span class="variable language_">self</span>.add(ax, graph, slopes)</span><br></pre></td></tr></table></figure>
+<p>可以根据配置项来确定 x 的起点，水平距离，割线长度等等信息。</p>
+<h3
+id="coordinatesystem.get_vertical_line">CoordinateSystem.get_vertical_line()</h3>
+<p>获取从 x 轴到曲线的多条线。</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2016.03.57.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		ax = Axes(y_range=[-<span class="number">1</span>, <span class="number">7</span>])</span><br><span class="line">		graph = ax.plot(<span class="keyword">lambda</span> x: <span class="number">1</span> / <span class="number">4</span> * x ** <span class="number">2</span>, color=BLUE)</span><br><span class="line">		slopes = ax.get_vertical_lines_to_graph(</span><br><span class="line">			graph,</span><br><span class="line">			x_range=[-<span class="number">2</span>, <span class="number">4</span>],</span><br><span class="line">			num_lines=<span class="number">20</span></span><br><span class="line">		)</span><br><span class="line">		<span class="variable language_">self</span>.add(ax, graph, slopes)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>同上面 get_area 用法类似，不赘述。</p>
+<h3
+id="coordinatesystem.get_x_axis_label">CoordinateSystem.get_x_axis_label()</h3>
+<p>通过 axes 得到x
+轴标签，<code>CoordinateSystem.get_y_axis_label()</code>用法类似，不过多赘述。</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2016.07.18.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		ax = Axes(y_range=[-<span class="number">1</span>, <span class="number">7</span>])</span><br><span class="line">		graph = ax.plot(<span class="keyword">lambda</span> x: <span class="number">1</span> / <span class="number">4</span> * x ** <span class="number">2</span>, color=BLUE)</span><br><span class="line">		x_label = ax.get_x_axis_label(Tex(<span class="string">&quot;$x$-values&quot;</span>))</span><br><span class="line">		<span class="variable language_">self</span>.add(ax, graph, x_label)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>可选参数：</p>
+<ul>
+<li><p><strong>label</strong> – 标签。默认为<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.text.tex_mobject.MathTex.html#manim.mobject.text.tex_mobject.MathTex"
+title="manim.mobject.text.tex_mobject.MathTex"><code>MathTex</code></a>for<code>str</code>和<code>float</code>input。</p></li>
+<li><p><strong>edge</strong> – 默认情况下，将添加标签的 y
+轴边缘<code>UR</code>。</p></li>
+<li><p><strong>direction</strong> –
+默认情况下，允许从边缘进一步定位标签<code>UR</code></p></li>
+<li><p><strong>buff</strong> – 标签与线的距离。</p></li>
+</ul>
+<h3
+id="coordinatesystem.input_to_graph_point">CoordinateSystem.input_to_graph_point()</h3>
+<p>返回对应函数上某个点的坐标。</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2016.11.59.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		ax = Axes(y_range=[-<span class="number">1</span>, <span class="number">7</span>])</span><br><span class="line">		graph = ax.plot(<span class="keyword">lambda</span> x: <span class="number">1</span> / <span class="number">4</span> * x ** <span class="number">2</span>, color=BLUE)</span><br><span class="line">		pos = ax.input_to_graph_point(x=PI, graph=graph)</span><br><span class="line">		square = Square(side_length=<span class="number">1</span>).move_to(pos)</span><br><span class="line">		</span><br><span class="line">		<span class="variable language_">self</span>.add(ax, graph, square)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="coordinatesystem.plot">CoordinateSystem.plot()</h3>
+<p>返回一个曲线，并不会直接绘制需自行赋值并添加。</p>
+<p>参数：</p>
+<ul>
+<li><p><strong>function</strong> – 用于构造的函数<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.functions.ParametricFunction.html#manim.mobject.graphing.functions.ParametricFunction"
+title="manim.mobject.graphing.functions.ParametricFunction"><code>ParametricFunction</code></a>。</p></li>
+<li><p><strong>x_range</strong>  –
+曲线沿轴的范围。<code>x_range = [x_min, x_max, x_step]</code></p></li>
+<li><p><strong>use_vectorized</strong>  – 是否将生成的 t
+值数组传递给函数。仅当你的函数支持时才使用此选项。输出应为形状为<code>[y_0, y_1, ...]</code></p></li>
+<li><p><strong>colorscale</strong>  –
+函数的颜色。此参数为可选参数，用于根据值对函数着色。传递颜色列表和
+colorscale_axis 将根据 y
+值对函数着色。传递表单中的元组列表， 允许用户定义颜色过渡的枢轴。<code>(color, pivot)</code></p></li>
+<li><p><strong>colorscale_axis</strong>  – 定义应用颜色比例的轴（0 =
+x，1 = y），默认为 y 轴（1）。</p></li>
+<li><p><strong>kwargs</strong> – 要传递给的附加参数<a
+target="_blank" rel="noopener" href="https://docs.manim.community/en/stable/reference/manim.mobject.graphing.functions.ParametricFunction.html#manim.mobject.graphing.functions.ParametricFunction"
+title="manim.mobject.graphing.functions.ParametricFunction"><code>ParametricFunction</code></a>。</p></li>
+</ul>
+<p>来简单绘制一条 log
+曲线，如果定义域内的值难以取到，效果可能不尽人意，这时可以适当调整
+use_smoothing 参数来达到更好的效果。</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2016.24.42.png"
+alt="这是一张图片" />
+<figcaption aria-hidden="true">这是一张图片</figcaption>
+</figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">		ax = Axes(</span><br><span class="line">			x_range=[<span class="number">0.001</span>, <span class="number">6</span>],</span><br><span class="line">			y_range=[-<span class="number">8</span>, <span class="number">2</span>],</span><br><span class="line">			x_length=<span class="number">10</span>,</span><br><span class="line">			y_length=<span class="number">5</span>,</span><br><span class="line">		)</span><br><span class="line">		</span><br><span class="line">		graph = ax.plot(<span class="keyword">lambda</span> x: np.log(x), color=BLUE, use_smoothing=<span class="literal">False</span>)</span><br><span class="line">		pos = ax.input_to_graph_point(x=PI, graph=graph)</span><br><span class="line">		dot = Dot(pos, color=RED)</span><br><span class="line">		square = Square(side_length=<span class="number">1</span>).move_to(pos)</span><br><span class="line">		<span class="variable language_">self</span>.play(Create(ax), Write(graph), Write(square), Write(dot))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="valuetracker-绘制">ValueTracker 绘制</h2>
+<p>ValueTracker 解决了什么问题：在绘制动画时，我们往往使用
+<code>self.play()</code>
+方法一步一步的绘制。如果一个数值在每一帧都需要修改其动画怎么办？这就需要用到
+valueTracker 来自动更新动画了。</p>
+<p>在没有 tracker 时，我们操作一个矩形移动需要直接操作矩形本身。有了
+tracker
+之后我们就能像开发游戏一样，直接操作一个变量，系统自动根据变量更改矩形的动画。简而言之，大大方便了动画的制作。</p>
+<p><strong>valueTracker</strong>
+仅仅是一个用于存储值的简单对象，将其理解为一个变量就行。</p>
+<p>我们可以为一个 Mobjects 添加一个更新函数，只要函数中的 tracker
+的值发生了改变，manim 会自动为我们执行函数中的逻辑。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dot = Dot().add_updater(</span><br><span class="line">	<span class="keyword">lambda</span> x: x.move_to(tracker.points)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>这里为 dot 设置了一个更新函数，每当函数中的 tracker
+发生改变时，自动执行函数中的逻辑 move_to。</p>
+<blockquote>
+<p>为了简单起见，这里不介绍<code>complexValueTracker</code>，实际上原理相似，自行查看官方文档即可。</p>
+</blockquote>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2025-07-11%2016.57.48.png" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> manim <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SingleScene</span>(<span class="title class_ inherited__">Scene</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">construct</span>(<span class="params">self</span>):</span><br><span class="line">        number_line = NumberLine()</span><br><span class="line"></span><br><span class="line">        tracker = ValueTracker(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        arrow = Vector(DOWN)</span><br><span class="line">        arrow.add_updater(</span><br><span class="line">            <span class="keyword">lambda</span> m: m.next_to(</span><br><span class="line">                number_line.n2p(tracker.get_value()),</span><br><span class="line">                direction=UP</span><br><span class="line">            )</span><br><span class="line">        )</span><br><span class="line">        label = MathTex(<span class="string">&#x27;x&#x27;</span>).add_updater(</span><br><span class="line">            <span class="keyword">lambda</span> l: l.next_to(arrow, UP)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.add(number_line, arrow, label)</span><br><span class="line">        <span class="variable language_">self</span>.play(tracker.animate.set_value(<span class="number">2</span>))</span><br><span class="line">        <span class="variable language_">self</span>.play(tracker.animate.set_value(-<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+<p>可以看到，每个绑定了<code>add_updater</code>的对象都会在 tracker
+更新的时候执行 lambda 中的工作。在 self.play 中，我们的 tracker
+修改数值是一个插值动画，这意味着 tracker
+的值不是一瞬间就修改完成的，而是有过程的。相应的就可以调整 tracker
+改变的速度和时间来满足更好的需要。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/manim/" class="tag">#manim</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/2025/07/14/Math/%E3%80%90Latex%E3%80%91Latex-%E5%A4%87%E5%BF%98%E5%BD%95/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">【Latex】 LaTeX 备忘录</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/2025/07/10/Math/manim/%E3%80%90manim%E3%80%91%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E8%BF%9B%E9%98%B6%E7%8E%A9%E6%B3%95/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【manim】Animations 详解</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

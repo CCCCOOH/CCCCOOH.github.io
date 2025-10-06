@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【ECharts】4.异步数据加载 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="在之前的例子中，我们一直将数据直接填入setOption配置项中，那么当我们的数据项很大的时候，这样写就不太完美了。 所以我们可以使用jQuery等工具来异步获取数据，并填入setOption中。 1.数据加载 本节我们来基于 jQuery 获取数据。  数据要单独放入 .json 文件中 使用 jQuery 中的 get 方法来获取数据  首先，使用以下命令获取实验需要的 .json 文件。 1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ECharts】4.异步数据加载">
+<meta property="og:url" content="https://ccccooh.github.io/demo/3n73zpsx/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="在之前的例子中，我们一直将数据直接填入setOption配置项中，那么当我们的数据项很大的时候，这样写就不太完美了。 所以我们可以使用jQuery等工具来异步获取数据，并填入setOption中。 1.数据加载 本节我们来基于 jQuery 获取数据。  数据要单独放入 .json 文件中 使用 jQuery 中的 get 方法来获取数据  首先，使用以下命令获取实验需要的 .json 文件。 1">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-06T11:21:00.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.752Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/ECharts/">ECharts</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-03-06T11:21:00+00:00">
+      March 6, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【ECharts】4.异步数据加载</h1>
+  </div>
+
+  <div class="content">
+    <p>在之前的例子中，我们一直将数据直接填入<code>setOption</code>配置项中，那么当我们的数据项很大的时候，这样写就不太完美了。</p>
+<p>所以我们可以使用<code>jQuery</code>等工具来异步获取数据，并填入<code>setOption</code>中。</p>
+<h2 id="数据加载">1.数据加载</h2>
+<p>本节我们来基于 jQuery 获取数据。</p>
+<ul>
+<li>数据要单独放入 <code>.json</code> 文件中</li>
+<li>使用 jQuery 中的 get 方法来获取数据</li>
+</ul>
+<p>首先，使用以下命令获取实验需要的 .json 文件。 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://labfile.oss.aliyuncs.com/courses/10532/data.json</span><br></pre></td></tr></table></figure></p>
+<p>使用以下命令获取 ECharts 和 jQuery 文件。 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://labfile.oss.aliyuncs.com/courses/5788/echarts.js</span><br><span class="line">wget https://labfile.oss.aliyuncs.com/courses/3774/jquery-3.6.0.min.js</span><br></pre></td></tr></table></figure></p>
+<p>获取了图表需要的数据后，我们使用 jQuery 中的 get 方法来获取 data.json
+文件中的数据。回忆一下，语法格式如下： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.get(url, data, callback(data, status, xhr), dataType);</span><br></pre></td></tr></table></figure> 然后，新建一个
+index.html 文件，在文件中写入以下内容：</p>
+<figure class="highlight html"><figcaption><span>:collapsed-lines</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;echarts.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;jquery-3.6.0.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>异步加载数据<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:600px; height:400px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> myChart = echarts.<span class="title function_">init</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;main&quot;</span>));</span></span><br><span class="line"><span class="language-javascript">      $.<span class="title function_">get</span>(</span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;data.json&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> (<span class="params">data</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">          myChart.<span class="title function_">setOption</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">title</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="attr">text</span>: <span class="string">&quot;电影类型&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">              <span class="attr">left</span>: <span class="string">&quot;center&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">tooltip</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="attr">trigger</span>: <span class="string">&quot;item&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">legend</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="attr">orient</span>: <span class="string">&quot;vertical&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">              <span class="attr">left</span>: <span class="string">&quot;left&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">series</span>: [</span></span><br><span class="line"><span class="language-javascript">              &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">type</span>: <span class="string">&quot;pie&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">radius</span>: <span class="string">&quot;55%&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">data</span>: data.<span class="property">data_pie</span>, <span class="comment">// 数据</span></span></span><br><span class="line"><span class="language-javascript">              &#125;,</span></span><br><span class="line"><span class="language-javascript">            ],</span></span><br><span class="line"><span class="language-javascript">          &#125;);</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;json&quot;</span></span></span><br><span class="line"><span class="language-javascript">      );</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<div class="demo-wrapper">
+<p>::: center <img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250306193655.png"
+alt="20250306193655" /> :::</p>
+</div>
+<p>尽管已经很方便了，但是还存在一个问题。那就是日常生活中的数据都是动态变化的，如何让图标实时更新呢？</p>
+<h2 id="数据更新">2.数据更新</h2>
+<p>从上面的学习中我们知道了，数据的加载都是在 <code>setOption</code>
+配置项中完成的。</p>
+<p>其实除了加载数据，设置图表实例的配置项、数据、万能接口、所有参数和数据的修改都可以通过
+<code>setOption</code> 来完成，ECharts
+会合并新的参数和数据，然后刷新图表。如果开启动画配置项的话，ECharts
+会找到两组数据之间的差异，然后通过合适的动画去表现数据的变化。</p>
+<p>比如我们来看个例子：</p>
+<figure class="highlight html"><figcaption><span>:collapsed-lines</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;echarts.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;jquery-3.6.0.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>更新数据<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:600px; height:400px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--绑定点击事件 updateData--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;updateData()&quot;</span>&gt;</span>更新数据<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> nums = [<span class="number">25</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">35</span>, <span class="number">12</span>, <span class="number">30</span>];</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> myChart = echarts.<span class="title function_">init</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;main&quot;</span>));</span></span><br><span class="line"><span class="language-javascript">      option = &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">xAxis</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">type</span>: <span class="string">&quot;category&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">data</span>: [<span class="string">&quot;喜剧片&quot;</span>, <span class="string">&quot;恐怖片&quot;</span>, <span class="string">&quot;爱情片&quot;</span>, <span class="string">&quot;科幻片&quot;</span>, <span class="string">&quot;纪录片&quot;</span>, <span class="string">&quot;动画片&quot;</span>],</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">yAxis</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">type</span>: <span class="string">&quot;value&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">series</span>: [</span></span><br><span class="line"><span class="language-javascript">          &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">data</span>: nums,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">type</span>: <span class="string">&quot;bar&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">          &#125;,</span></span><br><span class="line"><span class="language-javascript">        ],</span></span><br><span class="line"><span class="language-javascript">      &#125;;</span></span><br><span class="line"><span class="language-javascript">      myChart.<span class="title function_">setOption</span>(option);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">function</span> <span class="title function_">updateData</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 生成随机数</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> num = <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">10</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> nums) &#123;</span></span><br><span class="line"><span class="language-javascript">          nums[i] = nums[i] + num;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        myChart.<span class="title function_">setOption</span>(option); <span class="comment">// 绘制新图表</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这段代码采用函数<code>updateDate()</code>来更新图表📊，其实我们可以封装一个<code>setInterval()</code>，更加直观。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/dplmiu4e/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">【ECharts】5.事件处理</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/pk9z1xu2/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【ECharts】3.基本图表绘制</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

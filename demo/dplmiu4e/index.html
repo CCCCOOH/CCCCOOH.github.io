@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【ECharts】5.事件处理 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="1.什么是事件处理 在 ECharts 的图表中用户的操作将会触发相应的事件，比如点击事件。我们可以使用 on 方法来监听用户触发的事件，通过回调函数做出相应的处理，比如弹出对话框、跳转到另一个地址等操作。 语法格式： 1myChart.on(&quot;事件名称&quot;, 回调函数); 在 ECharts 中，事件分为两种类型： - 鼠标事件，或者悬浮（hover）图表的图形时触发的事件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【ECharts】5.事件处理">
+<meta property="og:url" content="https://ccccooh.github.io/demo/dplmiu4e/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="1.什么是事件处理 在 ECharts 的图表中用户的操作将会触发相应的事件，比如点击事件。我们可以使用 on 方法来监听用户触发的事件，通过回调函数做出相应的处理，比如弹出对话框、跳转到另一个地址等操作。 语法格式： 1myChart.on(&quot;事件名称&quot;, 回调函数); 在 ECharts 中，事件分为两种类型： - 鼠标事件，或者悬浮（hover）图表的图形时触发的事件。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-07T09:31:46.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.752Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/ECharts/">ECharts</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-03-07T09:31:46+00:00">
+      March 7, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【ECharts】5.事件处理</h1>
+  </div>
+
+  <div class="content">
+    <h2 id="什么是事件处理">1.什么是事件处理</h2>
+<p>在 ECharts
+的图表中用户的操作将会触发相应的事件，比如点击事件。我们可以使用
+<code>on</code>
+方法来监听用户触发的事件，通过回调函数做出相应的处理，比如弹出对话框、跳转到另一个地址等操作。</p>
+<p><strong>语法格式</strong>： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myChart.<span class="title function_">on</span>(<span class="string">&quot;事件名称&quot;</span>, 回调函数);</span><br></pre></td></tr></table></figure></p>
+<p>在 ECharts 中，事件分为两种类型： -
+鼠标事件，或者悬浮（<code>hover</code>）图表的图形时触发的事件。 -
+交互的组件后触发的行为事件，例如数据区域缩放时触发的
+<code>datazoom</code> 事件。</p>
+<h2 id="鼠标事件">2.鼠标事件</h2>
+<p>在 ECharts 中，支持的常见鼠标事件有以下几种： -
+<code>click</code>：点击鼠标时触发。 -
+<code>dblclick</code>：在同一个元素上双击鼠标时触发。 -
+<code>mouseup</code>：释放按下的鼠标键时触发。 -
+<code>mousedown</code>：按下鼠标键时触发。 -
+<code>mousemove</code>：当鼠标在一个节点内部移动时触发。 -
+<code>mouseover</code>：鼠标进入一个节点时触发。 -
+<code>mouseout</code>：鼠标离开一个节点时触发。 -
+<code>globalout</code>：鼠标移出坐标系触发。 -
+<code>contextmenu</code>：打开上下文菜单时被触发。</p>
+<p>打开蓝桥实验环境病下载文件： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://labfile.oss.aliyuncs.com/courses/5788/echarts.js</span><br><span class="line">wget https://labfile.oss.aliyuncs.com/courses/3774/jquery-3.6.0.min.js</span><br></pre></td></tr></table></figure></p>
+<p>在<code>index.html</code>中写入内容： :::: code-tabs <span
+class="citation" data-cites="tab">@tab</span> index.html <figure class="highlight html"><figcaption><span>:collapsed-lines</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;echarts.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;jquery-3.6.0.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>事件触发<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:600px; height:400px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> chartDom = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;main&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> myChart = echarts.<span class="title function_">init</span>(chartDom);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> option = &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">series</span>: [</span></span><br><span class="line"><span class="language-javascript">          &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">name</span>: <span class="string">&quot;人气&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">type</span>: <span class="string">&quot;pie&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">radius</span>: <span class="string">&quot;50%&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">data</span>: [</span></span><br><span class="line"><span class="language-javascript">              &#123; <span class="attr">value</span>: <span class="number">35</span>, <span class="attr">name</span>: <span class="string">&quot;数据库&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">              &#123; <span class="attr">value</span>: <span class="number">48</span>, <span class="attr">name</span>: <span class="string">&quot;后端开发&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">              &#123; <span class="attr">value</span>: <span class="number">24</span>, <span class="attr">name</span>: <span class="string">&quot;信息安全&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">              &#123; <span class="attr">value</span>: <span class="number">30</span>, <span class="attr">name</span>: <span class="string">&quot;人工智能&quot;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">            ],</span></span><br><span class="line"><span class="language-javascript">          &#125;,</span></span><br><span class="line"><span class="language-javascript">        ],</span></span><br><span class="line"><span class="language-javascript">      &#125;;</span></span><br><span class="line"><span class="language-javascript">      myChart.<span class="title function_">setOption</span>(option);</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 处理点击事件并且跳转到相应的课程页面</span></span></span><br><span class="line"><span class="language-javascript">      myChart.<span class="title function_">on</span>(<span class="string">&quot;click&quot;</span>, <span class="keyword">function</span> (<span class="params">params</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(params.<span class="property">name</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">window</span>.<span class="title function_">open</span>(<span class="string">&quot;https://www.lanqiao.cn/courses/?category=&quot;</span> + params.<span class="property">name</span>);</span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+::::</p>
+<p>点击图表后会发现打开了响应的浏览器窗口。</p>
+<p>在上面的代码中，我们用<code>params.name</code>得到了点击的区域名，用<code>window.open</code>来打开了对应的课程页面。</p>
+<p>其他的事件也是类似的用法，可以参考<a
+target="_blank" rel="noopener" href="https://echarts.apache.org/handbook/zh/concepts/event">官方文档</a>。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/j0laz2l5/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">【Node.js】认识Node.js</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/3n73zpsx/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【ECharts】4.异步数据加载</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

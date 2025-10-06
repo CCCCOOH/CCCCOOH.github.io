@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【mongoose】2.Schema和Model - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="mongoose中提供了三种数据库： - Schema - Model - Document 一般我们把Schema叫做一个约束对象，里面定义约束的规则，Model是数据库中对集合的一个映射。 我们来看一看下面的代码： 1234567891011121314151617181920212223242526272829303132333435const mongoose &#x3D; require(&amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【mongoose】2.Schema和Model">
+<meta property="og:url" content="https://ccccooh.github.io/demo/c1386z98/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="mongoose中提供了三种数据库： - Schema - Model - Document 一般我们把Schema叫做一个约束对象，里面定义约束的规则，Model是数据库中对集合的一个映射。 我们来看一看下面的代码： 1234567891011121314151617181920212223242526272829303132333435const mongoose &#x3D; require(&amp;#x2">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-26T11:00:34.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.754Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/Mongoose/">Mongoose</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-03-26T11:00:34+00:00">
+      March 26, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【mongoose】2.Schema和Model</h1>
+  </div>
+
+  <div class="content">
+    <p><code>mongoose</code>中提供了三种数据库： - Schema - Model -
+Document</p>
+<p>一般我们把<code>Schema</code>叫做一个约束对象，里面定义约束的规则，<code>Model</code>是数据库中对集合的一个映射。</p>
+<p>我们来看一看下面的代码： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">&#x27;mongoose&#x27;</span>)</span><br><span class="line"></span><br><span class="line">mongoose.<span class="title function_">connect</span>(<span class="string">&#x27;mongodb://localhost/test&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Schema仅仅是一个约束配置对象</span></span><br><span class="line"><span class="keyword">let</span> stuSchema = <span class="keyword">new</span> mongoose.<span class="title class_">Schema</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="title class_">String</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="title class_">Number</span>,</span><br><span class="line">  <span class="attr">gender</span>: &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="title class_">String</span>,</span><br><span class="line">    <span class="attr">default</span>: <span class="string">&quot;male&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">address</span>: <span class="title class_">String</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Model代表数据库中的一个集合</span></span><br><span class="line"><span class="comment">// 参数一：集合名(与数据库中的集合映射)</span></span><br><span class="line"><span class="comment">// 参数二：Schema 约束模式对象</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">StudentModel</span> = mongoose.<span class="title function_">model</span>(<span class="string">&#x27;student&#x27;</span>, stuSchema); <span class="comment">// 创建完模型集合不会自动被创建</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// mongoose会自动将集合名变成复数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要插入文档才会自动创建</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// StudentModel.create(&#123;&#125;, function(err) =&gt; &#123;&#125;)</span></span><br><span class="line"><span class="title class_">StudentModel</span>.<span class="title function_">create</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;Sy&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">15</span>,</span><br><span class="line">  <span class="attr">address</span>: <span class="string">&quot;XJUFE&quot;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">mongoose.<span class="property">connection</span>.<span class="title function_">once</span>(<span class="string">&quot;open&quot;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;数据库连接成功&quot;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<ol type="1">
+<li><p>定义了一个约束对象<code>stuSchema</code>，用的是<code>mongoose.Schema(&#123;&#125;)</code>接口。
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Schema仅仅是一个约束配置对象</span></span><br><span class="line"><span class="keyword">let</span> stuSchema = <span class="keyword">new</span> mongoose.<span class="title class_">Schema</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="title class_">String</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="title class_">Number</span>,</span><br><span class="line">  <span class="attr">gender</span>: &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="title class_">String</span>,</span><br><span class="line">    <span class="attr">default</span>: <span class="string">&quot;male&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">address</span>: <span class="title class_">String</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p></li>
+<li><p>映射到<code>student</code>集合，并添加了约束规则。
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">StudentModel</span> = mongoose.<span class="title function_">model</span>(<span class="string">&#x27;student&#x27;</span>, stuSchema); <span class="comment">// 创建完模型集合不会自动被创建</span></span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<blockquote>
+<p>这里需要注意，<code>student</code>在数据库中会自动被转为复数形式，如果是<code>child</code>就会被转为<code>children</code>，非常智能就对了。这个功能甚至有点智能地让人想笑。</p>
+</blockquote>
+<ol start="3" type="1">
+<li>默认情况数据库中可能还没有这个集合，通过模型来应用约束对象并创建一个文档可以看到这个集合。
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// StudentModel.create(&#123;&#125;)</span></span><br><span class="line"><span class="title class_">StudentModel</span>.<span class="title function_">create</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;Sy&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">15</span>,</span><br><span class="line">  <span class="attr">address</span>: <span class="string">&quot;XJUFE&quot;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<p>这段代码来自2018年的教程，现在来看显然有点老了。因为我查询了官方文档后得知，官方现在推荐并展示的创建文档的写法是面向对象式地<code>new</code>一个文档，例如下方这个代码示例：</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> student = <span class="keyword">new</span> <span class="title class_">Student</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;fluffy&#x27;</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/vqh5zjut/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">【mongoose】3.阅读官方文档</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/iyyihe7l/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【mongoose】1.简介</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

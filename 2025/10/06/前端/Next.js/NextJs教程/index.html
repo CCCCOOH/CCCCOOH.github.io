@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>NextJs教程式笔记 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="Next.js 全栈开发 https:&#x2F;&#x2F;nextjs.org 是一个服务端渲染框架 创建项目 12npx create-next-app@latest . # 在当前空文件夹中创建# 除了最后一项全选择 True 即可 安装插件ES7+ React&#x2F;Redux&#x2F;React-Native snippets 在tsx中键入rfce快速生成代码片。 在app下任意创建一个文件夹就是一个页面的路由，比如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NextJs教程式笔记">
+<meta property="og:url" content="https://ccccooh.github.io/2025/10/06/%E5%89%8D%E7%AB%AF/Next.js/NextJs%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="Next.js 全栈开发 https:&#x2F;&#x2F;nextjs.org 是一个服务端渲染框架 创建项目 12npx create-next-app@latest . # 在当前空文件夹中创建# 除了最后一项全选择 True 即可 安装插件ES7+ React&#x2F;Redux&#x2F;React-Native snippets 在tsx中键入rfce快速生成代码片。 在app下任意创建一个文件夹就是一个页面的路由，比如">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-06T08:09:34.225Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.753Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+
+    
+    <time class="date" datetime="2025-10-06T08:09:34+00:00">
+      October 6, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">NextJs教程式笔记</h1>
+  </div>
+
+  <div class="content">
+    <h1 id="next.js-全栈开发">Next.js 全栈开发</h1>
+<p>https://nextjs.org 是一个服务端渲染框架</p>
+<h2 id="创建项目">创建项目</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npx create-next-app@latest . <span class="comment"># 在当前空文件夹中创建</span></span><br><span class="line"><span class="comment"># 除了最后一项全选择 True 即可</span></span><br></pre></td></tr></table></figure>
+<p>安装插件<code>ES7+ React/Redux/React-Native snippets</code>
+在<code>tsx</code>中键入<code>rfce</code>快速生成代码片。</p>
+<p>在app下任意创建一个文件夹就是一个页面的路由，比如<code>app/demo</code>。在文件夹中可以创建<code>page.tsx</code>和<code>layout.tsx</code>分别为页面和模版，如果没有创建模版页面也能通过路由访问，也可以创建模版将页面作为<code>children</code>嵌入其中。</p>
+<blockquote>
+<p><code>page.tsx</code>是固定的名字，每一个路由下都要有它且名字不能改变。</p>
+</blockquote>
+<p>创建一个<code>demo/list/page.tsx</code>可以看到demo模版依然作为顶层模版。<code>list</code>下也可以创建一个<code>layout.tsx</code>。</p>
+<p>对<code>layout</code>页面一个简单的示例： <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">DemoLayout</span>(<span class="params">&#123;children&#125;: <span class="built_in">any</span></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#x27;demo&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>这是demo页面的模版...<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;children&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">DemoLayout</span></span><br></pre></td></tr></table></figure></p>
+<p>如果要创建动态路由，创建<code>app/demo/list/[id]/page.tsx</code>就可以，访问<code>http://localhost:3000/demo/list/1</code>就出来了。</p>
+<p>获取<code>params</code>的方式：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">ListDetailPage</span>(<span class="params">&#123;params&#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>ListDetailPage -- &#123;params.id&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">ListDetailPage</span></span><br></pre></td></tr></table></figure>
+<p>如果只需要一个<code>id</code>params就可以用ts显示地申明出来：
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ListDetailPage</span>(<span class="params">&#123;params&#125;: &#123; params: &#123;id: <span class="built_in">string</span>&#125; &#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>ListDetailPage -- &#123;params.id&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="分组">分组</h2>
+<p>在<code>app/demo</code>下创建:</p>
+<ul>
+<li><code>(admin)/layout.tsx</code></li>
+<li><code>(admin)/goods/page.tsx</code></li>
+<li><code>(admin)/us/page.tsx</code></li>
+</ul>
+<p>这相当于是将这几个页面分组在一起，<code>(admin)</code>并不会体现在路由当中，仍然可以通过<code>/demo/us</code>来访问我们的页面。但<code>(admin)/layout.tsx</code>却会作用在我们所有的分组页面当中。</p>
+<p>比如我们的<code>layout.tsx</code>： <figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="title class_">ReactNode</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">AdminLayout</span>(<span class="params">&#123;children&#125;: &#123;children: ReactNode&#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#x27;demo-admin p-8 bg-rose-400 text-white&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h4</span>&gt;</span>这是一个admin页面中的内容<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;children&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">AdminLayout</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看到玫瑰色的layout现在分组中的页面</p>
+<h2 id="metadata">metadata</h2>
+<p>如需更改页面的 metadata，在对应页面的<code>page.tsx</code>添加：
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Metadata</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;next&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="attr">metadata</span>: <span class="title class_">Metadata</span> = &#123;</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&quot;这是一个列表页&quot;</span>,</span><br><span class="line">  <span class="attr">description</span>: <span class="string">&quot;这是一个用nextJs输出的列表页&quot;</span>,</span><br><span class="line">  <span class="attr">keywords</span>: <span class="string">&quot;next.js,react&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>title会发生变化，常用于SEO优化。</p>
+<p>要定义一个动态的metadata，比如根据<code>list/[id]</code>来动态改变页面的title可以这样做：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Metadata</span> &#125; <span class="keyword">from</span> <span class="string">&quot;next&quot;</span>; <span class="comment">// 引入Metadata</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义Ts类型</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Props</span> = &#123;</span><br><span class="line">  <span class="attr">params</span>: &#123; <span class="attr">id</span>: <span class="built_in">string</span> &#125;;</span><br><span class="line">  <span class="attr">searchParams</span>: <span class="built_in">any</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 暴露动态的metadata定义</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">generateMetadata</span>(<span class="params">&#123;</span></span><br><span class="line"><span class="params">  params,</span></span><br><span class="line"><span class="params">  searchParams,</span></span><br><span class="line"><span class="params">&#125;: <span class="title class_">Props</span></span>): <span class="title class_">Promise</span>&lt;<span class="title class_">Metadata</span>&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">title</span>: <span class="string">&quot;这是详情页--&quot;</span> + params.<span class="property">id</span>,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">ListDetailPage</span>(<span class="params">&#123; params &#125;: &#123; params: &#123; id: <span class="built_in">string</span> &#125; &#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>ListDetailPage -- &#123;params.id&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">ListDetailPage</span>;</span><br></pre></td></tr></table></figure>
+<p>关于<code>searchParams</code>在代码中的接收方法，修改<code>[id]/page.tsx</code>中这一部分：
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ListDetailPage</span>(<span class="params">&#123; params, searchParams &#125;: Props</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>ListDetailPage -- &#123;params.id&#125;, Query -- &#123;searchParams.name&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>接着可以通过<code>http://localhost:3000/demo/list/2342asdf?name=老刘</code>发现页面中包含文本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">这是demo页面的模版...</span><br><span class="line">---------------------------</span><br><span class="line">这是list页面的模版</span><br><span class="line">---------------------------</span><br><span class="line"></span><br><span class="line">ListDetailPage -- 2342asdf, Query -- 老刘</span><br></pre></td></tr></table></figure>
+<p>需要说明的是，组件中接受到的<code>searchParamsparams, searchParams</code>和<code>generateMetadata()</code>中接受到的是一样的，都是路由的信息。</p>
+<h2 id="编写-api">编写 API</h2>
+<h3 id="服务器端渲染">服务器端渲染</h3>
+<p>创建文件夹<code>app/api</code>用于存放我们的后端
+api，建立一个<code>api/goods</code>文件夹，并创建<code>goods/route.ts</code>。</p>
+<blockquote>
+<p>一定要是<code>route.ts</code>不能是其他名字，如<code>page.tsx</code>一个原理。</p>
+</blockquote>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NextResponse</span> &#125; <span class="keyword">from</span> <span class="string">&quot;next/server&quot;</span> <span class="comment">// nestJs 请求对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">GET</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">NextResponse</span>.<span class="title function_">json</span>(&#123;  <span class="comment">// 返回一个json格式</span></span><br><span class="line">    <span class="attr">success</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">errorMessage</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>直接用<code>http://localhost:3000/api/goods</code>就能访问我们的api了。</p>
+<p>同样也可以使用动态路由，比如需要访问<code>http://localhost:3000/api/goods/123</code>。</p>
+<p>在<code>api/goods/[id]</code>下创建<code>route.ts</code>：
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NextResponse</span> &#125; <span class="keyword">from</span> <span class="string">&quot;next/server&quot;</span> <span class="comment">// nestJs 请求对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">GET</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">NextResponse</span>.<span class="title function_">json</span>(&#123;  <span class="comment">// 返回一个json格式</span></span><br><span class="line">    <span class="attr">success</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">errorMessage</span>: <span class="string">&#x27;获取单条记录&#x27;</span>,</span><br><span class="line">    <span class="attr">data</span>: &#123;&#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>如果要获取params： <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NextResponse</span> &#125; <span class="keyword">from</span> <span class="string">&quot;next/server&quot;</span>; <span class="comment">// nestJs 请求对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// req 是前端传过来的请求，第二个参数是一个上下文，我们可以解析上下文props获得其中的params参数，比如goods/1231中的1231就是一个params</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">GET</span> = (<span class="params"><span class="attr">req</span>: <span class="title class_">NextResponse</span>, &#123; params &#125;: <span class="built_in">any</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">NextResponse</span>.<span class="title function_">json</span>(&#123;</span><br><span class="line">    <span class="comment">// 返回一个json格式</span></span><br><span class="line">    <span class="attr">success</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">errorMessage</span>: <span class="string">&quot;获取单条记录:&quot;</span> + params.<span class="property">id</span>,</span><br><span class="line">    <span class="attr">data</span>: &#123;&#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>关键在于:
+<code>export const GET = (req: NextResponse, &#123; params &#125;: any) =&gt; &#123;&#125;</code>。</p>
+<h3 id="客户端调用接口">客户端调用接口</h3>
+<p>如果直接在客户端组件中使用<code>useEffect</code>会报错。</p>
+<p>我们可以在<code>list</code>下创建一个<code>_components/List.tsx</code>来单独封装我们的列表渲染组件，组件中代码：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;use client&quot;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123;useEffect, useState&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Item</span> = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="built_in">number</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">List</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 也可以是 [age, setAge]，相当于定义变量和更新变量的手段</span></span><br><span class="line">  <span class="comment">// 这种数组的结构是 React中定义组件状态的常用手法</span></span><br><span class="line">  <span class="keyword">const</span> [data, setData] = useState&lt;<span class="title class_">Item</span>[]&gt;([])</span><br><span class="line">  <span class="comment">// &lt;Item[]&gt; 用于定义这个状态(State)的数据类型，并初始化为([])</span></span><br><span class="line">  <span class="comment">// useEffect 勾子 用于初始化的时候执行</span></span><br><span class="line">  <span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 注意这里是/api/goods而不是 api/goods，差一个slash有天壤之别</span></span><br><span class="line">    <span class="title function_">fetch</span>(<span class="string">&#x27;/api/goods&#x27;</span>).<span class="title function_">then</span>(</span><br><span class="line">      <span class="function"><span class="params">res</span> =&gt;</span> res.<span class="title function_">json</span>() <span class="comment">// 从 api/goods中拿到json数据</span></span><br><span class="line">    ).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> <span class="title function_">setData</span>(res.<span class="property">data</span>))  <span class="comment">// 用setData更新状态为取到的数据</span></span><br><span class="line">    </span><br><span class="line">  &#125;, [])</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#x27;list&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">className</span>=<span class="string">&#x27;bg-sky-500 text-white&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;data.map(item =&gt; <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;item.id&#125;</span>&gt;</span>&#123;item.name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span>)&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">List</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>一般来说我们将客户端组件可以单独封装并放在<code>_components</code>下供服务端组件调用。</p>
+</blockquote>
+<p>为了有数据可以用，可以修改<code>api/goods/route.ts</code>：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NextResponse</span> &#125; <span class="keyword">from</span> <span class="string">&quot;next/server&quot;</span> <span class="comment">// nestJs 请求对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">GET</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">NextResponse</span>.<span class="title function_">json</span>(&#123;  <span class="comment">// 返回一个json格式</span></span><br><span class="line">    <span class="attr">success</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">errorMessage</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="attr">data</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">id</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&#x27;手推车&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">id</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&#x27;小李子&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就完成了接口的调用了。其中这里的<code>useState</code>是React语法，可以在React文档查看具体的用法。</p>
+<h2 id="数据库-prisma">数据库 Prisma</h2>
+<p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install prisma --save-dev <span class="comment"># 安装</span></span><br><span class="line">npx prisma init --datasource-provider sqlite <span class="comment"># 初始化为sqlite</span></span><br></pre></td></tr></table></figure>
+<p>初始化完成后在根目录多了<code>prisma</code>文件夹，可以在其中定义我们的数据库模型。</p>
+<p>定义<code>Goods</code>表的模型： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// This is your Prisma schema file,</span><br><span class="line">// learn more about it in the docs: https://pris.ly/d/prisma-schema</span><br><span class="line"></span><br><span class="line">generator client &#123;</span><br><span class="line">  provider = &quot;prisma-client-js&quot;</span><br><span class="line">  output   = &quot;../src/generated/prisma&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">datasource db &#123;</span><br><span class="line">  provider = &quot;sqlite&quot;</span><br><span class="line">  url      = env(&quot;DATABASE_URL&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">model Goods &#123;</span><br><span class="line">  // id 类型 设置为主键 设置为unique 默认值</span><br><span class="line">  id        String   @id @unique @default(uuid())</span><br><span class="line">  name      String</span><br><span class="line">  desc      String   @default(&quot;&quot;)</span><br><span class="line">  content   String   @default(&quot;&quot;)</span><br><span class="line">  // 用 @map 起别名</span><br><span class="line">  createdAt DateTime @default(now()) @map(&quot;created_at&quot;)</span><br><span class="line">  updatedAt DateTime @updatedAt @map(&quot;updated_at&quot;)</span><br><span class="line"></span><br><span class="line">  // 表的别名</span><br><span class="line">  @@map(&quot;products&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>完成后生成一下数据表： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx prisma db push</span><br></pre></td></tr></table></figure></p>
+<p><code>prisma/dev.db</code>就是我们的数据库了。</p>
+<p>对于数据库的连接在 prisma
+的官方文档中有想尽的说明，我们只需要在文档中搜索：<code>next.js</code>就能找到。</p>
+<p>实则不然，非常难找，但我还是找到了，见<a
+target="_blank" rel="noopener" href="https://www.prisma.io/docs/orm/more/help-and-troubleshooting/nextjs-help">文档</a>：
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lib/prisma.ts</span></span><br><span class="line"><span class="comment">// 使用相对路径导入生成在 `src/generated/prisma` 的 Prisma Client</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">PrismaClient</span> &#125; <span class="keyword">from</span> <span class="string">&quot;./generated/prisma&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> globalForPrisma = <span class="variable language_">global</span> <span class="keyword">as</span> <span class="built_in">unknown</span> <span class="keyword">as</span> &#123; <span class="attr">prisma</span>: <span class="title class_">PrismaClient</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> prisma = globalForPrisma.<span class="property">prisma</span> || <span class="keyword">new</span> <span class="title class_">PrismaClient</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (process.<span class="property">env</span>.<span class="property">NODE_ENV</span> !== <span class="string">&quot;production&quot;</span>) globalForPrisma.<span class="property">prisma</span> = prisma;</span><br></pre></td></tr></table></figure></p>
+<p>将这段代码粘贴到<code>src/db.ts</code>中，官网给的示例似乎有点问题，这里是用Capilot生成的能跑的连接代码。</p>
+<p>要查询数据和增加数据，修改<code>api/goods/route.ts</code>：
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NextRequest</span>, <span class="title class_">NextResponse</span> &#125; <span class="keyword">from</span> <span class="string">&quot;next/server&quot;</span> <span class="comment">// nestJs 请求对象</span></span><br><span class="line"><span class="keyword">import</span> &#123; prisma &#125; <span class="keyword">from</span> <span class="string">&quot;@/db&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">GET</span> = <span class="keyword">async</span> (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 查询数据，根据创建时间倒序排列</span></span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> prisma.<span class="property">goods</span>.<span class="title function_">findMany</span>(&#123;</span><br><span class="line">    <span class="attr">orderBy</span>: &#123;</span><br><span class="line">      <span class="attr">createdAt</span>: <span class="string">&#x27;desc&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">NextResponse</span>.<span class="title function_">json</span>(&#123;  <span class="comment">// 返回一个json格式</span></span><br><span class="line">    <span class="attr">success</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">errorMessage</span>: <span class="string">&#x27;获取数据成功&#x27;</span>,</span><br><span class="line">    <span class="attr">data</span>: data</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加 GOODS</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">POST</span> = <span class="keyword">async</span> (<span class="params"><span class="attr">req</span>: <span class="title class_">NextRequest</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> req.<span class="title function_">json</span>() <span class="comment">// 获取请求体中传递的json数据</span></span><br><span class="line">  <span class="comment">// data是请求创建的json格式&#123; name: &#x27;商品名&#x27; &#125;</span></span><br><span class="line">  <span class="keyword">await</span> prisma.<span class="property">goods</span>.<span class="title function_">create</span>(&#123; <span class="comment">// 利用prisma.create插入一个新的数据项</span></span><br><span class="line">    data,</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">NextResponse</span>.<span class="title function_">json</span>(&#123;  <span class="comment">// 返回一个json格式</span></span><br><span class="line">    <span class="attr">success</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">errorMessage</span>: <span class="string">&#x27;创建成功&#x27;</span>,</span><br><span class="line">    <span class="attr">data</span>: &#123;&#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>完事儿后我们就写好了可以创建商品的API了，打开PostMan添加一个POST请求：<code>http://localhost:3000/api/goods</code>，写入请求体（格式为raw）：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;测试POst添加商品&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>请求成功： <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;success&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;errorMessage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;创建成功&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;data&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span><span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="antd组件库与后台">antd组件库与后台</h2>
+<p>安装antd组件库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i antd</span><br></pre></td></tr></table></figure>
+<p>要创建一个管理后台，我们可以先创建一个<code>app/admin</code>用于后台页面，接下来继续创建：</p>
+<ul>
+<li><code>_components/AntContainer.tsx</code></li>
+<li><code>app/admin/login/page.tsx</code></li>
+<li><code>app/admin/layout.tsx</code></li>
+</ul>
+<p>在<code>layout.tsx</code>和<code>page.tsx</code>中用<code>rfce</code>创建基本的代码框架。</p>
+<p>使用antd开发，只需要在其官网复制粘贴就好：<a
+target="_blank" rel="noopener" href="https://ant.design/docs/react/introduce-cn">https://ant.design/docs/react/introduce-cn</a>。</p>
+<p>由于 antd 的更新，现在已经可以直接在 Next.js 很方便地使用。见文档：<a
+target="_blank" rel="noopener" href="https://ant.design/docs/react/use-with-next-cn">https://ant.design/docs/react/use-with-next-cn</a></p>
+<p>比如创建一个按钮组件<code>_components/Button.tsx</code>：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;use client&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Button</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">MyButton</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;App&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span>&gt;</span>Button<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">MyButton</span>;</span><br></pre></td></tr></table></figure>
+<p>完成后记得为<code>layout.tsx</code>添加<code>children</code>，类型申明为<code>any</code>即可。然后在<code>page.tsx</code>中引入Button将能被看到：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">MyButton</span> <span class="keyword">from</span> <span class="string">&#x27;../_components/Button&#x27;</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">LoginPage</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">MyButton</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">LoginPage</span></span><br></pre></td></tr></table></figure>
+<p>页面上会出现一个蓝色的小按钮。</p>
+<h3 id="一个简单的后台页面">一个简单的后台页面</h3>
+<p>我们来加一个登陆页面，修改<code>admin/login.tsx</code>：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;use client&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Card</span>, <span class="title class_">Form</span>, <span class="title class_">Button</span>, <span class="title class_">Input</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span></span><br><span class="line"><span class="comment">// import MyButton from &#x27;../_components/Button&#x27;</span></span><br><span class="line"><span class="comment">// 这里的 Form.Item 实际上是 Form 对象的一个属性</span></span><br><span class="line"><span class="comment">// Form 对象下有一个 Form.Item 对象，本身是一个 React 组件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">LoginPage</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;/* <span class="tag">&lt;<span class="name">MyButton</span> /&gt;</span> */&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Card</span> <span class="attr">title</span>=<span class="string">&quot;Next.js 全栈管理后台&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Form.Item</span> <span class="attr">label</span>=<span class="string">&quot;用户名&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Input</span> <span class="attr">placeholder</span>=<span class="string">&#x27;请输入用户名&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">Input</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Form.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Form.Item</span> <span class="attr">label</span>=<span class="string">&quot;密码&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Input.Password</span> <span class="attr">placeholder</span>=<span class="string">&#x27;请输入密码&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">Input.Password</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Form.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Form.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Button</span> <span class="attr">type</span>=<span class="string">&#x27;primary&#x27;</span> <span class="attr">htmlType</span>=<span class="string">&#x27;submit&#x27;</span>&gt;</span>登陆<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Form.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Card</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">LoginPage</span></span><br></pre></td></tr></table></figure>
+<p>完成后会出现表单，但样式似乎有点奇怪，这是因为 Tailwindcss 和 Ant
+产生了一些冲突，我们可以修改 Tailwindcss
+的配置<code>tailwind.config.ts</code>来解决。</p>
+<p>这里发现我似乎没有原教程中这个问题，省略处理过程。</p>
+<p>我们修改一下上述页面，让它具有获取表单内容的功能：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;use client&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Card</span>, <span class="title class_">Form</span>, <span class="title class_">Button</span>, <span class="title class_">Input</span> &#125; <span class="keyword">from</span> <span class="string">&quot;antd&quot;</span>;</span><br><span class="line"><span class="comment">// import MyButton from &#x27;../_components/Button&#x27;</span></span><br><span class="line"><span class="comment">// 这里的 Form.Item 实际上是 Form 对象的一个属性</span></span><br><span class="line"><span class="comment">// Form 对象下有一个 Form.Item 对象，本身是一个 React 组件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">LoginPage</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;pt-20 flex justify-center items-center h-screen&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;/* <span class="tag">&lt;<span class="name">MyButton</span> /&gt;</span> */&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Card</span> <span class="attr">title</span>=<span class="string">&quot;Next.js 全栈管理后台&quot;</span> <span class="attr">className</span>=<span class="string">&quot;w-4/5&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Form</span> <span class="attr">labelCol</span>=<span class="string">&#123;&#123;span:</span> <span class="attr">3</span>&#125;&#125; <span class="attr">onFinish</span>=<span class="string">&#123;(v)</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-xml">          console.log(v);</span></span><br><span class="line"><span class="language-xml">        &#125;&#125; &gt;</span></span><br><span class="line"><span class="language-xml">          &#123;/* labelCol对齐表单元素 */&#125;</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Form.Item</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">label</span>=<span class="string">&quot;用户名&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Input</span>  <span class="attr">placeholder</span>=<span class="string">&quot;请输入用户名&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Input</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">Form.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Form.Item</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">label</span>=<span class="string">&quot;密码&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Input.Password</span>  <span class="attr">placeholder</span>=<span class="string">&quot;请输入密码&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Input.Password</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">Form.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Form.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;/* block 用于让按钮撑满宽度 */&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Button</span> <span class="attr">block</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">htmlType</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              登陆</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">Form.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Form</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Card</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">LoginPage</span>;</span><br></pre></td></tr></table></figure>
+<p>这里为<code>Form.Item</code>添加了<code>name</code>属性，并通过<code>onFinish=&#123;(v) =&gt; &#123;&#125;&#125; &gt;</code>来打印获取表单数据。</p>
+<h2 id="中间件做登陆判断">中间件做登陆判断</h2>
+<p>我们创建一个<code>app/admin/dashboard</code>文件夹，并创建：</p>
+<ul>
+<li><code>admin/dashboard/_components/PageContainer.tsx</code></li>
+<li><code>admin/dashboard/page.tsx</code></li>
+</ul>
+<p>这样就有了看版页面。</p>
+<p>看板组件<code>dashbaord/_components/PageContainer.tsx</code>中：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;use client&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Card</span> &#125; <span class="keyword">from</span> <span class="string">&quot;antd&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">PageContainer</span>(<span class="params">&#123;children, title&#125;: <span class="built_in">any</span></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Card</span> <span class="attr">title</span>=<span class="string">&#123;title&#125;</span>&gt;</span>&#123;children&#125;<span class="tag">&lt;/<span class="name">Card</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">PageContainer</span></span><br></pre></td></tr></table></figure>
+<p>我们需要一个中间件来判断是否登陆，检测到未登陆则重定向到<code>login.tsx</code>页。</p>
+<p>创建一个文件：<code>src/middleware.ts</code>：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NextResponse</span> &#125; <span class="keyword">from</span> <span class="string">&quot;next/server&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">type</span> &#123; <span class="title class_">NextRequest</span> &#125; <span class="keyword">from</span> <span class="string">&quot;next/server&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">middleware</span>(<span class="params"><span class="attr">request</span>: <span class="title class_">NextRequest</span></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;中间件执行力！&#x27;</span>);</span><br><span class="line">  <span class="keyword">if</span> (request.<span class="property">nextUrl</span>.<span class="property">pathname</span>.<span class="title function_">startsWith</span>(<span class="string">&#x27;/admin&#x27;</span>)) &#123;</span><br><span class="line">    <span class="comment">// 如果是admin下的路由</span></span><br><span class="line">    <span class="keyword">if</span> (!request.<span class="property">nextUrl</span>.<span class="property">pathname</span>.<span class="title function_">startsWith</span>(<span class="string">&#x27;/admin/login&#x27;</span>)) &#123;</span><br><span class="line">      <span class="comment">// 并且不是登陆页面</span></span><br><span class="line">      <span class="keyword">if</span> (request.<span class="property">cookies</span>.<span class="title function_">get</span>(<span class="string">&#x27;admin-token&#x27;</span>)) &#123;</span><br><span class="line">        <span class="comment">// 已经登陆了，啥都不做</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">NextResponse</span>.<span class="title function_">redirect</span>(<span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">&#x27;/admin/login&#x27;</span>, request.<span class="property">url</span>));</span><br><span class="line">        <span class="comment">// 重定向到登陆页面</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>这时我们会被强制拉到<code>login</code>页面了。</p>
+<h3 id="登陆接口">登陆接口</h3>
+<p>创建<code>app/api/admin/login/route.ts</code>用于登陆接口：
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">NextRequest</span>, <span class="title class_">NextResponse</span> &#125; <span class="keyword">from</span> <span class="string">&quot;next/server&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">POST</span> = (<span class="params"><span class="attr">req</span>: <span class="title class_">NextRequest</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">NextResponse</span>.<span class="title function_">json</span>(&#123;</span><br><span class="line">    <span class="attr">success</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">errorMessage</span>: <span class="string">&#x27;登陆成功&#x27;</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="attr">headers</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;Set-Cookie&#x27;</span>: <span class="string">&#x27;admin-token=123;Path=/&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>安装Vscode插件：<code>Thunder Client</code>便于直接测试接口。</p>
+<p>安装完成后打开 Thunder Client 面板，new一个新的 POST
+接口，直接发送一个<code>localhost:3000/api/admin/login</code>请求，可以看到成功发送了。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;success&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;errorMessage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;登陆成功&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>并且可以在Response Headers中看到 set-cookie
+被设置为:<code>admin-token=123;Path=/</code>。</p>
+<p>完成后我们在客户端加上发送登陆请求的代码：</p>
+<p>只需要修改关键部分：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useRouter &#125; <span class="keyword">from</span> <span class="string">&quot;next/navigation&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">LoginPage</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> nav = <span class="title function_">useRouter</span>()</span><br></pre></td></tr></table></figure>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Form</span> labelCol=&#123;&#123;<span class="attr">span</span>: <span class="number">3</span>&#125;&#125; onFinish=&#123;<span class="title function_">async</span> (v) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> res = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;/api/admin/login&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">    <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(v)</span><br><span class="line">  &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span>res.<span class="title function_">json</span>())</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(res);</span><br><span class="line">  nav.<span class="title function_">push</span>(<span class="string">&#x27;/admin/dashboard&#x27;</span>)</span><br><span class="line">&#125;&#125; &gt;</span><br></pre></td></tr></table></figure>
+<p>完成后就可以登陆跳转到看板了。</p>
+<p>接下来我们来做一个后台面板，修改admin下的文件结构，将layout.tsx和dashboard单独合并在一起。</p>
+<p><img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202510062343044.png" /></p>
+<p>修改<code>admin/(admin-layout)/layout.tsx</code>中的代码，将ant中的带有侧边导航的布局面板加入其中：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">AntAdmin</span> <span class="keyword">from</span> <span class="string">&#x27;../_components/AntAdmin&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">AdminLayout</span>(<span class="params">&#123;children&#125;: <span class="built_in">any</span></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">AntAdmin</span>&gt;</span>&#123;children&#125;<span class="tag">&lt;/<span class="name">AntAdmin</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">AdminLayout</span></span><br></pre></td></tr></table></figure>
+<p>并对<code>login/page.tsx</code>页面做适当的修改（主要是样式的调整）：</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;use client&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Card</span>, <span class="title class_">Form</span>, <span class="title class_">Button</span>, <span class="title class_">Input</span> &#125; <span class="keyword">from</span> <span class="string">&quot;antd&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useRouter &#125; <span class="keyword">from</span> <span class="string">&quot;next/navigation&quot;</span>;</span><br><span class="line"><span class="comment">// import MyButton from &#x27;../_components/Button&#x27;</span></span><br><span class="line"><span class="comment">// 这里的 Form.Item 实际上是 Form 对象的一个属性</span></span><br><span class="line"><span class="comment">// Form 对象下有一个 Form.Item 对象，本身是一个 React 组件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">LoginPage</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> nav = <span class="title function_">useRouter</span>()</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;pt-20 flex justify-center items-center h-full&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;/* <span class="tag">&lt;<span class="name">MyButton</span> /&gt;</span> */&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Card</span> <span class="attr">title</span>=<span class="string">&quot;Next.js 全栈管理后台&quot;</span> <span class="attr">className</span>=<span class="string">&quot;w-[500px]&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Form</span> <span class="attr">labelCol</span>=<span class="string">&#123;&#123;span:</span> <span class="attr">3</span>&#125;&#125; <span class="attr">onFinish</span>=<span class="string">&#123;async</span> (<span class="attr">v</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-xml">          const res = await fetch(&#x27;/api/admin/login&#x27;, &#123;</span></span><br><span class="line"><span class="language-xml">            method: &#x27;POST&#x27;,</span></span><br><span class="line"><span class="language-xml">            body: JSON.stringify(v)</span></span><br><span class="line"><span class="language-xml">          &#125;).then(res=&gt;res.json())</span></span><br><span class="line"><span class="language-xml">          console.log(res);</span></span><br><span class="line"><span class="language-xml">          nav.push(&#x27;/admin/dashboard&#x27;)</span></span><br><span class="line"><span class="language-xml">        &#125;&#125; &gt;</span></span><br><span class="line"><span class="language-xml">          &#123;/* labelCol对齐表单元素 */&#125;</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Form.Item</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">label</span>=<span class="string">&quot;用户名&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Input</span>  <span class="attr">placeholder</span>=<span class="string">&quot;请输入用户名&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Input</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">Form.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Form.Item</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">label</span>=<span class="string">&quot;密码&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Input.Password</span>  <span class="attr">placeholder</span>=<span class="string">&quot;请输入密码&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Input.Password</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">Form.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Form.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;/* block 用于让按钮撑满宽度 */&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Button</span> <span class="attr">block</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">htmlType</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">              登陆</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">Form.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Form</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Card</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">LoginPage</span>;</span><br></pre></td></tr></table></figure>
+<p>到这里项目代码开始有点复杂了，不太方便记录在笔记中。从下面开始只介绍一些新的概念。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    <a class="next"></a>
+    
+    <a href="/2025/07/28/%E5%85%B6%E4%BB%96/%E9%AC%BC%E5%8E%8B%E5%BA%8A/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">鬼压床</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【Mongodb】1.快速开始 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="一、介绍 MongoDb是文档存储结构的数据库，与传统的SQL数据库有所不同。这是一开始学习Mongodb给我的印象。 传统的Sql数据库中有数据库、表、记录这三个层次的概念，映射到MongoDb中：数据库就是一个Connection连接，表则是一个Collection集合，集合或者说表中的每一个记录在Mongodb中叫做一个个的文档。 初步学习下来，Mongodb的集合像是一个存储Json格式的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Mongodb】1.快速开始">
+<meta property="og:url" content="https://ccccooh.github.io/demo/0vwlcvyr/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="一、介绍 MongoDb是文档存储结构的数据库，与传统的SQL数据库有所不同。这是一开始学习Mongodb给我的印象。 传统的Sql数据库中有数据库、表、记录这三个层次的概念，映射到MongoDb中：数据库就是一个Connection连接，表则是一个Collection集合，集合或者说表中的每一个记录在Mongodb中叫做一个个的文档。 初步学习下来，Mongodb的集合像是一个存储Json格式的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-25T13:01:22.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.753Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/Mongodb/">Mongodb</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-03-25T13:01:22+00:00">
+      March 25, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【Mongodb】1.快速开始</h1>
+  </div>
+
+  <div class="content">
+    <h2 id="一介绍">一、介绍</h2>
+<p><code>MongoDb</code>是文档存储结构的数据库，与传统的SQL数据库有所不同。这是一开始学习<code>Mongodb</code>给我的印象。</p>
+<p>传统的Sql数据库中有数据库、表、记录这三个层次的概念，映射到<code>MongoDb</code>中：数据库就是一个<code>Connection</code>连接，表则是一个<code>Collection</code>集合，集合或者说表中的每一个记录在<code>Mongodb</code>中叫做一个个的文档。</p>
+<p>初步学习下来，<code>Mongodb</code>的集合像是一个存储<code>Json</code>格式的容器，似乎非常贴合web请求的<code>Json</code>格式，让前端开发者旋转。</p>
+<h2 id="二开始mongo">二、开始Mongo</h2>
+<h3 id="添加文档创建集合">2.1 添加文档/创建集合</h3>
+<p>下载部署完成 <code>Mongodb</code>
+后，可以通过如下命令来创建一个集合：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">db.postCollection.insertOne(&#123;</span><br><span class="line">title: &quot;mongodb 入门教程&quot;,</span><br><span class="line">author: &#123;</span><br><span class="line">	name: &quot;Sy&quot;,</span><br><span class="line">	avatar: &quot;https://shenying.online&quot;</span><br><span class="line">&#125;,</span><br><span class="line">createdAt: &quot;2025-3-25&quot;,</span><br><span class="line">content: &quot;Mongodb 是文档存储结构的数据库&quot;,</span><br><span class="line">comments: [</span><br><span class="line">  &#123;</span><br><span class="line">		<span class="keyword">user</span>: &quot;小明&quot;,</span><br><span class="line">		comment: &quot;真不错&quot;</span><br><span class="line">	&#125;,</span><br><span class="line">  &#123;</span><br><span class="line">		<span class="keyword">user</span>: &quot;toby&quot;,</span><br><span class="line">		comment: &quot;wow!&quot;</span><br><span class="line">	&#125;</span><br><span class="line">]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这里的<code>postCollection</code>是我们当前创建的集合的名字，相当于在<code>sql</code>中创建了一张名为<code>postCollection</code>的表。</p>
+<blockquote>
+<p>实际上，<code>insertOne</code>是用来在集合中添加文档数据的，但是因为没有该集合，所以<code>mongoDb</code>会自动创建这个名字的集合并插入数据，完成API的功能。</p>
+</blockquote>
+<p>你也可以用同样的方式创建一张学生表（在<code>mongodb</code>中尽量叫他集合，下面也是如此）：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.Students.insertOne(&#123;内容省略...&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="查询集合数据">2.2 查询集合数据</h3>
+<ol type="1">
+<li>查询集合的全部文档</li>
+</ol>
+<p>要查询集合的所有元素可以使用<code>db.集合名.find(&#123;&#125;)</code>方法，不传递空对象则默认传递空对象，效果为查询集合的所有文档。</p>
+<ol start="2" type="1">
+<li>带条件的集合文档查询</li>
+</ol>
+<p>以一张学生表为例，假设每一个学生文档有如下属性：<code>name</code>，<code>age</code>，<code>sex</code>，如果要查询满足姓名为<code>sy</code>的学生，可以这样查：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.Students.find(&#123;name: <span class="string">&#x27;sy&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>注意这里的<code>Students</code>是学生集合的名字。</p>
+<ol start="3" type="1">
+<li>查询嵌套的文档结构：</li>
+</ol>
+<p>假如文档的结构是这样的：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">title<span class="punctuation">:</span> <span class="string">&quot;mongodb 入门教程&quot;</span><span class="punctuation">,</span></span><br><span class="line">author<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	name<span class="punctuation">:</span> <span class="string">&quot;Sy&quot;</span><span class="punctuation">,</span></span><br><span class="line">	avatar<span class="punctuation">:</span> <span class="string">&quot;https://shenying.online&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">createdAt<span class="punctuation">:</span> <span class="string">&quot;2025-3-25&quot;</span><span class="punctuation">,</span></span><br><span class="line">content<span class="punctuation">:</span> <span class="string">&quot;Mongodb 是文档存储结构的数据库&quot;</span><span class="punctuation">,</span></span><br><span class="line">comments<span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">		user<span class="punctuation">:</span> <span class="string">&quot;小明&quot;</span><span class="punctuation">,</span></span><br><span class="line">		comment<span class="punctuation">:</span> <span class="string">&quot;真不错&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">		user<span class="punctuation">:</span> <span class="string">&quot;toby&quot;</span><span class="punctuation">,</span></span><br><span class="line">		comment<span class="punctuation">:</span> <span class="string">&quot;wow!&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>想要按照这里<code>author.name</code>这个二级属性来进行条件查询就需要这样写：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.postCollection.find(&#123;&quot;author.name&quot;: &quot;Sy&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意这里的传递键名需要用双引号包裹，有所不同。</p>
+</blockquote>
+<h3 id="更新集合数据">2.3 更新集合数据</h3>
+<p>更新数据和查询数据语法类似，存在两中方法：</p>
+<ul>
+<li><code>updateOne()</code> 仅修改一条数据</li>
+<li><code>updateMany()</code> 修改所有满足查询条件数据</li>
+</ul>
+<p>他们都接受两个参数，依次是：1. <strong>查询修改的条件</strong> 2.
+<strong>要修改的属性</strong></p>
+<p>直接用之前的修改方法会出现报错：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.user.updateOne(&#123;name: &quot;Sy&quot;&#125;, &#123;name: &quot;谌y&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/image-20250325212710634.png"
+alt="image-20250325212710634" />
+<figcaption aria-hidden="true">image-20250325212710634</figcaption>
+</figure>
+<p>从这里可以得知，MongoDb中修改数据需要专门的操作符语法。</p>
+<ol type="1">
+<li><code>$set</code></li>
+</ol>
+<p>在修改的属性参数最外层再包一层大括号，并将<code>$set</code>键所对应的值设置为<code>&#123;name: "Syyyy", age: 19...&#125;</code>表示要修改<code>$set</code>所对应的所有属性。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.user.updateMany(&#123;&#125;, &#123;$<span class="keyword">set</span>: &#123;name: <span class="string">&#x27;kkk&#x27;</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果不这样做，<code>Mongodb</code>
+就无法保证唯一性，请问你是只修改<code>name</code>还是要将这个文档修改为<code>&#123; name: xxx &#125;</code>并舍去其他的键呢？</p>
+</blockquote>
+<h3 id="删除集合数据">2.3 删除集合数据</h3>
+<p>与更新类似，删除数据根据数量也有两种写法：</p>
+<ul>
+<li><code>deleteOne()</code> 删除一条数据</li>
+<li><code>deleteMany()</code> 删除所有满足查询条件数据</li>
+</ul>
+<p>语法很简单：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.user.delete(&#123; _id: ObjectId(<span class="string">&#x27;67e2ae7c7da85b2443b61a2a&#x27;</span>) &#125;)</span><br></pre></td></tr></table></figure>
+<p>这里的<code>_id</code>是<code>MongoDb</code>在创建文档时自动为我们生成的唯一标识，帮我们省去了自己后端使用雪花算法、<code>uuid</code>生成标识的时间。</p>
+<h2 id="三总结">三、总结</h2>
+<p>经过一番使用，可以看出MongoDb有一些比较特别的地方。</p>
+<p>首先是性能方面，MongoDb适用于性能要求很高但是数据一致性要求不高的应用中。因为创建集合、数据分片过于方便，这样会导致很多数据不会保持相同的文档结构。</p>
+<p>因为其操作语法和<code>JavaScript</code>非常接近，所以用 JS
+创建的应用可以首选 MongoDb 作为数据库存储引擎。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/blc8jgxs/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">【Mongodb】2.通过Express和MongoDb实现RestfulAPI应用</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/article/0yvjvflq/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">最难部署的数据库非Mongodb莫属</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

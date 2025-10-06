@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【心碎踩坑王】OCR-Latex踩坑 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="踩坑+1...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【心碎踩坑王】OCR-Latex踩坑">
+<meta property="og:url" content="https://ccccooh.github.io/2025/07/23/Math/OCR-Latex%E8%B8%A9%E5%9D%91/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="踩坑+1...">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-23T09:06:23.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.750Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="math">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/math/">math</a>
+    
+      <a href="/categories/math/latex/">latex</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-07-23T09:06:23+00:00">
+      July 23, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【心碎踩坑王】OCR-Latex踩坑</h1>
+  </div>
+
+  <div class="content">
+    <p>在 mac 上尝试安装 Latex-OCR，哪知道 LaTeX-OCR
+拉了坨大的（官方方法根本就不支持
+macOS），恶心坏了。按照官方文档方法安装一个小时多，又是 pip 又是 docker
+的，一会儿 pip 3，一会儿 pip 的。整了半天一直卡在最后一步 run
+无法运行。</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202507231657055.png"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>无奈放弃官方文档的方法 – “m 1 安装
+latex-OCR…”，一搜一个准，很快啊。找到民间的教程：https://blog.rongxin.me/install-latex-ocr-on-apple-silicon-m1</p>
+<p>好家伙，一次成功。</p>
+<h2 id="具体步骤">具体步骤</h2>
+<ol type="1">
+<li><code>pip install "pix2tex[gui]"</code> 安装模块</li>
+<li><code>brew install pyqt@5</code> 安装所需要的 GUI 模块</li>
+<li><code>sudo cp -r /opt/homebrew/Cellar/pyqt@5/5.15.7_2/lib/python3.9/site-packages/* /Users/rey/miniconda3/lib/python3.9/site-packages/</code>
+因为你在pip或conda的官方论坛上找不到兼容版本。</li>
+<li><code>pip install pynput screeninfo</code> 包依赖</li>
+<li><code>conda install pytorch torchvision</code> conda 提供的兼容
+pytorch</li>
+</ol>
+<h2 id="使用方法">使用方法</h2>
+<ol type="1">
+<li>启动 <code>python -m pix2tex latexocr</code></li>
+<li>截图需要识别的 LaTeX 图片至剪贴板</li>
+<li>在终端内按下 ENTER，待有反应时 latex 已存入剪切板。</li>
+</ol>
+<h2 id="对原作者的补充">对原作者的补充</h2>
+<p>若是使用 zsh 终端，可按照该方法提高开启 OCR 效率。 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure></p>
+<p>添加代码片： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function ocr() &#123;</span><br><span class="line">	python -m pix2tex latexocr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>:wq</code> 保存并退出，并编译
+<code>source ~/.zshrc</code>。以后便可直接在终端中 <code>ocr</code>
+来直接开启工具，方便快捷，独家技巧。</p>
+<blockquote>
+<p>靠，就这？！</p>
+</blockquote>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    <p class="tags">
+      <i class="bi bi-tags icon"></i>
+      
+      <a href="/tags/math/" class="tag">#math</a>
+      
+    </p>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/2025/07/27/%E5%85%B6%E4%BB%96/%E3%80%90%E8%AE%A4%E7%9F%A5%E5%BF%83%E7%90%86%E5%AD%A6%E6%9D%82%E8%B0%88%E3%80%91%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E4%BA%9B%E4%BA%BA%E5%AD%A6%E4%B8%8D%E5%A5%BDxx%EF%BC%9F/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">【认知心理学杂谈】为什么有些人学不好xx？</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/2025/07/23/Math/ElegantBook-%E9%A3%9F%E7%94%A8%E6%95%99%E7%A8%8B/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">ElegantBook 食用教程</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

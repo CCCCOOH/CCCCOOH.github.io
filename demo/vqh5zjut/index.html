@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【mongoose】3.阅读官方文档 - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="1. Models 上一篇笔记讲到了mongoose的基本用法，本次来讲一下oModel中的一些方法怎么用。 其实，有了Model我们就可以对数据库进行增删改查的操作了。 对于Model的方法，我们可以通过查阅官方的API文档来获得最新和最全面的了解： 官方文档API   20250326194830  这里讲一些看文档需要注意的点。Model.xxx风格的API表示Model构造函数的方法，可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【mongoose】3.阅读官方文档">
+<meta property="og:url" content="https://ccccooh.github.io/demo/vqh5zjut/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="1. Models 上一篇笔记讲到了mongoose的基本用法，本次来讲一下oModel中的一些方法怎么用。 其实，有了Model我们就可以对数据库进行增删改查的操作了。 对于Model的方法，我们可以通过查阅官方的API文档来获得最新和最全面的了解： 官方文档API   20250326194830  这里讲一些看文档需要注意的点。Model.xxx风格的API表示Model构造函数的方法，可以">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-26T11:46:13.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.754Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/Mongoose/">Mongoose</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-03-26T11:46:13+00:00">
+      March 26, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【mongoose】3.阅读官方文档</h1>
+  </div>
+
+  <div class="content">
+    <h2 id="models">1. Models</h2>
+<p>上一篇笔记讲到了mongoose的基本用法，本次来讲一下o<code>Model</code>中的一些方法怎么用。</p>
+<p>其实，有了Model我们就可以对数据库进行增删改查的操作了。</p>
+<p>对于Model的方法，我们可以通过查阅官方的API文档来获得最新和最全面的了解：
+<a target="_blank" rel="noopener" href="https://mongoosejs.com/docs/api/model.html">官方文档API</a></p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250326194830.png"
+alt="20250326194830" />
+<figcaption aria-hidden="true">20250326194830</figcaption>
+</figure>
+<p>这里讲一些看文档需要注意的点。<code>Model.xxx</code>风格的API表示Model构造函数的方法，可以用于创建对象。</p>
+<p><code>Model#xxx</code>风格的API表示Model创建的对象调用的方法，也就是文档对象调用的方法，当然我发现官方现在好像是这样写了：<code>Object.prototype.xxx()</code>。</p>
+<p>这里讲几个常用的API，自己去官方文档取经吧： -
+<code>Model.find()</code> - <code>Model.create()</code> -
+<code>Model.findOne()</code></p>
+<p>实际上，关于<code>find</code>的API就不少，实际使用还需自己根据情况来决定：</p>
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250326195709.png"
+alt="20250326195709" />
+<figcaption aria-hidden="true">20250326195709</figcaption>
+</figure>
+<h2 id="document">2. Document</h2>
+<h3 id="添加">2.1 添加</h3>
+<p><code>Document</code>是<code>Model</code>的一个示例，通过<code>Model</code>查询到的结果都是<code>Document</code>。</p>
+<p>我们其实可以直接创建一个<code>Document</code>（文档对象）其实就是最开始我说的官方推荐的写法：
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> student = <span class="keyword">new</span> <span class="title class_">StuModel</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;Sy&quot;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">18</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>将这个文档对象打印出来就是： <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  name<span class="punctuation">:</span> &#x27;Sy&#x27;<span class="punctuation">,</span></span><br><span class="line">  age<span class="punctuation">:</span> <span class="number">15</span><span class="punctuation">,</span></span><br><span class="line">  gender<span class="punctuation">:</span> &#x27;male&#x27;<span class="punctuation">,</span></span><br><span class="line">  address<span class="punctuation">:</span> &#x27;XJUFE&#x27;<span class="punctuation">,</span></span><br><span class="line">  _id<span class="punctuation">:</span> new ObjectId(&#x27;<span class="number">67e3</span>ecde490b511fb8c53cd2&#x27;)</span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>很容易发现，此时文档并没有被插入到数据库，仅仅是放到了内存中。</p>
+<p>我们来讲他插入到数据库中(<code>document#save()</code>)：
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docs.<span class="title function_">save</span>();</span><br></pre></td></tr></table></figure></p>
+<p>这里讲一下在我的Node.js项目中经常突然乍现的一个Bug：在运行项目后有时会突然报错
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ReferenceError: require is not defined</span><br></pre></td></tr></table></figure></p>
+<p>查了一下是因为<code>node</code>更新的原因，现在默认要求用<code>import</code>语法，如果还是想要用<code>require</code>就需要：
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createRequire &#125; <span class="keyword">from</span> <span class="string">&#x27;module&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="built_in">require</span> = <span class="title function_">createRequire</span>(<span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>);</span><br></pre></td></tr></table></figure></p>
+<p>所以在保存文件时有两种方法： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docs.<span class="title function_">save</span>();</span><br><span class="line"><span class="title class_">Model</span>.<span class="title function_">create</span>(&#123;&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="修改">2.2 修改</h3>
+<p>修改docs也很简单，第一种方法当然是官方的<code>API</code>方法。</p>
+<p>但其实也可以通过<code>.</code>分隔符来修改文档的属性：
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docs.<span class="property">name</span> = <span class="string">&quot;Syyyo900&quot;</span>;</span><br><span class="line"><span class="keyword">await</span> docs.<span class="title function_">save</span>();</span><br></pre></td></tr></table></figure></p>
+<h3 id="get和set">2.3 get和set</h3>
+<p>文档提供了一些很快捷的方法来直接得到文档的内容： -
+<code>doc.get('age', String)</code>
+获取年龄并将数据转为字符串类型，第二个参数可选</p>
+<p>文档还提供了<code>set</code>方法，可以快速修改文档的内容，有多种写法，可以<a
+target="_blank" rel="noopener" href="https://mongoosejs.com/docs/api/document.html#Document.prototype.set()">参考API文档</a>。</p>
+<h3 id="其他">2.4 其他</h3>
+<p>文档有一个<code>doc.toJSON()</code>方法，可以将该文档转为<code>JSON</code>对象。</p>
+<p>用<code>doc.toObject()</code>可以让文档变成一个普通的<code>Object</code>对象，但是会让所有文档的方法失效。</p>
+<p>所以，只有在特殊情况下才会使用，比如需要删除文档中的敏感数据，想要调用<code>delete docs.address</code>来隐藏地址，就只能通过该方法来实现。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/article/gq93gfva/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">设计一个实际可用的数据库</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/c1386z98/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【mongoose】2.Schema和Model</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>

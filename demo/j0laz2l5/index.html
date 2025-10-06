@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>【Node.js】认识Node.js - SHEN YING</title>
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel='manifest' href='/manifest.json'>
+  
+
+  <meta name="description" content="1.介绍 Node.js 是一门服务器编程语言，它也遵循了 ECMAScript 语法规范，在此规范的基础上加入了 Node.js API，包含处理 http 请求、处理文件、socket 编程等。Node.js API 和 ECMAScript 两者结合组成了 Node.js，完成 Server 端的任何操作，为客户端浏览器进行服务。 Node.js 是一门服务器编程语言。它发布于 2009 年">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Node.js】认识Node.js">
+<meta property="og:url" content="https://ccccooh.github.io/demo/j0laz2l5/index.html">
+<meta property="og:site_name" content="SHEN YING">
+<meta property="og:description" content="1.介绍 Node.js 是一门服务器编程语言，它也遵循了 ECMAScript 语法规范，在此规范的基础上加入了 Node.js API，包含处理 http 请求、处理文件、socket 编程等。Node.js API 和 ECMAScript 两者结合组成了 Node.js，完成 Server 端的任何操作，为客户端浏览器进行服务。 Node.js 是一门服务器编程语言。它发布于 2009 年">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-08T14:50:51.000Z">
+<meta property="article:modified_time" content="2025-10-06T16:11:50.753Z">
+<meta property="article:author" content="Sy">
+<meta property="article:tag" content="Sy博客">
+<meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/simple-icons-font@15/font/simple-icons.min.css">
+
+  
+  
+  
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1/font/bootstrap-icons.min.css">
+
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/components/card.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/button.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/badge.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/utilities.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/components/carousel.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/scroll-reveal.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/view-transition.css">
+
+  
+  
+
+  
+
+  
+<script src="/js/head.js"></script>
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body
+    data-color-scheme="auto"
+    data-uppercase-categories="true"
+    
+    data-config-root="/"
+    
+    data-toc="true"
+    data-toc-max-depth="2"
+    
+    
+    
+    data-scroll-reveal-disappear="false"
+    data-scroll-reveal-query=".scroll-reveal, .post-list-item, .card, .content p img, .content .block-large img"
+    
+    data-nav-blur-gradient="true"
+  >
+    
+<script src="/js/body-top.js"></script>
+
+    <a href="#main-content" id="skip-to-content">Skip to content</a>
+    
+
+<div class="nav-mask">
+  <div order="1"></div>
+  <div order="2"></div>
+  <div order="3"></div>
+  <div order="4"></div>
+  <div order="5"></div>
+  <div order="6"></div>
+</div>
+
+<nav id="theme-nav">
+  <div class="inner">
+    <a class="title" href="/">Sy_Blog&amp;Note</a>
+    <div class="nav-arrow"></div>
+    <div class="nav-items">
+      <a class="nav-item nav-item-home" href="/" style="--index: 0">Home</a>
+
+      
+      <a class="nav-item" href="/archives" style="--index: 1">Archives</a>
+      
+      <a class="nav-item is-icon" href="/search" style="--index: 2"><i class="bi bi-search"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://github.com/CCCCOOH" style="--index: 3"><i class="bi bi-github"></i></a>
+      
+      <a class="nav-item is-icon" target="_blank" rel="noopener" href="https://space.bilibili.com/450034908?spm_id_from=333.1007.0.0" style="--index: 4"><i class="bi bi-controller"></i></a>
+      
+    </div>
+  </div>
+</nav>
+
+    <main id="main-content" data-pagefind-body>
+      
+<article class="post">
+  
+  <div class="meta">
+    
+    <div class="categories text-uppercase">
+    
+      <a href="/categories/前端/">前端</a>
+    
+      <a href="/categories/前端/Node-js/">Node.js</a>
+    
+    </div>
+    
+
+    
+    <time class="date" datetime="2025-03-08T14:50:51+00:00">
+      March 8, 2025
+    </time>
+    
+
+    <h1 class="title" data-pagefind-meta="title">【Node.js】认识Node.js</h1>
+  </div>
+
+  <div class="content">
+    <h2 id="介绍">1.介绍</h2>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Node.js</a>
+是一门服务器编程语言，它也遵循了 ECMAScript
+语法规范，在此规范的基础上加入了 Node.js API，包含处理 http
+请求、处理文件、socket 编程等。Node.js API 和 ECMAScript 两者结合组成了
+Node.js，完成 Server 端的任何操作，为客户端浏览器进行服务。</p>
+<p>Node.js 是一门服务器编程语言。它发布于 2009 年 5 月，由 Ryan Dahl
+开发，也是一个基于 Chrome V8 引擎的 JavaScript
+运行环境，使用了一个事件驱动、非阻塞式 I/O 模型，让 JavaScript
+运行在服务端的开发平台，它让 JavaScript 成为与 PHP、Python、Perl、Ruby
+等服务端语言平起平坐的脚本语言。</p>
+<p>Node.js 有如下特点和优势：</p>
+<ul>
+<li>它是一个 JavaScript 运行环境</li>
+<li>依赖于 Chrome V8 引擎进行代码解析</li>
+<li>事件驱动（event-driven）</li>
+<li>非阻塞 I/O(non-blocking I/O)</li>
+<li>轻量、可伸缩，适于实时数据交互应用</li>
+<li>单进程，单线程</li>
+</ul>
+<p>学到这里有的同学可能有些疑惑，这么多特点都是什么意思呢？Node.js
+相对于其他服务器语言，例如 Ruby、Java
+又有什么区别和优势呢？别着急，马上就会提到。</p>
+<p>传统的服务器开发语言（例如
+java）是多线程的，例如我们在淘宝商城购物，如果只有一个顾客发送请求，那显然是没问题的。但是当有成百上千万的用户同时访问的时候，我们肯定不希望别人买完以后才能轮到自己购买，这显然要等待很长时间。但是如果
+CPU 只有一个核心的时候或者 CPU
+只有一个线程的时候，确实要等待别人购买完毕以后才能购买。这就像在饭馆吃饭，如果只有一个厨师的话，同一时间只能给一个顾客做菜，这样必须要等待这一个厨师为别人做完菜以后才能为自己做菜。</p>
+<p>为了解决这个问题，我们可以多增加几个厨师来同时为这些顾客做菜，这就是
+java
+语言的处理方式：使用多线程并发执行，但是这种方式势必会增加聘请厨师的成本和消耗更大的厨房空间，这无疑是一个资源的浪费，而且这种多线程模型，CPU（厨师）
+在为客户服务的时候不能做其他的事，例如使用 I/O
+读取文件的时候，只能等待文件系统读取文件完毕以后，才能继续做其他事。</p>
+<p>为了解决上述问题 Node.js 应运而生。Node.js 是单线程模型、非阻塞
+I/O、采用事件循环机制的原理进行处理。如下图：</p>
+<div class="center">
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250308225452.png"
+alt="20250308225452" />
+<figcaption aria-hidden="true">20250308225452</figcaption>
+</figure>
+</div>
+<p>非阻塞 I/O 的意思就是，文件系统在进行 I/O 操作的时候，Node.js
+这个线程还可以做其他的事，当文件系统读取文件完毕时，通过事件的回调函数告诉
+Node.js 线程，然后 Node.js 把读取的内容响应给用户。</p>
+<p>Node.js 中的 I/O
+操作可以理解成生活中的一个幕后工作者，就像在餐馆点餐这个场景中，饭馆可以直接去把点餐的任务派发给外部擅长做菜、煮饭、酿酒的厂家，这些厂家都是非常擅长这些工作的，Node
+中也有各种擅长做某件事的模块。这样当这些幕后的厂家完成这些做菜、饭、酒的事件以后，把做完的饭菜酒等食品交给厨师，然后由厨师统一的让服务员把饭菜交给顾客。这样就大大提高了整个餐馆的运营速度。</p>
+<div class="center">
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250308225621.png"
+alt="20250308225621" />
+<figcaption aria-hidden="true">20250308225621</figcaption>
+</figure>
+</div>
+<p>如果还不明白的话，我们再看下一个例子，Node.js
+就像国王，国王每天都在写任务清单，然后派发给大臣。大臣把任务清单交给下面的官员去做，而这个时候国王还是可以继续写任务清单的。当官员完成任务这个事件后，统一的任务结果交给国王（以事件回调函数的形式通知
+Node.js）。此事件反复进行，这便是事件循环。所以说除了国王（Node.js）线程以外，每件事都是并行发生的，这便是
+Node.js 单线程和事件循环能同时处理多个请求的原理。</p>
+<h2 id="在win和mac上使用node.js">2.在win和mac上使用Node.js</h2>
+<p>在 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node 官网</a>下载。</p>
+<div class="center">
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250308230006.png"
+alt="20250308230006" />
+<figcaption aria-hidden="true">20250308230006</figcaption>
+</figure>
+</div>
+<blockquote>
+<p>官网会根据系统自动推荐对应系统的下载版本。 推荐下载 LTS
+长期支持版。</p>
+</blockquote>
+<p>傻瓜式安装完成后，通过下面的指令检查是否成功：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node - v; // 查看 node 版本</span><br><span class="line">npm - v; // 查看 npm 版本</span><br></pre></td></tr></table></figure>
+<p>如果有版本信息则为成功。</p>
+<blockquote>
+<p>需要说明的是：笔记是基于 node v14+
+的版本，低于该版本，请自行更新至对应版本中。</p>
+</blockquote>
+<p>安装 <code>Node</code> 的时候会同时帮我们安装
+<code>npm (Node Package Manager)</code> 即 <code>Node</code>
+包管理工具，用于下载依赖的 <code>node</code> 包。</p>
+<h2 id="linux-版本的-node-下载和安装">3.Linux 版本的 Node
+下载和安装</h2>
+<p>一般我们的Node程序都是部署到Linux服务器上的，所以需要Linux的版本。</p>
+<p>一样进入<a
+target="_blank" rel="noopener" href="https://nodejs.org/en/">Node的官网</a>，点击下方的<code>Downloads</code>：</p>
+<div class="center">
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250308230857.png"
+alt="20250308230857" />
+<figcaption aria-hidden="true">20250308230857</figcaption>
+</figure>
+</div>
+<p>在弹出的界面中显示的 Node 的全部下载版本，这里我们下载
+<code>Linux Binaries x64</code> 版。见下图：</p>
+<div class="center">
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250308230928.png"
+alt="20250308230928" />
+<figcaption aria-hidden="true">20250308230928</figcaption>
+</figure>
+</div>
+<p>也可以直接用下面的指令下载蓝桥杯云服务器提供的
+<code>Linux Node</code> 安装文件。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://labfile.oss.aliyuncs.com/courses/4380/node-v14.17.3-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
+<p>然后使用解压命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf node-v14.17.3-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
+<p>解压完毕后就可以把 <code>node-v14.17.3-linux-x64.tar.xz</code>
+文件删除了。</p>
+<p>用命令对解压后的 node 文件夹进行改名：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> node-v14.17.3-linux-x64 node</span><br></pre></td></tr></table></figure>
+<p>改名后文件夹📂名为<code>node</code>。</p>
+<p>这时还没有安装完成，如果想要安装最新版本，需要使用如下命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> node/bin</span><br><span class="line">./node -v</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意这里是使用<code>./node</code> 来使用当前路径下的
+<code>node</code> 命令。</p>
+</blockquote>
+<p>发现版本为 <code>14.17.3</code>
+，说明我们已经使用了自己下载的最新版本的
+<code>Node</code>，但是每次都需要进入到 <code>Node</code> 安装路径的
+<code>bin</code> 路径下才能使用 <code>Node</code>
+命令，比较麻烦。如何能让我们在系统的任何地方都能使用最新安装的
+<code>Node</code> 呢？这里需要修改我们的环境变量 <code>PATH，</code> 把
+<code>node/bin</code> 这个路径添加到 <code>PATH</code> 下。</p>
+<p>接下来介绍怎么在 Linux 环境修改环境变量 <code>PATH</code>：</p>
+<p>为了在全局使用最新安装的
+<code>Node</code>，我们还需要修改一个配置文件
+<code>~/.zshrc</code>。</p>
+<blockquote>
+<p><strong>PATH 作用</strong>：当我们在控制台输入命令的时候（例如
+<code>node -v</code>），系统是去 PATH
+环境变量下配置的路径中寻找这个命令是否存在，查找的路径顺序为从左到右依次查找（linux
+路径分隔符为 ：）。如果发现对应的 PATH 路径下有 node
+命令就会使用，否则就会报错。</p>
+</blockquote>
+<p>首先使用下列命令查看我们的环境变量：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">env</span> | grep node</span><br></pre></td></tr></table></figure>
+<p>VScode终端的效果如下：</p>
+<div class="center">
+<figure>
+<img
+src="https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/20250308231539.png"
+alt="20250308231539" />
+<figcaption aria-hidden="true">20250308231539</figcaption>
+</figure>
+</div>
+<p>发现 PATH 中有
+<code>/usr/sbin/nodejs/bin</code>，这个路径就是我们(<strong>Lanqiao
+云课</strong>)实验环境默认安装的 14.15.1 的 Node
+安装路径，如果想让我们新安装的 Node 优先执行的话，只需要把新版本 Node
+的安装路径下的 bin 路径放到 <code>/usr/sbin/nodejs/bin</code>
+路径前即可。</p>
+<p>使用下列命令修改 <code>~/.zshrc</code>。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>使用 <code>i</code> 进入插入模式，在文件最后加入如下内容：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/home/project/node/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<p>然后输入 ESC 回到普通模式，输入 <code>:</code> 进入命令模式，然后
+输入 <code>wq</code>
+进行保存。修改完成的文件并不会马上生效，需要使用如下命令让刚才配置的环境变量生效。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>最后输入 <code>node -v</code> 重新查看 node 版本就会发现全局的 Node
+已经生效。</p>
+<p><code>Mac</code> 用户可能已经发现了，配置环境变量的过程基本和
+<code>Mac</code> 上一致，因为 <code>Mac</code> 就是 <code>Linux</code>
+系统。</p>
+
+  </div>
+
+  
+  <div class="about" data-pagefind-ignore>
+    <h1>About this Post</h1>
+    <div class="details">
+      <p>This post is written by Sy, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="container post-prev-next" data-pagefind-ignore>
+    
+    <a href="/demo/aa32xoz8/" class="next">
+      <div class="text">
+        <p class="label">Next</p>
+        <h3 class="title">【Node.js】web请求</h3>
+      </div>
+    </a>
+    
+    
+    <a href="/demo/dplmiu4e/" class="prev">
+      <div class="text">
+        <p class="label">Previous</p>
+        <h3 class="title">【ECharts】5.事件处理</h3>
+      </div>
+    </a>
+    
+  </div>
+
+  
+    
+    
+  
+</article>
+
+
+    </main>
+    <footer>
+  <div class="inner">
+    <div class="links">
+      
+      <div class="group">
+        <h2 class="title">Blog</h2>
+        
+        <a href="/" class="item">Home</a>
+        
+        <a href="/archives" class="item">Archives</a>
+        
+        <a href="/tags" class="item">Tags</a>
+        
+        <a href="/categories" class="item">Categories</a>
+        
+        <a href="/search" class="item">Search</a>
+        
+        <a href="/atom.xml" class="item">RSS</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Source Code</h2>
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">GitHub</a>
+        
+      </div>
+      
+      <div class="group">
+        <h2 class="title">Related</h2>
+        
+        <a target="_blank" rel="noopener" href="https://hexo.io/" class="item">Hexo</a>
+        
+        <a target="_blank" rel="noopener" href="https://sass-lang.com/" class="item">Sass</a>
+        
+      </div>
+      
+    </div>
+    <span>&copy; 2025 Sy<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></span>
+    
+    
+      <br>
+      <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+        <label>
+          <input type="radio" value="light">
+          <span>Light</span>
+        </label>
+        <label>
+          <input type="radio" value="dark">
+          <span>Dark</span>
+        </label>
+        <label>
+          <input type="radio" value="auto">
+          <span>Auto</span>
+        </label>
+      </div>
+    
+  </div>
+</footer>
+
+
+    
+<script src="/js/main.js"></script>
+
+
+    
+
+    
+    
+<script src="/js/scroll-reveal.js"></script>
+
+    
+
+    
+
+    
+
+    
+  </body>
+</html>
